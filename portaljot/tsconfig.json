@@ -1,0 +1,38 @@
+{
+	"compilerOptions": {
+		"types": ["next", "next-auth"],
+		"target": "es6",
+		"noUnusedLocals": false,
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"noEmit": true,
+		"esModuleInterop": true,
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"incremental": true,
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	},
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts",
+		"src/types/**/*.ts",
+		"src/types/change/fabric-types.ts",
+		"src/app/api/generate-video-with-audio",
+		"src/components/modify/GlassModalWrappertsx"
+	],
+	"exclude": ["node_modules"]
+}

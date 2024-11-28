@@ -1,0 +1,69 @@
+{
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	// "editor.fontFamily": "'Fira Code', Consolas, monospace",
+	// "editor.fontSize": 16,
+	"editor.fontLigatures": true,
+	"vscode_custom_css.imports": [
+		"file:///Users/rpalm/Documents/custom_vscode_styles.css"
+	],
+	"editor.fontSize": 16,
+	// "editor.fontFamily": "'Fira Code', monospace,'Gigi','Futura','Freestyle Script', 'Dreaming Outloud' , 'Comic Sans MT' ,'Chiller','Brush Script MT', Broadway,  'Blackadder ITC',  'Curlz MT', 'Bodoni MT',  'Bauhaus 93,'  Jokerman, 'Gill Dans', 'Ink Free', Magneto, 'Matura MT Script Capitals', 'Miriam Fixed' ,Playbill, 'Script12 BT', 'Zapfino Extra LT', ",
+	"editor.fontFamily": "Fira Code",
+	// "editor.fontFamily": "Jokerman",
+	"editor.wordWrap": "on",
+	"editor.bracketPairColorization.enabled": true,
+	// "editor.codeLensFontFamily": "monospace",
+	// "editor.codeLensFontSize": 16,
+	"editor.definitionLinkOpensInPeek": true,
+	"workbench.colorTheme": "Copilot Theme - Higher Contrast",
+	"editor.cursorBlinking": "expand",
+	"editor.cursorSmoothCaretAnimation": "on",
+	"editor.cursorWidth": 1,
+	"editor.cursorStyle": "block",
+	"terminal.integrated.cursorBlinking": true,
+	"problems.showCurrentInStatus": true,
+	// "prettier.tabWidth": 1,
+	// "editor.tabSize": 1,
+	// "workbench.editor.tabSizing": "shrink"
+	// "editor.tokenColorCustomizations": {
+	//   "variables": "#229977",
+	//   "comments": "#828282",
+	//   "keywords": "#00fff2",
+	//   "strings": "#ffe100",
+	//   "numbers": "#70a983",
+	//   "functions": "#b700ff",
+	//   "types": "#ff00bf"
+	//   // "textMateRules": []]
+	// },
+	// "workbench.colorCustomizations": {
+	//   // "activityBar.background": "#ff00f7",
+	//   "activityBar.background": "#000000",
+	//   "activityBarBadge.background": "#3cff00",
+	//   "activityBar.foreground": "#ff0000",
+	//   "sideBar.background": "#347890",
+	//   "sideBarTitle.foreground": "#22111a",
+	//   "sideBarSectionHeader.foreground": "#373a3c",
+	//   // "sideBar.dropBackground": "#rgba(83, 89, 93, 0.5)",
+	//   "editor.background": "#23004b",
+	//   "editor.foreground": "#aec70f",
+	//   "tab.inactiveBackground": "#3d0101",
+	//   "editorGroupHeader.tabsBackground": "#003f32",
+	//   "peekViewEditor.background": "#9b0181"
+	//   // "notificationLink.background": "#ff0000"
+
+	//   // "dropdown.listBackground": "#ff0000"
+	//   // "list.activeSelectionBackground": "#ff0000"
+	//   // "editorHoverWidget.background": "#ff0000"
+	//   // "list.dropBackground": "#ff0000"
+	//   // "notifications.background": "#ff0000"
+	//   // "titleBar.activeBackground": "#ff0000"
+	//   // "editorWidget.border": "#ff0000"
+	//   // "menu.background": "#ff0000"
+	//   // "editor.inactiveSelectionBackground": "#ff0000"
+	//   // --vscode-editor-background
+
+	//   // "editorOverviewRuler.bracketMatchForeground": "#ff0000"
+	// }
+	"css.customData": [".vscode/tailwind.json"]
+}
