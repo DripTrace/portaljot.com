@@ -1178,7 +1178,7 @@ function getTextObjectsPartitionedByCharacters(
 // 	TextEditorElement,
 // 	TimeFrame,
 // 	VideoEditorElement,
-// } from "@/types/change/fabric";
+// } from "@/types/change/fabric-types";
 // import { FabricUitls } from "@/lib/change/fabric-utils";
 // import { isHtmlVideoElement } from "@/lib/change";
 // // import { FabricUitls } from '../utils/fabric-utils'

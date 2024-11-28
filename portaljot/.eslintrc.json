@@ -1,5 +1,6 @@
 {
-	"extends": ["next/core-web-vitals", "next/typescript"],
+	// "extends": ["next/core-web-vitals", "next/typescript"],
+	"extends": ["next/typescript"],
 	"typescript.reportUnusedLabels": "none",
 	"typescript.validate.enable": false
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useContext } from "react";
-import { EditorElement } from "@/types/change/fabric";
+import { EditorElement } from "@/types/change/fabric-types";
 import { observer } from "mobx-react";
 import { MdOutlineTextFields, MdMovie } from "react-icons/md";
 import { StoreContext } from "@/store/change";

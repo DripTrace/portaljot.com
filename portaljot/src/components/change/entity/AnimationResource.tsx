@@ -22,7 +22,7 @@ import {
 	SlideInAnimation,
 	SlideOutAnimation,
 	SlideTextType,
-} from "@/types/change/fabric";
+} from "@/types/change/fabric-types";
 
 export interface AnimationWithType extends Animation {
 	type: string;

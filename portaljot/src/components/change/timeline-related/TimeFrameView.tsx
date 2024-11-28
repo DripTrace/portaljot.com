@@ -3,7 +3,7 @@
 import { useContext } from "react";
 import { observer } from "mobx-react";
 import DragableView from "./DragableView";
-import { EditorElement } from "@/types/change/fabric";
+import { EditorElement } from "@/types/change/fabric-types";
 import { StoreContext } from "@/store/change";
 
 export const TimeFrameView = observer((props: { element: EditorElement }) => {

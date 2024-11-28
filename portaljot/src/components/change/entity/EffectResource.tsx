@@ -6,7 +6,7 @@ import {
 	VideoEditorElement,
 	ImageEditorElement,
 	EffecType,
-} from "@/types/change/fabric";
+} from "@/types/change/fabric-types";
 import { StoreContext } from "@/store/change";
 
 const EFFECT_TYPE_TO_LABEL: Record<string, string> = {
