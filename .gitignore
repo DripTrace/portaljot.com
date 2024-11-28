@@ -143,6 +143,7 @@ venv.bak/
 
 # keys
 *.pem*
+*portaljot-com-firebase-adminsdk-e8yx9-69331c6d48.json*
 
 # Spyder project settings
 .spyderproject

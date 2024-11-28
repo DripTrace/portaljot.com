@@ -3,6 +3,7 @@
 import useSWR from "swr";
 import { WaitlistCard } from "../card";
 import fetcher from "@/lib/fetcher";
+// import fetcher from "@/lib/fetcher";
 
 interface PageProps {
 	params: {
