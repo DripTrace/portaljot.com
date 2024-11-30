@@ -1025,7 +1025,7 @@ export async function parseMetadata(
 	}
 }
 
-async function parseFormData(
+export async function parseFormData(
 	request: NextRequest
 ): Promise<VideoGenerationParams> {
 	const formData = await request.formData();
