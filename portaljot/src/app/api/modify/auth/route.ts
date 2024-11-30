@@ -1221,7 +1221,8 @@ import { verifyPassword } from "@/lib/modify/authentication/password";
 import ac from "@/lib/modify/authentication/accessControl";
 import { getServerSession } from "next-auth";
 import axios from "axios";
-import { JwtUtils, UrlUtils } from "@/lib/modify/authentication/jwtUtils";
+// import { JwtUtils, UrlUtils } from "@/lib/modify/authentication/jwtUtils";
+import { isJwtExpired, makeUrl } from "@/lib/modify/authentication/jwtUtils";
 import { AdapterUser } from "next-auth/adapters";
 
 const THIRTY_DAYS = 30 * 24 * 60 * 60;
@@ -1311,7 +1312,7 @@ export const refreshToken = async function (
 ): Promise<[string | null, string | null]> {
 	try {
 		const response = await axios.post(
-			UrlUtils.makeUrl(
+			makeUrl(
 				process.env.BACKEND_API_BASE as string,
 				"api",
 				"auth",
@@ -1508,7 +1509,7 @@ const authOptions: AuthOptions = {
 			if (
 				token.accessToken &&
 				typeof token.accessToken === "string" &&
-				(await JwtUtils.isJwtExpired(token.accessToken))
+				(await isJwtExpired(token.accessToken))
 			) {
 				const [newAccessToken, newRefreshToken] = await refreshToken(
 					token.refreshToken as string
