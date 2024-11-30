@@ -365,7 +365,7 @@ const generateLumaVideo = async (
 	params: VideoGenerationParams
 ): Promise<VideoGenerationResult> => {
 	// Construct the request body
-	let requestBody: any = {
+	const requestBody: any = {
 		prompt: params.prompt,
 		aspect_ratio: params.aspect_ratio,
 		loop: params.loop,
