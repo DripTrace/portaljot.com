@@ -30,6 +30,17 @@ function isFileWithURI(obj: unknown): obj is FileWithURI {
 	);
 }
 
+// Define a type for the dump return value
+type DumpType = {
+	width: number;
+	height: number;
+	name: string;
+	start_time: number;
+	total_time: number;
+	uri?: string;
+	type: string;
+};
+
 export class RenderedLayer {
 	name: string;
 	uri?: string;
@@ -70,7 +81,7 @@ export class RenderedLayer {
 		document.getElementById("background")?.appendChild(this.canvas);
 	}
 
-	dump() {
+	dump(): DumpType {
 		return {
 			width: this.width,
 			height: this.height,
@@ -1197,7 +1208,12 @@ export class PlayerClass {
 	}
 
 	dumpToJson() {
-		const out = [];
+		// const out = [];
+		// for (const layer of this.layers) {
+		// 	out.push(layer.dump());
+		// }
+		// return JSON.stringify(out);
+		const out: DumpType[] = []; // Explicitly define the type of out
 		for (const layer of this.layers) {
 			out.push(layer.dump());
 		}
