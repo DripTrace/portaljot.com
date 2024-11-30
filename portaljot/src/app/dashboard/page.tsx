@@ -14,6 +14,7 @@ const fetcher = (...args: [RequestInfo, RequestInit?]) =>
 export default function Home() {
 	const auth = useAuth();
 	const { data, error, isLoading } = useSWR("/api/dashboard/hello", fetcher);
+	console.log("error: ", error, "isLoading: ", isLoading);
 	// if (error) return <div>failed to load</div>
 	// if (isLoading) return <div>loading...</div>
 

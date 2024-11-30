@@ -1,4 +1,7 @@
-import { NextRequest, NextResponse } from "next/server";
+import {
+	NextRequest,
+	// , NextResponse
+} from "next/server";
 
 export async function POST(req: NextRequest) {
 	const { prompt, aspect_ratio, loop } = await req.json();
@@ -26,7 +29,7 @@ export async function POST(req: NextRequest) {
 		});
 	} catch (error) {
 		return new Response(
-			JSON.stringify({ error: "Error generating video" }),
+			JSON.stringify({ error: `Error generating video: ${error}` }),
 			{
 				status: 500,
 				headers: { "Content-Type": "application/json" },

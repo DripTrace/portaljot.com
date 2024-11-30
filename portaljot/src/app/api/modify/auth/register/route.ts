@@ -212,13 +212,17 @@ import {
 	getDoc,
 	setDoc,
 } from "firebase/firestore";
-import type Stripe from "stripe";
+import Stripe from "stripe";
 import fetch from "node-fetch";
 import { NextRequest, NextResponse } from "next/server";
 import { hashPassword } from "@/lib/modify/authentication/password";
 import { db } from "@/config/firebase/storage";
 
-const stripe: Stripe = require("stripe")(`${process.env.STRIPE_SECRET_KEY}`);
+// const stripe: Stripe = require("stripe")(`${process.env.STRIPE_SECRET_KEY}`);
+
+const stripe = new Stripe(`${process.env.STRIPE_SECRET_KEY}`, {
+	apiVersion: "2024-09-30.acacia", // Specify the API version
+});
 
 interface UserData {
 	modifyUuid: string;

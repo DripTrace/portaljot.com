@@ -642,7 +642,7 @@ export const generateAudioSegments = async (
 	segments: string[],
 	totalDuration: number
 ): Promise<Buffer[]> => {
-	const audioSegments = [];
+	const audioSegments: Buffer[] = [];
 	let remainingDuration = totalDuration;
 
 	for (let i = 0; i < segments.length; i++) {

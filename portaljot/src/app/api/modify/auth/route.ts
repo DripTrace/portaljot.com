@@ -244,7 +244,8 @@
 
 // export { authOptions, getSession };
 
-import NextAuth, {
+import {
+	// NextAuth,
 	AuthOptions,
 	Session,
 	User,

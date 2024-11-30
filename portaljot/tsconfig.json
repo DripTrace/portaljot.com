@@ -1,5 +1,6 @@
 {
 	"compilerOptions": {
+		"noImplicitAny": false,
 		"types": ["next", "next-auth"],
 		"target": "es6",
 		"noUnusedLocals": false,

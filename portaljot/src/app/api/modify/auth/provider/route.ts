@@ -34,6 +34,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { authOptions } from "../route";
 
 export async function GET(req: NextRequest) {
+	console.log("request: ", req);
 	try {
 		return NextResponse.json(authOptions.providers, {
 			status: 200,

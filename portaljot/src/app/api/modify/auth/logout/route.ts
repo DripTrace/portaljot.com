@@ -52,6 +52,7 @@ import { authOptions } from "../route";
 // import { authOptions } from "../[...nextauth]/route";
 
 export async function POST(req: NextRequest) {
+	console.log("request: ", req);
 	try {
 		const session = await getServerSession(authOptions);
 
