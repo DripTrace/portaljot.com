@@ -1,4 +1,5 @@
 import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin';
+import path from 'path';
 
 const withVanillaExtract = createVanillaExtractPlugin();
 
@@ -29,6 +30,13 @@ const nextConfig = {
                 destination: '/api/modify/auth/:session*',
             },
         ];
+    },
+    webpack: (config) => {
+        config.resolve.alias = {
+            ...config.resolve.alias,
+            '@': path.resolve(__dirname, './src'),
+        };
+        return config;
     },
 
     transpilePackages: ["fabric"],
