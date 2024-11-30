@@ -88,7 +88,8 @@ const nextConfig = {
     transpilePackages: ["fabric"],
     experimental: {
         esmExternals: true,
-    }
+    },
+    output: "standalone"
 };
 
 export default withVanillaExtract(nextConfig);
