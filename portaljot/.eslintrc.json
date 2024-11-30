@@ -15,7 +15,4 @@
 		"@typescript-eslint/no-empty-object-type": "off",
 		"prefer-const": "off"
 	}
-	// ,
-	// "typescript.reportUnusedLabels": "none",
-	// "typescript.validate.enable": false
 }
