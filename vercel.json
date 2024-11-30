@@ -1,11 +1,8 @@
 {
 	"builds": [
 		{
-			"src": "portaljot/package.json",
-			"use": "@vercel/static-build",
-			"config": {
-				"distDir": "portaljot/out"
-			}
+			"src": "portaljot/next.config.mjs",
+			"use": "@vercel/next"
 		}
 	],
 	"routes": [
