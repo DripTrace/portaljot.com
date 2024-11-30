@@ -2,7 +2,10 @@
 	"builds": [
 		{
 			"src": "portaljot/package.json",
-			"use": "@vercel/node"
+			"use": "@vercel/static-build",
+			"config": {
+				"distDir": "portaljot/out"
+			}
 		}
 	],
 	"routes": [
@@ -10,10 +13,5 @@
 			"src": "/(.*)",
 			"dest": "portaljot/$1"
 		}
-	],
-	"projectSettings": {
-		"framework": "nextjs",
-		"buildCommand": "cd portaljot && yarn run build",
-		"outputDirectory": "portaljot/out"
-	}
+	]
 }
