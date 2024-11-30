@@ -1031,9 +1031,6 @@ export async function POST(request: NextRequest) {
 	}
 }
 
-export const config = {
-	api: {
-		bodyParser: false,
-		responseLimit: false,
-	},
-};
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+export const maxDuration = 300; // 5 minutes timeout
