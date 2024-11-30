@@ -5,7 +5,7 @@ import {
 	type Spacing,
 } from "@/styles/modify/ui-tokens";
 
-import { Icon, type IconName, type IconSizing } from "../Icon";
+// import { Icon, type IconName, type IconSizing } from "../Icon";
 import {
 	iconButtonStyles,
 	iconColorVar,
@@ -14,6 +14,7 @@ import {
 	bgColorVar,
 	bgHoverColorVar,
 } from "./IconButton.css";
+import { Icon, type IconName, type IconSizing } from "../Icon/Icon";
 
 interface IconButtonProps {
 	name: IconName;
