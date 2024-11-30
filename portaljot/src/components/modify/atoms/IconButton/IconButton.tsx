@@ -14,7 +14,11 @@ import {
 	bgColorVar,
 	bgHoverColorVar,
 } from "./IconButton.css";
-import { Icon, type IconName, type IconSizing } from "../Icon/Icon";
+import {
+	Icon,
+	type IconName,
+	type IconSizing,
+} from "@/components/modify/atoms/Icon/Icon";
 
 interface IconButtonProps {
 	name: IconName;
