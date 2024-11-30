@@ -1,14 +1,14 @@
 {
 	"builds": [
 		{
-			"src": "portaljot/next.config.mjs",
+			"src": "next.config.mjs",
 			"use": "@vercel/next"
 		}
 	],
 	"routes": [
 		{
 			"src": "/(.*)",
-			"dest": "portaljot/$1"
+			"dest": "$1"
 		}
 	]
 }
