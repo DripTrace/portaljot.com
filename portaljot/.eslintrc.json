@@ -3,7 +3,14 @@
 	"extends": ["next/typescript"],
 	"rules": {
 		"@typescript-eslint/no-unused-vars": "off",
-		"@typescript-eslint/no-explicit-any": "off"
+		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/no-namespace": [
+			"error",
+			{
+				"allowDeclarations": true,
+				"allowDefinitionFiles": true
+			}
+		]
 	}
 	// ,
 	// "typescript.reportUnusedLabels": "none",
