@@ -65,5 +65,6 @@
 
 	//   // "editorOverviewRuler.bracketMatchForeground": "#ff0000"
 	// }
-	"css.customData": [".vscode/tailwind.json"]
+	"css.customData": [".vscode/tailwind.json"],
+	"shellcheck.exclude": ["SC2034"]
 }

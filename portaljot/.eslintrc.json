@@ -1,6 +1,8 @@
 {
 	// "extends": ["next/core-web-vitals", "next/typescript"],
 	"extends": ["next/typescript"],
-	"typescript.reportUnusedLabels": "none",
-	"typescript.validate.enable": false
+	"rules": {}
+	// ,
+	// "typescript.reportUnusedLabels": "none",
+	// "typescript.validate.enable": false
 }
