@@ -1,0 +1,19 @@
+{
+	"builds": [
+		{
+			"src": "portaljot/package.json",
+			"use": "@vercel/node"
+		}
+	],
+	"routes": [
+		{
+			"src": "/(.*)",
+			"dest": "portaljot/$1"
+		}
+	],
+	"projectSettings": {
+		"framework": "nextjs",
+		"buildCommand": "cd portaljot && yarn run build",
+		"outputDirectory": "portaljot/out"
+	}
+}
