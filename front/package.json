@@ -25,6 +25,7 @@
 		"@langchain/anthropic": "^0.3.3",
 		"@langchain/core": "^0.3.3",
 		"@langchain/google-vertexai": "^0.1.5",
+		"@napi-rs/canvas": "^0.1.65",
 		"@prisma/client": "^6.1.0",
 		"@radix-ui/react-accordion": "^1.2.1",
 		"@radix-ui/react-alert-dialog": "^1.1.1",
