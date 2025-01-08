@@ -340,5 +340,6 @@ export async function POST(request: NextRequest) {
 
 // Configuration for the serverless function
 export const config = {
-	maxDuration: 60, // Set maxDuration between 1 and 60 seconds for hobby plan
+	// maxDuration: 60, // Set maxDuration between 1 and 60 seconds for hobby plan
+	runtime: "nodejs18", // Only runtime configuration
 };
