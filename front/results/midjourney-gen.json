@@ -1,0 +1,23 @@
+{
+	"image_url": "https://platform.cdn.acedata.cloud/midjourney/60e00516-58ad-4df0-a795-f1d0a96842be.png?imageMogr2/thumbnail/!50p",
+	"image_width": 1024,
+	"image_height": 1024,
+	"actions": [
+		"upscale1",
+		"upscale2",
+		"upscale3",
+		"upscale4",
+		"reroll",
+		"variation1",
+		"variation2",
+		"variation3",
+		"variation4"
+	],
+	"raw_image_url": "https://platform.cdn.acedata.cloud/midjourney/60e00516-58ad-4df0-a795-f1d0a96842be.png",
+	"raw_image_width": 2048,
+	"raw_image_height": 2048,
+	"progress": 100,
+	"image_id": "1321182976381288448",
+	"task_id": "60e00516-58ad-4df0-a795-f1d0a96842be",
+	"success": true
+}

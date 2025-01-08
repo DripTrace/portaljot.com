@@ -1,0 +1,388 @@
+ GET /api/modify/auth/session 200 in 16ms
+ GET /modify/home 200 in 37ms
+ GET /favicon.ico 200 in 22ms
+ GET /api/modify/auth/session 200 in 17ms
+ GET /api/modify/auth/providers 200 in 22ms
+=== redirect Callback Called ===
+Incoming redirect URL: http://127.0.0.1:420/modify/home
+URL is within custom base/API URL, returning as-is.
+ GET /api/modify/auth/signin?callbackUrl=http%3A%2F%2F127.0.0.1%3A420%2Fmodify%2Fhome 200 in 21ms
+ GET /favicon.ico 200 in 17ms
+=== redirect Callback Called ===
+Incoming redirect URL: http://127.0.0.1:420/modify/home
+URL is within custom base/API URL, returning as-is.
+ POST /api/modify/auth/signin/google 302 in 149ms
+=== redirect Callback Called ===
+Incoming redirect URL: http://127.0.0.1:420/modify/home
+URL is within custom base/API URL, returning as-is.
+=== signIn Callback Called ===
+signIn params: {
+  "user": {
+    "id": "112957380835440311791",
+    "name": "Russell Palma (rPalmPinoy)",
+    "email": "rpalmpinoy@gmail.com",
+    "image": "https://lh3.googleusercontent.com/a/ACg8ocKuzWU3ZbbL3b3UP0mptMdHHtRmNYB1sQ0u2-E7ljhpvSAa8MvA=s96-c"
+  },
+  "account": {
+    "provider": "google",
+    "type": "oauth",
+    "providerAccountId": "112957380835440311791",
+    "access_token": "ya29.a0ARW5m77Keg-siW_WzTzbwztMaC61m64rjv5Jui2Qf5ipnZ59enUsze7QMrqznk0GC1F4uJdmDnRq4nUhX0yZ2oxsprzVN8c2YgyO7miR2LxcvKPk6B3JGLAwX0OrGGmsUqnnwwrK0mYoJlTYQ2NSDQQZpv0xCyzoYv_BW9dXaCgYKAQ8SARMSFQHGX2Mi3tb1tGIOFn7g8bTIHpwnGw0175",
+    "expires_at": 1735763473,
+    "scope": "openid https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile",
+    "token_type": "Bearer",
+    "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImFiODYxNGZmNjI4OTNiYWRjZTVhYTc5YTc3MDNiNTk2NjY1ZDI0NzgiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI1MDg4NDc1NTM4NDUtMjJxNDh0OWFmajNwa2V2N2JmYzFjaHVjMXJnaHR0c2YuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI1MDg4NDc1NTM4NDUtMjJxNDh0OWFmajNwa2V2N2JmYzFjaHVjMXJnaHR0c2YuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTI5NTczODA4MzU0NDAzMTE3OTEiLCJlbWFpbCI6InJwYWxtcGlub3lAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiIySGZfdHJjSWxOUkJPc2dvV3ZJWlFRIiwibmFtZSI6IlJ1c3NlbGwgUGFsbWEgKHJQYWxtUGlub3kpIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0t1eldVM1piYkwzYjNVUDBtcHRNZEhIdFJtTllCMXNRMHUyLUU3bGpocHZTQWE4TXZBPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IlJ1c3NlbGwiLCJmYW1pbHlfbmFtZSI6IlBhbG1hIiwiaWF0IjoxNzM1NzU5ODc0LCJleHAiOjE3MzU3NjM0NzR9.CWRePJ4EKMV6Mjrvyg0DmEvYaZu7QNpjLJ--MegCqXFN37fwwm2LmqHLuhkSoqu7x4LG3-LMO9FiVkriH0-7UXbuwkPvPcDIbN32IwdpRIC26LvO4hAMoi_L5nWfpe0cX3Gx8UTJ6GwVkoRuBITiFiotyogimiY-Ju6zVigb7tzFZL9QTNiJXvFc1_tQRqbGi5zxUM5Q62SpkEAUzBdBwF3-9mWqRz6FR93S9ZMePBriGAGs25ng5FDTNK1BDzM1lG1tCeduIt3iDT30qKWBua2YoBZySSdmWwKjSydzPp8JwAePsEyAfFADHuxItG7ibw-XYdCaVxcvkoRJvX5UIA"
+  },
+  "profile": {
+    "iss": "https://accounts.google.com",
+    "azp": "508847553845-22q48t9afj3pkev7bfc1chuc1rghttsf.apps.googleusercontent.com",
+    "aud": "508847553845-22q48t9afj3pkev7bfc1chuc1rghttsf.apps.googleusercontent.com",
+    "sub": "112957380835440311791",
+    "email": "rpalmpinoy@gmail.com",
+    "email_verified": true,
+    "at_hash": "2Hf_trcIlNRBOsgoWvIZQQ",
+    "name": "Russell Palma (rPalmPinoy)",
+    "picture": "https://lh3.googleusercontent.com/a/ACg8ocKuzWU3ZbbL3b3UP0mptMdHHtRmNYB1sQ0u2-E7ljhpvSAa8MvA=s96-c",
+    "given_name": "Russell",
+    "family_name": "Palma",
+    "iat": 1735759874,
+    "exp": 1735763474
+  }
+}
+OAuth provider: google
+Email is verified: true
+=== events.createUser Called ===
+A new user was created in the DB: {
+  name: 'Russell Palma (rPalmPinoy)',
+  email: 'rpalmpinoy@gmail.com',
+  image: 'https://lh3.googleusercontent.com/a/ACg8ocKuzWU3ZbbL3b3UP0mptMdHHtRmNYB1sQ0u2-E7ljhpvSAa8MvA=s96-c',
+  emailVerified: null,
+  id: '8wzEtScHnFcuAhJLqMrk'
+}
+=== events.linkAccount Called ===
+Provider account linked to a user: {
+  provider: 'google',
+  type: 'oauth',
+  providerAccountId: '112957380835440311791',
+  access_token: 'ya29.a0ARW5m77Keg-siW_WzTzbwztMaC61m64rjv5Jui2Qf5ipnZ59enUsze7QMrqznk0GC1F4uJdmDnRq4nUhX0yZ2oxsprzVN8c2YgyO7miR2LxcvKPk6B3JGLAwX0OrGGmsUqnnwwrK0mYoJlTYQ2NSDQQZpv0xCyzoYv_BW9dXaCgYKAQ8SARMSFQHGX2Mi3tb1tGIOFn7g8bTIHpwnGw0175',
+  expires_at: 1735763473,
+  scope: 'openid https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile',
+  token_type: 'Bearer',
+  id_token: 'eyJhbGciOiJSUzI1NiIsImtpZCI6ImFiODYxNGZmNjI4OTNiYWRjZTVhYTc5YTc3MDNiNTk2NjY1ZDI0NzgiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI1MDg4NDc1NTM4NDUtMjJxNDh0OWFmajNwa2V2N2JmYzFjaHVjMXJnaHR0c2YuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI1MDg4NDc1NTM4NDUtMjJxNDh0OWFmajNwa2V2N2JmYzFjaHVjMXJnaHR0c2YuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTI5NTczODA4MzU0NDAzMTE3OTEiLCJlbWFpbCI6InJwYWxtcGlub3lAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiIySGZfdHJjSWxOUkJPc2dvV3ZJWlFRIiwibmFtZSI6IlJ1c3NlbGwgUGFsbWEgKHJQYWxtUGlub3kpIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0t1eldVM1piYkwzYjNVUDBtcHRNZEhIdFJtTllCMXNRMHUyLUU3bGpocHZTQWE4TXZBPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IlJ1c3NlbGwiLCJmYW1pbHlfbmFtZSI6IlBhbG1hIiwiaWF0IjoxNzM1NzU5ODc0LCJleHAiOjE3MzU3NjM0NzR9.CWRePJ4EKMV6Mjrvyg0DmEvYaZu7QNpjLJ--MegCqXFN37fwwm2LmqHLuhkSoqu7x4LG3-LMO9FiVkriH0-7UXbuwkPvPcDIbN32IwdpRIC26LvO4hAMoi_L5nWfpe0cX3Gx8UTJ6GwVkoRuBITiFiotyogimiY-Ju6zVigb7tzFZL9QTNiJXvFc1_tQRqbGi5zxUM5Q62SpkEAUzBdBwF3-9mWqRz6FR93S9ZMePBriGAGs25ng5FDTNK1BDzM1lG1tCeduIt3iDT30qKWBua2YoBZySSdmWwKjSydzPp8JwAePsEyAfFADHuxItG7ibw-XYdCaVxcvkoRJvX5UIA'
+}
+=== jwt Callback Called ===
+Current JWT token: {
+  "name": "Russell Palma (rPalmPinoy)",
+  "email": "rpalmpinoy@gmail.com",
+  "picture": "https://lh3.googleusercontent.com/a/ACg8ocKuzWU3ZbbL3b3UP0mptMdHHtRmNYB1sQ0u2-E7ljhpvSAa8MvA=s96-c",
+  "sub": "8wzEtScHnFcuAhJLqMrk"
+}
+Incoming user (if any): {
+  name: 'Russell Palma (rPalmPinoy)',
+  email: 'rpalmpinoy@gmail.com',
+  image: 'https://lh3.googleusercontent.com/a/ACg8ocKuzWU3ZbbL3b3UP0mptMdHHtRmNYB1sQ0u2-E7ljhpvSAa8MvA=s96-c',
+  emailVerified: null,
+  id: '8wzEtScHnFcuAhJLqMrk'
+}
+Incoming account (if any): {
+  provider: 'google',
+  type: 'oauth',
+  providerAccountId: '112957380835440311791',
+  access_token: 'ya29.a0ARW5m77Keg-siW_WzTzbwztMaC61m64rjv5Jui2Qf5ipnZ59enUsze7QMrqznk0GC1F4uJdmDnRq4nUhX0yZ2oxsprzVN8c2YgyO7miR2LxcvKPk6B3JGLAwX0OrGGmsUqnnwwrK0mYoJlTYQ2NSDQQZpv0xCyzoYv_BW9dXaCgYKAQ8SARMSFQHGX2Mi3tb1tGIOFn7g8bTIHpwnGw0175',
+  expires_at: 1735763473,
+  scope: 'openid https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile',
+  token_type: 'Bearer',
+  id_token: 'eyJhbGciOiJSUzI1NiIsImtpZCI6ImFiODYxNGZmNjI4OTNiYWRjZTVhYTc5YTc3MDNiNTk2NjY1ZDI0NzgiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI1MDg4NDc1NTM4NDUtMjJxNDh0OWFmajNwa2V2N2JmYzFjaHVjMXJnaHR0c2YuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI1MDg4NDc1NTM4NDUtMjJxNDh0OWFmajNwa2V2N2JmYzFjaHVjMXJnaHR0c2YuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTI5NTczODA4MzU0NDAzMTE3OTEiLCJlbWFpbCI6InJwYWxtcGlub3lAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiIySGZfdHJjSWxOUkJPc2dvV3ZJWlFRIiwibmFtZSI6IlJ1c3NlbGwgUGFsbWEgKHJQYWxtUGlub3kpIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0t1eldVM1piYkwzYjNVUDBtcHRNZEhIdFJtTllCMXNRMHUyLUU3bGpocHZTQWE4TXZBPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IlJ1c3NlbGwiLCJmYW1pbHlfbmFtZSI6IlBhbG1hIiwiaWF0IjoxNzM1NzU5ODc0LCJleHAiOjE3MzU3NjM0NzR9.CWRePJ4EKMV6Mjrvyg0DmEvYaZu7QNpjLJ--MegCqXFN37fwwm2LmqHLuhkSoqu7x4LG3-LMO9FiVkriH0-7UXbuwkPvPcDIbN32IwdpRIC26LvO4hAMoi_L5nWfpe0cX3Gx8UTJ6GwVkoRuBITiFiotyogimiY-Ju6zVigb7tzFZL9QTNiJXvFc1_tQRqbGi5zxUM5Q62SpkEAUzBdBwF3-9mWqRz6FR93S9ZMePBriGAGs25ng5FDTNK1BDzM1lG1tCeduIt3iDT30qKWBua2YoBZySSdmWwKjSydzPp8JwAePsEyAfFADHuxItG7ibw-XYdCaVxcvkoRJvX5UIA'
+}
+isNewUser: true
+OAuth-based login detected.
+Attempting to send tokens to BACKEND for Google login.
+Sending headers:  {
+  email: 'rpalmpinoy@gmail.com',
+  access_token: 'ya29.a0ARW5m77Keg-siW_WzTzbwztMaC61m64rjv5Jui2Qf5ipnZ59enUsze7QMrqznk0GC1F4uJdmDnRq4nUhX0yZ2oxsprzVN8c2YgyO7miR2LxcvKPk6B3JGLAwX0OrGGmsUqnnwwrK0mYoJlTYQ2NSDQQZpv0xCyzoYv_BW9dXaCgYKAQ8SARMSFQHGX2Mi3tb1tGIOFn7g8bTIHpwnGw0175',
+  id_token: 'eyJhbGciOiJSUzI1NiIsImtpZCI6ImFiODYxNGZmNjI4OTNiYWRjZTVhYTc5YTc3MDNiNTk2NjY1ZDI0NzgiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI1MDg4NDc1NTM4NDUtMjJxNDh0OWFmajNwa2V2N2JmYzFjaHVjMXJnaHR0c2YuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI1MDg4NDc1NTM4NDUtMjJxNDh0OWFmajNwa2V2N2JmYzFjaHVjMXJnaHR0c2YuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTI5NTczODA4MzU0NDAzMTE3OTEiLCJlbWFpbCI6InJwYWxtcGlub3lAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiIySGZfdHJjSWxOUkJPc2dvV3ZJWlFRIiwibmFtZSI6IlJ1c3NlbGwgUGFsbWEgKHJQYWxtUGlub3kpIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0t1eldVM1piYkwzYjNVUDBtcHRNZEhIdFJtTllCMXNRMHUyLUU3bGpocHZTQWE4TXZBPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IlJ1c3NlbGwiLCJmYW1pbHlfbmFtZSI6IlBhbG1hIiwiaWF0IjoxNzM1NzU5ODc0LCJleHAiOjE3MzU3NjM0NzR9.CWRePJ4EKMV6Mjrvyg0DmEvYaZu7QNpjLJ--MegCqXFN37fwwm2LmqHLuhkSoqu7x4LG3-LMO9FiVkriH0-7UXbuwkPvPcDIbN32IwdpRIC26LvO4hAMoi_L5nWfpe0cX3Gx8UTJ6GwVkoRuBITiFiotyogimiY-Ju6zVigb7tzFZL9QTNiJXvFc1_tQRqbGi5zxUM5Q62SpkEAUzBdBwF3-9mWqRz6FR93S9ZMePBriGAGs25ng5FDTNK1BDzM1lG1tCeduIt3iDT30qKWBua2YoBZySSdmWwKjSydzPp8JwAePsEyAfFADHuxItG7ibw-XYdCaVxcvkoRJvX5UIA'
+}
+'BACKEND_RESPONSE:'
+THE TOKEN:  {
+  name: 'Russell Palma (rPalmPinoy)',
+  email: 'rpalmpinoy@gmail.com',
+  picture: 'https://lh3.googleusercontent.com/a/ACg8ocKuzWU3ZbbL3b3UP0mptMdHHtRmNYB1sQ0u2-E7ljhpvSAa8MvA=s96-c',
+  sub: '8wzEtScHnFcuAhJLqMrk',
+  accessToken: 'ya29.a0ARW5m77Keg-siW_WzTzbwztMaC61m64rjv5Jui2Qf5ipnZ59enUsze7QMrqznk0GC1F4uJdmDnRq4nUhX0yZ2oxsprzVN8c2YgyO7miR2LxcvKPk6B3JGLAwX0OrGGmsUqnnwwrK0mYoJlTYQ2NSDQQZpv0xCyzoYv_BW9dXaCgYKAQ8SARMSFQHGX2Mi3tb1tGIOFn7g8bTIHpwnGw0175',
+  user: {
+    name: 'Russell Palma (rPalmPinoy)',
+    email: 'rpalmpinoy@gmail.com',
+    image: 'https://lh3.googleusercontent.com/a/ACg8ocKuzWU3ZbbL3b3UP0mptMdHHtRmNYB1sQ0u2-E7ljhpvSAa8MvA=s96-c',
+    emailVerified: null,
+    id: '8wzEtScHnFcuAhJLqMrk'
+  },
+  refreshToken: {
+    access: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM1NzYwMTc4LCJpYXQiOjE3MzU3NTk4NzgsImp0aSI6IjI3ZjgwOGJkZWI3NDQ5YjY5OGQyMzY4M2IyYWRlNTY0IiwidXNlcl9pZCI6IjE1NDcwNGMzLWYyNDUtNDFhOC1hMDQ0LTIxMjYwODkzNzQ2ZSJ9.i8mc20rQJFkNdfFE3pp6M3iGw2tvx5M14IjSob7Ov-s',
+    refresh: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTczNjM2NDY3OCwiaWF0IjoxNzM1NzU5ODc4LCJqdGkiOiIxNzg4MGIyYTExMzg0Yjc0YjRiZDViNTAxMGUxNTUxYyIsInVzZXJfaWQiOiIxNTQ3MDRjMy1mMjQ1LTQxYTgtYTA0NC0yMTI2MDg5Mzc0NmUifQ.djshpcRDYbt3ZxH4vEcrO1d2Kyj0KGUOTpTDkVem6As',
+    key: '3bc3408ab4922b30b0969a65ac2999b7f0f1afad',
+    user_details: {
+      password: '!vloaJCnQpRhl6LaQz5KswQdVVgtNU22pd7HeKvEi',
+      last_login: '2025-01-01T19:31:18.095626Z',
+      userId: '154704c3-f245-41a8-a044-21260893746e',
+      username: 'rpalmpinoy',
+      email: 'rpalmpinoy@gmail.com',
+      active: true,
+      is_staff: false,
+      is_superuser: false,
+      created_on: '2025-01-01T19:31:16.758070Z',
+      updated_at: '2025-01-01T19:31:16.758086Z'
+    }
+  }
+}
+Updated JWT token after Google login: {
+  name: 'Russell Palma (rPalmPinoy)',
+  email: 'rpalmpinoy@gmail.com',
+  picture: 'https://lh3.googleusercontent.com/a/ACg8ocKuzWU3ZbbL3b3UP0mptMdHHtRmNYB1sQ0u2-E7ljhpvSAa8MvA=s96-c',
+  sub: '8wzEtScHnFcuAhJLqMrk',
+  accessToken: 'ya29.a0ARW5m77Keg-siW_WzTzbwztMaC61m64rjv5Jui2Qf5ipnZ59enUsze7QMrqznk0GC1F4uJdmDnRq4nUhX0yZ2oxsprzVN8c2YgyO7miR2LxcvKPk6B3JGLAwX0OrGGmsUqnnwwrK0mYoJlTYQ2NSDQQZpv0xCyzoYv_BW9dXaCgYKAQ8SARMSFQHGX2Mi3tb1tGIOFn7g8bTIHpwnGw0175',
+  user: {
+    name: 'Russell Palma (rPalmPinoy)',
+    email: 'rpalmpinoy@gmail.com',
+    image: 'https://lh3.googleusercontent.com/a/ACg8ocKuzWU3ZbbL3b3UP0mptMdHHtRmNYB1sQ0u2-E7ljhpvSAa8MvA=s96-c',
+    emailVerified: null,
+    id: '8wzEtScHnFcuAhJLqMrk'
+  },
+  refreshToken: {
+    access: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM1NzYwMTc4LCJpYXQiOjE3MzU3NTk4NzgsImp0aSI6IjI3ZjgwOGJkZWI3NDQ5YjY5OGQyMzY4M2IyYWRlNTY0IiwidXNlcl9pZCI6IjE1NDcwNGMzLWYyNDUtNDFhOC1hMDQ0LTIxMjYwODkzNzQ2ZSJ9.i8mc20rQJFkNdfFE3pp6M3iGw2tvx5M14IjSob7Ov-s',
+    refresh: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTczNjM2NDY3OCwiaWF0IjoxNzM1NzU5ODc4LCJqdGkiOiIxNzg4MGIyYTExMzg0Yjc0YjRiZDViNTAxMGUxNTUxYyIsInVzZXJfaWQiOiIxNTQ3MDRjMy1mMjQ1LTQxYTgtYTA0NC0yMTI2MDg5Mzc0NmUifQ.djshpcRDYbt3ZxH4vEcrO1d2Kyj0KGUOTpTDkVem6As',
+    key: '3bc3408ab4922b30b0969a65ac2999b7f0f1afad',
+    user_details: {
+      password: '!vloaJCnQpRhl6LaQz5KswQdVVgtNU22pd7HeKvEi',
+      last_login: '2025-01-01T19:31:18.095626Z',
+      userId: '154704c3-f245-41a8-a044-21260893746e',
+      username: 'rpalmpinoy',
+      email: 'rpalmpinoy@gmail.com',
+      active: true,
+      is_staff: false,
+      is_superuser: false,
+      created_on: '2025-01-01T19:31:16.758070Z',
+      updated_at: '2025-01-01T19:31:16.758086Z'
+    }
+  }
+}
+=== events.signIn Called ===
+User just signed in: {
+  name: 'Russell Palma (rPalmPinoy)',
+  email: 'rpalmpinoy@gmail.com',
+  image: 'https://lh3.googleusercontent.com/a/ACg8ocKuzWU3ZbbL3b3UP0mptMdHHtRmNYB1sQ0u2-E7ljhpvSAa8MvA=s96-c',
+  emailVerified: null,
+  id: '8wzEtScHnFcuAhJLqMrk'
+}
+Account details: {
+  provider: 'google',
+  type: 'oauth',
+  providerAccountId: '112957380835440311791',
+  access_token: 'ya29.a0ARW5m77Keg-siW_WzTzbwztMaC61m64rjv5Jui2Qf5ipnZ59enUsze7QMrqznk0GC1F4uJdmDnRq4nUhX0yZ2oxsprzVN8c2YgyO7miR2LxcvKPk6B3JGLAwX0OrGGmsUqnnwwrK0mYoJlTYQ2NSDQQZpv0xCyzoYv_BW9dXaCgYKAQ8SARMSFQHGX2Mi3tb1tGIOFn7g8bTIHpwnGw0175',
+  expires_at: 1735763473,
+  scope: 'openid https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile',
+  token_type: 'Bearer',
+  id_token: 'eyJhbGciOiJSUzI1NiIsImtpZCI6ImFiODYxNGZmNjI4OTNiYWRjZTVhYTc5YTc3MDNiNTk2NjY1ZDI0NzgiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI1MDg4NDc1NTM4NDUtMjJxNDh0OWFmajNwa2V2N2JmYzFjaHVjMXJnaHR0c2YuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI1MDg4NDc1NTM4NDUtMjJxNDh0OWFmajNwa2V2N2JmYzFjaHVjMXJnaHR0c2YuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTI5NTczODA4MzU0NDAzMTE3OTEiLCJlbWFpbCI6InJwYWxtcGlub3lAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiIySGZfdHJjSWxOUkJPc2dvV3ZJWlFRIiwibmFtZSI6IlJ1c3NlbGwgUGFsbWEgKHJQYWxtUGlub3kpIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0t1eldVM1piYkwzYjNVUDBtcHRNZEhIdFJtTllCMXNRMHUyLUU3bGpocHZTQWE4TXZBPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IlJ1c3NlbGwiLCJmYW1pbHlfbmFtZSI6IlBhbG1hIiwiaWF0IjoxNzM1NzU5ODc0LCJleHAiOjE3MzU3NjM0NzR9.CWRePJ4EKMV6Mjrvyg0DmEvYaZu7QNpjLJ--MegCqXFN37fwwm2LmqHLuhkSoqu7x4LG3-LMO9FiVkriH0-7UXbuwkPvPcDIbN32IwdpRIC26LvO4hAMoi_L5nWfpe0cX3Gx8UTJ6GwVkoRuBITiFiotyogimiY-Ju6zVigb7tzFZL9QTNiJXvFc1_tQRqbGi5zxUM5Q62SpkEAUzBdBwF3-9mWqRz6FR93S9ZMePBriGAGs25ng5FDTNK1BDzM1lG1tCeduIt3iDT30qKWBua2YoBZySSdmWwKjSydzPp8JwAePsEyAfFADHuxItG7ibw-XYdCaVxcvkoRJvX5UIA'
+}
+ GET /api/modify/auth/callback/google?state=ArpLmzy5421zmeVtAHNdY2mb5Rqb83HG78TCkgKx8ls&code=4%2F0AanRRrv9FfSMAnqf4ft7QIdwKKJH9jBbBVsg9p5leLCANzhnrcR4sbc4u2UecmSfg2WGwQ&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&authuser=0&prompt=consent 302 in 4942ms
+ GET /modify/home 200 in 33ms
+ GET /favicon.ico 200 in 14ms
+=== redirect Callback Called ===
+Incoming redirect URL: http://127.0.0.1:420/modify/home
+URL is within custom base/API URL, returning as-is.
+=== jwt Callback Called ===
+Current JWT token: {
+  "name": "Russell Palma (rPalmPinoy)",
+  "email": "rpalmpinoy@gmail.com",
+  "picture": "https://lh3.googleusercontent.com/a/ACg8ocKuzWU3ZbbL3b3UP0mptMdHHtRmNYB1sQ0u2-E7ljhpvSAa8MvA=s96-c",
+  "sub": "8wzEtScHnFcuAhJLqMrk",
+  "accessToken": "ya29.a0ARW5m77Keg-siW_WzTzbwztMaC61m64rjv5Jui2Qf5ipnZ59enUsze7QMrqznk0GC1F4uJdmDnRq4nUhX0yZ2oxsprzVN8c2YgyO7miR2LxcvKPk6B3JGLAwX0OrGGmsUqnnwwrK0mYoJlTYQ2NSDQQZpv0xCyzoYv_BW9dXaCgYKAQ8SARMSFQHGX2Mi3tb1tGIOFn7g8bTIHpwnGw0175",
+  "user": {
+    "name": "Russell Palma (rPalmPinoy)",
+    "email": "rpalmpinoy@gmail.com",
+    "image": "https://lh3.googleusercontent.com/a/ACg8ocKuzWU3ZbbL3b3UP0mptMdHHtRmNYB1sQ0u2-E7ljhpvSAa8MvA=s96-c",
+    "emailVerified": null,
+    "id": "8wzEtScHnFcuAhJLqMrk"
+  },
+  "refreshToken": {
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM1NzYwMTc4LCJpYXQiOjE3MzU3NTk4NzgsImp0aSI6IjI3ZjgwOGJkZWI3NDQ5YjY5OGQyMzY4M2IyYWRlNTY0IiwidXNlcl9pZCI6IjE1NDcwNGMzLWYyNDUtNDFhOC1hMDQ0LTIxMjYwODkzNzQ2ZSJ9.i8mc20rQJFkNdfFE3pp6M3iGw2tvx5M14IjSob7Ov-s",
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTczNjM2NDY3OCwiaWF0IjoxNzM1NzU5ODc4LCJqdGkiOiIxNzg4MGIyYTExMzg0Yjc0YjRiZDViNTAxMGUxNTUxYyIsInVzZXJfaWQiOiIxNTQ3MDRjMy1mMjQ1LTQxYTgtYTA0NC0yMTI2MDg5Mzc0NmUifQ.djshpcRDYbt3ZxH4vEcrO1d2Kyj0KGUOTpTDkVem6As",
+    "key": "3bc3408ab4922b30b0969a65ac2999b7f0f1afad",
+    "user_details": {
+      "password": "!vloaJCnQpRhl6LaQz5KswQdVVgtNU22pd7HeKvEi",
+      "last_login": "2025-01-01T19:31:18.095626Z",
+      "userId": "154704c3-f245-41a8-a044-21260893746e",
+      "username": "rpalmpinoy",
+      "email": "rpalmpinoy@gmail.com",
+      "active": true,
+      "is_staff": false,
+      "is_superuser": false,
+      "created_on": "2025-01-01T19:31:16.758070Z",
+      "updated_at": "2025-01-01T19:31:16.758086Z"
+    }
+  },
+  "iat": 1735759878,
+  "exp": 1738351878,
+  "jti": "fec2118b-cf1b-4945-807e-46b97eee15fa"
+}
+Incoming user (if any): undefined
+Incoming account (if any): undefined
+isNewUser: undefined
+GOOGLE AUTH ENDPOINT[JWTUTILS]:  {
+  azp: '508847553845-22q48t9afj3pkev7bfc1chuc1rghttsf.apps.googleusercontent.com',
+  aud: '508847553845-22q48t9afj3pkev7bfc1chuc1rghttsf.apps.googleusercontent.com',
+  sub: '112957380835440311791',
+  scope: 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid',
+  exp: '1735763474',
+  expires_in: '3594',
+  email: 'rpalmpinoy@gmail.com',
+  email_verified: 'true',
+  access_type: 'online'
+}
+Current time + 60 seconds: Wed Jan 01 2025 13:32:19 GMT-0600 (Central Standard Time)
+Token lifetime: Wed Jan 01 2025 14:31:14 GMT-0600 (Central Standard Time)
+Fetching user data from Firestore to populate token.
+User document found (Firestore): {
+  name: 'Russell Palma (rPalmPinoy)',
+  email: 'rpalmpinoy@gmail.com',
+  emailVerified: null,
+  image: 'https://lh3.googleusercontent.com/a/ACg8ocKuzWU3ZbbL3b3UP0mptMdHHtRmNYB1sQ0u2-E7ljhpvSAa8MvA=s96-c',
+  _id: '8wzEtScHnFcuAhJLqMrk'
+}
+Final JWT token returned from callback: {
+  name: 'Russell Palma (rPalmPinoy)',
+  email: 'rpalmpinoy@gmail.com',
+  picture: 'https://lh3.googleusercontent.com/a/ACg8ocKuzWU3ZbbL3b3UP0mptMdHHtRmNYB1sQ0u2-E7ljhpvSAa8MvA=s96-c',
+  sub: '8wzEtScHnFcuAhJLqMrk',
+  accessToken: 'ya29.a0ARW5m77Keg-siW_WzTzbwztMaC61m64rjv5Jui2Qf5ipnZ59enUsze7QMrqznk0GC1F4uJdmDnRq4nUhX0yZ2oxsprzVN8c2YgyO7miR2LxcvKPk6B3JGLAwX0OrGGmsUqnnwwrK0mYoJlTYQ2NSDQQZpv0xCyzoYv_BW9dXaCgYKAQ8SARMSFQHGX2Mi3tb1tGIOFn7g8bTIHpwnGw0175',
+  user: {
+    name: 'Russell Palma (rPalmPinoy)',
+    email: 'rpalmpinoy@gmail.com',
+    image: 'https://lh3.googleusercontent.com/a/ACg8ocKuzWU3ZbbL3b3UP0mptMdHHtRmNYB1sQ0u2-E7ljhpvSAa8MvA=s96-c',
+    emailVerified: null,
+    id: '8wzEtScHnFcuAhJLqMrk'
+  },
+  refreshToken: {
+    access: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM1NzYwMTc4LCJpYXQiOjE3MzU3NTk4NzgsImp0aSI6IjI3ZjgwOGJkZWI3NDQ5YjY5OGQyMzY4M2IyYWRlNTY0IiwidXNlcl9pZCI6IjE1NDcwNGMzLWYyNDUtNDFhOC1hMDQ0LTIxMjYwODkzNzQ2ZSJ9.i8mc20rQJFkNdfFE3pp6M3iGw2tvx5M14IjSob7Ov-s',
+    refresh: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTczNjM2NDY3OCwiaWF0IjoxNzM1NzU5ODc4LCJqdGkiOiIxNzg4MGIyYTExMzg0Yjc0YjRiZDViNTAxMGUxNTUxYyIsInVzZXJfaWQiOiIxNTQ3MDRjMy1mMjQ1LTQxYTgtYTA0NC0yMTI2MDg5Mzc0NmUifQ.djshpcRDYbt3ZxH4vEcrO1d2Kyj0KGUOTpTDkVem6As',
+    key: '3bc3408ab4922b30b0969a65ac2999b7f0f1afad',
+    user_details: {
+      password: '!vloaJCnQpRhl6LaQz5KswQdVVgtNU22pd7HeKvEi',
+      last_login: '2025-01-01T19:31:18.095626Z',
+      userId: '154704c3-f245-41a8-a044-21260893746e',
+      username: 'rpalmpinoy',
+      email: 'rpalmpinoy@gmail.com',
+      active: true,
+      is_staff: false,
+      is_superuser: false,
+      created_on: '2025-01-01T19:31:16.758070Z',
+      updated_at: '2025-01-01T19:31:16.758086Z'
+    }
+  },
+  iat: 1735759878,
+  exp: 1738351878,
+  jti: 'fec2118b-cf1b-4945-807e-46b97eee15fa',
+  role: undefined,
+  stripeId: undefined,
+  customerId: undefined,
+  username: undefined,
+  firstname: undefined,
+  lastname: undefined,
+  modifyId: undefined,
+  firestoreId: '8wzEtScHnFcuAhJLqMrk',
+  registeredInfo: undefined,
+  shipping: undefined,
+  neccessary_actions: undefined,
+  personal_info: undefined,
+  verification: undefined,
+  external_accounts: undefined,
+  company_verification: undefined,
+  individual_verification: undefined,
+  stripe_metadata: undefined,
+  stripeBalance: undefined
+}
+=== session Callback Called ===
+Incoming session: {
+  "user": {
+    "name": "Russell Palma (rPalmPinoy)",
+    "email": "rpalmpinoy@gmail.com",
+    "image": "https://lh3.googleusercontent.com/a/ACg8ocKuzWU3ZbbL3b3UP0mptMdHHtRmNYB1sQ0u2-E7ljhpvSAa8MvA=s96-c"
+  },
+  "expires": "2025-01-31T19:31:19.578Z"
+}
+Incoming token: {
+  "name": "Russell Palma (rPalmPinoy)",
+  "email": "rpalmpinoy@gmail.com",
+  "picture": "https://lh3.googleusercontent.com/a/ACg8ocKuzWU3ZbbL3b3UP0mptMdHHtRmNYB1sQ0u2-E7ljhpvSAa8MvA=s96-c",
+  "sub": "8wzEtScHnFcuAhJLqMrk",
+  "accessToken": "ya29.a0ARW5m77Keg-siW_WzTzbwztMaC61m64rjv5Jui2Qf5ipnZ59enUsze7QMrqznk0GC1F4uJdmDnRq4nUhX0yZ2oxsprzVN8c2YgyO7miR2LxcvKPk6B3JGLAwX0OrGGmsUqnnwwrK0mYoJlTYQ2NSDQQZpv0xCyzoYv_BW9dXaCgYKAQ8SARMSFQHGX2Mi3tb1tGIOFn7g8bTIHpwnGw0175",
+  "user": {
+    "name": "Russell Palma (rPalmPinoy)",
+    "email": "rpalmpinoy@gmail.com",
+    "image": "https://lh3.googleusercontent.com/a/ACg8ocKuzWU3ZbbL3b3UP0mptMdHHtRmNYB1sQ0u2-E7ljhpvSAa8MvA=s96-c",
+    "emailVerified": null,
+    "id": "8wzEtScHnFcuAhJLqMrk"
+  },
+  "refreshToken": {
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM1NzYwMTc4LCJpYXQiOjE3MzU3NTk4NzgsImp0aSI6IjI3ZjgwOGJkZWI3NDQ5YjY5OGQyMzY4M2IyYWRlNTY0IiwidXNlcl9pZCI6IjE1NDcwNGMzLWYyNDUtNDFhOC1hMDQ0LTIxMjYwODkzNzQ2ZSJ9.i8mc20rQJFkNdfFE3pp6M3iGw2tvx5M14IjSob7Ov-s",
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTczNjM2NDY3OCwiaWF0IjoxNzM1NzU5ODc4LCJqdGkiOiIxNzg4MGIyYTExMzg0Yjc0YjRiZDViNTAxMGUxNTUxYyIsInVzZXJfaWQiOiIxNTQ3MDRjMy1mMjQ1LTQxYTgtYTA0NC0yMTI2MDg5Mzc0NmUifQ.djshpcRDYbt3ZxH4vEcrO1d2Kyj0KGUOTpTDkVem6As",
+    "key": "3bc3408ab4922b30b0969a65ac2999b7f0f1afad",
+    "user_details": {
+      "password": "!vloaJCnQpRhl6LaQz5KswQdVVgtNU22pd7HeKvEi",
+      "last_login": "2025-01-01T19:31:18.095626Z",
+      "userId": "154704c3-f245-41a8-a044-21260893746e",
+      "username": "rpalmpinoy",
+      "email": "rpalmpinoy@gmail.com",
+      "active": true,
+      "is_staff": false,
+      "is_superuser": false,
+      "created_on": "2025-01-01T19:31:16.758070Z",
+      "updated_at": "2025-01-01T19:31:16.758086Z"
+    }
+  },
+  "iat": 1735759878,
+  "exp": 1738351878,
+  "jti": "fec2118b-cf1b-4945-807e-46b97eee15fa",
+  "firestoreId": "8wzEtScHnFcuAhJLqMrk"
+}
+Updated session object: {
+  "user": {
+    "name": "Russell Palma (rPalmPinoy)",
+    "email": "rpalmpinoy@gmail.com",
+    "image": "https://lh3.googleusercontent.com/a/ACg8ocKuzWU3ZbbL3b3UP0mptMdHHtRmNYB1sQ0u2-E7ljhpvSAa8MvA=s96-c",
+    "firestoreId": "8wzEtScHnFcuAhJLqMrk",
+    "picture": "https://lh3.googleusercontent.com/a/ACg8ocKuzWU3ZbbL3b3UP0mptMdHHtRmNYB1sQ0u2-E7ljhpvSAa8MvA=s96-c",
+    "sub": "8wzEtScHnFcuAhJLqMrk",
+    "accessToken": "ya29.a0ARW5m77Keg-siW_WzTzbwztMaC61m64rjv5Jui2Qf5ipnZ59enUsze7QMrqznk0GC1F4uJdmDnRq4nUhX0yZ2oxsprzVN8c2YgyO7miR2LxcvKPk6B3JGLAwX0OrGGmsUqnnwwrK0mYoJlTYQ2NSDQQZpv0xCyzoYv_BW9dXaCgYKAQ8SARMSFQHGX2Mi3tb1tGIOFn7g8bTIHpwnGw0175",
+    "user": {
+      "name": "Russell Palma (rPalmPinoy)",
+      "email": "rpalmpinoy@gmail.com",
+      "image": "https://lh3.googleusercontent.com/a/ACg8ocKuzWU3ZbbL3b3UP0mptMdHHtRmNYB1sQ0u2-E7ljhpvSAa8MvA=s96-c",
+      "emailVerified": null,
+      "id": "8wzEtScHnFcuAhJLqMrk"
+    },
+    "refreshToken": {
+      "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM1NzYwMTc4LCJpYXQiOjE3MzU3NTk4NzgsImp0aSI6IjI3ZjgwOGJkZWI3NDQ5YjY5OGQyMzY4M2IyYWRlNTY0IiwidXNlcl9pZCI6IjE1NDcwNGMzLWYyNDUtNDFhOC1hMDQ0LTIxMjYwODkzNzQ2ZSJ9.i8mc20rQJFkNdfFE3pp6M3iGw2tvx5M14IjSob7Ov-s",
+      "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTczNjM2NDY3OCwiaWF0IjoxNzM1NzU5ODc4LCJqdGkiOiIxNzg4MGIyYTExMzg0Yjc0YjRiZDViNTAxMGUxNTUxYyIsInVzZXJfaWQiOiIxNTQ3MDRjMy1mMjQ1LTQxYTgtYTA0NC0yMTI2MDg5Mzc0NmUifQ.djshpcRDYbt3ZxH4vEcrO1d2Kyj0KGUOTpTDkVem6As",
+      "key": "3bc3408ab4922b30b0969a65ac2999b7f0f1afad",
+      "user_details": {
+        "password": "!vloaJCnQpRhl6LaQz5KswQdVVgtNU22pd7HeKvEi",
+        "last_login": "2025-01-01T19:31:18.095626Z",
+        "userId": "154704c3-f245-41a8-a044-21260893746e",
+        "username": "rpalmpinoy",
+        "email": "rpalmpinoy@gmail.com",
+        "active": true,
+        "is_staff": false,
+        "is_superuser": false,
+        "created_on": "2025-01-01T19:31:16.758070Z",
+        "updated_at": "2025-01-01T19:31:16.758086Z"
+      }
+    },
+    "iat": 1735759878,
+    "exp": 1738351878,
+    "jti": "fec2118b-cf1b-4945-807e-46b97eee15fa"
+  },
+  "expires": "2025-01-31T19:31:19.578Z"
+}
+=== events.session Called ===
+'Session is active:'
+ GET /api/modify/auth/session 200 in 247ms
