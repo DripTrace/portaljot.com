@@ -168,8 +168,6 @@
 // 	}
 // }
 
-// File: /api/generate-video-with-audio.ts
-
 import { NextRequest, NextResponse } from "next/server";
 import { join } from "path";
 import { randomUUID } from "crypto";
@@ -184,12 +182,6 @@ import {
 } from "@/lib/modify/generate";
 import { writeFile, unlink, readFile } from "fs/promises";
 import axios from "axios";
-
-// Configuration for the Serverless Function
-export const config = {
-	runtime: "nodejs18", // Specify the Node.js runtime version
-	maxDuration: 60, // Set maxDuration within the allowed range (1-60 seconds)
-};
 
 export async function POST(request: NextRequest) {
 	const requestId = randomUUID();
@@ -322,8 +314,7 @@ export async function POST(request: NextRequest) {
 		return new NextResponse(finalVideo, {
 			headers: {
 				"Content-Type": "video/mp4",
-				"Content-Disposition":
-					'attachment; filename="generated_video.mp4"',
+				"Content-Disposition": `attachment; filename="generated_video.mp4"`,
 			},
 		});
 	} catch (error) {
@@ -346,3 +337,8 @@ export async function POST(request: NextRequest) {
 		);
 	}
 }
+
+// Configuration for the serverless function
+export const config = {
+	maxDuration: 60, // Set maxDuration between 1 and 60 seconds for hobby plan
+};
