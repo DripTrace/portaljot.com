@@ -1,6 +1,6 @@
 {
 	"functions": {
-		"api/generate-video-with-audio.js": {
+		"api/generate-video-with-audio": {
 			"maxDuration": 60
 		}
 	}
