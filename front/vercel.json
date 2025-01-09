@@ -1,7 +1,7 @@
 {
 	"functions": {
 		"**/*": {
-			"maxDuration": 59
+			"maxDuration": 5
 		}
 	}
 }

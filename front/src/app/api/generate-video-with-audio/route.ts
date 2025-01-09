@@ -187,7 +187,7 @@ import {
 import { writeFile, unlink, readFile } from "fs/promises";
 import axios from "axios";
 
-export const maxDuration = 59; // Set the maximum duration to 60 seconds
+export const maxDuration = 5; // Set the maximum duration to 60 seconds
 export const dynamic = "force-dynamic";
 
 export async function POST(request: NextRequest) {
