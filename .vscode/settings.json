@@ -16,7 +16,7 @@
 	// "editor.codeLensFontFamily": "monospace",
 	// "editor.codeLensFontSize": 16,
 	"editor.definitionLinkOpensInPeek": true,
-	"workbench.colorTheme": "Copilot Theme - Higher Contrast",
+	"workbench.colorTheme": "Pastels_on_Dark",
 	"editor.cursorBlinking": "expand",
 	"editor.cursorSmoothCaretAnimation": "on",
 	"editor.cursorWidth": 1,
@@ -66,5 +66,11 @@
 	//   // "editorOverviewRuler.bracketMatchForeground": "#ff0000"
 	// }
 	"css.customData": [".vscode/tailwind.json"],
-	"shellcheck.exclude": ["SC2034"]
+	"shellcheck.exclude": ["SC2034"],
+	"[dotenv]": {
+		"editor.formatOnSave": false
+	},
+	"[env]": {
+		"editor.formatOnSave": false
+	}
 }
