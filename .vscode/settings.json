@@ -72,5 +72,6 @@
 	},
 	"[env]": {
 		"editor.formatOnSave": false
-	}
+	},
+	"svg.preview.background": "transparent"
 }

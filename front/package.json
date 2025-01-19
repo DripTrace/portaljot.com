@@ -1,5 +1,16 @@
 {
 	"name": "portaljot",
+    "description": "everything generation",
+    "keywords": [],
+    "license": "LGPL-3.0-or-later",
+    "author": {
+        "name": "Russell Brian Fulache Dugaduga Jale Palma"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DripTrace/portaljot.com"
+    },
+    "homepage": "https://portaljot.com",
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
@@ -11,7 +22,26 @@
 		"pr-init-mg": "prisma init --output=src/schema/prisma-postgres.prisma --datasource-provider=mongodb",
 		"pr-pull": "prisma db pull --schema=src/schema/prisma-postgres.prisma",
 		"pr-gen": "prisma --url postgres://default:0eBZIN4aUJnq@ep-empty-cloud-a60f7twr.us-west-2.aws.neon.tech:5432/verceldb?sslmode=require --output src/schema/prisma-postgres.prisma",
-		"pr-st": "prisma studio"
+		"pr-st": "prisma studio",
+        "prebuild": "ts-node src/lib/utils/generateFontLoader.ts",
+        "predev": "tsc --skipLibCheck src/lib/utils/generateFontLoader.ts",
+        "predevting": "node --loader ts-node/esm src/lib/utils/fontLoader.ts",
+        "postinstall": "prisma generate",
+        "stripewebhook": "stripe listen --forward-to localhost:420/api/stripe/webhook",
+        "webhook": "stripe listen --forward-to http://localhost:420/api/merchandise/webhooks/stripe/transact",
+        "eventtrigger": "stripe trigger payment_intent.succeeded",
+        "mysqlinstall": "bunx prisma init --datasource-provider mysql",
+        "setdb": "prisma db pull",
+        "vercel-build": "prisma generate && prisma migrate deploy && next build",
+        "create-migrate": "prisma migrate dev --name init",
+        "migrate": "prisma migrate deploy",
+        "view-db": "prisma studio",
+        "create-product": "node --loader ts-node/esm src/scripts/product-creation.ts",
+        "retrieve-network": "npx tsx src/scripts/retrieveNetworkInfo.ts",
+        "retrieve-account": "npx tsx src/scripts/retrieveAccountInfo.ts",
+        "retrieve-domains": "npx tsx src/scripts/retrieveDomainsInfo.ts",
+        "get-aws": "npx tsx src/scripts/get-aws.ts",
+        "dev:turbo": "next dev --turbo"
 	},
 	"dependencies": {
 		"@anthropic-ai/sdk": "^0.27.3",
@@ -165,5 +195,9 @@
 	"browser": {
 		"child_process": false,
 		"fs": false
-	}
+	},
+    "trustedDependencies": [
+        "aws-sdk",
+        "protobufjs"
+    ]
 }

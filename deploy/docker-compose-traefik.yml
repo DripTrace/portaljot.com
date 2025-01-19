@@ -1,0 +1,57 @@
+version: '3.9'
+
+services:
+  traefik:
+    image: 'traefik:v2.9.8'
+    container_name: traefik
+    restart: unless-stopped
+    command:
+      # moved from static conf to pass email as env var
+      - '--certificatesresolvers.letsencrypt.acme.email=${TRAEFIK_LETSENCRYPT_EMAIL}'
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - proxy
+    ports:
+      - '80:80'
+      - '443:443'
+    environment:
+      - TRAEFIK_AUTH=${TRAEFIK_AUTH}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik-data/traefik.yml:/traefik.yml:ro
+      - ./traefik-data/acme.json:/acme.json
+      - ./traefik-data/configurations:/configurations
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.docker.network=proxy'
+      - 'traefik.http.routers.traefik-secure.entrypoints=websecure'
+      - 'traefik.http.routers.traefik-secure.rule=Host(`traefik.${SITE_HOSTNAME}`)'
+      - 'traefik.http.routers.traefik-secure.middlewares=user-auth@file'
+      - 'traefik.http.routers.traefik-secure.service=api@internal'
+
+  portainer:
+    image: 'portainer/portainer-ce'
+    container_name: portainer
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - proxy
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./portainer-data:/data
+    # portainer already has its auth system
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.docker.network=proxy'
+      - 'traefik.http.routers.portainer-secure.entrypoints=websecure'
+      - 'traefik.http.routers.portainer-secure.rule=Host(`portainer.${SITE_HOSTNAME}`)'
+      - 'traefik.http.routers.portainer-secure.service=portainer'
+      - 'traefik.http.services.portainer.loadbalancer.server.port=9000'
+
+networks:
+  proxy:
+    external: true

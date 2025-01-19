@@ -1,5 +1,8 @@
 {
 	"compilerOptions": {
+        "forceConsistentCasingInFileNames": true,
+        "allowSyntheticDefaultImports": true,
+        "downlevelIteration": true,
 		"noImplicitAny": false,
 		"types": ["next", "next-auth"],
 		"target": "es6",

@@ -1,0 +1,56 @@
+http:
+  middlewares:
+    redirect-to-non-www:
+      redirectRegex:
+        regex: "^https?://www\\.(.*)"
+        replacement: "https://$1"
+        permanent: true
+
+    secureHeaders:
+      headers:
+        sslRedirect: true
+        forceSTSHeader: true
+        stsIncludeSubdomains: true
+        stsPreload: true
+        stsSeconds: 31536000
+
+    user-auth:
+      basicAuth:
+        users:
+          - '{{ env "TRAEFIK_AUTH" }}'
+
+  routers:
+    default-router:
+      entryPoints:
+        - web
+        - websecure
+      rule: "HostRegexp(`{host:^www\\..+}|{host:.+}`)"
+      middlewares:
+        - redirect-to-non-www
+        - secureHeaders
+        - user-auth
+      service: noop-service
+      tls:
+        domains:
+          - main: "{host:.+}"
+            sans:
+              - "www.{host:.+}"
+      priority: 1
+
+  services:
+    noop-service:
+      loadBalancer:
+        servers:
+          - url: "http://0.0.0.0"
+
+tls:
+  options:
+    default:
+      cipherSuites:
+        - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+        - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+        - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+        - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+        - TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305
+        - TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305
+      minVersion: VersionTLS12

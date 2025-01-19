@@ -1,5 +1,10 @@
 import type { Config } from "tailwindcss";
+import { withUt } from "uploadthing/tw";
 import Nth from "tailwindcss-nth-child";
+import colors from "tailwindcss/colors";
+import { fontFamily } from "tailwindcss/defaultTheme";
+import { PluginAPI } from "tailwindcss/types/config";
+// import withPlugins from "next-compose-plugins";
 const plugin = new Nth("2");
 
 const config: Config = {
@@ -31,6 +36,64 @@ const config: Config = {
 				"4vl": { min: "160em" },
 			},
 			colors: {
+                tremor: {
+                    brand: {
+                        faint: colors.blue[50],
+                        muted: colors.blue[200],
+                        subtle: colors.blue[400],
+                        DEFAULT: colors.blue[500],
+                        emphasis: colors.blue[700],
+                        inverted: colors.white,
+                    },
+                    background: {
+                        muted: colors.gray[50],
+                        subtle: colors.gray[100],
+                        DEFAULT: colors.white,
+                        emphasis: colors.gray[700],
+                    },
+                    border: {
+                        DEFAULT: colors.gray[200],
+                    },
+                    ring: {
+                        DEFAULT: colors.gray[200],
+                    },
+                    content: {
+                        subtle: colors.gray[400],
+                        DEFAULT: colors.gray[500],
+                        emphasis: colors.gray[700],
+                        strong: colors.gray[900],
+                        inverted: colors.white,
+                    },
+                },
+                "dark-tremor": {
+                    brand: {
+                        faint: "#0B1229",
+                        muted: colors.blue[950],
+                        subtle: colors.blue[800],
+                        DEFAULT: colors.blue[500],
+                        emphasis: colors.blue[400],
+                        inverted: colors.blue[950],
+                    },
+                    background: {
+                        muted: "#131A2B",
+                        subtle: colors.gray[800],
+                        DEFAULT: colors.gray[900],
+                        emphasis: colors.gray[300],
+                    },
+                    border: {
+                        DEFAULT: colors.gray[700],
+                    },
+                    ring: {
+                        DEFAULT: colors.gray[800],
+                    },
+                    content: {
+                        subtle: colors.gray[600],
+                        DEFAULT: colors.gray[500],
+                        emphasis: colors.gray[200],
+                        strong: colors.gray[50],
+                        inverted: colors.gray[950],
+                    },
+                },
 				background: "var(--background)",
 				foreground: "var(--foreground)",
 				boxShadow: {
@@ -39,6 +102,50 @@ const config: Config = {
 					// glass: "0 25px 45px rgba(0, 0, 0, 0.1)",
 					"active-menu": "0 0 0 #111827",
 					"active-dark-menu": "0 0 0 #4C8EFF",
+                    // light
+                    "tremor-input": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+                    "tremor-card":
+                        "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+                    "tremor-dropdown":
+                        "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+                    // dark
+                    "dark-tremor-input": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+                    "dark-tremor-card":
+                        "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+                    "dark-tremor-dropdown":
+                        "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+                    sm: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+                    DEFAULT:
+                        "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+                    md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+                    lg: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+                    xl: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                    "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+                    "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.3)",
+                    inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
+                    none: "none",
+                    "social-glass": "0 5px 45px rgba(0, 0, 0, 0.1)",
+                    "dark-glass":
+                        "0 0.9375em 1.5625em rgba(255, 255, 255, 0.1)",
+                    menu: "0 -0.5em 0 #111827",
+                    "dark-menu": "0 -0.5em 0 #4C8EFF",
+                    "login-modal": "0 0 10px rgba(0,0,0,0.25)",
+                    "login-modal-dark": "0 0 10px rgba(255,255,255,0.25)",
+                    "glass-form": "0 25px 45px rgba(0, 0, 0, 0.1)",
+                    "glass-form-dark": "0 25px 45px rgba(255, 255, 255, 0.1)",
+                    glass1: "0 15px 35px rgba(0, 0, 0,0.05)",
+                    glass1a: "0 5px 10px rgba(0, 0, 0, 0.1)",
+                    glass2: "0 15px 30px rgba(0, 0, 0, 0.1)",
+                    glass3: "0 25px 45px rgba(0, 0, 0, 0.1)",
+                    glass3a: "0 5px 15px rgba(0, 0, 0, 0.05)",
+                    size: "0 2px 10px rgba(0, 0, 0, 0.1)",
+                    button: "0 15px 35px rgba(0, 0, 0, 0.1)",
+                    svg_display:
+                        "0.1875em 0.3125em 0.4375em rgba(0, 0, 0, 0.5)",
+                    svg_display_dark:
+                        "0.1875em 0.3125em 0.4375em rgba(255, 255, 255, 0.5)",
+
+                    imageCapture: "1px -7px 7px -6px rgba(0, 0, 0, 0.44)",
 				},
 			},
 			keyframes: {
@@ -96,4 +203,4 @@ const config: Config = {
 		require("@tailwindcss/typography"),
 	],
 };
-export default config;
+export default withUt(config);

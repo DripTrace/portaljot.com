@@ -1,0 +1,26 @@
+FROM python:3.12 as base
+
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE 1
+
+WORKDIR /code
+
+ADD requirements.txt /tmp
+# COPY requirements.txt ./
+
+RUN pip3 install --no-cache-dir -r /tmp/requirements.txt
+
+# RUN pip install django-storages boto3 pillow django-cors-headers
+
+# RUN pip3 install asgiref boto3 botocore Django django-storages djangorestframework jmespath pillow python-dateutil s3transfer setuptools six sqlparse urllib3 wheel django-extensions django-jazzmin django-cors-headers annotated-typesblack certifi cffi charset-normalizer click contextlib2 cryptography dj-database-url dj-rest-auth django-allauth django-ninja django-ninja-extra django-ninja-jwt djangorestframework-simplejwt dnspython email_validator fire idna injector markdown-it-py mdurl mypy-extensions oauthlib packaging pathspec platformdirs psycopg psycopg-binary pycparser pydantic pydantic_core Pygments PyJWT python-decouple python-dotenv PyYAML rav requests requests-oauthlib rich termcolor typing_extensions whitenoise drf-yas psycopg2-binary>=2.9.1,<2.9.2 djoser gunicorn 
+
+
+# ---- Copy Files/Build ----
+FROM base
+
+WORKDIR /code
+
+COPY . /code
+
+RUN chmod -R 777 /code
+    

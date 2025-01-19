@@ -17,19 +17,26 @@ from decouple import config
 from dotenv import load_dotenv
 import dj_database_url
 from datetime import timedelta
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 load_dotenv(BASE_DIR / ".env")
 
 SECRET_KEY = config("DJANGO_SECRET_KEY", cast=str)
+# SECRET_KEY = os.environ.get(
+#     "SECRET_KEY",
+#     default="django-insecure-ncs&&)001*$$7mgs822pvidtwj(pf=jc=g851__q!ysy5bkwzk",
+# )
 JWT_SECRET_KEY = config("JWT_SECRET_KEY", cast=str)
 GOOGLE_AUTH_CLIENT_ID = config("GOOGLE_AUTH_CLIENT_ID", cast=str)
 GOOGLE_AUTH_CLIENT_SECRET = config("GOOGLE_AUTH_CLIENT_SECRET", cast=str)
 
 DEBUG = config("DJANGO_DEBUG", cast=bool, default=False)
+# SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = bool(os.environ.get("DJANGO_DEBUG", default=True))
 
 ALLOWED_HOSTS = [
-    ".railway.app" "127.0.0.1", ".vercel.app", "nexusconjure.vercel.app", "165.227.115.22"
+    ".railway.app" "127.0.0.1", ".vercel.app", "nexusconjure.vercel.app", "ec2-3-214-82-117.compute-1.amazonaws.com:420, ec2-3-214-82-117.compute-1.amazonaws.com, portaljot.com, 3.214.82.117"
 ]
 
 if DEBUG:
@@ -45,8 +52,44 @@ CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1",
     "https://*.vercel.app",
     "https://nexusconjure.vercel.app",
-    "http://165.227.115.22"
+    "http://ec2-3-214-82-117.compute-1.amazonaws.com",
+    "https://*.portaljot.com",
+    "http://3.214.82.117"
 ]
+
+# CORS Settings
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_EXPOSE_HEADERS = ['ETag', 'x-amz-version-id']
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+    'HEAD'
+]
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'origin',
+    'x-amz-date',
+    'x-amz-security-token',
+    'x-amz-user-agent',
+]
+
+# Security Settings
+# X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+# X_FRAME_OPTIONS = None
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None
+# SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin'
+CSP_DEFAULT_SRC = ["'self'", "'unsafe-inline'", "*"]
+# CSP_DEFAULT_SRC = ("'self'", "'unsafe-inline'")
+FILE_UPLOAD_PERMISSIONS = 0o644
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -69,6 +112,9 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
     "portaljotauth",
+    # "djoser",
+    # "drf_yasg",
+    # "whitenoise.runserver_nostatic",
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -115,6 +161,7 @@ SIMPLE_JWT = {
     "USER_ID_CLAIM": "user_id",
     "SIGNING_KEY": JWT_SECRET_KEY,
     'AUTH_HEADER_TYPES': ('Bearer',),
+    # "AUTH_HEADER_TYPES": ("Token",),
     'ALGORITHM': 'HS256',
     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
     'TOKEN_TYPE_CLAIM': 'token_type',
@@ -257,3 +304,56 @@ LOGGING = {
         },
     },
 }
+
+
+# SWAGGER_SETTINGS = {
+#     "SECURITY_DEFINITIONS": {
+#         "Bearer": {"type": "apiKey", "name": "Authorization", "in": "header"}
+#     }
+# }
+
+# JAZZMIN_SETTINGS = {
+#     # title of the window (Will default to current_admin_site.site_title if absent or None)
+#     "site_title": "Admin Panel",
+#     # Title on the brand (19 chars max) (defaults to current_admin_site.site_header if absent or None)
+#     "site_brand": "Server",
+#     "site_header": "Server",
+#     # CSS classes that are applied to the logo above
+#     "site_logo_classes": "img-circle",
+#     # Relative path to a favicon for your site, will default to site_logo if absent (ideally 32x32 px)
+#     "site_icon": None,
+#     # "related_modal_active": True,
+#     # Welcome text on the login screen
+#     "welcome_sign": "Welcome to the Server Admin Panel",
+#     "show_ui_builder": True,
+# }
+# JAZZMIN_UI_TWEAKS = {
+#     "navbar_small_text": False,
+#     "footer_small_text": False,
+#     "body_small_text": False,
+#     "brand_small_text": False,
+#     "brand_colour": False,
+#     "accent": "accent-primary",
+#     "navbar": "navbar-white navbar-light",
+#     "no_navbar_border": False,
+#     "navbar_fixed": False,
+#     "layout_boxed": False,
+#     "footer_fixed": False,
+#     "sidebar_fixed": False,
+#     "sidebar": "sidebar-dark-primary",
+#     "sidebar_nav_small_text": False,
+#     "sidebar_disable_expand": False,
+#     "sidebar_nav_child_indent": False,
+#     "sidebar_nav_compact_style": False,
+#     "sidebar_nav_legacy_style": False,
+#     "sidebar_nav_flat_style": False,
+#     "theme": "minty",
+#     "button_classes": {
+#         "primary": "btn-primary",
+#         "secondary": "btn-outline-secondary",
+#         "info": "btn-outline-info",
+#         "warning": "btn-outline-warning",
+#         "danger": "btn-outline-danger",
+#         "success": "btn-success",
+#     },
+# }

@@ -1,0 +1,42 @@
+# static configuration
+
+api:
+  dashboard: true
+
+entryPoints:
+  web:
+    address: :80
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+
+  websecure:
+    address: :443
+    http:
+      middlewares:
+        - secureHeaders@file
+      tls:
+        certResolver: letsencrypt
+
+providers:
+  docker:
+    endpoint: 'unix:///var/run/docker.sock'
+    exposedByDefault: false
+  file:
+    filename: /configurations/dynamic.yml
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      # email moved to docker-compose command: for env var
+      # email: changeme@changeme.org
+
+      # always start with staging certificate
+      caServer: "https://acme-staging-v02.api.letsencrypt.org/directory"
+      # caServer: 'https://acme-v02.api.letsencrypt.org/directory'
+      
+      storage: acme.json
+      keyType: EC384
+      httpChallenge:
+        entryPoint: web

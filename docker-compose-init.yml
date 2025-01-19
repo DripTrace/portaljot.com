@@ -1,0 +1,229 @@
+services:
+  django-app:
+    # platform: linux/x86_64
+    container_name: django-app
+    build:
+      context: ./dockerfiles
+      dockerfile: Dockerfile.django
+    stdin_open: true
+    tty: true
+    working_dir: /code
+    ports:
+    - 8001:8001
+    command: >
+      /bin/bash -c "
+        python3.12 manage.py makemigrations &&
+        python3.12 manage.py migrate &&
+        python3.12 manage.py collectstatic --noinput &&
+        python3.12 manage.py runserver 0.0.0.0:8001
+
+        # sh -c "sh back/migrations.sh && gunicorn -w 5 --reload -b 0.0.0.0:8001 --log-level info server.wsgi"
+      "
+    volumes:
+      - ./django_app:/code
+      - ./django_app/staticfiles:/code/staticfiles
+      - run_vol:/var/run
+      - cache_vol:/var/cache
+      - tmp_vol:/tmp
+    # environment:
+    #   - DJANGO_DEBUG=False
+    #   - GUNICORN_WORKERS=5
+    env_file:
+      - .env.local
+    depends_on:
+      - minio
+      - portal-jot_postgres
+    restart: unless-stopped
+    expose:
+        - "9000"
+    networks:
+      - minio_network
+
+  next-logic:
+    container_name: next-logic
+    build:
+      context: ./dockerfiles
+      dockerfile: Dockerfile.next
+    stdin_open: true
+    tty: true
+    working_dir: /logic
+    ports:
+    - 420:420
+    volumes:
+      - ./front:/logic
+      - next-node_modules:/logic/node_modules
+      - next-cache:/logic/.next
+    # command: >
+    #   sh -c "npm install -g npm@latest && front/installation.sh && npm run build && npm run start"
+    env_file:
+      - .env.local
+    depends_on:
+      - django-app
+    restart: unless-stopped
+    expose:
+        - "9000"
+    networks:
+      - minio_network
+
+  minio:
+    container_name: minio
+    image: minio/minio:latest
+    hostname: "ec2-3-214-82-117.compute-1.amazonaws.com"
+    ports:
+      - 9000:9000
+      - 9001:9001
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
+    command: 'minio server /data --console-address ":9001"'
+    volumes:
+      - ./minio_data:/data
+    networks:
+      - minio_network
+
+  minio-client:
+    container_name: minio-client
+    image: minio/mc:latest
+    depends_on:
+      - minio
+    command: >
+      /bin/sh -c "
+      minio minio123 &&
+      mc alias set myminio http://ec2-3-214-82-117.compute-1.amazonaws.com:9000 minio minio123 &&
+      mc mb myminio/bucket &&
+      mc anonymous set public myminio/bucket &&
+      mc ls myminio/bucket &&
+      mc admin info myminio &&
+      mc anonymous set download myminio/bucket
+      mc admin config set myminio api \
+        cors_allow_origin="*" \
+        cors_allow_methods="GET,PUT,POST,DELETE,HEAD" \
+        cors_allow_headers="Accept,Authorization,Content-Type,Origin,X-Amz-Date,X-Amz-Security-Token,X-Amz-User-Agent" \
+        cors_expose_headers="ETag,X-Amz-Version-Id" \
+        browser_redirect_url="http://ec2-3-214-82-117.compute-1.amazonaws.com:8001" &&
+      mc admin config reset myminio api &&
+      "
+    networks:
+        - minio_network
+
+  portal-jot_postgres:
+    container_name: portal-jot_postgres
+    image: postgres:latest
+    ports:
+        - 5432:5432
+    volumes:
+        - pjpg:/var/lib/postgresql/data
+    environment:
+        - POSTGRES_PASSWORD=p0r+4|jot
+        - POSTGRES_USER=portaljot-com_usr
+        - POSTGRES_DB=portaljot-com_db
+    networks:
+      - minio_network
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    hostname: mongodb
+    volumes:
+      - mongodb-data:/data/db/
+      - mongodb-log:/var/log/mongodb/
+      - ./init-replica.js:/docker-entrypoint-initdb.d/init-replica.js:ro
+      - ./mongo-keyfile:/etc/secrets/mongo-keyfile:ro
+    user: 999:999
+    env_file:
+      - .env.local
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: portaljot_mongo
+      MONGODB_ENABLE_AUTHENTICATION: "true"
+      MONGODB_REPLICA_SET_MODE: "primary"
+      GLIBC_TUNABLES: "glibc.pthread.rseq=0"
+    ports:
+      - "27017:27017"
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all", "--auth", "--keyFile", "/etc/secrets/mongo-keyfile"]
+    networks:
+      - mongodb_network
+    restart: unless-stopped
+
+  mongo-express:
+      image: mongo-express:latest
+      container_name: mongo-express
+      restart: always
+      environment:
+        ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+        ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+        ME_CONFIG_MONGODB_PORT: 27017
+        ME_CONFIG_MONGODB_SERVER: "mongodb"
+        ME_CONFIG_BASICAUTH_USERNAME: ${MONGO_EXPRESS_USERNAME}
+        ME_CONFIG_BASICAUTH_PASSWORD: ${MONGO_EXPRESS_PASSWORD}
+      ports:
+        - 8081:8081
+      networks:
+        - mongodb_network
+      depends_on:
+        - mongodb
+
+  rabbitmq:
+    image: rabbitmq:latest
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - rabbitmq_network
+    volumes:
+      - rabb:/var/lib/rabbitmq
+
+  redis:
+    container_name: redis
+    image: redis:latest
+    ports:
+        - 6379:6379
+    healthcheck:
+        test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+    volumes:
+        - rdb:/data
+    network_mode: bridge
+
+networks:
+  minio_network:
+    driver: bridge
+    name: minio-network
+  mongodb_network:
+    driver: bridge
+    name: mongo-network
+  internal-dev:
+    external: false
+  external-host:
+    external: true
+  rabbitmq_network:
+    driver: bridge
+    name: rabbitmq-network
+
+volumes:
+  minio_data:
+  pjpg:
+  mongodb-data:
+      driver: local
+      name: mongo-data
+  mongodb-log:
+      driver: local
+      name: mongo-log
+  next-node_modules:
+  next-cache:
+  rabb:
+  rdb:
+  run_vol:
+  driver_opts:
+    type: tmpfs
+    device: tmpfs
+  cache_vol:
+    driver_opts:
+      type: tmpfs
+      device: tmpfs
+  tmp_vol:
+    driver_opts:
+      type: tmpfs
+      device: tmpfs

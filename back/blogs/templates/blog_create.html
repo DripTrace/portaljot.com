@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Blog Post</title>
+    <link rel="stylesheet" href="/static/rest_framework/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/rest_framework/css/bootstrap-tweaks.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Create a New Blog Post</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% include "rest_framework/horizontal/form.html" with form=serializer style=style %}
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+
+        <h2>Existing Posts</h2>
+        {% for post in posts %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    {% if post.file %}
+                        <p><a href="{{ post.file }}" class="btn btn-link">Download File</a></p>
+                    {% endif %}
+                    {% if post.image %}
+                        <img src="{{ post.image }}" class="img-fluid" alt="{{ post.title }}">
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
