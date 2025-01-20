@@ -2,6 +2,7 @@ import { Session, User } from "next-auth";
 
 declare module "next-auth" {
 	interface Session {
+        firebaseToken?: string;
 		user: {
 			permissions?: { admin: any[] };
 			refreshToken?: {
@@ -10,6 +11,8 @@ declare module "next-auth" {
 				key?: string;
 			};
 			accessToken?: string;
+            id?: string;
+			availableLanguages?: string[];
 		} & DefaultSession["user"];
 	}
 }

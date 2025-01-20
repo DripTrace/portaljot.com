@@ -1,0 +1,40 @@
+{
+  "name": "DripTrace Medical",
+  "short_name": "DripTrace",
+  "description": "DripTrace Medical Services",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#99AAC0",
+  "theme_color": "#0C3C60",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/manifest-icons/driptrace-logo-favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/manifest-icons/driptrace-logo-x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/manifest-icons/driptrace-logo-x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/manifest-icons/driptrace-logo-x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/manifest-icons/driptrace-logo-maskable-icon_x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -10,6 +10,36 @@
 			"name": "Launch Chrome against localhost",
 			"url": "http://localhost:420",
 			"webRoot": "${workspaceFolder}"
+		},
+		{
+			"name": "Next.js: debug server-side",
+			"type": "node-terminal",
+			"request": "launch",
+			"command": "bun dev"
+		},
+		{
+			"name": "Next.js: debug client-side",
+			"type": "chrome",
+			"request": "launch",
+			"url": "http://localhost:3000"
+			// "webRoot": "${workspaceFolder}"
+		},
+		{
+			"name": "Next.js: debug full stack",
+			"type": "node-terminal",
+			"request": "launch",
+			"command": "bun dev",
+			// Remove the "console" property
+			// "console": "integratedTerminal",
+			"serverReadyAction": {
+				"pattern": "started on .+, url: (http://.+)",
+				"uriFormat": "%s",
+				"action": "debugWithChrome"
+			}
 		}
+	],
+	"resolveSourceMapLocations": [
+		"${workspaceFolder}/**",
+		"!**/node_modules/**"
 	]
 }

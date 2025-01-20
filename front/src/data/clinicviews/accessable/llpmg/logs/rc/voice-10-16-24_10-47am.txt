@@ -1,0 +1,115 @@
+1. Date
+2. Time
+3. CallerId/Forwarded From
+4. Ext To
+5. Duration
+6. Summary
+
+Fri 10/11:
+9093612591:
+    - 5:01 PM
+    - 99989
+    - 99979
+    - 00:38
+    - Michelle Howard, daughter Cassandra, Dr. Marlene Milan, 9093612591
+    
+​​​
+Sat 10/12:
+9097232699:
+    - 8:16 AM
+    - 99989
+    - 99979
+    - 00:31
+    - Michael Cooper, med refilled Mon (late), refill needed, 9097632699
+5629225181:
+    - 2:00 PM
+    - Unknown
+    - 99979
+    - 0:17
+    - Kyle Jones, 5629225181, set up appointment with psychiatrist
+
+Mon 10/15:
+7032043800:
+    - 5:41 AM
+    - SUROB 99989
+    - 99979
+    - 00:03
+    - 
+
+9512109881:
+    - 7:25 AM
+    - Unknown
+    - 99979
+    - 00:24
+    - Roddrigo Ramirez, need directions to new building for apt @ 7
+9098241857:
+    - 8:23 AM
+    - Unknown
+    - 99979
+    - 00:09
+    - 
+
+Tue 10/16:
+8668599060:
+    - 8:09 AM
+    - SUROB 99989
+    - 99979
+    - 00:43
+    - for acc pay (business), Sharal Smith, direct ext 1101222, 8668599284
+18402282905:
+    - 2:10 PM
+    - -
+    - 99979
+    - 00:22
+    - John Barnardy, phone appt Dr. Farooqi
+9095225429:
+    - 3:08 PM
+    - -
+    - 99979
+    - 00:16
+    -​​​ Jerry Signite, app Dr. Macias
+19099047112:
+    - 4:07 PM
+    - -
+    - 99979
+    - 00:23
+    - Melinda Pure, needs meds
+7608552132:
+    - 5:19 PM
+    - 99989
+    - 99979
+    - 00:42
+    - Tamaera Ebritht, app Wed 3:45 verification
+6192151688:
+    - 7:50 PM
+    - 99989
+    - 99979
+    - 00:02
+    - 
+9512109881
+    - 7:26 AM
+    - 99988
+    - 99978
+    - 00:27
+    - 
+9095870954
+    - 11:03 AM
+    - -
+    - 99978
+    - 00:37
+​​​​​​​    -
+​
+Wed 10/16 (today):
+9098091233:
+    - 8:31 AM
+    - 99989
+    - 99979
+    - 00:26
+    - Chong Dee, cancel apt Alex Cap (need to reschedule)
+4423223110:
+    - 8:50 AM
+    - 99989
+    - 99979
+    - 00:19
+    - Cassandra Domingo, waiting on meds
+

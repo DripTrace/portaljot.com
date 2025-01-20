@@ -1,0 +1,40 @@
+{
+  "name": "FourSquareClinicals",
+  "short_name": "FSClinicals",
+  "description": "Four Square Clinicals",
+  "start_url": "true ? /fsclinicals/fsclinicals-landing : /fsclinicals/landing",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#D1E0EB",
+  "theme_color": "#1FABC7",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/manifest-icons/fsc-logo-favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/manifest-icons/fsc-logo-x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/manifest-icons/fsc-logo-x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/manifest-icons/fsc-logo-x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/manifest-icons/fsc-logo-maskable-icon_x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

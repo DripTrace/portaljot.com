@@ -216,7 +216,7 @@ import Stripe from "stripe";
 import fetch from "node-fetch";
 import { NextRequest, NextResponse } from "next/server";
 import { hashPassword } from "@/lib/modify/authentication/password";
-import { db } from "@/config/firebase/storage";
+import { db } from "../../../../../../config/firebase/storage";
 
 // const stripe: Stripe = require("stripe")(`${process.env.STRIPE_SECRET_KEY}`);
 

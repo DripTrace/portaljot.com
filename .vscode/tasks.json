@@ -1,0 +1,90 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Lint JavaScript/TypeScript",
+			"type": "shell",
+			"command": "npx eslint . --ext .js,.jsx,.ts,.tsx",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"presentation": {
+				"reveal": "always",
+				"panel": "dedicated"
+			},
+			"problemMatcher": ["$eslint-stylish"]
+		},
+		{
+			"label": "TypeScript Check",
+			"type": "shell",
+			"command": "npx tsc --noEmit",
+			"group": "build",
+			"presentation": {
+				"reveal": "always",
+				"panel": "dedicated"
+			},
+			"problemMatcher": ["$tsc"]
+		},
+		{
+			"label": "ShellCheck",
+			"type": "shell",
+			"command": "shellcheck",
+			"problemMatcher": {
+				"owner": "shellcheck",
+				"pattern": {
+					"regexp": "^(.+):(\\d+):(\\d+):\\s+(warning|error|note|style):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				}
+			}
+		},
+		{
+			"label": "Pylint",
+			"type": "shell",
+			"command": "pylint",
+			"problemMatcher": {
+				"owner": "python",
+				"fileLocation": ["relative", "${workspaceFolder}"],
+				"pattern": {
+					"regexp": "^(.+):(\\d+):(\\d+):\\s+(warning|error|convention|refactor)\\s+(.+?):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"code": 5,
+					"message": 6
+				}
+			}
+		},
+		{
+			"label": "YAML Lint",
+			"type": "shell",
+			"command": "find . -type f \\( -name \"*.yml\" -o -name \"*.yaml\" \\) -exec yamllint {} \\;",
+			"group": "build",
+			"presentation": {
+				"reveal": "always",
+				"panel": "dedicated"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Lint All",
+			"dependsOn": [
+				"Lint JavaScript/TypeScript",
+				"TypeScript Check",
+				"Shell Script Check",
+				"Python Lint",
+				"YAML Lint"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		}
+	]
+}

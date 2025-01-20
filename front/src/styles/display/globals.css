@@ -1,0 +1,123 @@
+/* html,
+body {
+    overflow: hidden;
+
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 0;
+    margin: 0;
+    cursor: none;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        Segoe UI,
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        Fira Sans,
+        Droid Sans,
+        Helvetica Neue,
+        sans-serif;
+
+    --default-text-shadow-color: #0c260c;
+    --hovered-text-shadow-color: hsl(120, calc(52% + 40%), 9%);
+    --active-text-shadow-color: rgb(12, 38, 12);
+    --transparent-text-shadow-color: rgba(12, 38, 12, 0.5);
+
+    --default-button-text-shadow-color: #003706;
+    --hovered-button-text-shadow-color: hsl(126, 100%, calc(10% + 20%));
+    --active-button-text-shadow-color: rgb(0, 55, 6);
+    --transparent-button-text-shadow-color: rgba(0, 55, 6, 0.5);
+
+    --default-border-color: #134611;
+    --hovered-border-color: hsl(117, 60%, 17%);
+    --active-border-color: rgb(19, 70, 17, 1);
+    --transparent-border-color: rgba(19, 70, 17, 0.5);
+
+    --default-button-background-color: #006400;
+    --hovered-button-background-color: hsl(120, 100%, calc(19% + 10%));
+    --active-button-background-color: rgb(0, 100, 0);
+    --transparent-button-background-color: rgba(0, 100, 0, 0.5);
+
+    --default-background-shadow-color: #127c09;
+    --hovered-background-shadow-color: hsl(115, 86%, 26%);
+    --active-background-shadow-color: rgb(18, 124, 9, 1);
+    --transparent-background-shadow-color: rgba(18, 124, 9, 0.5);
+
+    --default-background-color: #228b22;
+    --hovered-background-color: hsl(120, 60%, 33%);
+    --active-background-color: rgb(34, 139, 34);
+    --transparent-background-color: rgba(34, 139, 34, 0.4);
+
+    --default-text-color: #32cd32;
+    --hovered-text-color: hsl(120, calc(60% + 40%), 50%);
+    --active-text-color: rgb(50, 205, 50);
+    --transparent-text-color: rgba(50, 205, 50, 0.5);
+
+    --default-button-border-color: #12bc00;
+    --hovered-button-border-color: hsl(114, 100%, calc(36% + 20%));
+    --active-button-border-color: rgb(18, 188, 0);
+    --transparent-button-border-color: rgba(18, 188, 0, 0.5);
+
+    --default-button-background-shadow-color: #22cd00;
+    --hovered-button-background-shadow-color: hsl(110, 100%, calc(40% + 20%));
+    --active-button-background-shadow-color: rgb(34, 205, 0, 1);
+    --transparent-button-background-shadow-color: rgba(34, 205, 0, 0.5);
+
+    --default-button-text-color: #40ff00;
+    --hovered-button-text-color: hsl(104, 100%, calc(50% + 20%));
+    --active-button-text-color: rgb(64, 255, 0, 1);
+    --transparent-button-text-color: rgba(64, 255, 0, 0.5);
+
+    --Main-background: darkestgreen;
+    --Hovered-background: darkergreen;
+    --Main-Text-color: darkgreen;
+    --Hovered-Text-color: green;
+    --Main-Button-background: lightgreen;
+    --Hovered-Button-background: lightergreen;
+    --Active-Border: lightestgreen;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #3fbf3f;
+    opacity: 50;
+}
+
+::-webkit-scrollbar-thumb {
+    background: green;
+    border-radius: 100vh;
+    border: 1px solid #c4f7a1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2b9720;
+}
+
+.video {
+    opacity: 0;
+    transition-duration: 1s ease;
+}
+
+.video.active {
+    opacity: 1;
+    transition-duration: 1s;
+    transform: scale(1.08);
+} */

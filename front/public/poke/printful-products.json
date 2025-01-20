@@ -1,0 +1,1975 @@
+{
+	"code": 200,
+	"result": [
+		{
+			"id": 634,
+			"main_category_id": 254,
+			"type": "DECOR",
+			"description": "Add a cozy vibe to your home with these double-sided wooden ornaments. Made from Hinoki wood, they’re durable yet lightweight and soft to the touch.\n\n• Material: solid, natural Hinoki wood\n• Ornament thickness 0.37″ (9 mm)\n• Comes with a red paper ribbon and a hole to thread it through\n• Magnetic back\n• Two-sided print \n• Product sourced from Korea\n\nImportant: This product cannot be shipped to South Korea, Hong Kong, Taiwan, Japan, or Singapore. If your shipping address is in these regions, please choose a different product.",
+			"type_name": "Wooden Ornaments",
+			"title": "Wooden Ornaments",
+			"brand": null,
+			"model": "Wooden Ornaments",
+			"image": "https://files.cdn.printful.com/o/upload/product-catalog-img/ef/ef50d0c418f9f4879bc3e81edc092891_l",
+			"variant_count": 6,
+			"currency": "USD",
+			"options": [],
+			"dimensions": null,
+			"is_discontinued": false,
+			"avg_fulfillment_time": null,
+			"techniques": [
+				{
+					"key": "UV",
+					"display_name": "UV printing",
+					"is_default": true
+				}
+			],
+			"files": [
+				{
+					"id": "default",
+					"type": "front",
+					"title": "Front print",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "back",
+					"type": "back",
+					"title": "Back print",
+					"additional_price": "1.49",
+					"options": []
+				},
+				{
+					"id": "preview",
+					"type": "mockup",
+					"title": "Mockup",
+					"additional_price": null,
+					"options": []
+				}
+			],
+			"origin_country": null
+		},
+		{
+			"id": 706,
+			"main_category_id": 254,
+			"type": "DECOR",
+			"description": "Wrap your gifts in style with these premium wrapping paper sheets! Get three high-quality, matte-finished sheets and add a touch of elegance to birthdays, anniversaries, and other celebrations.\n\n• Size: 28.75″ × 19.75″ (73 × 50.2 cm)\n• Thickness: 70# uncoated text\n• Printing on one side\n• White reverse side\n• A set of 3 sheets\n• Matte finish\n• Blank product sourced from the United States",
+			"type_name": "Wrapping Paper Sheets (3)",
+			"title": "Wrapping Paper Sheets (3)",
+			"brand": null,
+			"model": "Wrapping Paper Sheets (3)",
+			"image": "https://files.cdn.printful.com/o/upload/product-catalog-img/2f/2f96e969b6c8c36eb338d71aeff576f0_l",
+			"variant_count": 1,
+			"currency": "USD",
+			"options": [],
+			"dimensions": null,
+			"is_discontinued": false,
+			"avg_fulfillment_time": null,
+			"techniques": [
+				{
+					"key": "DIGITAL",
+					"display_name": "Digital printing",
+					"is_default": true
+				}
+			],
+			"files": [
+				{
+					"id": "first",
+					"type": "first",
+					"title": "First",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "second",
+					"type": "second",
+					"title": "Second",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "third",
+					"type": "third",
+					"title": "Third",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "preview",
+					"type": "mockup",
+					"title": "Mockup",
+					"additional_price": null,
+					"options": []
+				}
+			],
+			"origin_country": "United States"
+		},
+		{
+			"id": 675,
+			"main_category_id": 271,
+			"type": "SUBLIMATION",
+			"description": "Whether you’re exercising, stretching, or meditating, it’s worth having a yoga mat that brings you joy and matches your style. It’s easy to carry and provides both stability and comfort with anti-slip rubber on the bottom and soft microsuede on top.\n\n• Rubber mat with a microsuede top\n• Anti-slip rubber bottom\n• Size: 24″ × 68″ (61 cm × 173 cm)\n• Weight: 62 oz. (1.75 kg)\n• Mat thickness: 0.12″ (3 mm)\n• Product sourced from China",
+			"type_name": "Yoga Mat",
+			"title": "Yoga Mat",
+			"brand": null,
+			"model": "Yoga Mat",
+			"image": "https://files.cdn.printful.com/o/upload/product-catalog-img/7f/7f5b93c735bf44dc657fd20da58dba97_l",
+			"variant_count": 1,
+			"currency": "USD",
+			"options": [
+				{
+					"id": "notes",
+					"title": "Printing notes",
+					"type": "text",
+					"values": null,
+					"additional_price": null,
+					"additional_price_breakdown": []
+				}
+			],
+			"dimensions": null,
+			"is_discontinued": false,
+			"avg_fulfillment_time": null,
+			"techniques": [
+				{
+					"key": "SUBLIMATION",
+					"display_name": "Sublimation",
+					"is_default": true
+				}
+			],
+			"files": [
+				{
+					"id": "default",
+					"type": "default",
+					"title": "Print file",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "preview",
+					"type": "mockup",
+					"title": "Mockup",
+					"additional_price": null,
+					"options": []
+				}
+			],
+			"origin_country": "China"
+		},
+		{
+			"id": 677,
+			"main_category_id": 105,
+			"type": "T-SHIRT",
+			"description": "Cozy and cool, this youth crewneck sweatshirt is designed for every adventure. Made from soft fleece fabric, it’s easy to wear and hassle-free to wash. Whether headed out or snuggled up on the couch, the younger crowd will love the look and feel of this sweatshirt. \n\n• 50% cotton, 50% polyester\n• Fabric weight: 8 oz/yd² (271.25 g/m²)\n• Air-jetted fleece fabric\n• Regular fit\n• Double-needle stitching on shoulders, armholes, neck, waistband, and cuffs\n• The fabric is OEKO-TEX Standard 100 certified",
+			"type_name": "Sweatshirt",
+			"title": "Youth Crew Neck Sweatshirt | Gildan 18000B",
+			"brand": "Gildan",
+			"model": "18000B",
+			"image": "https://files.cdn.printful.com/o/upload/product-catalog-img/e6/e6656d812b52a0e635ab7c7733871747_l",
+			"variant_count": 40,
+			"currency": "USD",
+			"options": [
+				{
+					"id": "thread_colors_chest_left",
+					"title": "Left chest thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": []
+				},
+				{
+					"id": "thread_colors_chest_center",
+					"title": "Center chest thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": []
+				},
+				{
+					"id": "notes",
+					"title": "Embroidery notes",
+					"type": "text",
+					"values": null,
+					"additional_price": null,
+					"additional_price_breakdown": []
+				},
+				{
+					"id": "lifelike",
+					"title": "Lifelike",
+					"type": "bool",
+					"values": null,
+					"additional_price": null,
+					"additional_price_breakdown": []
+				}
+			],
+			"dimensions": null,
+			"is_discontinued": false,
+			"avg_fulfillment_time": null,
+			"techniques": [
+				{
+					"key": "DTG",
+					"display_name": "DTG printing",
+					"is_default": true
+				},
+				{
+					"key": "EMBROIDERY",
+					"display_name": "Embroidery",
+					"is_default": false
+				}
+			],
+			"files": [
+				{
+					"id": "default",
+					"type": "front",
+					"title": "Front print",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "label_outside",
+					"type": "label_outside",
+					"title": "Outside label",
+					"additional_price": "2.49",
+					"options": []
+				},
+				{
+					"id": "embroidery_chest_left",
+					"type": "embroidery_chest_left",
+					"title": "Left chest",
+					"additional_price": "2.95",
+					"options": []
+				},
+				{
+					"id": "embroidery_chest_center",
+					"type": "embroidery_chest_center",
+					"title": "Center chest",
+					"additional_price": "2.95",
+					"options": []
+				},
+				{
+					"id": "back",
+					"type": "back",
+					"title": "Back print",
+					"additional_price": "5.95",
+					"options": []
+				},
+				{
+					"id": "preview",
+					"type": "mockup",
+					"title": "Mockup",
+					"additional_price": null,
+					"options": []
+				}
+			],
+			"origin_country": "Honduras"
+		},
+		{
+			"id": 266,
+			"main_category_id": 45,
+			"type": "EMBROIDERY",
+			"description": "A snug, form-fitting beanie. It's not only a great head-warming piece but a staple accessory in anyone's wardrobe.\n\n• 100% Turbo Acrylic\n• 12″ (30 cm) in length\n• Hypoallergenic \n• Unisex style\n• Hand washable\n• Blank product sourced from Vietnam, Bangladesh or the Republic of Korea",
+			"type_name": "Hat",
+			"title": "Cuffed Beanie | Yupoong 1501KC",
+			"brand": "Yupoong",
+			"model": "Yupoong 12\" Cuffed Beanie 1501KC",
+			"image": "https://files.cdn.printful.com/o/products/266/product_1584696677.jpg",
+			"variant_count": 12,
+			"currency": "USD",
+			"options": [
+				{
+					"id": "embroidery_type",
+					"title": "Embroidery type",
+					"type": "radio",
+					"values": {
+						"flat": "Flat Embroidery",
+						"3d": "3D Puff (+$1.50)",
+						"both": "Partial 3D Puff (+$1.50)"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors",
+					"title": "Flat thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_3d",
+					"title": "3D Puff thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "notes",
+					"title": "Embroidery notes",
+					"type": "text",
+					"values": null,
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				}
+			],
+			"dimensions": null,
+			"is_discontinued": false,
+			"avg_fulfillment_time": null,
+			"techniques": [
+				{
+					"key": "EMBROIDERY",
+					"display_name": "Embroidery",
+					"is_default": true
+				}
+			],
+			"files": [
+				{
+					"id": "default",
+					"type": "embroidery_front",
+					"title": "Front",
+					"additional_price": null,
+					"options": [
+						{
+							"id": "full_color",
+							"type": "bool",
+							"title": "Unlimited color",
+							"additional_price": 3.5
+						}
+					]
+				},
+				{
+					"id": "preview",
+					"type": "mockup",
+					"title": "Mockup",
+					"additional_price": null,
+					"options": []
+				}
+			],
+			"origin_country": null
+		},
+		{
+			"id": 100,
+			"main_category_id": 40,
+			"type": "EMBROIDERY",
+			"description": "Classic trucker cap style with a cool fabric blend. \n\n• 47% cotton, 28% nylon, 25% polyester\n• Structured, five-panel, high profile\n• Flat bill\n• Snapback closure\n• Head circumference: 21⅝″–23⅝″ (53.3 cm–60 cm)\n• Blank product sourced from Vietnam or Bangladesh",
+			"type_name": "Hat",
+			"title": "5 Panel Trucker Cap | Yupoong 6006",
+			"brand": "Yupoong",
+			"model": "6006 Five Panel Trucker Cap",
+			"image": "https://files.cdn.printful.com/o/products/100/product_1585316568.jpg",
+			"variant_count": 13,
+			"currency": "USD",
+			"options": [
+				{
+					"id": "embroidery_type",
+					"title": "Embroidery type",
+					"type": "radio",
+					"values": {
+						"flat": "Flat Embroidery",
+						"3d": "3D Puff (+$1.50)",
+						"both": "Partial 3D Puff (+$1.50)"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors",
+					"title": "Flat thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_3d",
+					"title": "3D Puff thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_front_large",
+					"title": "Flat thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_3d_front_large",
+					"title": "3D Puff thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "notes",
+					"title": "Embroidery notes",
+					"type": "text",
+					"values": null,
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				}
+			],
+			"dimensions": {
+				"front": "5.5x2",
+				"side": "2x0.75"
+			},
+			"is_discontinued": false,
+			"avg_fulfillment_time": null,
+			"techniques": [
+				{
+					"key": "EMBROIDERY",
+					"display_name": "Embroidery",
+					"is_default": true
+				},
+				{
+					"key": "DTFILM",
+					"display_name": "DTF printing",
+					"is_default": false
+				}
+			],
+			"files": [
+				{
+					"id": "default",
+					"type": "embroidery_front",
+					"title": "Front",
+					"additional_price": null,
+					"options": [
+						{
+							"id": "full_color",
+							"type": "bool",
+							"title": "Unlimited color",
+							"additional_price": 3.5
+						}
+					]
+				},
+				{
+					"id": "embroidery_front_large",
+					"type": "embroidery_front_large",
+					"title": "Front",
+					"additional_price": "2.95",
+					"options": [
+						{
+							"id": "full_color",
+							"type": "bool",
+							"title": "Unlimited color",
+							"additional_price": 3.5
+						}
+					]
+				},
+				{
+					"id": "front_dtf_hat",
+					"type": "front_dtf_hat",
+					"title": "Front print",
+					"additional_price": "2.95",
+					"options": []
+				},
+				{
+					"id": "preview",
+					"type": "mockup",
+					"title": "Mockup",
+					"additional_price": null,
+					"options": []
+				}
+			],
+			"origin_country": null
+		},
+		{
+			"id": 91,
+			"main_category_id": 41,
+			"type": "EMBROIDERY",
+			"description": "The high-profile fit and a green undervisor make this cap a classic with an added pop of color.\r\n\r\n• 100% cotton twill\r\n• Structured \r\n• Five panel \r\n• High profile\r\n• Green undervisor\r\n• Sewn eyelets\r\n• Snapback closure",
+			"type_name": "Hat",
+			"title": "Flat Bill Cap | Yupoong 6007",
+			"brand": "Yupoong",
+			"model": "6007 Five-Panel Flat Bill Cap",
+			"image": "https://files.cdn.printful.com/o/products/91/product_1584452727.jpg",
+			"variant_count": 7,
+			"currency": "USD",
+			"options": [
+				{
+					"id": "embroidery_type",
+					"title": "Embroidery type",
+					"type": "radio",
+					"values": {
+						"flat": "Flat Embroidery",
+						"3d": "3D Puff (+$1.50)",
+						"both": "Partial 3D Puff (+$1.50)"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors",
+					"title": "Flat thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_3d",
+					"title": "3D Puff thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_front_large",
+					"title": "Flat thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_3d_front_large",
+					"title": "3D Puff thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_back",
+					"title": "Back thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_right",
+					"title": "Right side thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_left",
+					"title": "Left side thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "notes",
+					"title": "Embroidery notes",
+					"type": "text",
+					"values": null,
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				}
+			],
+			"dimensions": null,
+			"is_discontinued": false,
+			"avg_fulfillment_time": null,
+			"techniques": [
+				{
+					"key": "EMBROIDERY",
+					"display_name": "Embroidery",
+					"is_default": true
+				}
+			],
+			"files": [
+				{
+					"id": "embroidery_front_large",
+					"type": "embroidery_front_large",
+					"title": "Front",
+					"additional_price": "2.95",
+					"options": [
+						{
+							"id": "full_color",
+							"type": "bool",
+							"title": "Unlimited color",
+							"additional_price": 3.5
+						}
+					]
+				},
+				{
+					"id": "default",
+					"type": "embroidery_front",
+					"title": "Front",
+					"additional_price": null,
+					"options": [
+						{
+							"id": "full_color",
+							"type": "bool",
+							"title": "Unlimited color",
+							"additional_price": 3.5
+						}
+					]
+				},
+				{
+					"id": "back",
+					"type": "embroidery_back",
+					"title": "Back",
+					"additional_price": "2.95",
+					"options": []
+				},
+				{
+					"id": "right",
+					"type": "embroidery_right",
+					"title": "Right side",
+					"additional_price": "2.95",
+					"options": []
+				},
+				{
+					"id": "left",
+					"type": "embroidery_left",
+					"title": "Left side",
+					"additional_price": "2.95",
+					"options": []
+				},
+				{
+					"id": "preview",
+					"type": "mockup",
+					"title": "Mockup",
+					"additional_price": null,
+					"options": []
+				}
+			],
+			"origin_country": null
+		},
+		{
+			"id": 99,
+			"main_category_id": 41,
+			"type": "EMBROIDERY",
+			"description": "This hat is structured with a classic fit, flat brim, and full buckram. The adjustable snap closure makes it a comfortable, one-size-fits-most hat. \r\n\r\n• 80% acrylic, 20% wool\r\n• Green Camo is 60% cotton, 40% polyester\r\n• Structured, 6-panel, high-profile\r\n• 6 embroidered eyelets\r\n• Plastic snap closure\r\n• Green undervisor\r\n• Head circumference: 21⅝″–23⅝″ (54.9 cm–60 cm)\r\n• Blank product sourced from Vietnam or Bangladesh",
+			"type_name": "Hat",
+			"title": "Classic Snapback | Yupoong 6089M",
+			"brand": "Yupoong",
+			"model": "Yupoong 6089M Wool Blend Snapback",
+			"image": "https://files.cdn.printful.com/o/products/99/product_1586152798.jpg",
+			"variant_count": 20,
+			"currency": "USD",
+			"options": [
+				{
+					"id": "embroidery_type",
+					"title": "Embroidery type",
+					"type": "radio",
+					"values": {
+						"flat": "Flat Embroidery",
+						"3d": "3D Puff (+$1.50)",
+						"both": "Partial 3D Puff (+$1.50)"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors",
+					"title": "Flat thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_3d",
+					"title": "3D Puff thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_front_large",
+					"title": "Flat thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_3d_front_large",
+					"title": "3D Puff thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_back",
+					"title": "Back thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_right",
+					"title": "Right side thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_left",
+					"title": "Left side thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "notes",
+					"title": "Embroidery notes",
+					"type": "text",
+					"values": null,
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				}
+			],
+			"dimensions": null,
+			"is_discontinued": false,
+			"avg_fulfillment_time": null,
+			"techniques": [
+				{
+					"key": "EMBROIDERY",
+					"display_name": "Embroidery",
+					"is_default": true
+				}
+			],
+			"files": [
+				{
+					"id": "default",
+					"type": "embroidery_front",
+					"title": "Front",
+					"additional_price": null,
+					"options": [
+						{
+							"id": "full_color",
+							"type": "bool",
+							"title": "Unlimited color",
+							"additional_price": 3.5
+						}
+					]
+				},
+				{
+					"id": "embroidery_front_large",
+					"type": "embroidery_front_large",
+					"title": "Front",
+					"additional_price": "2.95",
+					"options": [
+						{
+							"id": "full_color",
+							"type": "bool",
+							"title": "Unlimited color",
+							"additional_price": 3.5
+						}
+					]
+				},
+				{
+					"id": "back",
+					"type": "embroidery_back",
+					"title": "Back",
+					"additional_price": "2.95",
+					"options": []
+				},
+				{
+					"id": "right",
+					"type": "embroidery_right",
+					"title": "Right side",
+					"additional_price": "2.95",
+					"options": []
+				},
+				{
+					"id": "left",
+					"type": "embroidery_left",
+					"title": "Left side",
+					"additional_price": "2.95",
+					"options": []
+				},
+				{
+					"id": "preview",
+					"type": "mockup",
+					"title": "Mockup",
+					"additional_price": null,
+					"options": []
+				}
+			],
+			"origin_country": null
+		},
+		{
+			"id": 252,
+			"main_category_id": 40,
+			"type": "EMBROIDERY",
+			"description": "This six-panel trucker cap with a mesh back will be a comfy and classic choice for a perfect day in the sun. \r\n\r\n• 60% cotton, 40% polyester\r\n• Mid-profile cap with a low-profile embroidery area\r\n• Structured, six-panel cap\r\n• 3.5″ crown (8.9 cm)\r\n• Hard buckram front panels\r\n• Mesh back\r\n• Permacurv® visor, matching undervisor\r\n• Plastic adjustable closure\r\n• Head circumference: 21⅝″–23⅝″ (54.9 cm–60 cm)\r\n• Blank product sourced from Vietnam or Bangladesh",
+			"type_name": "Hat",
+			"title": "Retro Trucker Hat | Yupoong 6606",
+			"brand": "Yupoong",
+			"model": "Yupoong 6606 Retro Trucker Cap",
+			"image": "https://files.cdn.printful.com/o/products/252/product_1585041529.jpg",
+			"variant_count": 19,
+			"currency": "USD",
+			"options": [
+				{
+					"id": "embroidery_type",
+					"title": "Embroidery type",
+					"type": "radio",
+					"values": {
+						"flat": "Flat Embroidery",
+						"3d": "3D Puff (+$1.50)",
+						"both": "Partial 3D Puff (+$1.50)"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors",
+					"title": "Flat thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_3d",
+					"title": "3D Puff thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_front_large",
+					"title": "Flat thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_3d_front_large",
+					"title": "3D Puff thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "addon_thread_colors_outline_front",
+					"title": "Outline color",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "notes",
+					"title": "Embroidery notes",
+					"type": "text",
+					"values": null,
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				}
+			],
+			"dimensions": null,
+			"is_discontinued": false,
+			"avg_fulfillment_time": null,
+			"techniques": [
+				{
+					"key": "EMBROIDERY",
+					"display_name": "Embroidery",
+					"is_default": true
+				}
+			],
+			"files": [
+				{
+					"id": "default",
+					"type": "embroidery_front",
+					"title": "Front",
+					"additional_price": null,
+					"options": [
+						{
+							"id": "full_color",
+							"type": "bool",
+							"title": "Unlimited color",
+							"additional_price": 3.5
+						}
+					]
+				},
+				{
+					"id": "embroidery_front_large",
+					"type": "embroidery_front_large",
+					"title": "Front",
+					"additional_price": "2.95",
+					"options": [
+						{
+							"id": "full_color",
+							"type": "bool",
+							"title": "Unlimited color",
+							"additional_price": 3.5
+						}
+					]
+				},
+				{
+					"id": "preview",
+					"type": "mockup",
+					"title": "Mockup",
+					"additional_price": null,
+					"options": []
+				}
+			],
+			"origin_country": null
+		},
+		{
+			"id": 92,
+			"main_category_id": 43,
+			"type": "EMBROIDERY",
+			"description": "This camper style cap has a low profile and nylon strap clip closure. Comfortable and classic!\r\n\r\n• 100% cotton\r\n• Soft-structured \r\n• Five panel \r\n• Low profile\r\n• Metal eyelets\r\n• Nylon strap clip closure",
+			"type_name": "Hat",
+			"title": "5 Panel Cap | Yupoong 7005",
+			"brand": "Yupoong",
+			"model": "7005 Cotton 5Panel",
+			"image": "https://files.cdn.printful.com/o/products/92/product_1585927472.jpg",
+			"variant_count": 7,
+			"currency": "USD",
+			"options": [
+				{
+					"id": "embroidery_type",
+					"title": "Embroidery type",
+					"type": "radio",
+					"values": {
+						"flat": "Flat Embroidery",
+						"3d": "3D Puff (+$1.50)",
+						"both": "Partial 3D Puff (+$1.50)"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors",
+					"title": "Flat thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_3d",
+					"title": "3D Puff thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_back",
+					"title": "Back thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "notes",
+					"title": "Embroidery notes",
+					"type": "text",
+					"values": null,
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				}
+			],
+			"dimensions": {
+				"front": "4x1.75",
+				"side": "2x0.75"
+			},
+			"is_discontinued": false,
+			"avg_fulfillment_time": null,
+			"techniques": [
+				{
+					"key": "EMBROIDERY",
+					"display_name": "Embroidery",
+					"is_default": true
+				}
+			],
+			"files": [
+				{
+					"id": "default",
+					"type": "embroidery_front",
+					"title": "Front",
+					"additional_price": null,
+					"options": [
+						{
+							"id": "full_color",
+							"type": "bool",
+							"title": "Unlimited color",
+							"additional_price": 3.5
+						}
+					]
+				},
+				{
+					"id": "back",
+					"type": "embroidery_back",
+					"title": "Back",
+					"additional_price": "2.95",
+					"options": []
+				},
+				{
+					"id": "preview",
+					"type": "mockup",
+					"title": "Mockup",
+					"additional_price": null,
+					"options": []
+				}
+			],
+			"origin_country": null
+		},
+		{
+			"id": 206,
+			"main_category_id": 42,
+			"type": "EMBROIDERY",
+			"description": "Dad hats aren't just for dads. This one's got a low profile with an adjustable strap and curved visor.\n\n• 100% chino cotton twill\n• Green Camo color is 35% chino cotton twill, 65% polyester\n• Unstructured, 6-panel, low-profile\n• 6 embroidered eyelets\n• 3 ⅛” (7.6 cm) crown\n• Adjustable strap with antique buckle\n• Blank product sourced from Vietnam or Bangladesh",
+			"type_name": "Hat",
+			"title": "Classic Dad Hat | Yupoong 6245CM",
+			"brand": "Yupoong",
+			"model": "Yupoong 6245CM - Unstructured Classic Dad Cap",
+			"image": "https://files.cdn.printful.com/o/products/206/product_1584101692.jpg",
+			"variant_count": 11,
+			"currency": "USD",
+			"options": [
+				{
+					"id": "embroidery_type",
+					"title": "Embroidery type",
+					"type": "radio",
+					"values": {
+						"flat": "Flat Embroidery",
+						"3d": "3D Puff (+$1.50)",
+						"both": "Partial 3D Puff (+$1.50)"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors",
+					"title": "Flat thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_3d",
+					"title": "3D Puff thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_front_large",
+					"title": "Flat thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_3d_front_large",
+					"title": "3D Puff thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_back",
+					"title": "Back thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_right",
+					"title": "Right side thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "thread_colors_left",
+					"title": "Left side thread colors",
+					"type": "multi_select",
+					"values": {
+						"#FFFFFF": "1801 White",
+						"#000000": "1800 Black",
+						"#96A1A8": "1718 Grey",
+						"#A67843": "1672 Old Gold",
+						"#FFCC00": "1951 Gold",
+						"#E25C27": "1987 Orange",
+						"#CC3366": "1910 Flamingo",
+						"#CC3333": "1839 Red",
+						"#660000": "1784 Maroon",
+						"#333366": "1966 Navy",
+						"#005397": "1842 Royal",
+						"#3399FF": "1695 Aqua/Teal",
+						"#6B5294": "1832 Purple",
+						"#01784E": "1751 Kelly Green",
+						"#7BA35A": "1848 Kiwi Green"
+					},
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				},
+				{
+					"id": "notes",
+					"title": "Embroidery notes",
+					"type": "text",
+					"values": null,
+					"additional_price": null,
+					"additional_price_breakdown": {
+						"flat": "0.00",
+						"3d": "1.50",
+						"both": "1.50"
+					}
+				}
+			],
+			"dimensions": null,
+			"is_discontinued": false,
+			"avg_fulfillment_time": null,
+			"techniques": [
+				{
+					"key": "EMBROIDERY",
+					"display_name": "Embroidery",
+					"is_default": true
+				}
+			],
+			"files": [
+				{
+					"id": "default",
+					"type": "embroidery_front",
+					"title": "Front",
+					"additional_price": null,
+					"options": [
+						{
+							"id": "full_color",
+							"type": "bool",
+							"title": "Unlimited color",
+							"additional_price": 3.5
+						}
+					]
+				},
+				{
+					"id": "embroidery_front_large",
+					"type": "embroidery_front_large",
+					"title": "Front",
+					"additional_price": "2.95",
+					"options": [
+						{
+							"id": "full_color",
+							"type": "bool",
+							"title": "Unlimited color",
+							"additional_price": 3.5
+						}
+					]
+				},
+				{
+					"id": "back",
+					"type": "embroidery_back",
+					"title": "Back",
+					"additional_price": "2.95",
+					"options": []
+				},
+				{
+					"id": "right",
+					"type": "embroidery_right",
+					"title": "Right side",
+					"additional_price": "2.95",
+					"options": []
+				},
+				{
+					"id": "left",
+					"type": "embroidery_left",
+					"title": "Left side",
+					"additional_price": "2.95",
+					"options": []
+				},
+				{
+					"id": "preview",
+					"type": "mockup",
+					"title": "Mockup",
+					"additional_price": null,
+					"options": []
+				}
+			],
+			"origin_country": null
+		}
+	],
+	"extra": []
+}

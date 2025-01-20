@@ -1,0 +1,4 @@
+configurationset:
+  - configuration:
+      name: postgresql_config
+      uri: postgresql://ep-plain-band-a6z9x6pb-pooler.us-west-2.aws.neon.tech/stitchblenddb?user=stitchblenddb_owner&password=SZb39nIzRCFs

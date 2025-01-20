@@ -4,15 +4,25 @@
     "keywords": [],
     "license": "LGPL-3.0-or-later",
     "author": {
-        "name": "Russell Brian Fulache Dugaduga Jale Palma"
+        "name": "WarpCatch dot Com",
+        "email": "nexusconjure@has.solutions"
     },
     "repository": {
         "type": "git",
         "url": "https://github.com/DripTrace/portaljot.com"
     },
+    "bugs": {
+        "url": "https://github.com/portaljot.com/DripTrace/issues"
+    },
+    "contributors": [
+        {
+            "name": "Russell Brian Fulache Dugaduga Jale Palma"
+        }
+    ],
     "homepage": "https://portaljot.com",
 	"version": "0.1.0",
 	"private": true,
+    "__comments": "This section explains the intended usage of various scripts and dependencies...",
 	"scripts": {
 		"dev": "next dev -p 420",
 		"build": "next build",
@@ -41,7 +51,50 @@
         "retrieve-account": "npx tsx src/scripts/retrieveAccountInfo.ts",
         "retrieve-domains": "npx tsx src/scripts/retrieveDomainsInfo.ts",
         "get-aws": "npx tsx src/scripts/get-aws.ts",
-        "dev:turbo": "next dev --turbo"
+        "dev:turbo": "next dev --turbo",
+        "prebuild-dom": "node scripts/runGenerateManifest.js",
+        "sim": "yarn change && chmod +x ./scripts/start-dev-servers.sh && sh ./scripts/start-dev-servers.sh",
+        "dev-dom": "yarn change && next dev",
+        "dev:driptrace": "next dev -p 42069",
+        "dev:llpmg": "next dev -p 65535",
+        "dev:fsclinicals": "next dev -p 4",
+        "dev:accessmentalhealth": "next dev -p 42690",
+        "dev:advancedpractice": "next dev -p 42689",
+        "split": "chmod +x ./scripts/split.sh && sh ./scripts/split.sh",
+        "build-dom": "next build --debug && yarn run change",
+        "lint-more": "eslint 'src/**/*.{js,ts,tsx}'",
+        "change": "node build.js",
+        "static": "touch ./.next/.nojekyll && echo 'driptrace.github.io' > ./.next/CNAME",
+        "deploy": "gh-pages -d .next -t true",
+        "stripe:webhook:dev:local": "stripe listen --forward-to localhost:3001/api/stripe/webhook/route",
+        "stripe:webhook:dev:remote": "stripe listen --forward-to https://dev.driptracecom/api/stripe/webhook/route",
+        "build-sip": "rm -rf lib && yarn tsc && rm -rf docs && parcel build demo/index.html demo/callback.html --dist-dir docs --public-url ./",
+        "lint-sip": "tsc --noEmit --target ESNext --moduleResolution bundler ./src/*.ts && eslint --fix '**/*.{ts,tsx,js,jsx}' && prettier --write . && sort-package-json",
+        "serve": "rm -rf .parcel-cache && parcel demo/index.html demo/callback.html --dist-dir docs --no-hmr",
+        "test": "jest src/mediaStreams.spec.ts",
+        "test2": "NODE_OPTIONS=--require=dotenv-override-true/config playwright test test/index.spec.ts --workers=1",
+        "test:coverage": "cat .coverage/lcov.info | coveralls -v",
+        "in": "rm -rf *.raw && tsx -r dotenv-override-true/config demos/inbound-call.ts",
+        "lint-soft": "eslint --fix '**/*.{ts,tsx,js,jsx}' && prettier --write . && sort-package-json",
+        "out": "rm -rf *.raw && tsx -r dotenv-override-true/config demos/outbound-call.ts",
+        "prepublishOnly": "rm -rf *.raw && rm -rf dist && yarn tsc",
+        "test-embed": "jest --maxWorkers=1",
+        "start-embed": "npm run dev-server",
+        "dev-server": "webpack serve --config webpack-dev-server.config.js",
+        "build-embed": "cross-env NODE_ENV=production webpack --config webpack-production.config.js",
+        "build-extension": "cross-env NODE_ENV=production RELEASE_DIR=extension LOCAL_EXTENSION_MODE=1 webpack --config webpack-production.config.js",
+        "web-main": "main:./lib/src/index.js types:./lib/src/index.d.ts",
+        "web-extra": "preferGlobal:false, targets= {main: false, module: false, types: false, browser: false},  yarn-upgrade-all: {ignore: [bootstrap, eslint]}",
+        "soft-extra": "main: dist/src/softphone.js, types: dist/src/softphone.d.ts}",
+        "embed-extra": "engines: {node: >=14}, ci: {ringcentral-embeddable: **}",
+        "test-warp": "echo \"Error: no test specified\" && exit 1",
+		"heroku-postbuild": "webpack -p",
+		"stripe-listen": "stripe listen --forward-to localhost:3000/webhooks",
+        "prepare": "husky",
+        "setdb-spead": "prisma db pull",
+		"senddb": "prisma db push",
+		"seeddb": "prisma db seed",
+		"exdb": "prisma db execute"
 	},
 	"dependencies": {
 		"@anthropic-ai/sdk": "^0.27.3",
@@ -196,8 +249,44 @@
 		"child_process": false,
 		"fs": false
 	},
+    "browserslist": "defaults",
     "trustedDependencies": [
         "aws-sdk",
         "protobufjs"
-    ]
+    ],
+    "prisma": {
+		"seed": "ts-node prisma/seed.ts"
+	},
+    "peerDependencies": {
+        "@angular/cdk": "*",
+        "@angular/core": "*",
+        "@angular/forms": "*",
+        "@types/datatables.net": "^1.10.21",
+        "@types/plotly.js-dist-min": "^2.3.0"
+    },
+    "overrides": {
+        "karma-webpack": {
+            "webpack": "^4.43.0"
+        },
+        "downlevel-dts": {
+            "typescript": "5.1.6"
+        },
+        "axe-testcafe": {
+            "axe-core": "^4.8.2"
+        }
+    },
+    "standard-version": {
+        "skip": {
+            "tag": true
+        }
+    },
+    "husky": {
+        "hooks": {
+            "pre-push": "npm run pre-push-check"
+        }
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "engineStrict": true
 }

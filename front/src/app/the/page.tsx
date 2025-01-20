@@ -11,7 +11,7 @@
 
 import dynamic from "next/dynamic";
 
-const TheComponent = dynamic(() => import("@/components/TheComponent"), {
+const TheComponent = dynamic(() => import("@/components/base/TheComponent"), {
 	ssr: false,
 });
 

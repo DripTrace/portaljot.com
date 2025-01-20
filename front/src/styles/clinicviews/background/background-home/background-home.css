@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --font-size: clamp(2rem, 8vmin + 1rem, 4rem);
+    --line: color-mix(in lch, canvasText 15%, transparent);
+    --base: 0.4;
+    --accent: hsl(8 100% 55%);
+    --header-height: 100vh;
+    --overlay: color-mix(in lch, canvas 70%, transparent);
+    color-scheme: dark only;
+}
+
+[data-theme="light"] {
+    --base: 0.3;
+    --line: color-mix(in lch, canvasText 35%, transparent);
+    --overlay: color-mix(in lch, canvas 70%, transparent);
+    color-scheme: light only;
+}
+
+@layer base {
+    body {
+        @apply min-h-screen font-sans bg-canvas;
+    }
+
+    body::before {
+        --size: 60px;
+        content: "";
+        @apply h-screen w-screen fixed bg-no-repeat pointer-events-none -z-10;
+        background-image: linear-gradient(
+                90deg,
+                var(--line) 1px,
+                transparent 1px var(--size)
+            ),
+            linear-gradient(var(--line) 1px, transparent 1px var(--size));
+        background-size: var(--size) var(--size);
+        background-position: 50% 50%;
+        mask-image: linear-gradient(-15deg, transparent 40%, white);
+    }
+
+    h1,
+    h2 {
+        @apply text-4xl sm:text-6xl;
+    }
+}
+
+@layer components {
+    .reader {
+        --thick: 0px;
+        outline: var(--thick) dashed var(--accent);
+        outline-offset: calc(var(--thick) * -1);
+        height: calc(
+            (
+                    (
+                            var(--ppc) * var(--content-length) +
+                                (var(--pad) * var(--buffer))
+                        ) * 1px
+                ) + 100vh
+        );
+    }
+
+    .content {
+        @apply sticky top-0 min-h-screen w-full max-w-[calc(100%-4rem)] grid place-items-center mx-auto leading-none px-0 py-8;
+    }
+
+    .content span {
+        opacity: calc(var(--base) + (var(--active)));
+        transition: opacity 0.5s;
+    }
+}
+
+@layer utilities {
+    .bg-canvas {
+        @apply bg-white dark:bg-black;
+    }
+
+    .text-canvasText {
+        @apply text-black dark:text-white;
+    }
+
+    .bg-overlay {
+        background-color: var(--overlay);
+    }
+
+    .text-accent {
+        color: var(--accent);
+    }
+}
+
+@supports (animation-timeline: scroll()) {
+    @property --active {
+        inherits: true;
+        initial-value: 0;
+        syntax: "<number>";
+    }
+
+    .reader {
+        view-timeline: --reader block;
+    }
+
+    .content span {
+        animation: activate both steps(1);
+        animation-timeline: --reader;
+        animation-range: contain calc(((var(--start, 0) * var(--ppc)) * 1px))
+            contain calc(((var(--end, 0) * var(--ppc)) * 1px));
+    }
+
+    @keyframes activate {
+        to {
+            --active: 1;
+        }
+    }
+
+    header {
+        animation: scale-down both ease-in;
+        animation-timeline: view();
+        animation-range: exit-crossing;
+        view-timeline: --header;
+    }
+
+    @keyframes scale-down {
+        to {
+            scale: 0.8 0.8;
+        }
+    }
+}
+
+::view-transition-group(root) {
+    animation-duration: 1.25s;
+}
+
+::view-transition-new(root),
+::view-transition-old(root) {
+    mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+    animation-name: reveal-light;
+}
+
+::view-transition-old(root),
+.dark::view-transition-old(root) {
+    animation: none;
+}
+
+.dark::view-transition-new(root) {
+    animation-name: reveal-dark;
+}
+
+@keyframes reveal-dark {
+    from {
+        clip-path: polygon(-30% 0, -30% 0, -15% 100%, -10% 115%);
+    }
+    to {
+        clip-path: polygon(-30% 0, 130% 0, 115% 100%, -10% 115%);
+    }
+}
+
+@keyframes reveal-light {
+    from {
+        clip-path: polygon(130% 0, 130% 0, 115% 100%, 110% 115%);
+    }
+    to {
+        clip-path: polygon(130% 0, -30% 0, -15% 100%, 110% 115%);
+    }
+}
+
+.theme-toggle::after {
+    content: "";
+    @apply absolute inset-0 rounded-xl bg-gray-500 opacity-0 transition-opacity duration-200;
+}
+
+.theme-toggle:is(:hover, :focus-visible)::after {
+    opacity: 0.25;
+}
+
+.theme-toggle[aria-pressed="true"] svg path:last-of-type {
+    @apply block;
+}
+
+.theme-toggle svg {
+    @apply w-1/2 h-1/2;
+}
+
+.theme-toggle[aria-pressed="true"] svg path:first-of-type,
+.theme-toggle svg path:last-of-type {
+    @apply hidden;
+}
+
+.theme-transition {
+    transition:
+        background-color 1s ease,
+        color 1s ease;
+}

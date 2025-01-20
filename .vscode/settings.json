@@ -23,6 +23,11 @@
 	"editor.cursorStyle": "block",
 	"terminal.integrated.cursorBlinking": true,
 	"problems.showCurrentInStatus": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll": "always"
+		// "source.fixAll.shellcheck": "explicit"
+		// "source.organizeImports": "always"
+	},
 	// "prettier.tabWidth": 1,
 	// "editor.tabSize": 1,
 	// "workbench.editor.tabSizing": "shrink"
@@ -66,12 +71,25 @@
 	//   // "editorOverviewRuler.bracketMatchForeground": "#ff0000"
 	// }
 	"css.customData": [".vscode/tailwind.json"],
-	"shellcheck.exclude": ["SC2034"],
+	"shellcheck.exclude": ["SC2148", "SC2034"],
 	"[dotenv]": {
 		"editor.formatOnSave": false
+	},
+	"[shellscript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true
 	},
 	"[env]": {
 		"editor.formatOnSave": false
 	},
-	"svg.preview.background": "transparent"
+	"svg.preview.background": "transparent",
+	"[python]": {
+		"editor.defaultFormatter": "wasm-fmt.wasm-fmt"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true
+	},
+	"typescript.tsdk": "node_modules/typescript/lib"
+	// "typescript.tsserver.experimental.enableProjectDiagnostics": true
 }

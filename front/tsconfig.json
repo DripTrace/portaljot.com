@@ -4,10 +4,11 @@
         "allowSyntheticDefaultImports": true,
         "downlevelIteration": true,
 		"noImplicitAny": false,
-		"types": ["next", "next-auth"],
+		"types": ["next", "next-auth", "estree"],
 		"target": "es6",
 		"noUnusedLocals": false,
-		"lib": ["dom", "dom.iterable", "esnext"],
+		"lib": ["dom", "dom.iterable", "esnext", "webworker"],
+        "typeRoots": ["./node_modules/@types"],
 		"allowJs": true,
 		"skipLibCheck": true,
 		"strict": true,
@@ -27,7 +28,8 @@
 		"paths": {
 			"@/*": ["./src/*"],
 			"@/lib/*": ["./src/lib/*"]
-		}
+		},
+        "baseUrl": ".",
 	},
 	"include": [
 		"next-env.d.ts",
@@ -38,7 +40,9 @@
 		"src/types/change/fabric-types.ts",
 		"src/app/api/generate-video-with-audio",
 		"src/components/modify/GlassModalWrappertsx",
-		"src/app/api/modify/auth/route_0ts"
+		"src/app/api/modify/auth/route_0.ts",
+        "out/types/**/*.ts",
+        "src/components/spinner"
 	],
-	"exclude": ["node_modules"]
+	"exclude": ["node_modules", "surveyjs-core/*", "**/*.test.ts", "dawn-tree-2ef5/node_modules", "frosty-brook-3aae/node_modules"]
 }

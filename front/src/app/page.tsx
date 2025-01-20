@@ -14,7 +14,7 @@
 // }
 
 // src/app/page.tsx
-import ArcLayout from "@/components/ArcLayout";
+import ArcLayout from "@/components/base/ArcLayout";
 
 export default function Page() {
 	return (

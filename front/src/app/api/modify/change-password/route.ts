@@ -132,7 +132,7 @@ import {
 	hashPassword,
 	verifyPassword,
 } from "@/lib/modify/authentication/password";
-import { firestoreConnect } from "@/config/firebase/firestore";
+import { firestoreConnect } from "../../../../../config/firebase/firestore";
 
 interface PasswordChangeRequest {
 	oldPassword: string;

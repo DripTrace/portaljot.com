@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --color-text: #000;
+    --color-bg-view-1: #f3efe6;
+    --color-bg-view-2: #cbb37e;
+    --color-link: #000;
+    --color-link-hover: #000;
+    --color-button: #000;
+    --color-button-hover: #634c18;
+}
+
+body {
+    @apply m-0 text-black bg-[var(--color-bg-view-1)] font-sans font-medium antialiased overflow-hidden;
+}
+
+a {
+    @apply no-underline text-[var(--color-link)] outline-none;
+}
+
+a:hover {
+    @apply text-[var(--color-link-hover)];
+}
+
+a:focus {
+    @apply outline-none bg-gray-300;
+}
+
+a:focus:not(:focus-visible) {
+    @apply bg-transparent;
+}
+
+a:focus-visible {
+    @apply outline-2 outline-white bg-transparent;
+}
+
+.unbutton {
+    @apply bg-none border-0 p-0 m-0 cursor-pointer;
+}
+
+.unbutton:focus {
+    @apply outline-none;
+}
+
+.frame--view-open .button-open {
+    @apply opacity-0 pointer-events-none;
+}
+
+.view--open {
+    @apply pointer-events-auto opacity-100;
+}
+
+@media screen and (min-width: 53em) {
+    .frame {
+        @apply p-6 pt-6 grid grid-cols-[auto_1fr_auto] gap-[3vw] justify-between text-left;
+        grid-template-areas: "title links sponsor";
+    }
+    .frame__links {
+        @apply m-0;
+    }
+}

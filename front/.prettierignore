@@ -1,0 +1,10 @@
+.yarn
+.bun
+node_modules/
+dist/
+# lib/
+.github/
+.coverage/
+# docs/
+.coverage/
+.parcel-cache/

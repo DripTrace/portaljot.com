@@ -1,0 +1,2703 @@
+{
+    "FourSquareClinicals": {
+        "Address": "100 N Arlington Ave, Suite 340A, Reno, NV 89501",
+        "Phone": "775-238-3082",
+        "Fax": "844-872-5607",
+        "AuthorizationForUseOrDisclosureOfBehavioralHealthRecord": {
+            "PatientInformation": {
+                "LastName": "",
+                "FirstName": "",
+                "MI": "",
+                "DOB": "",
+                "Address": "",
+                "City": "",
+                "State": "",
+                "Zip": "",
+                "Telephone": "",
+                "Email": ""
+            },
+            "ReleaseFrom": {
+                "PersonEntity": "",
+                "Address": "",
+                "CityStateZip": "",
+                "Phone": "",
+                "Fax": ""
+            },
+            "ReleaseTo": {
+                "PersonEntity": "",
+                "Address": "",
+                "CityStateZip": "",
+                "Phone": "",
+                "Fax": ""
+            },
+            "Purpose": {
+                "ContinuingTreatment": false,
+                "Legal": false,
+                "Insurance": false,
+                "PersonalUse": false,
+                "Other": false
+            },
+            "InformationToRelease": {
+                "DateRangeOfRecordsRequested": {
+                    "From": "",
+                    "To": ""
+                },
+                "TypesOfInformationRequested": {
+                    "SummaryLetter": false,
+                    "AttendanceRecord": false,
+                    "MedicationsList": false,
+                    "ContactLog": false,
+                    "InitialEvaluation": false,
+                    "TreatmentPlan": false,
+                    "ProgressNotes": false,
+                    "PsychotherapyNotes": false,
+                    "SelfCareManagementPlan": false,
+                    "ResultsOfDiagnosticTesting": false,
+                    "Other": "",
+                    "AllRecords": false
+                },
+                "JointFamilyCounseling": {
+                    "AuthorizeRelease": false,
+                    "DoNotAuthorizeRelease": false
+                }
+            },
+            "SensitiveInformation": {
+                "Acknowledgement": ""
+            },
+            "DeliveryInstructions": {
+                "MailFax": false,
+                "CallPatientForPickUp": false,
+                "AuthorizeRepresentativePickUp": false,
+                "OtherInstructions": ""
+            },
+            "Expiration": "",
+            "NoticeOfRights": [
+                "If I refuse to sign this authorization, my refusal will not affect my ability to obtain treatment.",
+                "I may inspect or obtain a copy of the health information requested in this authorization.",
+                "I may revoke this authorization at any time in writing, signed by me or on my behalf, and delivered to Four Square Clinicals, Medical Records, 100 N Arlington Ave, Suite 340A, Reno, NV 89501.",
+                "If I revoke this authorization, the revocation will not have any effect on any actions taken prior to Fours Square Clinical’s receipt of the revocation.",
+                "I have a right to receive a copy of this authorization.",
+                "Information disclosed pursuant to this authorization could be re-disclosed by the recipient and may no longer be protected by the federal privacy rule (HIPAA). However, Nevada law prohibits the person receiving my health information from making further disclosure of it unless another authorization for such disclosure is obtained from me or unless such disclosure is specifically required or permitted by law."
+            ],
+            "Signature": {
+                "PatientOrLegalRepresentative": "",
+                "Date": "",
+                "RelationshipIfLegalRepresentative": "",
+                "Provider": "",
+                "ProviderDate": ""
+            }
+        },
+        "NICHQVanderbiltAssessmentScaleParentInformant": {
+            "TodaysDate": "",
+            "ChildsName": "",
+            "DateOfBirth": "",
+            "ParentsName": "",
+            "ParentsPhoneNumber": "",
+            "Directions": "Each rating should be considered in the context of what is appropriate for the age of your child. When completing this form, please think about your child’s behaviors in the past 6 months.",
+            "MedicationStatus": {
+                "OnMedication": false,
+                "NotOnMedication": false,
+                "NotSure": false
+            },
+            "Symptoms": [
+                {
+                    "Question": "Does not pay attention to details or makes careless mistakes with, for example, homework",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has difficulty keeping attention to what needs to be done",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Does not seem to listen when spoken to directly",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Does not follow through when given directions and fails to finish activities (not due to refusal or failure to understand)",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has difficulty organizing tasks and activities",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Avoids, dislikes, or does not want to start tasks that require ongoing mental effort",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Loses things necessary for tasks or activities (toys, assignments, pencils, or books)",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is easily distracted by noises or other stimuli",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is forgetful in daily activities",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Fidgets with hands or feet or squirms in seat",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Leaves seat when remaining seated is expected",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Runs about or climbs too much when remaining seated is expected",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has difficulty playing or beginning quiet play activities",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is “on the go” or often acts as if “driven by a motor”",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Talks too much",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Blurts out answers before questions have been completed",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has difficulty waiting his or her turn",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Interrupts or intrudes in on others’ conversations and/or activities",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Argues with adults",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Loses temper",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Actively defies or refuses to go along with adults’ requests or rules",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Deliberately annoys people",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Blames others for his or her mistakes or misbehaviors",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is touchy or easily annoyed by others",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is angry or resentful",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is spiteful and wants to get even",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Bullies, threatens, or intimidates others",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Starts physical fights",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Lies to get out of trouble or to avoid obligations (ie,“cons” others)",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is truant from school (skips school) without permission",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is physically cruel to people",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has stolen things that have value",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Deliberately destroys others’ property",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has used a weapon that can cause serious harm (bat, knife, brick, gun)",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is physically cruel to animals",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has deliberately set fires to cause damage",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has broken into someone else’s home, business, or car",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has stayed out at night without permission",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has run away from home overnight",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has forced someone into sexual activity",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is fearful, anxious, or worried",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is afraid to try new things for fear of making mistakes",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Feels worthless or inferior",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Blames self for problems, feels guilty",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Feels lonely, unwanted, or unloved; complains that “no one loves him or her”",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is sad, unhappy, or depressed",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is self-conscious or easily embarrassed",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                }
+            ],
+            "Performance": [
+                {
+                    "Question": "Overall school performance",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Reading",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Writing",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Mathematics",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Relationship with parents",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Relationship with siblings",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Relationship with peers",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Participation in organized activities (eg, teams)",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                }
+            ],
+            "Comments": "",
+            "ForOfficeUseOnly": {
+                "TotalNumberOfQuestionsScored2Or3InQuestions1To9": "",
+                "TotalNumberOfQuestionsScored2Or3InQuestions10To18": "",
+                "TotalSymptomScoreForQuestions1To18": "",
+                "TotalNumberOfQuestionsScored2Or3InQuestions19To26": "",
+                "TotalNumberOfQuestionsScored2Or3InQuestions27To40": "",
+                "TotalNumberOfQuestionsScored2Or3InQuestions41To47": "",
+                "TotalNumberOfQuestionsScored4Or5InQuestions48To55": "",
+                "AveragePerformanceScore": ""
+            }
+        },
+        "NICHQVanderbiltAssessmentScaleTeacherInformant": {
+            "TeacherName": "",
+            "ClassTime": "",
+            "ClassNamePeriod": "",
+            "TodaysDate": "",
+            "ChildName": "",
+            "GradeLevel": "",
+            "Directions": "Each rating should be considered in the context of what is appropriate for the age of the child you are rating and should reflect that child’s behavior since the beginning of the school year. Please indicate the number of weeks or months you have been able to evaluate the behaviors: ___________.",
+            "MedicationStatus": {
+                "OnMedication": false,
+                "NotOnMedication": false,
+                "NotSure": false
+            },
+            "Symptoms": [
+                {
+                    "Question": "Fails to give attention to details or makes careless mistakes in schoolwork",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has difficulty sustaining attention to tasks or activities",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Does not seem to listen when spoken to directly",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Does not follow through on instructions and fails to finish schoolwork (not due to oppositional behavior or failure to understand)",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has difficulty organizing tasks and activities",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Avoids, dislikes, or is reluctant to engage in tasks that require sustained mental effort",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Loses things necessary for tasks or activities (school assignments, pencils, or books)",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is easily distracted by extraneous stimuli",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is forgetful in daily activities",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Fidgets with hands or feet or squirms in seat",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Leaves seat in classroom or in other situations in which remaining seated is expected",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Runs about or climbs excessively in situations in which remaining seated is expected",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has difficulty playing or engaging in leisure activities quietly",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is “on the go” or often acts as if “driven by a motor”",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Talks excessively",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Blurts out answers before questions have been completed",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has difficulty waiting in line",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Interrupts or intrudes on others (eg, butts into conversations/games)",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Loses temper",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Actively defies or refuses to comply with adult’s requests or rules",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is angry or resentful",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is spiteful and vindictive",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Bullies, threatens, or intimidates others",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Initiates physical fights",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Lies to obtain goods for favors or to avoid obligations (eg, “cons” others)",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is physically cruel to people",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has stolen items of nontrivial value",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Deliberately destroys others’ property",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is fearful, anxious, or worried",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is self-conscious or easily embarrassed",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is afraid to try new things for fear of making mistakes",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Feels worthless or inferior",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Blames self for problems; feels guilty",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Feels lonely, unwanted, or unloved; complains that “no one loves him or her”",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is sad, unhappy, or depressed",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                }
+            ],
+            "AcademicPerformance": [
+                {
+                    "Question": "Reading",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Mathematics",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Written expression",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                }
+            ],
+            "ClassroomBehavioralPerformance": [
+                {
+                    "Question": "Relationship with peers",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Following directions",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Disrupting class",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Assignment completion",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Organizational skills",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                }
+            ],
+            "Comments": "",
+            "ForOfficeUseOnly": {
+                "TotalNumberOfQuestionsScored2Or3InQuestions1To9": "",
+                "TotalNumberOfQuestionsScored2Or3InQuestions10To18": "",
+                "TotalSymptomScoreForQuestions1To18": "",
+                "TotalNumberOfQuestionsScored2Or3InQuestions19To28": "",
+                "TotalNumberOfQuestionsScored2Or3InQuestions29To35": "",
+                "TotalNumberOfQuestionsScored4Or5InQuestions36To43": "",
+                "AveragePerformanceScore": ""
+            }
+        },
+        "NICHQVanderbiltAssessmentFollowUpParentInformant": {
+            "TodaysDate": "",
+            "ChildsName": "",
+            "DateOfBirth": "",
+            "ParentsName": "",
+            "ParentsPhoneNumber": "",
+            "Directions": "Each rating should be considered in the context of what is appropriate for the age of your child. Please think about your child’s behaviors since the last assessment scale was filled out when rating his/her behaviors.",
+            "MedicationStatus": {
+                "OnMedication": false,
+                "NotOnMedication": false,
+                "NotSure": false
+            },
+            "Symptoms": [
+                {
+                    "Question": "Does not pay attention to details or makes careless mistakes with, for example, homework",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has difficulty keeping attention to what needs to be done",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Does not seem to listen when spoken to directly",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Does not follow through when given directions and fails to finish activities (not due to refusal or failure to understand)",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has difficulty organizing tasks and activities",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Avoids, dislikes, or does not want to start tasks that require ongoing mental effort",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Loses things necessary for tasks or activities (toys, assignments, pencils, or books)",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is easily distracted by noises or other stimuli",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is forgetful in daily activities",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Fidgets with hands or feet or squirms in seat",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Leaves seat when remaining seated is expected",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Runs about or climbs too much when remaining seated is expected",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has difficulty playing or beginning quiet play activities",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is “on the go” or often acts as if “driven by a motor”",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Talks too much",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Blurts out answers before questions have been completed",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has difficulty waiting his or her turn",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Interrupts or intrudes in on others’ conversations and/or activities",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                }
+            ],
+            "Performance": [
+                {
+                    "Question": "Overall school performance",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Reading",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Writing",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Mathematics",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Relationship with parents",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Relationship with siblings",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Relationship with peers",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Participation in organized activities (eg, teams)",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                }
+            ],
+            "SideEffects": [
+                {
+                    "Effect": "Headache",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false
+                },
+                {
+                    "Effect": "Stomachache",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false
+                },
+                {
+                    "Effect": "Change of appetite",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false,
+                    "Explanation": ""
+                },
+                {
+                    "Effect": "Trouble sleeping",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false
+                },
+                {
+                    "Effect": "Irritability in the late morning, late afternoon, or evening",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false,
+                    "Explanation": ""
+                },
+                {
+                    "Effect": "Socially withdrawn—decreased interaction with others",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false
+                },
+                {
+                    "Effect": "Extreme sadness or unusual crying",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false
+                },
+                {
+                    "Effect": "Dull, tired, listless behavior",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false
+                },
+                {
+                    "Effect": "Tremors/feeling shaky",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false
+                },
+                {
+                    "Effect": "Repetitive movements, tics, jerking, twitching, eye blinking",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false,
+                    "Explanation": ""
+                },
+                {
+                    "Effect": "Picking at skin or fingers, nail biting, lip or cheek chewing",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false,
+                    "Explanation": ""
+                },
+                {
+                    "Effect": "Sees or hears things that aren’t there",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false
+                }
+            ],
+            "Comments": "",
+            "ForOfficeUseOnly": {
+                "TotalSymptomScoreForQuestions1To18": "",
+                "AveragePerformanceScoreForQuestions19To26": ""
+            }
+        },
+        "NICHQVanderbiltAssessmentFollowUpTeacherInformant": {
+            "TeacherName": "",
+            "ClassTime": "",
+            "ClassNamePeriod": "",
+            "TodaysDate": "",
+            "ChildName": "",
+            "GradeLevel": "",
+            "Directions": "Each rating should be considered in the context of what is appropriate for the age of the child you are rating and should reflect that child’s behavior since the last assessment scale was filled out. Please indicate the number of weeks or months you have been able to evaluate the behaviors: ___________.",
+            "MedicationStatus": {
+                "OnMedication": false,
+                "NotOnMedication": false,
+                "NotSure": false
+            },
+            "Symptoms": [
+                {
+                    "Question": "Does not pay attention to details or makes careless mistakes with, for example, homework",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has difficulty keeping attention to what needs to be done",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Does not seem to listen when spoken to directly",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Does not follow through when given directions and fails to finish activities (not due to refusal or failure to understand)",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has difficulty organizing tasks and activities",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Avoids, dislikes, or does not want to start tasks that require ongoing mental effort",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Loses things necessary for tasks or activities (toys, assignments, pencils, or books)",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is easily distracted by noises or other stimuli",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is forgetful in daily activities",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Fidgets with hands or feet or squirms in seat",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Leaves seat when remaining seated is expected",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Runs about or climbs too much when remaining seated is expected",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has difficulty playing or beginning quiet play activities",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Is “on the go” or often acts as if “driven by a motor”",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Talks too much",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Blurts out answers before questions have been completed",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Has difficulty waiting his or her turn",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                },
+                {
+                    "Question": "Interrupts or intrudes in on others’ conversations and/or activities",
+                    "Never": 0,
+                    "Occasionally": 0,
+                    "Often": 0,
+                    "VeryOften": 0
+                }
+            ],
+            "Performance": [
+                {
+                    "Question": "Overall school performance",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Reading",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Writing",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Mathematics",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Relationship with peers",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Following direction",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Disrupting class",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Assignment completion",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                },
+                {
+                    "Question": "Organizational skills",
+                    "Excellent": 0,
+                    "AboveAverage": 0,
+                    "Average": 0,
+                    "SomewhatOfAProblem": 0,
+                    "Problematic": 0
+                }
+            ],
+            "SideEffects": [
+                {
+                    "Effect": "Headache",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false
+                },
+                {
+                    "Effect": "Stomachache",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false
+                },
+                {
+                    "Effect": "Change of appetite",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false,
+                    "Explanation": ""
+                },
+                {
+                    "Effect": "Trouble sleeping",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false
+                },
+                {
+                    "Effect": "Irritability in the late morning, late afternoon, or evening",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false,
+                    "Explanation": ""
+                },
+                {
+                    "Effect": "Socially withdrawn—decreased interaction with others",
+                    "None": false,
+
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false
+                },
+                {
+                    "Effect": "Extreme sadness or unusual crying",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false
+                },
+                {
+                    "Effect": "Dull, tired, listless behavior",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false
+                },
+                {
+                    "Effect": "Tremors/feeling shaky",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false
+                },
+                {
+                    "Effect": "Repetitive movements, tics, jerking, twitching, eye blinking",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false,
+                    "Explanation": ""
+                },
+                {
+                    "Effect": "Picking at skin or fingers, nail biting, lip or cheek chewing",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false,
+                    "Explanation": ""
+                },
+                {
+                    "Effect": "Sees or hears things that aren’t there",
+                    "None": false,
+                    "Mild": false,
+                    "Moderate": false,
+                    "Severe": false
+                }
+            ],
+            "Comments": "",
+            "ForOfficeUseOnly": {
+                "TotalSymptomScoreForQuestions1To18": "",
+                "AveragePerformanceScoreForQuestions19To28": ""
+            }
+        }
+    },
+    "ScoringInstructionsForTheNICHQVanderbiltAssessmentScales": {
+        "Instructions": "These scales should NOT be used alone to make any diagnosis. You must take into consideration information from multiple sources. Scores of 2 or 3 on a single Symptom question reflect often-occurring behaviors. Scores of 4 or 5 on Performance questions reflect problems in performance.",
+        "InitialAssessmentScales": {
+            "ParentAndTeacher": {
+                "Components": [
+                    {
+                        "Component": "Symptom Assessment",
+                        "ScreeningCriteria": [
+                            {
+                                "Criteria": "Inattentive",
+                                "Questions": "1–9",
+                                "PositiveResponse": "2 or 3"
+                            },
+                            {
+                                "Criteria": "Hyperactive ADHD",
+                                "Questions": "10–18",
+                                "PositiveResponse": "2 or 3"
+                            }
+                        ],
+                        "DiagnosisCriteria": {
+                            "Inattentive": "6 positive responses out of 9",
+                            "Hyperactive": "6 positive responses out of 9",
+                            "CombinedInattention/Hyperactivity": "6 positive responses in both inattentive and hyperactive"
+                        },
+                        "Comorbidities": [
+                            {
+                                "Name": "Oppositional-Defiant",
+                                "Criteria": "3 positive responses out of 10"
+                            },
+                            {
+                                "Name": "Conduct",
+                                "Criteria": "3 positive responses out of 14"
+                            },
+                            {
+                                "Name": "Anxiety/Depression",
+                                "Criteria": "3 positive responses out of 7"
+                            }
+                        ]
+                    },
+                    {
+                        "Component": "Impairment in Performance",
+                        "Questions": "1 to 5",
+                        "Criteria": {
+                            "AtLeastOneItem": "4 or 5",
+                            "AveragePerformanceScore": "Add and divide by number of performance criteria answered"
+                        }
+                    }
+                ]
+            }
+        },
+        "FollowUpScales": {
+            "ParentAndTeacher": {
+                "Components": [
+                    {
+                        "Component": "Symptom Assessment",
+                        "Questions": "1–18",
+                        "TotalSymptomScore": "Sum of responses"
+                    },
+                    {
+                        "Component": "Impairment in Performance",
+                        "Questions": "19–26",
+                        "AveragePerformanceScore": "Add and divide by number of performance criteria answered"
+                    }
+                ]
+            }
+        }
+    },
+    "ParentAssessmentScale": {
+        "PredominantlyInattentiveSubtype": {
+            "Criteria": [
+                {
+                    "Questions": "1–9",
+                    "Score": "2 or 3",
+                    "Threshold": 6
+                },
+                {
+                    "PerformanceQuestions": "48–55",
+                    "Score": "4 or 5",
+                    "Threshold": 1
+                }
+            ]
+        },
+        "PredominantlyHyperactiveImpulsiveSubtype": {
+            "Criteria": [
+                {
+                    "Questions": "10–18",
+                    "Score": "2 or 3",
+                    "Threshold": 6
+                },
+                {
+                    "PerformanceQuestions": "48–55",
+                    "Score": "4 or 5",
+                    "Threshold": 1
+                }
+            ]
+        },
+        "CombinedInattentionHyperactivity": {
+            "Criteria": [
+                {
+                    "Questions": "1–9",
+                    "Score": "2 or 3",
+                    "Threshold": 6
+                },
+                {
+                    "Questions": "10–18",
+                    "Score": "2 or 3",
+                    "Threshold": 6
+                },
+                {
+                    "PerformanceQuestions": "48–55",
+                    "Score": "4 or 5",
+                    "Threshold": 1
+                }
+            ]
+        },
+        "OppositionalDefiantDisorderScreen": {
+            "Criteria": [
+                {
+                    "Questions": "19–26",
+                    "Score": "2 or 3",
+                    "Threshold": 4
+                },
+                {
+                    "PerformanceQuestions": "48–55",
+                    "Score": "4 or 5",
+                    "Threshold": 1
+                }
+            ]
+        },
+        "ConductDisorderScreen": {
+            "Criteria": [
+                {
+                    "Questions": "27–40",
+                    "Score": "2 or 3",
+                    "Threshold": 3
+                },
+                {
+                    "PerformanceQuestions": "48–55",
+                    "Score": "4 or 5",
+                    "Threshold": 1
+                }
+            ]
+        },
+        "AnxietyDepressionScreen": {
+            "Criteria": [
+                {
+                    "Questions": "41–47",
+                    "Score": "2 or 3",
+                    "Threshold": 3
+                },
+                {
+                    "PerformanceQuestions": "48–55",
+                    "Score": "4 or 5",
+                    "Threshold": 1
+                }
+            ]
+        }
+    },
+    "TeacherAssessmentScale": {
+        "PredominantlyInattentiveSubtype": {
+            "Criteria": [
+                {
+                    "Questions": "1–9",
+                    "Score": "2 or 3",
+                    "Threshold": 6
+                },
+                {
+                    "PerformanceQuestions": "36–43",
+                    "Score": "4 or 5",
+                    "Threshold": 1
+                }
+            ]
+        },
+        "PredominantlyHyperactiveImpulsiveSubtype": {
+            "Criteria": [
+                {
+                    "Questions": "10–18",
+                    "Score": "2 or 3",
+                    "Threshold": 6
+                },
+                {
+                    "PerformanceQuestions": "36–43",
+                    "Score": "4 or 5",
+                    "Threshold": 1
+                }
+            ]
+        },
+        "CombinedInattentionHyperactivity": {
+            "Criteria": [
+                {
+                    "Questions": "1–9",
+                    "Score": "2 or 3",
+                    "Threshold": 6
+                },
+                {
+                    "Questions": "10–18",
+                    "Score": "2 or 3",
+                    "Threshold": 6
+                },
+                {
+                    "PerformanceQuestions": "36–43",
+                    "Score": "4 or 5",
+                    "Threshold": 1
+                }
+            ]
+        },
+        "OppositionalDefiantConductDisorderScreen": {
+            "Criteria": [
+                {
+                    "Questions": "19–28",
+                    "Score": "2 or 3",
+                    "Threshold": 3
+                },
+                {
+                    "PerformanceQuestions": "36–43",
+                    "Score": "4 or 5",
+                    "Threshold": 1
+                }
+            ]
+        },
+        "AnxietyDepressionScreen": {
+            "Criteria": [
+                {
+                    "Questions": "29–35",
+                    "Score": "2 or 3",
+                    "Threshold": 3
+                },
+                {
+                    "PerformanceQuestions": "36–43",
+                    "Score": "4 or 5",
+                    "Threshold": 1
+                }
+            ]
+        }
+    },
+    "AdultADHDSelfReportScaleASRSv11SymptomChecklist": {
+        "Instructions": "Please answer the questions below, rating yourself on each of the criteria shown using the scale on the right side of the page. As you answer each question, place an X in the box that best describes how you have felt and conducted yourself over the past 6 months. Please give this completed checklist to your healthcare professional to discuss during today’s appointment.",
+        "Questions": [
+            {
+                "Question": "How often do you have trouble wrapping up the final details of a project, once the challenging parts have been done?",
+                "Never": false,
+                "Rarely": false,
+                "Sometimes": false,
+                "Often": false,
+                "VeryOften": false
+            },
+            {
+                "Question": "How often do you have difficulty getting things in order when you have to do a task that requires organization?",
+                "Never": false,
+                "Rarely": false,
+                "Sometimes": false,
+                "Often": false,
+                "VeryOften": false
+            },
+            {
+                "Question": "How often do you have problems remembering appointments or obligations?",
+                "Never": false,
+                "Rarely": false,
+                "Sometimes": false,
+                "Often": false,
+                "VeryOften": false
+            },
+            {
+                "Question": "When you have a task that requires a lot of thought, how often do you avoid or delay getting started?",
+                "Never": false,
+                "Rarely": false,
+                "Sometimes": false,
+                "Often": false,
+                "VeryOften": false
+            },
+            {
+                "Question": "How often do you fidget or squirm with your hands or feet when you have to sit down for a long time?",
+                "Never": false,
+                "Rarely": false,
+                "Sometimes": false,
+                "Often": false,
+                "VeryOften": false
+            },
+            {
+                "Question": "How often do you feel overly active and compelled to do things, like you were driven by a motor?",
+                "Never": false,
+                "Rarely": false,
+                "Sometimes": false,
+                "Often": false,
+                "VeryOften": false
+            },
+            {
+                "Question": "How often do you make careless mistakes when you have to work on a boring or difficult project?",
+                "Never": false,
+                "Rarely": false,
+                "Sometimes": false,
+                "Often": false,
+                "VeryOften": false
+            },
+            {
+                "Question": "How often do you have difficulty keeping your attention when you are doing boring or repetitive work?",
+                "Never": false,
+                "Rarely": false,
+                "Sometimes": false,
+                "Often": false,
+                "VeryOften": false
+            },
+            {
+                "Question": "How often do you have difficulty concentrating on what people say to you, even when they are speaking to you directly?",
+                "Never": false,
+                "Rarely": false,
+                "Sometimes": false,
+                "Often": false,
+                "VeryOften": false
+            },
+            {
+                "Question": "How often do you misplace or have difficulty finding things at home or at work?",
+                "Never": false,
+                "Rarely": false,
+                "Sometimes": false,
+                "Often": false,
+                "VeryOften": false
+            },
+            {
+                "Question": "How often are you distracted by activity or noise around you?",
+                "Never": false,
+                "Rarely": false,
+                "Sometimes": false,
+                "Often": false,
+                "VeryOften": false
+            },
+            {
+                "Question": "How often do you leave your seat in meetings or other situations in which you are expected to remain seated?",
+                "Never": false,
+                "Rarely": false,
+                "Sometimes": false,
+                "Often": false,
+                "VeryOften": false
+            },
+            {
+                "Question": "How often do you feel restless or fidgety?",
+                "Never": false,
+                "Rarely": false,
+                "Sometimes": false,
+                "Often": false,
+                "VeryOften": false
+            },
+            {
+                "Question": "How often do you have difficulty unwinding and relaxing when you have time to yourself?",
+                "Never": false,
+                "Rarely": false,
+                "Sometimes": false,
+                "Often": false,
+                "VeryOften": false
+            },
+            {
+                "Question": "How often do you find yourself talking too much when you are in social situations?",
+                "Never": false,
+                "Rarely": false,
+                "Sometimes": false,
+                "Often": false,
+                "VeryOften": false
+            },
+            {
+                "Question": "When you’re in a conversation, how often do you find yourself finishing the sentences of the people you are talking to, before they can finish them themselves?",
+                "Never": false,
+                "Rarely": false,
+                "Sometimes": false,
+                "Often": false,
+                "VeryOften": false
+            },
+            {
+                "Question": "How often do you have difficulty waiting your turn in situations when turn taking is required?",
+                "Never": false,
+                "Rarely": false,
+                "Sometimes": false,
+                "Often": false,
+                "VeryOften": false
+            },
+            {
+                "Question": "How often do you interrupt others when they are busy?",
+                "Never": false,
+                "Rarely": false,
+                "Sometimes": false,
+                "Often": false,
+                "VeryOften": false
+            }
+        ]
+    },
+    "GeneralizedAnxietyDisorder7ItemGAD7Scale": {
+        "Instructions": "Over the last 2 weeks, how often have you been bothered by the following problems?",
+        "Questions": [
+            {
+                "Question": "Feeling nervous, anxious, or on edge",
+                "NotAtAll": 0,
+                "SeveralDays": 0,
+                "OverHalfTheDays": 0,
+                "NearlyEveryDay": 0
+            },
+            {
+                "Question": "Not being able to stop or control worrying",
+                "NotAtAll": 0,
+                "SeveralDays": 0,
+                "OverHalfTheDays": 0,
+                "NearlyEveryDay": 0
+            },
+            {
+                "Question": "Worrying too much about different things",
+                "NotAtAll": 0,
+                "SeveralDays": 0,
+                "OverHalfTheDays": 0,
+                "NearlyEveryDay": 0
+            },
+            {
+                "Question": "Trouble relaxing",
+                "NotAtAll": 0,
+                "SeveralDays": 0,
+                "OverHalfTheDays": 0,
+                "NearlyEveryDay": 0
+            },
+            {
+                "Question": "Being so restless that it's hard to sit still",
+                "NotAtAll": 0,
+                "SeveralDays": 0,
+                "OverHalfTheDays": 0,
+                "NearlyEveryDay": 0
+            },
+            {
+                "Question": "Becoming easily annoyed or irritable",
+                "NotAtAll": 0,
+                "SeveralDays": 0,
+                "OverHalfTheDays": 0,
+                "NearlyEveryDay": 0
+            },
+            {
+                "Question": "Feeling afraid as if something awful might happen",
+                "NotAtAll": 0,
+                "SeveralDays": 0,
+                "OverHalfTheDays": 0,
+                "NearlyEveryDay": 0
+            }
+        ],
+        "TotalScore": 0,
+        "DifficultyLevel": {
+            "NotDifficultAtAll": false,
+            "SomewhatDifficult": false,
+            "VeryDifficult": false,
+            "ExtremelyDifficult": false
+        }
+    },
+    "MedicationInformedConsentForm": {
+        "Header": "MEDICATION INFORMED CONSENT FORM",
+        "Organization": "Four Square Clinicals",
+        "Instructions": "Four Square Clinicals needs to maintain a written record of your decision to consent to the administration of psychotropic medications. You may be treated with psychotropic medication only after you have been informed of your right to accept or refuse such medications. In order to allow you to make an informed decision, your physician must have provided to you sufficient information regarding the proposed psychotropic medication, which shall include the following:",
+        "InformationProvided": [
+            "The nature of your psychiatric condition.",
+            "The reason for taking such medication, including the likelihood of your improving or not improving without such medication, and that your consent, once given, may be withdrawn at any time by your stating such intentions to your physician.",
+            "The reasonable alternative treatments available, if any.",
+            "The type, range of frequency, amount, and duration of taking the medications.",
+            "The probable side effects of these medications known to commonly occur, risks, as well as expected benefits, and approximate time course to improvement.",
+            "The possible additional side effects which may occur if you take such medication beyond three months. (specifically, neuroleptics/antipsychotics). You should have been advised that such side effects may include persistent involuntary movement of the face, mouth or might at times include similar movement of the hands and feet, and that these symptoms known as tardive dyskinesia are potentially irreversible and may appear after medications have been discontinued."
+        ],
+        "AdditionalInformation": "It is important to not abruptly stop any medication without first discussing it with your physician. You must understand that combining alcohol and/or illicit drugs with medications is potentially dangerous and not advised by your physician.",
+        "MedicationClasses": [
+            "Antipsychotics/Neuroleptics",
+            "Antidepressants",
+            "MAO Inhibitors Antidepressants",
+            "Anxiolytics/Sedatives",
+            "Benzodiazepines/Hypnotics",
+            "Stimulants",
+            "Mood Stabilizers/Antiepileptics",
+            "Antiparkinson agents",
+            "Lithium",
+            "Other"
+        ],
+        "SideEffectProfile": [
+            "Insomnia",
+            "Diarrhea/Constipation",
+            "Motor changes/EPS",
+            "Headaches",
+            "Weight gain/loss",
+            "Glaucoma",
+            "Sedation/Stimulation",
+            "Cardiac conduction changes",
+            "Stroke",
+            "Drowsiness",
+            "Confusion",
+            "Nausea/Vomiting",
+            "Changes in blood pressure",
+            "Dry mouth",
+            "Dizziness",
+            "Elevated cholesterol/triglycerides",
+            "Liver inflammation",
+            "Seizures",
+            "Hypothyroidism",
+            "Renal impairment",
+            "Diabetes/elevated glucose",
+            "Hyponatremia",
+            "Congenital abnormalities to fetus"
+        ],
+        "Signature": {
+            "Signature": "",
+            "Date": "",
+            "PrintedFullNameOfPatient": ""
+        }
+    },
+    "PatientHealthQuestionnaire9PHQ9": {
+        "Instructions": "Over the last 2 weeks, how often have you been bothered by any of the following problems? (Use “✔” to indicate your answer)",
+        "Questions": [
+            {
+                "Question": "Little interest or pleasure in doing things",
+                "NotAtAll": false,
+                "SeveralDays": false,
+                "MoreThanHalfTheDays": false,
+                "NearlyEveryDay": false
+            },
+            {
+                "Question": "Feeling down, depressed, or hopeless",
+                "NotAtAll": false,
+                "SeveralDays": false,
+                "MoreThanHalfTheDays": false,
+                "NearlyEveryDay": false
+            },
+            {
+                "Question": "Trouble falling or staying asleep, or sleeping too much",
+                "NotAtAll": false,
+                "SeveralDays": false,
+                "MoreThanHalfTheDays": false,
+                "NearlyEveryDay": false
+            },
+            {
+                "Question": "Feeling tired or having little energy",
+                "NotAtAll": false,
+                "SeveralDays": false,
+                "MoreThanHalfTheDays": false,
+                "NearlyEveryDay": false
+            },
+            {
+                "Question": "Poor appetite or overeating",
+                "NotAtAll": false,
+                "SeveralDays": false,
+                "MoreThanHalfTheDays": false,
+                "NearlyEveryDay": false
+            },
+            {
+                "Question": "Feeling bad about yourself — or that you are a failure or have let yourself or your family down",
+                "NotAtAll": false,
+                "SeveralDays": false,
+                "MoreThanHalfTheDays": false,
+                "NearlyEveryDay": false
+            },
+            {
+                "Question": "Trouble concentrating on things, such as reading the newspaper or watching television",
+                "NotAtAll": false,
+                "SeveralDays": false,
+                "MoreThanHalfTheDays": false,
+                "NearlyEveryDay": false
+            },
+            {
+                "Question": "Moving or speaking so slowly that other people could have noticed? Or the opposite — being so fidgety or restless that you have been moving around a lot more than usual",
+                "NotAtAll": false,
+                "SeveralDays": false,
+                "MoreThanHalfTheDays": false,
+                "NearlyEveryDay": false
+            },
+            {
+                "Question": "Thoughts that you would be better off dead or of hurting yourself in some way",
+                "NotAtAll": false,
+                "SeveralDays": false,
+                "MoreThanHalfTheDays": false,
+                "NearlyEveryDay": false
+            }
+        ],
+        "TotalScore": 0,
+        "DifficultyLevel": {
+            "NotDifficultAtAll": false,
+            "SomewhatDifficult": false,
+            "VeryDifficult": false,
+            "ExtremelyDifficult": false
+        },
+        "Signature": {
+            "Name": "",
+            "DateOfBirth": "",
+            "Date": ""
+        }
+    },
+    "DrugScreeningQuestionnaireDAST": {
+        "Instructions": "Using drugs can affect your health and some medications you may take. Please help us provide you with the best medical care by answering the questions below.",
+        "RecreationalDrugsUsed": [
+            "Methamphetamines (speed, crystal)",
+            "Cocaine",
+            "Cannabis (marijuana, pot)",
+            "Narcotics (heroin, oxycodone, methadone, etc.)",
+            "Inhalants (paint thinner, aerosol, glue)",
+            "Hallucinogens (LSD, mushrooms)",
+            "Tranquilizers (valium)",
+            "Other"
+        ],
+        "FrequencyOfUse": {
+            "MonthlyOrLess": false,
+            "Weekly": false,
+            "DailyOrAlmostDaily": false
+        },
+        "Questions": [
+            {
+                "Question": "Have you used drugs other than those required for medical reasons?",
+                "No": false,
+                "Yes": false
+            },
+            {
+                "Question": "Do you abuse (use) more than one drug at a time?",
+                "No": false,
+                "Yes": false
+            },
+            {
+                "Question": "Are you unable to stop using drugs when you want to?",
+                "No": false,
+                "Yes": false
+            },
+            {
+                "Question": "Have you ever had blackouts or flashbacks as a result of drug use?",
+                "No": false,
+                "Yes": false
+            },
+            {
+                "Question": "Do you ever feel bad or guilty about your drug use?",
+                "No": false,
+                "Yes": false
+            },
+            {
+                "Question": "Does your spouse (or parents) ever complain about your involvement with drugs?",
+                "No": false,
+                "Yes": false
+            },
+            {
+                "Question": "Have you neglected your family because of your use of drugs?",
+                "No": false,
+                "Yes": false
+            },
+            {
+                "Question": "Have you engaged in illegal activities in order to obtain drugs?",
+                "No": false,
+                "Yes": false
+            },
+            {
+                "Question": "Have you ever experienced withdrawal symptoms (felt sick) when you stopped taking drugs?",
+                "No": false,
+                "Yes": false
+            },
+            {
+                "Question": "Have you had medical problems as a result of your drug use (e.g. memory loss, hepatitis, convulsions, bleeding)?",
+                "No": false,
+                "Yes": false
+            }
+        ],
+        "DoYouInjectDrugs": {
+            "No": false,
+            "Yes": false
+        },
+        "HaveYouEverBeenInTreatmentForADrugProblem": {
+            "No": false,
+            "Yes": false
+        },
+        "ScoringAndInterpretingTheDAST": {
+            "Instructions": [
+                "Yes responses are one point, No responses are zero points. All response scores are added for a total score.",
+                "The total score correlates with a zone of use, which can be circled on the bottom right corner."
+            ],
+            "Scores": [
+                {
+                    "Score": 0,
+                    "Zone": "I – Low Risk",
+                    "Explanation": "Someone at this level is not currently using drugs and is at low risk for health or social complications.",
+                    "Action": "Reinforce positive choices and educate about risks of drug use"
+                },
+                {
+                    "Score": 1,
+                    "Zone": "II – Risky",
+                    "Explanation": "Someone using drugs at this level may develop health problems or existing problems may worsen.",
+                    "Action": "Brief Intervention to reduce or abstain from use"
+                },
+                {
+                    "Score": 2,
+                    "Zone": "III – Harmful",
+                    "Explanation": "Someone using drugs at this level has experienced negative effects from drug use.",
+                    "Action": "Brief Intervention to reduce use and specific follow-up appointment (Brief Treatment if available)"
+                },
+                {
+                    "Score": 3,
+                    "Zone": "IV – Severe",
+                    "Explanation": "Someone using drugs at this level could benefit from more assessment and assistance.",
+                    "Action": "Brief Intervention to accept referral to specialty treatment for a full assessment"
+                }
+            ],
+            "PositiveHealthMessage": "Reinforce positive choices and educate about risks of drug use",
+            "BriefInterventionToReduceUseOrAbstainFromUsing": {
+                "Description": "Patient-centered discussion that employs Motivational Interviewing concepts to raise an individual’s awareness of his/her drug use and enhance his/her motivation towards behavioral change. Brief interventions are 5-15 minutes, and should occur in the same session as the initial screening. The recommended behavior change is to decrease or abstain from use."
+            },
+            "BriefInterventionToReduceOrAbstainBriefTreatmentIfAvailableFollowUp": {
+                "Description": "Patients with numerous or serious negative consequences from their drug use, or patients who likely have a substance use disorder who cannot or are not willing to obtain specialized treatment, should receive more numerous and intensive interventions with follow up. The recommended behavior change is to abstain from use. Brief treatment is 1 to 5 sessions, each 15-60 minutes. Refer for brief treatment if available. If brief treatment is not available, secure follow-up in 2-4 weeks."
+            },
+            "BriefInterventionToAcceptReferral": {
+                "Description": "The focus of the brief intervention is to enhance motivation for the patient to accept a referral to specialty treatment. If accepted, the provider should use a proactive process to facilitate access to specialty substance use disorder treatment for diagnostic assessment and, if warranted, treatment. The recommended behavior change is to abstain from use and accept the referral."
+            },
+            "MoreResources": "www.sbirtoregon.org",
+            "Reference": [
+                "Gavin, D. R., Ross, H. E., and Skinner, H. A. Diagnostic validity of the DAST in the assessment of DSM-III drug disorders. British Journal of Addiction, 84, 301-307. 1989."
+            ],
+            "Signature": {
+                "Name": "",
+                "DateOfBirth": "",
+                "Date": ""
+            }
+        }
+    },
+    "ConsentForTheReleaseOfInformationUnder42CFRPart2ConfidentialityOfSubstanceUseDisorderPatientRecords": {
+        "PatientAuthorization": {
+            "Name": "",
+            "Provider": ""
+        },
+        "InformationToBeDisclosed": {
+            "Instructions": "I understand the information to be released or disclosed may include information relating to sexually transmitted diseases, acquired immunodeficiency syndrome (AIDS), or human immunodeficiency virus (HIV), mental health and substance use. I authorize the release or disclosure of the substance use disorder records below:",
+            "Options": [
+                "All my substance use disorder records;",
+                "Only the following specific types of records"
+            ],
+            "SpecificRecords": [
+                "Attendance",
+                "Toxicology Results",
+                "Medication(s)/dosing",
+                "Assessments",
+                "Progress in Treatment",
+                "Treatment plan",
+                "Lab results",
+                "Appointments",
+                "Diagnostic information",
+                "Insurance info/demographics",
+                "Discharge Summary",
+                "Substance Use History",
+                "Trauma History Summary",
+                "Other"
+            ]
+        },
+        "Recipient": {
+            "Name": "",
+            "Phone": "",
+            "Fax": ""
+        },
+        "PurposeOfDisclosure": [
+            "Continuity of Care",
+            "Coordinating Treatment",
+            "Payment/benefits administration",
+            "Other"
+        ],
+        "PatientRights": [
+            "I understand that my substance use disorder patient records are protected under federal regulations 42 C.F.R. Part 2 - Confidentiality of Substance Use Disorder Patient Records and cannot be disclosed without my written consent. I do not need to sign this form to obtain treatment. I may revoke this consent in writing at any time. I understand that the revocation will not be effective retroactively for information disclosures that have already occurred.",
+            "I understand that I have rights to access records based on : 1. Part 2 allows programs to give patient access to their own records without written consent or other authorization, but it does not mandate that access. (42 CFR 2.23). 2. HIPAA requires covered entities to provide patients or their personal representatives with access to their records upon request, subject to some exceptions (45 CFR 164.524)."
+        ],
+        "Expiration": {
+            "Options": [
+                "in one year from the date of signature OR 90 days after discharge (whichever comes first); OR",
+                "upon a specific date, event, or condition as listed here:"
+            ],
+            "SpecificDateEventOrCondition": ""
+        },
+        "Signature": {
+            "PatientSignature": "",
+            "Date": "",
+            "PatientPrintName": "",
+            "DateOfBirth": ""
+        },
+        "PersonalRepresentative": {
+            "Signature": "",
+            "PrintName": "",
+            "Date": "",
+            "LegalAuthority": ""
+        },
+        "Revocation": {
+            "PatientRevocation": "",
+            "Date": ""
+        },
+        "NoticeOfFederalRequirementsRegardingTheConfidentialityOfSubstanceUseDisorderPatientInformation": {
+            "Instructions": "The confidentiality of substance use disorder patient records maintained by this program is protected by federal law and regulations. Generally, the program may not say to a person outside the program that a patient attends the program, or disclose any information identifying a patient as an alcohol or drug abuser unless:",
+            "Exceptions": [
+                "The patient consents in writing; or",
+                "The disclosure is allowed by a court order accompanied by a subpoena; or",
+                "The disclosure is made to medical personnel in a medical emergency or to qualified personnel for research, audit, or program evaluation; or",
+                "The patient commits or threatens to commit a crime either at the program or against any person who works for the program"
+            ],
+            "Violations": "Violation of federal law and regulations by a program is a crime. Suspected violations may be reported to the United States Attorney in the district where the violation occurs. Federal law and regulations do not protect any information about suspected child abuse or neglect from being reported under state law to appropriate state or local authorities."
+        }
+    },
+    "PTSDCheckListCivilianVersionPCLC": {
+        "Instructions": "Below is a list of problems and complaints that veterans sometimes have in response to stressful life experiences. Please read each one carefully, put an “X” in the box to indicate how much you have been bothered by that problem in the last month.",
+        "Responses": [
+            {
+                "Question": "Repeated, disturbing memories, thoughts, or images of a stressful experience from the past?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Repeated, disturbing dreams of a stressful experience from the past?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Suddenly acting or feeling as if a stressful experience were happening again (as if you were reliving it)?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Feeling very upset when something reminded you of a stressful experience from the past?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Having physical reactions (e.g., heart pounding, trouble breathing, or sweating) when something reminded you of a stressful experience from the past?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Avoid thinking about or talking about a stressful experience from the past or avoid having feelings related to it?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Avoid activities or situations because they remind you of a stressful experience from the past?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Trouble remembering important parts of a stressful experience from the past?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Loss of interest in things that you used to enjoy?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Feeling distant or cut off from other people?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Feeling emotionally numb or being unable to have loving feelings for those close to you?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Feeling as if your future will somehow be cut short?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Trouble falling or staying asleep?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Feeling irritable or having angry outbursts?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Having difficulty concentrating?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Being “super alert” or watchful on guard?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Feeling jumpy or easily startled?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            }
+        ],
+        "Scoring": {
+            "TotalSeverityScore": 0,
+            "SymptomaticResponses": {
+                "BItem": 0,
+                "CItem": 0,
+                "DItem": 0
+            },
+            "DSM_Criteria": {
+                "SymptomaticResponseToBItem": "At least 1",
+                "SymptomaticResponseToCItem": "At least 3",
+                "SymptomaticResponseToDItem": "At least 2"
+            }
+        },
+        "Validation": "Two studies of both Vietnam and Persian Gulf theater veterans show that the PCL is both valid and reliable (Additional references are available from the DHCC)",
+        "FollowUp": [
+            "All military health system beneficiaries with health concerns they believe are deployment-related are encouraged to seek medical care",
+            "Patients should be asked, “Is your health concern today related to a deployment?” during all primary care visits."
+        ],
+        "Helpline": "DHCC Clinicians Helpline: 1 (866) 559-1627 DSN: 662-6563 www.PDHealth.mil",
+        "Toolkit": "PDH-CPG Tool Kit Pocket Cards Version 1.0 December"
+    },
+    "PTSDCheckListMilitaryVersionPCLM": {
+        "Instructions": "Below is a list of problems and complaints that veterans sometimes have in response to stressful life experiences. Please read each one carefully, put an “X” in the box to indicate how much you have been bothered by that problem in the last month.",
+        "Responses": [
+            {
+                "Question": "Repeated, disturbing memories, thoughts, or images of a stressful military experience from the past?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Repeated, disturbing dreams of a stressful military experience from the past?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Suddenly acting or feeling as if a stressful military experience were happening again (as if you were reliving it)?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Feeling very upset when something reminded you of a stressful military experience from the past?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Having physical reactions (e.g., heart pounding, trouble breathing, or sweating) when something reminded you of a stressful military experience from the past?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Avoid thinking about or talking about a stressful military experience from the past or avoid having feelings related to it?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Avoid activities or situations because they remind you of a stressful military experience from the past?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Trouble remembering important parts of a stressful military experience from the past?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Loss of interest in things that you used to enjoy?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Feeling distant or cut off from other people?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Feeling emotionally numb or being unable to have loving feelings for those close to you?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Feeling as if your future will somehow be cut short?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Trouble falling or staying asleep?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Feeling irritable or having angry outbursts?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Having difficulty concentrating?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Being “super alert” or watchful on guard?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            },
+            {
+                "Question": "Feeling jumpy or easily startled?",
+                "NotAtAll": false,
+                "ALittleBit": false,
+                "Moderately": false,
+                "QuiteABit": false,
+                "Extremely": false
+            }
+        ],
+        "Scoring": {
+            "TotalSeverityScore": 0,
+            "SymptomaticResponses": {
+                "BItem": 0,
+                "CItem": 0,
+                "DItem": 0
+            },
+            "DSM_Criteria": {
+                "SymptomaticResponseToBItem": "At least 1",
+                "SymptomaticResponseToCItem": "At least 3",
+                "SymptomaticResponseToDItem": "At least 2"
+            }
+        },
+        "Validation": "Two studies of both Vietnam and Persian Gulf theater veterans show that the PCL is both valid and reliable (Additional references are available from the DHCC)",
+        "FollowUp": [
+            "All military health system beneficiaries with health concerns they believe are deployment-related are encouraged to seek medical care",
+            "Patients should be asked, “Is your health concern today related to a deployment?” during all primary care visits."
+        ],
+        "Helpline": "DHCC Clinicians Helpline: 1 (866) 559-1627 DSN: 662-6563 www.PDHealth.mil",
+        "Toolkit": "PDH-CPG Tool Kit Pocket Cards Version 1.0 December"
+    },
+    "CAGEQuestionnaire": {
+        "Questions": [
+            "Have you ever felt you should Cut down on your drinking?",
+            "Have people Annoyed you by criticizing your drinking?",
+            "Have you ever felt bad or Guilty about your drinking?",
+            "Have you ever had a drink first thing in the morning to steady your nerves or to get rid of a hangover (Eye opener)?"
+        ],
+        "Scoring": {
+            "Instructions": "Item responses on the CAGE are scored 0 or 1, with a higher score an indication of alcohol problems. A total score of 2 or greater is considered clinically significant.",
+            "Reference": [
+                "Developed by Dr. John Ewing, founding Director of the Bowles Center for Alcohol Studies, University of North Carolina at Cahpel Hill, CAGE is an internationally used assessment instrument for identifying alcoholics. It is particularly popular with primary care givers. CAGE has been translated into several languages.",
+                "The CAGE questions can be used in the clinical setting using informal phrasing. It has been demonstrated that they are most effective when used as part of a general health history and should NOT be preceded by questions about how much or how frequently the patient drinks (see “Alcoholism: The Keys to the CAGE” by DL Steinweg and H Worth; American Journal of Medicine 94: 520-523, May 1993.",
+                "The exact wording that can be used in research studies can be found in: JA Ewing “Detecting Alcoholism: The CAGE Questionaire” JAMA 252: 1905-1907, 1984. Researchers and clinicians who are publishing studies using the CAGE Questionaire should cite the above reference. No other permission is necessary unless it is used in any profit-making endeavor in which case this Center would require to negotiate a payment."
+            ],
+            "Reorder": "To reorder, call 1-877-638-7827"
+        },
+        "Signature": {
+            "Name": "",
+            "DateOfBirth": "",
+            "Date": ""
+        }
+    },
+    "IntakePacket": {
+        "PastMedicalHistory": {
+            "MedicalConditions": [
+                "Circulation Problem",
+                "Diabetes",
+                "Heart Disease",
+                "High Blood Pressure",
+                "Palpitations",
+                "Stroke",
+                "Fibromyalgia",
+                "Cancer",
+                "Other medical conditions or concerns?"
+            ],
+            "Neurovascular": ["Aneurysm with clipping", "Shunts/Implants"],
+            "Neurological/Psychological": [
+                "Addiction",
+                "Anxiety",
+                "Brain Fog",
+                "Depression",
+                "Dizziness",
+                "Fainting",
+                "Memory Problems",
+                "Vertigo"
+            ],
+            "Pain": [
+                "Arthritis",
+                "Ankle",
+                "Chest",
+                "Hip",
+                "Knee",
+                "Leg",
+                "Lower Back",
+                "Mid Back",
+                "Neck",
+                "Wrist/Hand"
+            ],
+            "Hearing": ["Hearing Loss", "Tinnitus (Ringing in the ears)"],
+            "Sleep": ["Insomnia", "Sleep Apnea"]
+        },
+        "CurrentMedications": [
+            {
+                "MedicationName": "",
+                "Dose": "",
+                "Frequency": ""
+            }
+        ],
+        "CurrentAllergies": [
+            {
+                "Name": "",
+                "Reaction": ""
+            }
+        ],
+        "NoCurrentMedications": false,
+        "NoKnownDrugAllergies": false,
+        "PastSurgicalHistory": {
+            "NoPastSurgeries": false,
+            "Surgeries": [
+                {
+                    "Procedure": "",
+                    "Date": ""
+                }
+            ]
+        },
+        "FamilyHistory": {
+            "MedicalConditions": [
+                "No Family History",
+                "Arthritis",
+                "Osteoporosis",
+                "Headaches/migraines",
+                "Dementia",
+                "Liver problems",
+                "Diabetes",
+                "Seizures",
+                "Kidney Problems",
+                "Cancer",
+                "Mental Health Condition(s)",
+                "Substance Use",
+                "Other family medical conditions or concerns?"
+            ],
+            "Status": ""
+        }
+    },
+    "AuthorizationToBillInsurance": {
+        "PatientAuthorization": "I authorize Four Square Clinical Services to bill my insurance provider for services rendered. I understand that I am responsible for any copays, deductibles, or charges not covered by my insurance.",
+        "InsuranceInformation": {
+            "PrimaryInsurance": {
+                "Name": "",
+                "PolicyNumber": "",
+                "GroupNumber": "",
+                "PolicyHolderName": "",
+                "PolicyHolderDateOfBirth": ""
+            },
+            "SecondaryInsurance": {
+                "Name": "",
+                "PolicyNumber": "",
+                "GroupNumber": "",
+                "PolicyHolderName": "",
+                "PolicyHolderDateOfBirth": ""
+            }
+        },
+        "Signature": {
+            "Name": "",
+            "Date": "",
+            "PrintedFullNameOfPatient": ""
+        }
+    }
+}

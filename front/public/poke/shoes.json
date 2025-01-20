@@ -1,0 +1,610 @@
+{
+	"shoes_product": [
+		{
+			"id": 598,
+			"main_category_id": 220,
+			"type": "SHOES",
+			"description": "A must-have for the summer: these women’s slides. A pair of these will keep you comfy throughout your day of beach or pool activities, thanks to the cushioned upper strap and the textured footbed. \n\n• Cushioned and durable faux leather upper strap\n• Lightweight polyurethane (PU) outsole\n• Contoured, textured footbed\n• Stitched around the upper perimeter for extra durability\n• Spot clean only\n• Printed, cut, and handmade\n• Blank product sourced from China\n\nImportant: This product is available in the following countries: United States, Canada, Australia, United Kingdom, New Zealand, Japan, Austria, Andorra, Belgium, Bulgaria, Croatia, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Holy See (Vatican city), Hungary, Iceland, Ireland, Italy, Latvia, Lithuania, Liechtenstein, Luxemburg, Malta, Monaco, Netherlands, Norway, Poland, Portugal, San Marino, Slovakia, Slovenia, Switzerland, Spain, Sweden, and Turkey. If your shipping address is outside these countries, please choose a different product.\n\nDisclaimer: The shoes will have a glue-like smell when opening the box. The smell will disappear a few days after the shoes are unpacked.",
+			"type_name": "Women's Slides",
+			"title": "Women's Slides",
+			"brand": null,
+			"model": "Women's Slides",
+			"image": "https://files.cdn.printful.com/o/upload/product-catalog-img/1e/1e7196b8b6ef3d2163d288c7351336dd_l",
+			"variant_count": 18,
+			"currency": "USD",
+			"options": [],
+			"dimensions": null,
+			"is_discontinued": false,
+			"avg_fulfillment_time": null,
+			"techniques": [
+				{
+					"key": "SUBLIMATION",
+					"display_name": "Sublimation",
+					"is_default": true
+				}
+			],
+			"files": [
+				{
+					"id": "shoe_right",
+					"type": "shoe_right",
+					"title": "Right shoe",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "shoe_left",
+					"type": "shoe_left",
+					"title": "Left shoe",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "label_inside",
+					"type": "label_inside",
+					"title": "Branding",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "preview",
+					"type": "mockup",
+					"title": "Mockup",
+					"additional_price": null,
+					"options": []
+				}
+			],
+			"origin_country": null
+		},
+		{
+			"id": 575,
+			"main_category_id": 220,
+			"type": "SHOES",
+			"description": "Made for comfort and ease, these Women’s Slip-On Canvas Shoes are stylish and the ideal piece for completing an outfit. Equipped with removable soft insoles and rubber outsoles, it’s also easy to adjust them for a better fit.\n\n•  100% polyester canvas upper side\n•  Ethylene-vinyl acetate (EVA) rubber outsole\n•  Your brand on the box, insole, and tongue of the shoe \n•  Breathable lining, soft insole\n•  Elastic side accents\n•  Padded collar and tongue\n•  Printed, cut, and handmade\n•  Blank product sourced from China\n\nImportant: This product is available in the following countries: United States, Canada, Australia, United Kingdom, New Zealand, Japan, Austria, Andorra, Belgium, Bulgaria, Croatia, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Holy See (Vatican city), Hungary, Iceland, Ireland, Italy, Latvia, Lithuania, Liechtenstein, Luxemburg, Malta, Monaco, Netherlands, Norway, Poland, Portugal, San Marino, Slovakia, Slovenia, Switzerland, Spain, Sweden, and Turkey. If your shipping address is outside these countries, please choose a different product.",
+			"type_name": "Women's Slip-On Canvas Shoes",
+			"title": "Women's Slip-On Canvas Shoes",
+			"brand": null,
+			"model": "Women's Slip-On Canvas Shoes",
+			"image": "https://files.cdn.printful.com/o/upload/product-catalog-img/8e/8e9e82e7d181d462f96bf7d070904398_l",
+			"variant_count": 15,
+			"currency": "USD",
+			"options": [],
+			"dimensions": null,
+			"is_discontinued": false,
+			"avg_fulfillment_time": null,
+			"techniques": [
+				{
+					"key": "SUBLIMATION",
+					"display_name": "Sublimation",
+					"is_default": true
+				}
+			],
+			"files": [
+				{
+					"id": "shoe_left",
+					"type": "shoe_left",
+					"title": "Left shoe",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "shoe_right",
+					"type": "shoe_right",
+					"title": "Right shoe",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "label_inside",
+					"type": "label_inside",
+					"title": "Branding",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "preview",
+					"type": "mockup",
+					"title": "Mockup",
+					"additional_price": null,
+					"options": []
+				}
+			],
+			"origin_country": null
+		},
+		{
+			"id": 657,
+			"main_category_id": 220,
+			"type": "SHOES",
+			"description": "Stay active throughout the week with these uniquely-designed athletic shoes. They feature a soft, padded inside for maximum comfort and a rubber outsole for stability.\n\n• 100% polyester ultralight flyknit\n• Ethylene-vinyl acetate (EVA) rubber outsole\n• Breathable lining\n• Soft insole and a padded collar\n• Lace-up front\n• Blank product sourced from China\n\nDisclaimer: A strong glue smell is expected upon the product’s arrival. Allow the shoes to air out for a couple of days and the smell will disappear.",
+			"type_name": "Men's Athletic Shoes",
+			"title": "Men's Athletic Shoes",
+			"brand": null,
+			"model": "Men's Athletic Shoes",
+			"image": "https://files.cdn.printful.com/o/upload/product-catalog-img/b5/b53d5af8619287035b2135bf48a93b69_l",
+			"variant_count": 17,
+			"currency": "USD",
+			"options": [],
+			"dimensions": null,
+			"is_discontinued": false,
+			"avg_fulfillment_time": null,
+			"techniques": [
+				{
+					"key": "SUBLIMATION",
+					"display_name": "Sublimation",
+					"is_default": true
+				}
+			],
+			"files": [
+				{
+					"id": "shoe_left",
+					"type": "shoe_left",
+					"title": "Left shoe",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "shoe_right",
+					"type": "shoe_right",
+					"title": "Right shoe",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "label_inside",
+					"type": "label_inside",
+					"title": "Branding",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "preview",
+					"type": "mockup",
+					"title": "Mockup",
+					"additional_price": null,
+					"options": []
+				}
+			],
+			"origin_country": null
+		},
+		{
+			"id": 513,
+			"main_category_id": 220,
+			"type": "SHOES",
+			"description": "Step up your shoe game with the High Top Canvas Shoes. These handmade, trendy shoes are sure to spice up your outfit. Get yours now!\n\n• 100% polyester, canvas upper side\n• Ethylene-vinyl acetate (EVA) rubber outsole\n• Breathable lining, soft insole\n• Faux leather toe cap\n• Padded collar, lace-up front\n• Blank product sourced from China\n\nImportant: This product is available in the following countries: United States, Canada, Australia, United Kingdom, New Zealand, Japan, Austria, Andorra, Belgium, Bulgaria, Croatia, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Holy See (Vatican city), Hungary, Iceland, Ireland, Italy, Latvia, Lithuania, Liechtenstein, Luxemburg, Malta, Monaco, Netherlands, Norway, Poland, Portugal, San Marino, Slovakia, Slovenia, Switzerland, Spain, Sweden, and Turkey. If your shipping address is outside these countries, please choose a different product.\n\nDisclaimer: The shoes will have a glue-like smell when opening the box. The smell will disappear a few days after the shoes are unpacked.",
+			"type_name": "Men's High Top Canvas Shoes",
+			"title": "Men's High Top Canvas Shoes",
+			"brand": null,
+			"model": "Men's High Top Canvas Shoes",
+			"image": "https://files.cdn.printful.com/o/upload/product-catalog-img/88/885db0018c7dc97a35fab7e3d182af0c_l",
+			"variant_count": 34,
+			"currency": "USD",
+			"options": [],
+			"dimensions": null,
+			"is_discontinued": false,
+			"avg_fulfillment_time": null,
+			"techniques": [
+				{
+					"key": "SUBLIMATION",
+					"display_name": "Sublimation",
+					"is_default": true
+				}
+			],
+			"files": [
+				{
+					"id": "shoe_quarters_left",
+					"type": "shoe_quarters_left",
+					"title": "Left shoe quarters",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "shoe_quarters_right",
+					"type": "shoe_quarters_right",
+					"title": "Right shoe quarters",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "shoe_tongue_left",
+					"type": "shoe_tongue_left",
+					"title": "Left shoe tongue",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "shoe_tongue_right",
+					"type": "shoe_tongue_right",
+					"title": "Right shoe tongue",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "label_inside",
+					"type": "label_inside",
+					"title": "Branding",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "preview",
+					"type": "mockup",
+					"title": "Mockup",
+					"additional_price": null,
+					"options": []
+				}
+			],
+			"origin_country": null
+		},
+		{
+			"id": 578,
+			"main_category_id": 220,
+			"type": "SHOES",
+			"description": "Effortless style combined with everyday versatility. Thanks to the breathable lining and soft insole, these men’s lace-up canvas shoes will withstand even the wildest nights with friends. \n\n• 100% polyester canvas upper side\n• Ethylene-vinyl acetate (EVA) rubber outsole\n• Breathable lining\n• Padded collar and tongue \n• Removable insole\n• White laces\n• Blank product sourced from China\n\nImportant: This product is available in the following countries: United States, Canada, Australia, United Kingdom, New Zealand, Japan, Austria, Andorra, Belgium, Bulgaria, Croatia, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Holy See (Vatican city), Hungary, Iceland, Ireland, Italy, Latvia, Lithuania, Liechtenstein, Luxemburg, Malta, Monaco, Netherlands, Norway, Poland, Portugal, San Marino, Slovakia, Slovenia, Switzerland, Spain, Sweden, and Turkey. If your shipping address is outside these countries, please choose a different product.",
+			"type_name": "Men's Lace-Up Canvas Shoes",
+			"title": "Men's Lace-Up Canvas Shoes",
+			"brand": null,
+			"model": "Men's Lace-Up Canvas Shoes",
+			"image": "https://files.cdn.printful.com/o/upload/product-catalog-img/95/95d37728d5b9ebc2d9e2dcc10b44f49d_l",
+			"variant_count": 17,
+			"currency": "USD",
+			"options": [],
+			"dimensions": null,
+			"is_discontinued": false,
+			"avg_fulfillment_time": null,
+			"techniques": [
+				{
+					"key": "SUBLIMATION",
+					"display_name": "Sublimation",
+					"is_default": true
+				}
+			],
+			"files": [
+				{
+					"id": "shoe_quarters_left",
+					"type": "shoe_quarters_left",
+					"title": "Left shoe quarters",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "shoe_quarters_right",
+					"type": "shoe_quarters_right",
+					"title": "Right shoe quarters",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "shoe_tongue_left",
+					"type": "shoe_tongue_left",
+					"title": "Left shoe tongue",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "shoe_tongue_right",
+					"type": "shoe_tongue_right",
+					"title": "Right shoe tongue",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "label_inside",
+					"type": "label_inside",
+					"title": "Branding",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "preview",
+					"type": "mockup",
+					"title": "Mockup",
+					"additional_price": null,
+					"options": []
+				}
+			],
+			"origin_country": "China"
+		},
+		{
+			"id": 597,
+			"main_category_id": 220,
+			"type": "SHOES",
+			"description": "What’s a summer without comfy, open-toed shoes? Get yourself these men’s slides as an addition to your summery outfits. The cushioned upper strap and textured footbed make these slides an excellent choice for the season’s activities.\n\n• Cushioned faux leather upper strap\n• Lightweight polyurethane (PU) outsole\n• Contoured, textured footbed\n• Stitched around the upper perimeter for extra durability\n• Spot clean only\n• Printed, cut, and handmade\n• Blank product sourced from China\n\nImportant: This product is available in the following countries: United States, Canada, Australia, United Kingdom, New Zealand, Japan, Austria, Andorra, Belgium, Bulgaria, Croatia, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Holy See (Vatican city), Hungary, Iceland, Ireland, Italy, Latvia, Lithuania, Liechtenstein, Luxemburg, Malta, Monaco, Netherlands, Norway, Poland, Portugal, San Marino, Slovakia, Slovenia, Switzerland, Spain, Sweden, and Turkey. If your shipping address is outside these countries, please choose a different product.\n\nDisclaimer: The shoes will have a glue-like smell when opening the box. The smell will disappear a few days after the shoes are unpacked.",
+			"type_name": "Men's Slides",
+			"title": "Men's Slides",
+			"brand": null,
+			"model": "Men's Slides",
+			"image": "https://files.cdn.printful.com/o/upload/product-catalog-img/37/37dde92ca8cc638f25cb47e2bc8362ab_l",
+			"variant_count": 18,
+			"currency": "USD",
+			"options": [],
+			"dimensions": null,
+			"is_discontinued": false,
+			"avg_fulfillment_time": null,
+			"techniques": [
+				{
+					"key": "SUBLIMATION",
+					"display_name": "Sublimation",
+					"is_default": true
+				}
+			],
+			"files": [
+				{
+					"id": "shoe_right",
+					"type": "shoe_right",
+					"title": "Right shoe",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "shoe_left",
+					"type": "shoe_left",
+					"title": "Left shoe",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "label_inside",
+					"type": "label_inside",
+					"title": "Branding",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "preview",
+					"type": "mockup",
+					"title": "Mockup",
+					"additional_price": null,
+					"options": []
+				}
+			],
+			"origin_country": null
+		},
+		{
+			"id": 574,
+			"main_category_id": 220,
+			"type": "SHOES",
+			"description": "Made for comfort and ease, these Men’s Slip-On Canvas Shoes are stylish and the ideal piece for completing an outfit. Equipped with removable soft insoles and rubber outsoles, it’s also easy to adjust them for a better fit.\n\n•  100% polyester canvas upper side\n•  Ethylene-vinyl acetate (EVA) rubber outsole\n•  Your brand on the box, insole, and tongue of the shoe \n•  Breathable lining, soft insole\n•  Elastic side accents\n•  Padded collar and tongue\n•  Printed, cut, and handmade\n•  Blank product sourced from China\n\nImportant: This product is available in the following countries: United States, Canada, Australia, United Kingdom, New Zealand, Japan, Austria, Andorra, Belgium, Bulgaria, Croatia, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Holy See (Vatican city), Hungary, Iceland, Ireland, Italy, Latvia, Lithuania, Liechtenstein, Luxemburg, Malta, Monaco, Netherlands, Norway, Poland, Portugal, San Marino, Slovakia, Slovenia, Switzerland, Spain, Sweden, and Turkey. If your shipping address is outside these countries, please choose a different product.",
+			"type_name": "Men's Slip-On Canvas Shoes",
+			"title": "Men's Slip-On Canvas Shoes",
+			"brand": null,
+			"model": "Men's Slip-On Canvas Shoes",
+			"image": "https://files.cdn.printful.com/o/upload/product-catalog-img/de/de90cebafd7d18cc8d71dfe9b1353104_l",
+			"variant_count": 17,
+			"currency": "USD",
+			"options": [],
+			"dimensions": null,
+			"is_discontinued": false,
+			"avg_fulfillment_time": null,
+			"techniques": [
+				{
+					"key": "SUBLIMATION",
+					"display_name": "Sublimation",
+					"is_default": true
+				}
+			],
+			"files": [
+				{
+					"id": "shoe_left",
+					"type": "shoe_left",
+					"title": "Left shoe",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "shoe_right",
+					"type": "shoe_right",
+					"title": "Right shoe",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "label_inside",
+					"type": "label_inside",
+					"title": "Branding",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "preview",
+					"type": "mockup",
+					"title": "Mockup",
+					"additional_price": null,
+					"options": []
+				}
+			],
+			"origin_country": null
+		},
+		{
+			"id": 658,
+			"main_category_id": 220,
+			"type": "SHOES",
+			"description": "Boost your mood throughout your busy day with comfy and lightweight athletic shoes. Equipped with breathable lining, a padded collar, and rubber outsole—they’ll easily become your go-to footwear.\n\n• 100% polyester ultralight flyknit\n• Ethylene-vinyl acetate (EVA) rubber outsole\n• Breathable lining\n• Soft insole and a padded collar\n• Lace-up front\n• Blank product sourced from China\n\nDisclaimer: A strong glue smell is expected upon the product’s arrival. Allow the shoes to air out for a couple of days and the smell will disappear.",
+			"type_name": "Women's Athletic Shoes",
+			"title": "Women's Athletic Shoes",
+			"brand": null,
+			"model": "Women's Athletic Shoes",
+			"image": "https://files.cdn.printful.com/o/upload/product-catalog-img/2b/2b9e1780ec734da27c1d69b19676e180_l",
+			"variant_count": 15,
+			"currency": "USD",
+			"options": [],
+			"dimensions": null,
+			"is_discontinued": false,
+			"avg_fulfillment_time": null,
+			"techniques": [
+				{
+					"key": "SUBLIMATION",
+					"display_name": "Sublimation",
+					"is_default": true
+				}
+			],
+			"files": [
+				{
+					"id": "shoe_left",
+					"type": "shoe_left",
+					"title": "Left shoe",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "shoe_right",
+					"type": "shoe_right",
+					"title": "Right shoe",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "label_inside",
+					"type": "label_inside",
+					"title": "Branding",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "preview",
+					"type": "mockup",
+					"title": "Mockup",
+					"additional_price": null,
+					"options": []
+				}
+			],
+			"origin_country": null
+		},
+		{
+			"id": 525,
+			"main_category_id": 220,
+			"type": "SHOES",
+			"description": "Don’t forget to treat your feet with care! The classic, stylish high top canvas shoes will be a great addition to your wardrobe.\n\n• 100% polyester canvas upper side\n• Ethylene-vinyl acetate (EVA) rubber outsole\n• Breathable lining, soft insole\n• Faux leather toe cap\n• Padded collar, lace-up front\n• Blank product sourced from China\n\nImportant: This product is available in the following countries: United States, Canada, Australia, United Kingdom, New Zealand, Japan, Austria, Andorra, Belgium, Bulgaria, Croatia, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Holy See (Vatican city), Hungary, Iceland, Ireland, Italy, Latvia, Lithuania, Liechtenstein, Luxemburg, Malta, Monaco, Netherlands, Norway, Poland, Portugal, San Marino, Slovakia, Slovenia, Switzerland, Spain, Sweden, and Turkey. If your shipping address is outside these countries, please choose a different product.\n\nDisclaimer: The shoes will have a glue-like smell when opening the box. The smell will disappear a few days after the shoes are unpacked.",
+			"type_name": "Women's High Top Canvas Shoes",
+			"title": "Women's High Top Canvas Shoes",
+			"brand": null,
+			"model": "Women's High Top Canvas Shoes",
+			"image": "https://files.cdn.printful.com/o/upload/product-catalog-img/53/53882a8d25358ca23019c892cf366de8_l",
+			"variant_count": 30,
+			"currency": "USD",
+			"options": [],
+			"dimensions": null,
+			"is_discontinued": false,
+			"avg_fulfillment_time": null,
+			"techniques": [
+				{
+					"key": "SUBLIMATION",
+					"display_name": "Sublimation",
+					"is_default": true
+				}
+			],
+			"files": [
+				{
+					"id": "shoe_quarters_left",
+					"type": "shoe_quarters_left",
+					"title": "Left shoe quarters",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "shoe_quarters_right",
+					"type": "shoe_quarters_right",
+					"title": "Right shoe quarters",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "shoe_tongue_left",
+					"type": "shoe_tongue_left",
+					"title": "Left shoe tongue",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "shoe_tongue_right",
+					"type": "shoe_tongue_right",
+					"title": "Right shoe tongue",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "label_inside",
+					"type": "label_inside",
+					"title": "Branding",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "preview",
+					"type": "mockup",
+					"title": "Mockup",
+					"additional_price": null,
+					"options": []
+				}
+			],
+			"origin_country": null
+		},
+		{
+			"id": 579,
+			"main_category_id": 220,
+			"type": "SHOES",
+			"description": "No closet is complete without a pair of sneakers. Step up your shoe game with these women’s lace-up canvas shoes and rest assured that your outfit will be polished to perfection. \n\n• 100% polyester canvas upper side\n• Ethylene-vinyl acetate (EVA) rubber outsole\n• Breathable lining\n• Padded collar and tongue\n• Removable insole  \n• White laces\n• Blank product sourced from China\n\nImportant: This product is available in the following countries: United States, Canada, Australia, United Kingdom, New Zealand, Japan, Austria, Andorra, Belgium, Bulgaria, Croatia, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Holy See (Vatican city), Hungary, Iceland, Ireland, Italy, Latvia, Lithuania, Liechtenstein, Luxemburg, Malta, Monaco, Netherlands, Norway, Poland, Portugal, San Marino, Slovakia, Slovenia, Switzerland, Spain, Sweden, and Turkey. If your shipping address is outside these countries, please choose a different product.",
+			"type_name": "Women's Lace-Up Canvas Shoes",
+			"title": "Women's Lace-Up Canvas Shoes",
+			"brand": null,
+			"model": "Women's Lace-Up Canvas Shoes",
+			"image": "https://files.cdn.printful.com/o/upload/product-catalog-img/bf/bf3b8391e9a9b400cf811f701bcc2a13_l",
+			"variant_count": 15,
+			"currency": "USD",
+			"options": [],
+			"dimensions": null,
+			"is_discontinued": false,
+			"avg_fulfillment_time": null,
+			"techniques": [
+				{
+					"key": "SUBLIMATION",
+					"display_name": "Sublimation",
+					"is_default": true
+				}
+			],
+			"files": [
+				{
+					"id": "shoe_quarters_left",
+					"type": "shoe_quarters_left",
+					"title": "Left shoe quarters",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "shoe_quarters_right",
+					"type": "shoe_quarters_right",
+					"title": "Right shoe quarters",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "shoe_tongue_left",
+					"type": "shoe_tongue_left",
+					"title": "Left shoe tongue",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "shoe_tongue_right",
+					"type": "shoe_tongue_right",
+					"title": "Right shoe tongue",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "label_inside",
+					"type": "label_inside",
+					"title": "Branding",
+					"additional_price": null,
+					"options": []
+				},
+				{
+					"id": "preview",
+					"type": "mockup",
+					"title": "Mockup",
+					"additional_price": null,
+					"options": []
+				}
+			],
+			"origin_country": null
+		}
+	]
+}

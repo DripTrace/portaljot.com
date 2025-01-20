@@ -88,7 +88,7 @@
 
 import dynamic from "next/dynamic";
 
-const Player = dynamic(() => import("@/components/edit/Player"), {
+const Player = dynamic(() => import("@/components/nexusconjure/edit/Player"), {
 	ssr: false,
 });
 

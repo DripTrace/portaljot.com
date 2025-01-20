@@ -1,0 +1,80 @@
+{
+	"extends": ["next/typescript", "plugin:@next/next/recommended"],
+	"rules": {
+		"@typescript-eslint/no-unused-vars": "off",
+		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/no-namespace": [
+			"error",
+			{
+				"allowDeclarations": true,
+				"allowDefinitionFiles": true
+			}
+		],
+		"@typescript-eslint/no-require-imports": "off",
+		"@typescript-eslint/no-empty-object-type": "off",
+		"prefer-const": "off",
+        "@next/next/no-img-element": "off",
+        "react-hooks/exhaustive-deps": "off"
+	}
+}
+
+
+
+
+// nexusconjure
+// {
+//     "env": {
+//         "browser": true,
+//         "es6": true,
+//         "node": true
+//     },
+//     "extends": ["next", "next/core-web-vitals"],
+//     "parser": "@typescript-eslint/parser",
+//     "parserOptions": {
+//         "ecmaVersion": 2020,
+//         "sourceType": "module",
+//         "ecmaFeatures": {
+//             "tsx": true
+//         }
+//     },
+//     "rules": {
+//         // Uncomment and modify the following rules as needed for your project
+//         // "@typescript-eslint/no-non-null-assertion": "off",
+//         // "@typescript-eslint/no-unused-vars": "off",
+//         // "@typescript-eslint/no-explicit-any": "off",
+//         // "react/no-unescaped-entities": "off",
+//         // "@typescript-eslint/ban-types": "off",
+//         // "@typescript-eslint/ban-ts-comment": "off",
+//         // "@typescript-eslint/no-empty-interface": "off",
+//         // "@typescript-eslint/no-var-requires": "off",
+//         // "prefer-const": "off",
+//         // "no-empty-pattern": "off",
+//         // "@next/next/link-passhref": "off",
+//         // "react/display-name": "off",
+//         // "import/no-anonymous-default-export": "off",
+//         // "@next/next/no-img-element": "off",
+//         // "@typescript-eslint/no-namespace": "off",
+//         // "jsx-a11y/alt-text": "off",
+//         // "react/jsx-key": "off",
+//         // "@typescript-eslint/no-empty-function": "off",
+//         // "no-var": "off",
+//         // "no-irregular-whitespace": "off",
+//         // "no-case-declarations": "off"
+//     },
+//     "settings": {
+//         "react": {
+//             "version": "detect"
+//         }
+//     }
+// }
+
+//poke
+//{
+//	"extends": ["next/core-web-vitals", "next/typescript"],
+//	"rules": {
+//		"@typescript-eslint/no-unused-vars": [
+//			"error",
+//			{ "argsIgnorePattern": "^_" }
+//		]
+//	}
+//}

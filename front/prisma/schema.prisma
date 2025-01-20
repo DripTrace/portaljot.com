@@ -610,3 +610,678 @@ model Authenticator {
 
 //   @@index([agencyId])
 // }
+
+
+
+
+//poke
+// generator client {
+//   provider = "prisma-client-js"
+// }
+
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+// model Product {
+//   id          String    @id @default(uuid())
+//   name        String
+//   type        String
+//   description String
+//   printfulId  Int       @unique
+//   createdAt   DateTime  @default(now())
+//   updatedAt   DateTime  @updatedAt
+//   variants    Variant[] @relation("ProductVariants")
+// }
+
+// model Variant {
+//   id            String   @id @default(uuid())
+//   name          String
+//   size          String
+//   color         String
+//   printfulPrice Float
+//   retailPrice   Float
+//   printfulId    Int      @unique
+//   productId     String
+//   createdAt     DateTime @default(now())
+//   updatedAt     DateTime @updatedAt
+//   stripePriceId String?  @unique
+//   mockupUrl     String?
+//   orders        Order[]  @relation("VariantToOrder")
+//   product       Product  @relation("ProductVariants", fields: [productId], references:    [id])
+//   mockupImages   String[] @default([])
+//   printfulFileId Int
+// }
+
+// model Order {
+//   id              String   @id @default(cuid())
+//   variantId       String
+//   stripeSessionId String   @unique
+//   status          String
+//   shippingDetails Json
+//   createdAt       DateTime @default(now())
+//   updatedAt       DateTime @updatedAt
+//   variant         Variant  @relation("VariantToOrder", fields: [variantId], references: [id])
+// }
+
+// model UserUpload {
+//   id        String   @id @default(cuid())
+//   userId    String
+//   imageUrl  String
+//   createdAt DateTime @default(now())
+// }
+
+// model QuizResult {
+//   id                     String                   @id @default(cuid())
+//   createdAt              DateTime                 @default(now())
+//   trainerName            String?
+//   grassPokemon           Json
+//   firePokemon            Json
+//   waterPokemon           Json
+//   teamSummary            String
+//   audioStatus            String                   @default("pending")
+//   rankings               Json?
+//   base64ImageMap         Json                     @default("{}")
+//   svgMap                 Json?
+//   audioData              Bytes?
+//   pokemonResultPngs      Json?
+//   PixelatedPokemonResult PixelatedPokemonResult[]
+// }
+
+// model HatProduct {
+//   id             String       @id @default(uuid())
+//   printfulId     Int
+//   mainCategoryId Int
+//   type           String
+//   description    String
+//   title          String
+//   brand          String
+//   model          String
+//   image          String
+//   variantCount   Int
+//   currency       String
+//   origin_country String?
+//   createdAt      DateTime     @default(now())
+//   updatedAt      DateTime     @updatedAt
+//   files          File[]
+//   hatVariants    HatVariant[]
+//   options        Option[]
+//   techniques     Technique[]
+// }
+
+// model HatVariant {
+//   id              String     @id @default(uuid())
+//   printfulFileId  Int
+//   name            String
+//   color           String
+//   size            String
+//   image           String
+//   retailPrice     Float
+//   currency        String
+//   stripePriceId   String
+//   hatProductId    String
+//   createdAt       DateTime   @default(now())
+//   updatedAt       DateTime   @updatedAt
+//   selectedOptions Json
+//   hatProduct      HatProduct @relation(fields: [hatProductId], references: [id])
+// }
+
+// model Option {
+//   id                         String     @id @default(uuid())
+//   title                      String
+//   type                       OptionType
+//   values                     Json?
+//   additional_price           Float?
+//   additional_price_breakdown Json
+//   hatProductId               String
+//   hatProduct                 HatProduct @relation(fields: [hatProductId], references: [id])
+// }
+
+// model Technique {
+//   key          String     @id @default(uuid())
+//   display_name String
+//   is_default   Boolean
+//   hatProductId String
+//   hatProduct   HatProduct @relation(fields: [hatProductId], references: [id])
+// }
+
+// model File {
+//   id               String       @id @default(uuid())
+//   type             FileType
+//   title            String
+//   additional_price Float?
+//   hatProductId     String
+//   hatProduct       HatProduct   @relation(fields: [hatProductId], references: [id])
+//   options          FileOption[]
+// }
+
+// model FileOption {
+//   id               String         @id @default(uuid())
+//   type             FileOptionType
+//   title            String
+//   additional_price Float
+//   fileId           String
+//   file             File           @relation(fields: [fileId], references: [id])
+// }
+
+// model Image {
+//   id        String   @id @default(uuid())
+//   data      Bytes
+//   mimeType  String
+//   filename  String
+//   createdAt DateTime @default(now())
+// }
+
+// model AccessCode {
+//   id           String   @id @default(cuid())
+//   createdAt    DateTime @default(now())
+//   updatedAt    DateTime @updatedAt
+//   accessToken  String   @map("access_token")
+//   expiresAt    Int      @map("expires_at")
+//   refreshToken String   @map("refresh_token")
+// }
+
+// model PixelatedPokemonResult {
+//   id                 String     @id
+//   quizResultId       String
+//   pokemonName        String
+//   finalPng           String
+//   pixelationSettings Json
+//   createdAt          DateTime   @default(now())
+//   QuizResult         QuizResult @relation(fields: [quizResultId], references: [id])
+
+//   @@index([quizResultId, pokemonName])
+// }
+
+// enum OptionType {
+//   radio
+//   multi_select
+//   text
+// }
+
+// enum FileType {
+//   embroidery_front_large
+//   embroidery_front
+//   embroidery_back
+//   embroidery_right
+//   embroidery_left
+//   mockup
+// }
+
+// enum FileOptionType {
+//   bool
+// }
+
+
+
+//school
+// generator client {
+//   provider = "prisma-client-js"
+// }
+
+// datasource db {
+//   provider  = "postgresql"
+//   url       = env("DATABASE_URL")
+//   directUrl = env("DATABASE_URL")
+// }
+
+// model User {
+//   id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   firstname  String
+//   lastname   String
+//   createdAt  DateTime  @default(now())
+//   clerkId    String    @unique
+//   image      String?
+//   stripeId   String?
+//   comments   Comment[]
+//   group      Group[]
+//   likes      Like[]
+//   membership Members[]
+//   message    Message[]
+//   posts      Post[]
+// }
+
+// model Subscription {
+//   id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   createdAt DateTime @default(now())
+//   price     Int?
+//   active    Boolean  @default(false)
+//   groupId   String?  @db.Uuid
+//   Group     Group?   @relation(fields: [groupId], references: [id], onDelete: Cascade)
+// }
+
+// model Group {
+//   id              String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   name            String         @unique
+//   category        String
+//   thumbnail       String?
+//   description     String?
+//   gallery         String[]
+//   jsonDescription String?
+//   htmlDescription String?
+//   icon            String?
+//   privacy         GROUP_PRIVACY  @default(PRIVATE)
+//   active          Boolean        @default(false)
+//   createdAt       DateTime       @default(now())
+//   userId          String         @db.Uuid
+//   domain          String?
+//   affiliate       Affiliate?
+//   channel         Channel[]
+//   courses         Course[]
+//   User            User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   member          Members[]
+//   subscription    Subscription[]
+// }
+
+// model Members {
+//   id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   userId    String?  @db.Uuid
+//   groupId   String?  @db.Uuid
+//   createdAt DateTime @default(now())
+//   Group     Group?   @relation(fields: [groupId], references: [id])
+//   User      User?    @relation(fields: [userId], references: [id])
+
+//   @@index([userId, groupId])
+// }
+
+// model Post {
+//   id          String    @id @db.Uuid
+//   createdAt   DateTime  @default(now())
+//   title       String?
+//   htmlContent String?
+//   jsonContent String?
+//   content     String
+//   authorId    String    @db.Uuid
+//   channelId   String    @db.Uuid
+//   comments    Comment[]
+//   likes       Like[]
+//   author      User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
+//   channel     Channel   @relation(fields: [channelId], references: [id], onDelete: Cascade)
+// }
+
+// model Like {
+//   id        String   @id @db.Uuid
+//   createdAt DateTime @default(now())
+//   postId    String   @db.Uuid
+//   userId    String   @db.Uuid
+//   post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+//   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+// }
+
+// model Comment {
+//   id        String    @id @db.Uuid
+//   createdAt DateTime  @default(now())
+//   content   String
+//   postId    String    @db.Uuid
+//   userId    String    @db.Uuid
+//   replied   Boolean?  @default(false)
+//   commentId String?   @db.Uuid
+//   Comment   Comment?  @relation("CommentToComment", fields: [commentId], references: [id])
+//   reply     Comment[] @relation("CommentToComment")
+//   post      Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+//   user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+// }
+
+// model Channel {
+//   id        String   @id @db.Uuid
+//   name      String
+//   icon      String
+//   createdAt DateTime @default(now())
+//   groupId   String?  @db.Uuid
+//   Group     Group?   @relation(fields: [groupId], references: [id], onDelete: Cascade)
+//   posts     Post[]
+// }
+
+// model Course {
+//   id          String   @id @db.Uuid
+//   name        String
+//   thumbnail   String
+//   published   Boolean  @default(false)
+//   privacy     String
+//   description String
+//   createdAt   DateTime @default(now())
+//   groupId     String?  @db.Uuid
+//   Group       Group?   @relation(fields: [groupId], references: [id], onDelete: Cascade)
+//   modules     Module[]
+// }
+
+// model Module {
+//   id        String    @id @db.Uuid
+//   courseId  String?   @db.Uuid
+//   title     String
+//   createdAt DateTime  @default(now())
+//   Course    Course?   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+//   section   Section[]
+// }
+
+// model Section {
+//   id          String   @id @db.Uuid
+//   name        String   @default("New Section")
+//   icon        String   @default("doc")
+//   complete    Boolean  @default(false)
+//   createdAt   DateTime @default(now())
+//   moduleId    String?  @db.Uuid
+//   content     String?
+//   htmlContent String?
+//   JsonContent String?
+//   Module      Module?  @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+// }
+
+// model Affiliate {
+//   id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   groupId   String?  @unique @db.Uuid
+//   createdAt DateTime @default(now())
+//   Group     Group?   @relation(fields: [groupId], references: [id])
+// }
+
+// model Message {
+//   id         String   @id @db.Uuid
+//   message    String
+//   createdAt  DateTime @default(now())
+//   senderid   String?  @db.Uuid
+//   recieverId String?  @db.Uuid
+//   sender     User?    @relation(fields: [senderid], references: [id], onDelete: Cascade)
+// }
+
+// enum GROUP_PRIVACY {
+//   PUBLIC
+//   PRIVATE
+// }
+
+
+
+//spread
+// generator client {
+//   provider = "prisma-client-js"
+// }
+
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+// model User {
+//   id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   fullname  String
+//   clerkId   String   @unique
+//   type      String
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+
+//   stripeId String?
+
+//   domains Domain[]
+
+//   campaign Campaign[]
+
+//   subscription Billings?
+// }
+
+// model Domain {
+//   id   String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   name String
+//   icon String
+
+//   chatBot         ChatBot?
+//   helpdesk        HelpDesk[]
+//   filterQuestions FilterQuestions[]
+//   products        Product[]
+
+//   customer   Customer[]
+//   User       User?      @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   userId     String?    @db.Uuid
+//   Campaign   Campaign?  @relation(fields: [campaignId], references: [id])
+//   campaignId String?    @db.Uuid
+// }
+
+// model ChatBot {
+//   id             String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   welcomeMessage String?
+//   icon           String?
+//   background     String?
+//   textColor      String?
+//   helpdesk       Boolean @default(false)
+//   Domain         Domain? @relation(fields: [domainId], references: [id], onDelete: Cascade)
+//   domainId       String? @unique @db.Uuid
+// }
+
+// model Billings {
+//   id      String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   plan    Plans   @default(STANDARD)
+//   credits Int     @default(10)
+//   User    User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   userId  String? @unique @db.Uuid
+// }
+
+// model HelpDesk {
+//   id       String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   question String
+//   answer   String
+
+//   Domain   Domain? @relation(fields: [domainId], references: [id], onDelete: Cascade)
+//   domainId String? @db.Uuid
+// }
+
+// model FilterQuestions {
+//   id       String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   question String
+//   answered String?
+
+//   Domain   Domain? @relation(fields: [domainId], references: [id], onDelete: Cascade)
+//   domainId String? @db.Uuid
+// }
+
+// model CustomerResponses {
+//   id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   question   String
+//   answered   String?
+//   customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+//   customerId String   @db.Uuid
+// }
+
+// model Customer {
+//   id    String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   email String? 
+
+//   questions CustomerResponses[]
+
+//   chatRoom ChatRoom[]
+
+//   booking Bookings[]
+
+//   Domain   Domain? @relation(fields: [domainId], references: [id], onDelete: Cascade)
+//   domainId String? @db.Uuid
+// }
+
+// model ChatRoom {
+//   id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   live       Boolean   @default(false)
+//   mailed     Boolean   @default(false)
+//   createdAt  DateTime  @default(now())
+//   updatedAt  DateTime  @updatedAt
+//   Customer   Customer? @relation(fields: [customerId], references: [id], onDelete: Cascade)
+//   customerId String?   @db.Uuid
+
+//   message ChatMessage[]
+// }
+
+// model ChatMessage {
+//   id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   message    String
+//   role       Role?
+//   createdAt  DateTime  @default(now())
+//   updatedAt  DateTime  @updatedAt
+//   ChatRoom   ChatRoom? @relation(fields: [chatRoomId], references: [id], onDelete: Cascade)
+//   chatRoomId String?   @db.Uuid
+//   seen       Boolean   @default(false)
+// }
+
+// model Bookings {
+//   id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   date       DateTime
+//   slot       String
+//   email      String
+//   Customer   Customer? @relation(fields: [customerId], references: [id], onDelete: Cascade)
+//   customerId String?   @db.Uuid
+//   domainId   String?   @db.Uuid
+//   createdAt  DateTime  @default(now())
+// }
+
+// model Campaign {
+//   id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   name      String
+//   customers String[]
+//   domain    Domain[]
+//   template  String?
+//   User      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   userId    String?  @db.Uuid
+//   createdAt DateTime @default(now())
+// }
+
+// model Product {
+//   id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   name      String
+//   price     Int
+//   image     String
+//   createdAt DateTime @default(now())
+//   Domain    Domain?  @relation(fields: [domainId], references: [id], onDelete: Cascade)
+//   domainId  String?  @db.Uuid
+// }
+
+// enum Plans {
+//   STANDARD
+//   PRO
+//   ULTIMATE
+// }
+
+// enum Role {
+//   user
+//   assistant
+// }
+
+
+
+//direct
+// generator client {
+//   provider = "prisma-client-js"
+// }
+
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+// model User {
+//   id           String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   clerkId      String         @unique
+//   email        String         @unique
+//   firstname    String?        @unique
+//   lastname     String?        @unique
+//   createdAt    DateTime       @default(now())
+//   subscription Subscription?
+//   integrations Integrations[]
+//   automations  Automation[]
+// }
+
+// model Subscription {
+//   id         String            @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   User       User?             @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   userId     String?           @unique @db.Uuid
+//   createdAt  DateTime          @default(now())
+//   plan       SUBSCRIPTION_PLAN @default(FREE)
+//   updatedAt  DateTime          @default(now())
+//   customerId String?           @unique
+// }
+
+// model Integrations {
+//   id          String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   name        INTEGRATIONS @default(INSTAGRAM)
+//   createdAt   DateTime     @default(now())
+//   User        User?        @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   userId      String?      @db.Uuid
+//   token       String       @unique
+//   expiresAt   DateTime?
+//   instagramId String?      @unique
+// }
+
+// model Automation {
+//   id        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   name      String    @default("Untitled")
+//   createdAt DateTime  @default(now())
+//   active    Boolean   @default(false)
+//   trigger   Trigger[]
+//   listener  Listener?
+//   posts     Post[]
+//   dms       Dms[]
+//   User      User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   userId    String?   @db.Uuid
+//   keywords  Keyword[]
+// }
+
+// model Dms {
+//   id           String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   Automation   Automation? @relation(fields: [automationId], references: [id])
+//   automationId String?     @db.Uuid
+//   createdAt    DateTime    @default(now())
+//   senderId     String?
+//   reciever     String?
+//   message      String?
+// }
+
+// model Post {
+//   id           String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   postid       String
+//   caption      String?
+//   media        String
+//   mediaType    MEDIATYPE   @default(IMAGE)
+//   Automation   Automation? @relation(fields: [automationId], references: [id], onDelete: Cascade)
+//   automationId String?     @db.Uuid
+// }
+
+// model Listener {
+//   id           String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   Automation   Automation @relation(fields: [automationId], references: [id], onDelete: Cascade)
+//   automationId String     @unique @db.Uuid
+//   listener     LISTENERS  @default(MESSAGE)
+//   prompt       String
+//   commentReply String?
+//   dmCount      Int        @default(0)
+//   commentCount Int        @default(0)
+// }
+
+// model Trigger {
+//   id           String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   type         String
+//   Automation   Automation? @relation(fields: [automationId], references: [id], onDelete: Cascade)
+//   automationId String?     @db.Uuid
+// }
+
+// model Keyword {
+//   id           String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   word         String
+//   Automation   Automation? @relation(fields: [automationId], references: [id], onDelete: Cascade)
+//   automationId String?     @db.Uuid
+
+//   @@unique([automationId, word]) //this constraints ensure user cant use the same keyword on multiple automations
+// }
+
+// enum SUBSCRIPTION_PLAN {
+//   PRO
+//   FREE
+// }
+
+// enum INTEGRATIONS {
+//   INSTAGRAM
+// }
+
+// enum MEDIATYPE {
+//   IMAGE
+//   VIDEO
+//   CAROSEL_ALBUM
+// }
+
+// enum LISTENERS {
+//   SMARTAI
+//   MESSAGE
+// }

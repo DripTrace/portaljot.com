@@ -1,0 +1,593 @@
+{
+	"intro": {
+		"name": "Mockup Generator v2",
+		"description": "This resource is used to visualize how the designed products will look like. Since this is a resource-heavy operation we process the requests asynchronously. That means that you won't get the results\nimmediately, and instead you will get task ID which you could use to retrieve the mockups once they are done\nusing _[Retrieve mockup generator tasks](#operation/getMockupGeneratorTasks)_.\nYou can also subscribe to a webhook _[Mockup generator task finished event](#operation/mockupTaskFinished)_ to be\nnotified once the tasks finish processing.\n\nTo create a mockup you need to specify:\n* catalog product ID – _[Retrieve a list of catalog products](#operation/getProducts)_\n* catalog variant IDs – _[Retrieve information about catalog product variants](#operation/getProductVariantsById)_\n* design data – Data used to specify how the design should look like on the catalog product\n* mockup styles – _[Retrieve catalog product mockup styles](#operation/retrieveMockupStylesByProductId)_\n\nWhile `placements` specifies how the catalog product should look like, the `mockup_style_ids` define\nhow the mockups themselves should look like. You can find available mockup styles for a product by requesting\n_[Retrieve catalog product mockup styles](#operation/retrieveMockupStylesByProductId)_.\n\nTo give a little bit more context on how to use product mockup styles see the table below:\n\nThe example product is Bella Canvas 3001 with ID 71.\n\n\n<table>\n    <tr>\n        <td> Mockup styles </td> \n        <td> Mockups </td>\n    </tr>\n    <tr>\n<tr>\n<td>\n\n```\n    {\n        \"style_id\": 1115,\n        \"style_name\": \"Men's\",\n        \"view_name\": \"Front\"\n    }\n```\n\n</td>\n<td> <img alt=\"Men's front mockup\" src=\"images/mockup-styles/mens_front.png\" width=\"300\"/> </td>\n</tr>\n\n<tr>\n<td>\n\n```\n    {\n        \"style_id\": 1103,\n        \"style_name\": \"Men's\",\n        \"view_name\": \"Left sleeve\"\n    }\n```\n\n</td>\n<td> <img alt=\"Men's left sleeve mockup\" src=\"images/mockup-styles/mens_left.png\" width=\"300\"/> </td>\n</tr>\n\n<tr>\n<td>\n\n```\n    {\n        \"style_id\": 1117,\n        \"style_name\": \"Women's\",\n        \"view_name\": \"Front\"\n    }\n```\n\n</td>\n<td> <img alt=\"Women's front mockup\" src=\"images/mockup-styles/womens_front.png\" width=\"300\"/> </td>\n</tr>\n\n<tr>\n<td>\n\n```\n    {\n        \"style_id\": 1107,\n        \"style_name\": \"Women's\",\n        \"view_name\": \"Left sleeve\"\n    }\n```\n\n</td>\n<td> <img alt=\"Women's left sleeve mockup\" src=\"images/mockup-styles/womens_left.png\" width=\"300\"/> </td>\n</tr>\n\n<tr>\n<td>\n\n```\n    {\n        \"style_id\": 768,\n        \"style_name\": \"Women's Lifestyle\",\n        \"view_name\": \"Front\"\n    }\n```\n\n</td>\n<td> <img alt=\"Women's lifestyle front mockup\" src=\"images/mockup-styles/womens_lifestyle_front.png\" width=\"300\"/> </td>\n</tr>\n\n<tr>\n<td>\n\n```\n    {\n        \"style_id\": 770,\n        \"style_name\": \"Women's Lifestyle\",\n        \"view_name\": \"Left\"\n    }\n```\n\n</td>\n<td> <img alt=\"Women's lifestyle left mockup\" src=\"images/mockup-styles/womens_lifestyle_left.png\" width=\"300\"/> </td>\n</tr>\n\n<tr>\n<td>\n\n```\n    {\n        \"style_id\": 849,\n        \"style_name\": \"Flat\",\n        \"view_name\": \"Front\"\n    }\n```\n\n</td>\n<td> <img alt=\"Flat front mockup\" src=\"images/mockup-styles/flat_front.png\" width=\"300\"/> </td>\n</tr>\n\n<tr>\n<td>\n\n```\n    {\n        \"style_id\": 931,\n        \"style_name\": \"On hanger\",\n        \"view_name\": \"Front\"\n    }\n```\n\n</td>\n<td> <img alt=\"On hanger front mockup\" src=\"images/mockup-styles/on_hanger_front.png\" width=\"300\"/> </td>\n</tr>\n</table>\n\n## Mockups from the product templates\n\nInstead of creating a mockups from catalog variants data you can generate them from a product template.\nIn that case all you need is:\n* product template ID\n* catalog variant IDs – _[Retrieve information about catalog product variants](#operation/getProductVariantsById)_\n* mockup styles – _[Retrieve catalog product mockup styles](#operation/retrieveMockupStylesByProductId)_\n\n**Important**: All the catalog variants specified in the request must also be defined in the product template,\notherwise an error will be returned.\n\n## Mockups from the sync variants\n\nCreating mockups from sync variants is also possible. \nIn that case you need to specify:\n* catalog product ID – _[Retrieve a list of catalog products](#operation/getProducts)_\n* sync variant IDs – _[Retrieve information about catalog product variants](#operation/getSyncProductVariants)_\n* mockup styles – _[Retrieve catalog product mockup styles](#operation/retrieveMockupStylesByProductId)_\n\n**Important**: All the sync variants must belong to the same catalog product. They also need to have the same design, otherwise\nyou will receive an error, and you would need to create a separate request for each sync variant that contains a different design.\n\n## Throttling and daily file limit\n\nAn account is allowed to make a number of mockup generation requests per minute. The limit is:\n\n* 2 requests per minute for new stores;\n* 10 requests per minute for stores with at least $10.00 worth of fulfilled orders.\n\nAdditionally, there is a limit of 20,000 files that can be generated daily by each environment.\n\n## Number of generated files\n\nThere will be one mockup file returned for each valid combination of Catalog Variant, mockup style and placement within\none product object.\n\nIf the same file would be generated for two or more combinations (for example, for different sizes of a T-Shirt in the\nsame color),\nit will only be generated once and the same URL will be returned for each of these combinations. If only one file is generated it will count\nas one file toward the daily limit."
+	},
+	"api": {
+		"/v2/mockup-tasks": {
+			"post": {
+				"summary": "Create Mockup Generator tasks",
+				"description": "Create Mockup Generator tasks",
+				"operationId": "createMockupGeneratorTasks",
+				"security": [
+					{
+						"OAuth": []
+					}
+				],
+				"tags": ["Mockup Generator v2"],
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/StoreId"
+					}
+				],
+				"requestBody": {
+					"$ref": "#/components/requestBodies/CreateMockupGeneratorTasks"
+				},
+				"responses": {
+					"200": {
+						"$ref": "#/components/responses/CreateMockupGeneratorTasks"
+					},
+					"400": {
+						"$ref": "#/components/responses/BadRequest"
+					},
+					"401": {
+						"$ref": "#/components/responses/Unauthorized"
+					},
+					"404": {
+						"$ref": "#/components/responses/NotFound"
+					},
+					"5XX": {
+						"$ref": "#/components/responses/ServerError"
+					}
+				}
+			},
+			"get": {
+				"summary": "Retrieve Mockup Generator tasks",
+				"description": "Returns result of Mockup Generator tasks",
+				"operationId": "getMockupGeneratorTasks",
+				"security": [
+					{
+						"OAuth": []
+					}
+				],
+				"tags": ["Mockup Generator v2"],
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/MockupGeneratorIds"
+					},
+					{
+						"$ref": "#/components/parameters/Limit"
+					},
+					{
+						"$ref": "#/components/parameters/Offset"
+					}
+				],
+				"responses": {
+					"200": {
+						"$ref": "#/components/responses/GetMockupGeneratorTasks"
+					},
+					"400": {
+						"$ref": "#/components/responses/BadRequest"
+					},
+					"401": {
+						"$ref": "#/components/responses/Unauthorized"
+					},
+					"404": {
+						"$ref": "#/components/responses/NotFound"
+					},
+					"5XX": {
+						"$ref": "#/components/responses/ServerError"
+					}
+				}
+			}
+		}
+	},
+	"schema": {
+		"MockupGeneratorTask": {
+			"type": "object",
+			"title": "MockupGeneratorTask",
+			"description": "Result of mockup generator task",
+			"properties": {
+				"id": {
+					"type": "integer",
+					"description": "Unique task identifier used to check status of the task and retrieve the results once the task is ready.",
+					"example": 597350033
+				},
+				"status": {
+					"type": "string",
+					"enum": ["completed", "pending", "failed"],
+					"description": "Task status:\n * `completed` – Mockup Generator task was successfully processed\n * `pending` – Mockup Generator task is still being processed\n * `failed` – Mockup Generator task failed\n"
+				},
+				"catalog_variant_mockups": {
+					"type": "array",
+					"description": "A list of mockups grouped by variant. Note that the same list of mockups can appear under multiple variants, this happens in cases where the variants have the same mockups, for example if the only difference is the size of the variant.",
+					"items": {
+						"type": "object",
+						"properties": {
+							"catalog_variant_id": {
+								"type": "integer",
+								"description": "ID of a catalog variant for which the mockup was generated.",
+								"example": 4011
+							},
+							"mockups": {
+								"type": "array",
+								"description": "List of generated mockups",
+								"items": {
+									"$ref": "#/components/schemas/Mockup"
+								}
+							}
+						}
+					}
+				},
+				"failure_reasons": {
+					"type": "array",
+					"items": {
+						"$ref": "#/components/schemas/Error"
+					}
+				},
+				"_links": {
+					"type": "object",
+					"description": "HATEOAS links",
+					"readOnly": true,
+					"properties": {
+						"self": {
+							"description": "Link to the Generator Task details",
+							"title": "HateoasLink",
+							"example": {
+								"href": "https://api.printful.com/v2/mockup-tasks?id=597350033"
+							},
+							"allOf": [
+								{
+									"$ref": "#/components/schemas/HateoasLink"
+								}
+							]
+						}
+					}
+				}
+			}
+		},
+		"BaseMockupProduct": {
+			"type": "object",
+			"properties": {
+				"source": {
+					"description": "Mockup product source",
+					"type": "string",
+					"example": "catalog"
+				},
+				"mockup_style_ids": {
+					"type": "array",
+					"description": "Used to specify style of mockups that should be generated. For example:\n  * On the hanger\n  * On the Male/Female model\n  * Flat on the table\n  * etc.\nAvailable mockup styles for catalog product can be found under _[Retrieve catalog product mockup styles](#operation/retrieveMockupStylesByProductId)_.\n",
+					"items": {
+						"type": "integer",
+						"example": 123
+					}
+				}
+			}
+		},
+		"CatalogMockupProduct": {
+			"type": "object",
+			"allOf": [
+				{
+					"$ref": "#/components/schemas/BaseMockupProduct"
+				},
+				{
+					"properties": {
+						"catalog_product_id": {
+							"description": "Catalog product identifier",
+							"type": "integer",
+							"example": 71
+						},
+						"catalog_variant_ids": {
+							"type": "array",
+							"description": "List of catalog variant identifiers for which mockups will be generated. Variants must belong to the catalog product specified with `catalog_product_id`. Multiple variants of the same color do not count towards the daily number of files limit. Meaning that for a Red T-Shirt of (S,M) sizes we still generate only one mockup."
+						},
+						"orientation": {
+							"type": "string",
+							"enum": ["vertical", "horizontal"],
+							"nullable": true,
+							"description": "Define orientation of the product (used in case of e.g. canvas). Vertical by default. For products without orientation this parameter is ignored.",
+							"items": {
+								"type": "integer",
+								"example": 4011
+							}
+						},
+						"placements": {
+							"$ref": "#/components/schemas/PlacementsList"
+						},
+						"product_options": {
+							"$ref": "#/components/schemas/ProductOptions"
+						}
+					}
+				}
+			]
+		},
+		"TemplateMockupProduct": {
+			"type": "object",
+			"allOf": [
+				{
+					"$ref": "#/components/schemas/BaseMockupProduct"
+				},
+				{
+					"properties": {
+						"source": {
+							"description": "Mockup product source",
+							"type": "string",
+							"example": "template"
+						},
+						"product_template_id": {
+							"description": "Product Template identifier",
+							"type": "integer",
+							"example": 712152512
+						},
+						"catalog_variant_ids": {
+							"type": "array",
+							"description": "List of catalog variant identifiers for which mockups will be generated. Variants must be defined in the product template specified with `product_template_id`. Multiple variants of the same color do not count towards the daily number of files limit. Meaning that for a Red T-Shirt of (S,M) sizes we still generate only one mockup.",
+							"items": {
+								"type": "integer",
+								"example": 12457
+							}
+						},
+						"mockup_style_ids": {
+							"type": "array",
+							"description": "Used to specify style of mockups that should be generated. For example:\n  * On the hanger\n  * On the Male/Female model\n  * Flat on the table\n  * etc.\nAvailable mockup styles for catalog product can be found under _[Retrieve catalog product mockup styles](#operation/retrieveMockupStylesByProductId)_.\n",
+							"items": {
+								"type": "integer",
+								"example": 123
+							}
+						}
+					}
+				}
+			]
+		},
+		"MockupTaskCreation": {
+			"type": "object",
+			"properties": {
+				"format": {
+					"type": "string",
+					"description": "Generated file format. PNG will have a transparent background, JPG will have a smaller file size.",
+					"enum": ["jpg", "png"]
+				},
+				"products": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"title": "MockupProduct",
+						"oneOf": [
+							{
+								"$ref": "#/components/schemas/CatalogMockupProduct"
+							},
+							{
+								"$ref": "#/components/schemas/TemplateMockupProduct"
+							}
+						],
+						"discriminator": {
+							"propertyName": "source",
+							"mapping": {
+								"catalog": "#/components/schemas/CatalogMockupProduct",
+								"product_template": "#/components/schemas/TemplateMockupProduct"
+							}
+						}
+					}
+				}
+			}
+		},
+		"Response200": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "integer",
+					"description": "Response status code `200`",
+					"example": 200
+				}
+			}
+		}
+	},
+	"hat_product_99": {
+		"id": 91,
+		"main_category_id": 41,
+		"type": "EMBROIDERY",
+		"description": "The high-profile fit and a green undervisor make this cap a classic with an added pop of color.\r\n\r\n• 100% cotton twill\r\n• Structured \r\n• Five panel \r\n• High profile\r\n• Green undervisor\r\n• Sewn eyelets\r\n• Snapback closure",
+		"type_name": "Hat",
+		"title": "Flat Bill Cap | Yupoong 6007",
+		"brand": "Yupoong",
+		"model": "6007 Five-Panel Flat Bill Cap",
+		"image": "https://files.cdn.printful.com/o/products/91/product_1584452727.jpg",
+		"variant_count": 7,
+		"currency": "USD",
+		"options": [
+			{
+				"id": "embroidery_type",
+				"title": "Embroidery type",
+				"type": "radio",
+				"values": {
+					"flat": "Flat Embroidery",
+					"3d": "3D Puff (+$1.50)",
+					"both": "Partial 3D Puff (+$1.50)"
+				},
+				"additional_price": null,
+				"additional_price_breakdown": {
+					"flat": "0.00",
+					"3d": "1.50",
+					"both": "1.50"
+				}
+			},
+			{
+				"id": "thread_colors",
+				"title": "Flat thread colors",
+				"type": "multi_select",
+				"values": {
+					"#FFFFFF": "1801 White",
+					"#000000": "1800 Black",
+					"#96A1A8": "1718 Grey",
+					"#A67843": "1672 Old Gold",
+					"#FFCC00": "1951 Gold",
+					"#E25C27": "1987 Orange",
+					"#CC3366": "1910 Flamingo",
+					"#CC3333": "1839 Red",
+					"#660000": "1784 Maroon",
+					"#333366": "1966 Navy",
+					"#005397": "1842 Royal",
+					"#3399FF": "1695 Aqua/Teal",
+					"#6B5294": "1832 Purple",
+					"#01784E": "1751 Kelly Green",
+					"#7BA35A": "1848 Kiwi Green"
+				},
+				"additional_price": null,
+				"additional_price_breakdown": {
+					"flat": "0.00",
+					"3d": "1.50",
+					"both": "1.50"
+				}
+			},
+			{
+				"id": "thread_colors_3d",
+				"title": "3D Puff thread colors",
+				"type": "multi_select",
+				"values": {
+					"#FFFFFF": "1801 White",
+					"#000000": "1800 Black",
+					"#96A1A8": "1718 Grey",
+					"#A67843": "1672 Old Gold",
+					"#FFCC00": "1951 Gold",
+					"#E25C27": "1987 Orange",
+					"#CC3366": "1910 Flamingo",
+					"#CC3333": "1839 Red",
+					"#660000": "1784 Maroon",
+					"#333366": "1966 Navy",
+					"#005397": "1842 Royal",
+					"#3399FF": "1695 Aqua/Teal",
+					"#6B5294": "1832 Purple",
+					"#01784E": "1751 Kelly Green",
+					"#7BA35A": "1848 Kiwi Green"
+				},
+				"additional_price": null,
+				"additional_price_breakdown": {
+					"flat": "0.00",
+					"3d": "1.50",
+					"both": "1.50"
+				}
+			},
+			{
+				"id": "thread_colors_front_large",
+				"title": "Flat thread colors",
+				"type": "multi_select",
+				"values": {
+					"#FFFFFF": "1801 White",
+					"#000000": "1800 Black",
+					"#96A1A8": "1718 Grey",
+					"#A67843": "1672 Old Gold",
+					"#FFCC00": "1951 Gold",
+					"#E25C27": "1987 Orange",
+					"#CC3366": "1910 Flamingo",
+					"#CC3333": "1839 Red",
+					"#660000": "1784 Maroon",
+					"#333366": "1966 Navy",
+					"#005397": "1842 Royal",
+					"#3399FF": "1695 Aqua/Teal",
+					"#6B5294": "1832 Purple",
+					"#01784E": "1751 Kelly Green",
+					"#7BA35A": "1848 Kiwi Green"
+				},
+				"additional_price": null,
+				"additional_price_breakdown": {
+					"flat": "0.00",
+					"3d": "1.50",
+					"both": "1.50"
+				}
+			},
+			{
+				"id": "thread_colors_3d_front_large",
+				"title": "3D Puff thread colors",
+				"type": "multi_select",
+				"values": {
+					"#FFFFFF": "1801 White",
+					"#000000": "1800 Black",
+					"#96A1A8": "1718 Grey",
+					"#A67843": "1672 Old Gold",
+					"#FFCC00": "1951 Gold",
+					"#E25C27": "1987 Orange",
+					"#CC3366": "1910 Flamingo",
+					"#CC3333": "1839 Red",
+					"#660000": "1784 Maroon",
+					"#333366": "1966 Navy",
+					"#005397": "1842 Royal",
+					"#3399FF": "1695 Aqua/Teal",
+					"#6B5294": "1832 Purple",
+					"#01784E": "1751 Kelly Green",
+					"#7BA35A": "1848 Kiwi Green"
+				},
+				"additional_price": null,
+				"additional_price_breakdown": {
+					"flat": "0.00",
+					"3d": "1.50",
+					"both": "1.50"
+				}
+			},
+			{
+				"id": "thread_colors_back",
+				"title": "Back thread colors",
+				"type": "multi_select",
+				"values": {
+					"#FFFFFF": "1801 White",
+					"#000000": "1800 Black",
+					"#96A1A8": "1718 Grey",
+					"#A67843": "1672 Old Gold",
+					"#FFCC00": "1951 Gold",
+					"#E25C27": "1987 Orange",
+					"#CC3366": "1910 Flamingo",
+					"#CC3333": "1839 Red",
+					"#660000": "1784 Maroon",
+					"#333366": "1966 Navy",
+					"#005397": "1842 Royal",
+					"#3399FF": "1695 Aqua/Teal",
+					"#6B5294": "1832 Purple",
+					"#01784E": "1751 Kelly Green",
+					"#7BA35A": "1848 Kiwi Green"
+				},
+				"additional_price": null,
+				"additional_price_breakdown": {
+					"flat": "0.00",
+					"3d": "1.50",
+					"both": "1.50"
+				}
+			},
+			{
+				"id": "thread_colors_right",
+				"title": "Right side thread colors",
+				"type": "multi_select",
+				"values": {
+					"#FFFFFF": "1801 White",
+					"#000000": "1800 Black",
+					"#96A1A8": "1718 Grey",
+					"#A67843": "1672 Old Gold",
+					"#FFCC00": "1951 Gold",
+					"#E25C27": "1987 Orange",
+					"#CC3366": "1910 Flamingo",
+					"#CC3333": "1839 Red",
+					"#660000": "1784 Maroon",
+					"#333366": "1966 Navy",
+					"#005397": "1842 Royal",
+					"#3399FF": "1695 Aqua/Teal",
+					"#6B5294": "1832 Purple",
+					"#01784E": "1751 Kelly Green",
+					"#7BA35A": "1848 Kiwi Green"
+				},
+				"additional_price": null,
+				"additional_price_breakdown": {
+					"flat": "0.00",
+					"3d": "1.50",
+					"both": "1.50"
+				}
+			},
+			{
+				"id": "thread_colors_left",
+				"title": "Left side thread colors",
+				"type": "multi_select",
+				"values": {
+					"#FFFFFF": "1801 White",
+					"#000000": "1800 Black",
+					"#96A1A8": "1718 Grey",
+					"#A67843": "1672 Old Gold",
+					"#FFCC00": "1951 Gold",
+					"#E25C27": "1987 Orange",
+					"#CC3366": "1910 Flamingo",
+					"#CC3333": "1839 Red",
+					"#660000": "1784 Maroon",
+					"#333366": "1966 Navy",
+					"#005397": "1842 Royal",
+					"#3399FF": "1695 Aqua/Teal",
+					"#6B5294": "1832 Purple",
+					"#01784E": "1751 Kelly Green",
+					"#7BA35A": "1848 Kiwi Green"
+				},
+				"additional_price": null,
+				"additional_price_breakdown": {
+					"flat": "0.00",
+					"3d": "1.50",
+					"both": "1.50"
+				}
+			},
+			{
+				"id": "notes",
+				"title": "Embroidery notes",
+				"type": "text",
+				"values": null,
+				"additional_price": null,
+				"additional_price_breakdown": {
+					"flat": "0.00",
+					"3d": "1.50",
+					"both": "1.50"
+				}
+			}
+		],
+		"dimensions": null,
+		"is_discontinued": false,
+		"avg_fulfillment_time": null,
+		"techniques": [
+			{
+				"key": "EMBROIDERY",
+				"display_name": "Embroidery",
+				"is_default": true
+			}
+		],
+		"files": [
+			{
+				"id": "embroidery_front_large",
+				"type": "embroidery_front_large",
+				"title": "Front",
+				"additional_price": "2.95",
+				"options": [
+					{
+						"id": "full_color",
+						"type": "bool",
+						"title": "Unlimited color",
+						"additional_price": 3.5
+					}
+				]
+			},
+			{
+				"id": "default",
+				"type": "embroidery_front",
+				"title": "Front",
+				"additional_price": null,
+				"options": [
+					{
+						"id": "full_color",
+						"type": "bool",
+						"title": "Unlimited color",
+						"additional_price": 3.5
+					}
+				]
+			},
+			{
+				"id": "back",
+				"type": "embroidery_back",
+				"title": "Back",
+				"additional_price": "2.95",
+				"options": []
+			},
+			{
+				"id": "right",
+				"type": "embroidery_right",
+				"title": "Right side",
+				"additional_price": "2.95",
+				"options": []
+			},
+			{
+				"id": "left",
+				"type": "embroidery_left",
+				"title": "Left side",
+				"additional_price": "2.95",
+				"options": []
+			},
+			{
+				"id": "preview",
+				"type": "mockup",
+				"title": "Mockup",
+				"additional_price": null,
+				"options": []
+			}
+		],
+		"origin_country": null
+	}
+}
