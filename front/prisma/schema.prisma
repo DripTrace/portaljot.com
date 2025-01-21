@@ -11,6 +11,13 @@ generator client {
 
 model User {
   id                      String           @id @default(auto()) @map("_id") @db.ObjectId
+//   direct
+  idDirect                String?          @default(uuid())
+  clerkId                 String?          @unique
+  subscription            Subscription?
+  integrations            Integrations[]
+  automations             Automation[]
+
   name                    String?
   email                   String?          @unique
   emailVerified           DateTime?
@@ -42,6 +49,108 @@ model User {
 
   createdAt               DateTime         @default(now())
   updatedAt               DateTime         @updatedAt
+}
+
+model Subscription {
+  id         String            @id @default(auto()) @map("_id") @db.ObjectId
+  User       User?             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     String?           @unique @db.ObjectId
+  createdAt  DateTime          @default(now())
+  plan       SUBSCRIPTION_PLAN @default(FREE)
+  updatedAt  DateTime          @default(now())
+  customerId String?           @unique
+}
+
+enum SUBSCRIPTION_PLAN {
+  PRO
+  FREE
+}
+
+model Integrations {
+  id          String       @id @default(auto()) @map("_id") @db.ObjectId
+  name        INTEGRATIONS @default(INSTAGRAM)
+  createdAt   DateTime     @default(now())
+  User        User?        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String?      @db.ObjectId  // Changed to ObjectId for MongoDB
+  token       String       @unique
+  expiresAt   DateTime?
+  instagramId String?      @unique
+}
+
+enum INTEGRATIONS {
+  INSTAGRAM
+}
+
+model Automation {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  name      String    @default("Untitled")
+  createdAt DateTime  @default(now())
+  active    Boolean   @default(false)
+  trigger   Trigger[]
+  listener  Listener?
+  posts     Post[]
+  dms       Dms[]
+  User      User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String?   @db.ObjectId  // Changed from @db.Uuid to @db.ObjectId
+  keywords  Keyword[]
+}
+
+model Trigger {
+  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  type         String
+  Automation   Automation? @relation(fields: [automationId], references: [id], onDelete: Cascade)
+  automationId String?     @db.ObjectId
+}
+
+model Listener {
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+  Automation   Automation @relation(fields: [automationId], references: [id], onDelete: Cascade)
+  automationId String     @unique @db.ObjectId
+  prompt       String
+  commentReply String?
+  dmCount      Int        @default(0)
+  commentCount Int        @default(0)
+  listener     LISTENERS  @default(MESSAGE)
+}
+
+enum LISTENERS {
+  SMARTAI
+  MESSAGE
+}
+
+model Post {
+  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  postid       String
+  caption      String?
+  media        String
+  mediaType    MEDIATYPE   @default(IMAGE)
+  Automation   Automation? @relation(fields: [automationId], references: [id], onDelete: Cascade)
+  automationId String?     @db.ObjectId
+}
+
+enum MEDIATYPE {
+  IMAGE
+  VIDEO
+  CAROSEL_ALBUM
+}
+
+model Dms {
+  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  Automation   Automation? @relation(fields: [automationId], references: [id])
+  automationId String?     @db.ObjectId
+  createdAt    DateTime    @default(now())
+  senderId     String?
+  reciever     String?
+  message      String?
+}
+
+model Keyword {
+  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  word         String
+  Automation   Automation? @relation(fields: [automationId], references: [id], onDelete: Cascade)
+  automationId String?     @db.ObjectId
+
+  @@unique([automationId, word]) //this constraints ensure user cant use the same keyword on multiple automations
 }
 
 model Account {
@@ -1163,9 +1272,6 @@ model Authenticator {
 
 
 //direct
-// generator client {
-//   provider = "prisma-client-js"
-// }
 
 // datasource db {
 //   provider = "postgresql"

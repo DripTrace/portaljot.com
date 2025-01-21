@@ -1,18 +1,18 @@
 "use server";
 
-import { authOptions } from "@/auth";
-import { adminDb } from "@/firebase-admin";
+import { authOptions } from "@/types/exotalk/auth";
+import { adminDb } from "@/config/exotalk/firebase-admin";
 import { getServerSession } from "next-auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import Stripe from "stripe";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-	apiVersion: "2023-10-16",
+	apiVersion: "2024-12-18.acacia",
 });
 
 export async function generatePortalLink() {
 	const session = await getServerSession(authOptions);
-	const host = headers().get("host");
+	const host = (await headers()).get("host");
 
 	if (!session?.user.id) return console.error("No user Id found");
 	const {

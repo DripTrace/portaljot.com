@@ -1,11 +1,14 @@
 "use server";
 
-import { adminDb } from "@/firebase-admin";
-import liveblocks from "@/lib/liveblocks";
+// import { adminDb } from "@/firebase-admin";
+import liveblocks from "@/lib/collab/liveblocks";
 import { auth } from "@clerk/nextjs/server";
+import { adminDb } from "@/config/collab/firebase-admin";
 
 export async function createNewDocument() {
-	auth().protect(); // Ensure the user is authenticated
+	// auth().protect(); // Ensure the user is authenticated
+	const { userId } = await auth();
+	if (!userId) throw new Error("Unauthorized");
 
 	try {
 		const { sessionClaims } = await auth();
@@ -36,7 +39,9 @@ export async function createNewDocument() {
 }
 
 export async function inviteUserToDocument(roomId: string, email: string) {
-	auth().protect(); // Ensure the user is authenticated
+	// auth().protect(); // Ensure the user is authenticated
+	const { userId } = await auth();
+	if (!userId) throw new Error("Unauthorized");
 
 	try {
 		console.log("Invite User to Document:", roomId, email);
@@ -62,7 +67,9 @@ export async function inviteUserToDocument(roomId: string, email: string) {
 }
 
 export async function removeUserFromDocument(roomId: string, email: string) {
-	auth().protect(); // Ensure the user is authenticated
+	// auth().protect(); // Ensure the user is authenticated
+	const { userId } = await auth();
+	if (!userId) throw new Error("Unauthorized");
 
 	try {
 		console.log("Remove User from Document:", roomId, email);
@@ -83,7 +90,9 @@ export async function removeUserFromDocument(roomId: string, email: string) {
 }
 
 export async function deleteDocument(roomId: string) {
-	auth().protect(); // Ensure the user is authenticated
+	// auth().protect(); // Ensure the user is authenticated
+	const { userId } = await auth();
+	if (!userId) throw new Error("Unauthorized");
 
 	try {
 		console.log("Delete Document:", roomId);

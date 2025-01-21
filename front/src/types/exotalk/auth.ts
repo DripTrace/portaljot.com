@@ -10,8 +10,8 @@ import {
 } from "firebase/firestore";
 import { NextAuthOptions, getServerSession, DefaultSession } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import { adminAuth, adminDb } from "./firebase-admin";
-import { db } from "./firebase";
+import { adminAuth, adminDb } from "@/config/exotalk/firebase-admin";
+import { db } from "@/config/exotalk/firebase";
 import { DocumentData } from "firebase-admin/firestore";
 import {
 	GetServerSidePropsContext,

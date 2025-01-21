@@ -1,4 +1,4 @@
-import { client } from "@/lib/prisma";
+import { prisma as client } from "@/lib/client/prisma";
 
 export const matchKeyword = async (keyword: string) => {
 	console.dir(

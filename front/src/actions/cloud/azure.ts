@@ -1,17 +1,24 @@
 "use server";
 
 import { DefaultAzureCredential } from "@azure/identity";
-import { ResourceManagementClient } from "@azure/arm-resources";
+import {
+	ResourceManagementClient,
+	GenericResourceExpanded,
+} from "@azure/arm-resources";
 
 const handleAzureView = async () => {
 	try {
+		// Initialize Azure credentials
 		const credential = new DefaultAzureCredential();
 		const client = new ResourceManagementClient(
 			credential,
 			process.env.AZURE_SUBSCRIPTION_ID!
 		);
 
-		const resources = [];
+		// Explicitly type the resources array
+		const resources: GenericResourceExpanded[] = [];
+
+		// Fetch resources from Azure and add them to the array
 		for await (const resource of client.resources.list()) {
 			resources.push(resource);
 		}
