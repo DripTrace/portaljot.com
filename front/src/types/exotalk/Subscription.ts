@@ -1,38 +1,143 @@
-// https://github.com/invertase/stripe-firebase-extensions/blob/107031923116d776ace0d33011a28d29e48fe827/firestore-stripe-payments/functions/src/interfaces.ts
+// // https://github.com/invertase/stripe-firebase-extensions/blob/107031923116d776ace0d33011a28d29e48fe827/firestore-stripe-payments/functions/src/interfaces.ts
 
-import { DocumentData, DocumentReference, Timestamp } from "firebase/firestore";
+// import { DocumentData, DocumentReference, Timestamp } from "firebase/firestore";
+// import Stripe from "stripe";
+
+// export interface Subscription {
+// 	id?: string;
+// 	/**
+// 	 * Set of key-value pairs that you can attach to an object.
+// 	 * This can be useful for storing additional information about the object in a structured format.
+// 	 */
+// 	metadata: {
+// 		[name: string]: string;
+// 	};
+// 	stripeLink: string;
+// 	// role: string | null;
+// 	quantity: number;
+// 	items: Stripe.SubscriptionItem[];
+// 	/**
+// 	 * Firestore reference to the product doc for this Subscription.
+// 	 */
+// 	product: DocumentReference<DocumentData>;
+// 	/**
+// 	 * Firestore reference to the price for this Subscription.
+// 	 */
+// 	price: DocumentReference<DocumentData>;
+// 	/**
+// 	 * Array of price references. If you prvoide multiple recurring prices to the checkout session via the `line_items` parameter,
+// 	 * this array will hold the references for all recurring prices for this subscription. `price === prices[0]`.
+// 	 */
+// 	prices: Array<DocumentReference<DocumentData>>;
+// 	payment_method?: string;
+// 	latest_invoice?: string;
+// 	/**
+// 	 * The status of the subscription object
+// 	 */
+// 	status:
+// 		| "active"
+// 		| "canceled"
+// 		| "incomplete"
+// 		| "incomplete_expired"
+// 		| "past_due"
+// 		| "trialing"
+// 		| "unpaid";
+// 	/**
+// 	 * If true the subscription has been canceled by the user and will be deleted at the end of the billing period.
+// 	 */
+// 	cancel_at_period_end: boolean;
+// 	/**
+// 	 * Time at which the object was created.
+// 	 */
+// 	created: Timestamp;
+// 	/**
+// 	 * Start of the current period that the subscription has been invoiced for.
+// 	 */
+// 	current_period_start: Timestamp;
+// 	/**
+// 	 * End of the current period that the subscription has been invoiced for. At the end of this period, a new invoice will be created.
+// 	 */
+// 	current_period_end: Timestamp;
+// 	/**
+// 	 * If the subscription has ended, the timestamp of the date the subscription ended.
+// 	 */
+// 	ended_at: Timestamp | null;
+// 	/**
+// 	 * A date in the future at which the subscription will automatically get canceled.
+// 	 */
+// 	cancel_at: Timestamp | null;
+// 	/**
+// 	 * If the subscription has been canceled, the date of that cancellation. If the subscription was canceled with `cancel_at_period_end`, `canceled_at` will still reflect the date of the initial cancellation request, not the end of the subscription period when the subscription is automatically moved to a canceled state.
+// 	 */
+// 	canceled_at: Timestamp | null;
+// 	/**
+// 	 * If the subscription has a trial, the beginning of that trial.
+// 	 */
+// 	trial_start: Timestamp | null;
+// 	/**
+// 	 * If the subscription has a trial, the end of that trial.
+// 	 */
+// 	trial_end: Timestamp | null;
+// }
+
 import Stripe from "stripe";
 
+/**
+ * TypeScript interface for a Prisma-based Subscription,
+ * mirroring our `Subscription` model in the Prisma schema.
+ */
 export interface Subscription {
 	id?: string;
+
 	/**
-	 * Set of key-value pairs that you can attach to an object.
-	 * This can be useful for storing additional information about the object in a structured format.
+	 * Key-value metadata for storing additional info about this subscription.
 	 */
-	metadata: {
-		[name: string]: string;
-	};
+	metadata?: Record<string, string>;
+
+	/**
+	 * URL or reference for the subscription in Stripe's UI (if desired).
+	 */
 	stripeLink: string;
-	// role: string | null;
+
+	/**
+	 * Number of seats / quantity for this subscription.
+	 */
 	quantity: number;
+
+	/**
+	 * Array of items belonging to this Stripe Subscription.
+	 * We'll store it as JSON in the database.
+	 */
 	items: Stripe.SubscriptionItem[];
+
 	/**
-	 * Firestore reference to the product doc for this Subscription.
+	 * The ID of the related Product in the Prisma `Product` table.
 	 */
-	product: DocumentReference<DocumentData>;
+	productId: string;
+
 	/**
-	 * Firestore reference to the price for this Subscription.
+	 * The ID of the "main" Price in the Prisma `Price` table.
 	 */
-	price: DocumentReference<DocumentData>;
+	priceId: string;
+
 	/**
-	 * Array of price references. If you prvoide multiple recurring prices to the checkout session via the `line_items` parameter,
-	 * this array will hold the references for all recurring prices for this subscription. `price === prices[0]`.
+	 * Optional array of additional Price IDs stored as JSON (multi-price scenario).
 	 */
-	prices: Array<DocumentReference<DocumentData>>;
-	payment_method?: string;
-	latest_invoice?: string;
+	priceIds: string[];
+
 	/**
-	 * The status of the subscription object
+	 * Payment method ID used for billing, if any.
+	 */
+	paymentMethod?: string;
+
+	/**
+	 * The latest invoice ID from Stripe, if relevant.
+	 */
+	latestInvoice?: string;
+
+	/**
+	 * The status of the subscription.
+	 * If you prefer a string union, use that or an enum in your code/DB.
 	 */
 	status:
 		| "active"
@@ -42,40 +147,49 @@ export interface Subscription {
 		| "past_due"
 		| "trialing"
 		| "unpaid";
+
 	/**
-	 * If true the subscription has been canceled by the user and will be deleted at the end of the billing period.
+	 * If true, the subscription will be canceled at the end of the billing period.
 	 */
-	cancel_at_period_end: boolean;
+	cancelAtPeriodEnd: boolean;
+
 	/**
-	 * Time at which the object was created.
+	 * Date/time at which this subscription was created.
 	 */
-	created: Timestamp;
+	created: Date;
+
 	/**
-	 * Start of the current period that the subscription has been invoiced for.
+	 * Start of the current billing period.
 	 */
-	current_period_start: Timestamp;
+	currentPeriodStart: Date;
+
 	/**
-	 * End of the current period that the subscription has been invoiced for. At the end of this period, a new invoice will be created.
+	 * End of the current billing period.
 	 */
-	current_period_end: Timestamp;
+	currentPeriodEnd: Date;
+
 	/**
-	 * If the subscription has ended, the timestamp of the date the subscription ended.
+	 * When the subscription actually ended, if it has ended.
 	 */
-	ended_at: Timestamp | null;
+	endedAt: Date | null;
+
 	/**
-	 * A date in the future at which the subscription will automatically get canceled.
+	 * Date/time in the future at which the subscription will be canceled (if any).
 	 */
-	cancel_at: Timestamp | null;
+	cancelAt: Date | null;
+
 	/**
-	 * If the subscription has been canceled, the date of that cancellation. If the subscription was canceled with `cancel_at_period_end`, `canceled_at` will still reflect the date of the initial cancellation request, not the end of the subscription period when the subscription is automatically moved to a canceled state.
+	 * Date/time at which the subscription was canceled, if applicable.
 	 */
-	canceled_at: Timestamp | null;
+	canceledAt: Date | null;
+
 	/**
-	 * If the subscription has a trial, the beginning of that trial.
+	 * Start of the trial period, if this subscription has one.
 	 */
-	trial_start: Timestamp | null;
+	trialStart: Date | null;
+
 	/**
-	 * If the subscription has a trial, the end of that trial.
+	 * End of the trial period, if this subscription has one.
 	 */
-	trial_end: Timestamp | null;
+	trialEnd: Date | null;
 }

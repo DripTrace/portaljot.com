@@ -1,5 +1,5 @@
-import ChatList from "@/components/ChatList";
-import ChatPermissionError from "@/components/ChatPermissionError";
+import ChatList from "@/components/exotalk/ChatList";
+import ChatPermissionError from "@/components/exotalk/ChatPermissionError";
 
 type Props = {
 	params: {};

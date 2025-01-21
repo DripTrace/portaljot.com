@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 
 import {
 	Dialog,
@@ -12,10 +12,10 @@ import {
 	DialogTrigger,
 } from "@/components/ui/dialog";
 
-import { useToast } from "./ui/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import useAdminId from "@/hooks/useAdminId";
+import useAdminId from "@/hooks/exotalk/useAdminId";
 
 function DeleteChatButton({ chatId }: { chatId: string }) {
 	const { data: session } = useSession();
@@ -32,7 +32,7 @@ function DeleteChatButton({ chatId }: { chatId: string }) {
 
 		console.log("Deleting :: ", chatId);
 
-		await fetch("/api/chat/delete", {
+		await fetch("/api/exotalk/chat/delete", {
 			method: "DELETE",
 			headers: {
 				"Content-Type": "application/json",
@@ -46,7 +46,7 @@ function DeleteChatButton({ chatId }: { chatId: string }) {
 					className: "bg-green-600 text-white",
 					duration: 3000,
 				});
-				router.replace(`/chat`);
+				router.replace(`/exotalk/chat`);
 			})
 			.catch((err) => {
 				console.error(err.message);

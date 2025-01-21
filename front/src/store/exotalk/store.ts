@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { Subscription } from "@/types/Subscription";
+import { Subscription } from "@/lib/exotalk/converters/Subscription";
 
 export type LanguagesSupported =
 	| "en"
@@ -117,7 +117,7 @@ export const useAvailableLanguagesStore = create<AvailableLanguagesState>(
 					role === "pro"
 						? (Object.keys(
 								LanguagesSupportedMap
-						  ) as LanguagesSupported[])
+							) as LanguagesSupported[])
 						: state.availableLanguages,
 			})),
 	})

@@ -1,4 +1,4 @@
-import { PricingCards } from "@/components/PricingCards";
+import { PricingCards } from "@/components/exotalk/PricingCards";
 
 export default async function PricingPage() {
 	return (

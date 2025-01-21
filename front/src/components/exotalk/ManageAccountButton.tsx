@@ -1,4 +1,4 @@
-import { generatePortalLink } from "@/actions/registerActions";
+import { generatePortalLink } from "@/actions/exotalk/registerActions";
 
 function ManageAccountButton() {
 	return (

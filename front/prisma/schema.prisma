@@ -49,6 +49,10 @@ model User {
 
   createdAt               DateTime         @default(now())
   updatedAt               DateTime         @updatedAt
+
+  availableLanguages      String[]  @default(["en"])
+  hasSelectedSecondLanguage Boolean @default(false)
+  lastUpdated            DateTime  @default(now())
 }
 
 model Subscription {
@@ -59,12 +63,116 @@ model Subscription {
   plan       SUBSCRIPTION_PLAN @default(FREE)
   updatedAt  DateTime          @default(now())
   customerId String?           @unique
+//   exotalk
+  /**
+   * Using Json for metadata (key/value) and items (array of Stripe items).
+   * If you'd rather have a separate table for items, change accordingly.
+   */
+  metadata           Json?
+  stripeLink         String
+  quantity           Int
+  items             Json       // storing Stripe.SubscriptionItem[] as JSON
+
+  // Single "primary" Price reference
+  priceId            String    @db.ObjectId
+  price              Price     @relation(fields: [priceId], references: [id])
+
+  // Single "primary" Product reference
+  productId          String    @db.ObjectId
+  product            Product   @relation(fields: [productId], references: [id])
+
+  /**
+   * If you want multiple Price references, you can store them as JSON as well
+   * or create a separate join table. Here's a JSON approach for simplicity:
+   */
+  priceIds           Json      // an array of string IDs
+
+  paymentMethod      String?
+  latestInvoice      String?
+
+  // Subscription status
+  status             String
+
+  // Cancels
+  cancelAtPeriodEnd  Boolean   @default(false)
+
+  // Dates
+  created            DateTime  @default(now())
+  currentPeriodStart DateTime
+  currentPeriodEnd   DateTime
+  endedAt            DateTime?
+  cancelAt           DateTime?
+  canceledAt         DateTime?
+  trialStart         DateTime?
+  trialEnd           DateTime?
+
+  // For auditing or linking to a User if needed
+  // userId           String?
+  // user             User?       @relation(fields: [userId], references: [id])
 }
 
 enum SUBSCRIPTION_PLAN {
   PRO
   FREE
 }
+
+enum SubscriptionStatus {
+  active
+  canceled
+  incomplete
+  incomplete_expired
+  past_due
+  trialing
+  unpaid
+}
+
+model ChatMember {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  chatId     String   @db.ObjectId
+  userId     String   @db.ObjectId
+  email      String
+  timestamp  DateTime?
+  isAdmin    Boolean  @default(false)
+  image      String?
+  chat       Chat     @relation(fields: [chatId], references: [id], onDelete: Cascade)
+
+
+  // If you have more columns (e.g. role, createdAt, updatedAt), add them here.
+}
+
+model Customer {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String   @unique
+  stripeId   String
+  stripeLink String
+}
+
+model Message {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  chatId     String   @db.ObjectId  // Add ObjectId type to match Chat.id
+  chat       Chat     @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  input      String
+  timestamp  DateTime @default(now())
+  
+  // Store `user` inline as JSON or create a separate relation if you prefer
+  user       Json
+
+  // Store the translations as JSON
+  translated Json?
+
+  // Additional fields can go here...
+}
+
+model Chat {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String?
+  // etc...
+  messages  Message[]
+  members   ChatMember[]
+  memberCount Int          @default(0)
+  maxMembers  Int          @default(3)
+}
+
 
 model Integrations {
   id          String       @id @default(auto()) @map("_id") @db.ObjectId
@@ -208,6 +316,31 @@ model Authenticator {
   user                 User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, credentialID])
+}
+
+model Product {
+  id          String         @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  // Add any other fields as needed
+
+  // Relation back to Subscriptions
+  subscriptions Subscription[]
+}
+
+model Price {
+  id          String         @id @default(auto()) @map("_id") @db.ObjectId
+  nickname    String?
+  unitAmount  Int?
+  currency    String
+  interval    String          // e.g. "month", "year", etc.
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  // Add any other fields as needed
+
+  // Relation back to Subscriptions
+  subscriptions Subscription[]
 }
 
 // boil

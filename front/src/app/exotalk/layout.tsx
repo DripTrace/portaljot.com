@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-// import { Inter } from "next/font/google";
-import "./globals.css";
-import Header from "@/components/Header";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import ClientProviders from "@/components/ClientProviders";
-import FirebaseAuthProvider from "@/components/FirebaseAuthProvider";
-import SubscriptionProvider from "@/components/SubscriptionProvider";
+import "@/styles/exotalk/globals.css";
+import Header from "@/components/exotalk/Header";
+import { ThemeProvider } from "@/components/exotalk/ThemeProvider";
+import ClientProviders from "@/components/exotalk/ClientProviders";
+import PrismaAuthProvider from "@/components/exotalk/PrismaAuthProvider";
+import SubscriptionProvider from "@/components/exotalk/SubscriptionProvider";
 import { Toaster } from "@/components/ui/toaster";
 
 // const inter = Inter({ subsets: ["latin"] });
@@ -24,7 +23,7 @@ export default function RootLayout({
 		<ClientProviders>
 			<html lang="en">
 				<body className="flex flex-col min-h-screen">
-					<FirebaseAuthProvider>
+					<PrismaAuthProvider>
 						<SubscriptionProvider>
 							<ThemeProvider
 								attribute="class"
@@ -39,7 +38,7 @@ export default function RootLayout({
 								<Toaster />
 							</ThemeProvider>
 						</SubscriptionProvider>
-					</FirebaseAuthProvider>
+					</PrismaAuthProvider>
 				</body>
 			</html>
 		</ClientProviders>

@@ -1,5 +1,3 @@
-// pages/api/auth/[...nextauth].ts
-
 import {
 	AuthOptions,
 	Session,
@@ -28,7 +26,15 @@ import { prisma } from "@/lib/client/prisma";
 
 import { AdapterUser } from "next-auth/adapters";
 
-// Extended JWT interface with custom fields
+//
+// === Extra constants for session durations (as in the Firestore snippet) ===
+//
+const THIRTY_DAYS = 30 * 24 * 60 * 60; // 30 days
+const THIRTY_MINUTES = 30 * 60; // 30 minutes
+
+//
+// === Extended JWT interface with custom fields (from your Prisma version plus Firestore fields) ===
+//
 interface ExtendedJWT extends JWT {
 	role?: string;
 	stripeId?: string;
@@ -37,7 +43,7 @@ interface ExtendedJWT extends JWT {
 	firstname?: string;
 	lastname?: string;
 	modifyId?: string;
-	firestoreId?: string;
+	firestoreId?: string; // If you still need or plan to sync w/ Firestore in parallel
 	registeredInfo?: {
 		userCountryCode: string;
 		userCurrency: string;
@@ -68,10 +74,22 @@ interface ExtendedJWT extends JWT {
 		refresh?: string;
 		key?: string;
 	};
+	//
+	// === Fields that were set in Firestore, now in Prisma ===
+	//
+	availableLanguages?: string[];
+	hasSelectedSecondLanguage?: boolean;
+	lastUpdated?: string;
+	//
+	// Because NextAuth merges user objects differently,
+	// we keep user in the JWT if you want direct access in callbacks
+	//
 	user?: NextAuthUser;
 }
 
-// Refresh Token Helper Function
+//
+// === Refresh Token Helper Function (unchanged) ===
+//
 export const refreshToken = async function (
 	refreshToken: string
 ): Promise<[string | null, string | null]> {
@@ -101,22 +119,43 @@ export const refreshToken = async function (
 	}
 };
 
-// RefreshToken Interface
+//
+// === RefreshToken Interface ===
+//
 export interface RefreshToken {
 	access?: string;
 	refresh?: string;
 	key?: string;
 }
 
-// NextAuth Configuration
+//
+// === NextAuth Configuration ===
+//
 const authOptions: AuthOptions = {
 	secret: process.env.NEXTAUTH_SECRET,
+	//
+	// -- Bring in the session durations from Firestore snippet
+	//
 	session: {
 		strategy: "jwt",
-		maxAge: 30 * 24 * 60 * 60, // 30 days
-		updateAge: 30 * 60, // 30 minutes
+		maxAge: THIRTY_DAYS,
+		updateAge: THIRTY_MINUTES,
 	},
+	//
+	// -- Use PrismaAdapter
+	//
 	adapter: PrismaAdapter(prisma),
+
+	//
+	// -- Add the Firestore-like "newUser" page redirection
+	//
+	pages: {
+		newUser: "/pricing", // redirect first-time users to pricing if needed
+	},
+
+	//
+	// -- Providers
+	//
 	providers: [
 		CredentialsProvider({
 			name: "Credentials",
@@ -141,7 +180,7 @@ const authOptions: AuthOptions = {
 					throw new Error("Email and password are required.");
 				}
 
-				// Find user via Prisma
+				// Find user in your Prisma DB
 				const user = await prisma.user.findUnique({
 					where: { email: credentials.email },
 				});
@@ -165,6 +204,7 @@ const authOptions: AuthOptions = {
 				}
 
 				console.log("=== Credentials Verification Successful ===");
+
 				return {
 					id: user.id,
 					name: `${user.firstname} ${user.lastname}`,
@@ -186,7 +226,14 @@ const authOptions: AuthOptions = {
 					stripe_metadata: user.stripe_metadata,
 					stripeBalance: user.stripeBalance,
 					external_accounts: user.external_accounts,
-				} as any; // Type assertion to satisfy the User interface
+					//
+					//  Firestore snippet fields can be included as new columns in Prisma
+					//
+					availableLanguages: user.availableLanguages || ["en"],
+					hasSelectedSecondLanguage:
+						user.hasSelectedSecondLanguage || false,
+					lastUpdated: user.lastUpdated || new Date().toISOString(),
+				} as NextAuthUser;
 			},
 		}),
 		EmailProvider({
@@ -234,27 +281,40 @@ const authOptions: AuthOptions = {
 					prompt: "consent",
 				},
 			},
+			allowDangerousEmailAccountLinking: true,
 		}),
 	],
+
 	callbacks: {
-		// Sign In Callback
-		async signIn(params: {
-			user: NextAuthUser | AdapterUser;
-			account: Account | null;
-			profile?: Profile;
-			email?: { verificationRequest?: boolean };
-			credentials?: Record<string, CredentialInput>;
-			isNewUser?: boolean;
-		}): Promise<boolean> {
+		//
+		// === signIn Callback ===
+		//
+		async signIn(params) {
 			console.log("=== signIn Callback Called ===");
 			console.log("signIn params:", JSON.stringify(params, null, 2));
 
-			const { account, profile, credentials, isNewUser } = params;
+			const { user, account, profile, credentials } = params;
 
-			if (isNewUser) {
+			// Check if this is a new user by querying Prisma
+			const isNewUser =
+				user?.id &&
+				(await prisma.user.count({ where: { id: user.id } })) === 0;
+
+			// Firestore snippet logic: If user is brand new, set default fields
+			if (isNewUser && user?.id) {
 				console.log(
 					">>> A NEW USER JUST LOGGED IN FOR THE FIRST TIME! <<<"
 				);
+				// Update user record in Prisma with default fields
+				await prisma.user.update({
+					where: { id: user.id },
+					data: {
+						role: "standard",
+						availableLanguages: ["en"],
+						hasSelectedSecondLanguage: false,
+						lastUpdated: new Date().toISOString(),
+					},
+				});
 			}
 
 			if (credentials) {
@@ -305,27 +365,18 @@ const authOptions: AuthOptions = {
 			return false;
 		},
 
-		// JWT Callback
-		async jwt({
-			token,
-			user,
-			account,
-			profile,
-			isNewUser,
-		}: {
-			token: JWT;
-			user?: NextAuthUser;
-			account?: Account | null;
-			profile?: Profile;
-			isNewUser?: boolean;
-		}): Promise<ExtendedJWT> {
+		//
+		// === jwt Callback ===
+		//
+		async jwt({ token, user, account }) {
 			console.log("=== jwt Callback Called ===");
 			console.log("Current JWT token:", JSON.stringify(token, null, 2));
 			console.log("Incoming user (if any):", user);
 			console.log("Incoming account (if any):", account);
-			console.log("isNewUser:", isNewUser);
 
-			// OAuth-based login
+			//
+			// -- OAuth-based login, attempt to store tokens from the backend if any
+			//
 			if (account && user) {
 				console.log("OAuth-based login detected.");
 				token.accessToken = account.access_token as string;
@@ -336,13 +387,11 @@ const authOptions: AuthOptions = {
 						console.log(
 							"Attempting to send tokens to BACKEND for Google login."
 						);
-
 						const headers = {
 							email: user.email,
 							access_token: account.access_token,
 							id_token: account.id_token,
 						};
-
 						console.log("Sending headers: ", headers);
 
 						const backendResponse = await axios.post(
@@ -352,22 +401,12 @@ const authOptions: AuthOptions = {
 
 						console.dir(backendResponse);
 
-						const { access_token, refresh_token, key } =
-							backendResponse.data;
-
+						// If your backend returns new tokens, store them here
 						token = {
-							// ...token,
-							// accessToken: access_token,
-							// refreshToken: {
-							// 	access: access_token,
-							// 	refresh: refresh_token,
-							// 	key: key || "",
-							// },
-
 							...token,
 							accessToken: account.access_token,
 							refresh_token: account.refresh_token,
-							refreshToken: backendResponse.data,
+							refreshToken: backendResponse.data, // { access, refresh, key, ... }
 						};
 
 						console.log(
@@ -385,7 +424,9 @@ const authOptions: AuthOptions = {
 				}
 			}
 
-			// Token refresh logic
+			//
+			// -- Token refresh logic
+			//
 			if (
 				token.accessToken &&
 				typeof token.accessToken === "string" &&
@@ -423,7 +464,9 @@ const authOptions: AuthOptions = {
 				return { ...token, exp: 0 } as ExtendedJWT;
 			}
 
-			// Fetch additional user data from Prisma to populate the token
+			//
+			// -- Fetch additional user data from Prisma to populate the token
+			//
 			console.log("Fetching user data from Prisma to populate token.");
 			if (token.email) {
 				const userFromDb = await prisma.user.findUnique({
@@ -453,6 +496,16 @@ const authOptions: AuthOptions = {
 							userFromDb.individual_verification,
 						stripe_metadata: userFromDb.stripe_metadata,
 						stripeBalance: userFromDb.stripeBalance,
+						//
+						// Bring forward the Firestore-like fields
+						//
+						availableLanguages: userFromDb.availableLanguages || [
+							"en",
+						],
+						hasSelectedSecondLanguage:
+							userFromDb.hasSelectedSecondLanguage || false,
+						lastUpdated:
+							userFromDb.lastUpdated || new Date().toISOString(),
 					};
 				}
 			}
@@ -461,20 +514,17 @@ const authOptions: AuthOptions = {
 			return token as ExtendedJWT;
 		},
 
-		// Session Callback
-		async session({
-			session,
-			token,
-		}: {
-			session: Session;
-			token: JWT;
-		}): Promise<Session> {
+		//
+		// === session Callback ===
+		//
+		async session({ session, token }) {
 			console.log("=== session Callback Called ===");
 			console.log("Incoming session:", JSON.stringify(session, null, 2));
 			console.log("Incoming token:", JSON.stringify(token, null, 2));
 
 			const extendedToken = token as ExtendedJWT;
 
+			// Merge extended fields into session.user
 			session.user = {
 				...session.user,
 				...extendedToken,
@@ -497,7 +547,9 @@ const authOptions: AuthOptions = {
 			return session;
 		},
 
-		// Redirect Callback
+		//
+		// === redirect Callback (unchanged) ===
+		//
 		async redirect({ url }) {
 			console.log("=== redirect Callback Called ===");
 			console.log("Incoming redirect URL:", url);
@@ -529,6 +581,10 @@ const authOptions: AuthOptions = {
 			return customBaseUrl;
 		},
 	},
+
+	//
+	// === events (as in your snippet) ===
+	//
 	events: {
 		async createUser(message) {
 			console.log("=== events.createUser Called ===");
@@ -562,7 +618,9 @@ const authOptions: AuthOptions = {
 	},
 };
 
+//
 // Helper to get server session
+//
 const getSession = () => getServerSession(authOptions);
 
 export { authOptions, getSession };

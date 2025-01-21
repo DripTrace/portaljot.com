@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Demo from "@/images/landingPage/this.gif";
+import Demo from "exotalk/images/landingPage/this.gif";
 import Image from "next/image";
 
 export default async function HomePage() {
@@ -34,13 +34,13 @@ export default async function HomePage() {
 							</p>
 							<div className="mt-10 flex items-center justify-center gap-x-6">
 								<Link
-									href="/chat"
+									href="/exotalk/chat"
 									className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white dark:text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
 								>
 									Get started
 								</Link>
 								<Link
-									href="/pricing"
+									href="/exotalk/pricing"
 									className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300"
 								>
 									View Pricing{" "}

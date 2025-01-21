@@ -1,5 +1,5 @@
 // app/(user)/chat/layout.tsx
-import LanguageSelectionDialog from "@/components/LanguageSelectionDialog";
+import LanguageSelectionDialog from "@/components/exotalk/LanguageSelectionDialog";
 
 export default function ChatLayout({
 	children,

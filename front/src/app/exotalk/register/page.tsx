@@ -1,5 +1,5 @@
-import { authOptions } from "@/auth";
-import { PricingCards } from "@/components/PricingCards";
+import { authOptions } from "@/app/api/modify/auth/route";
+import { PricingCards } from "@/components/exotalk/PricingCards";
 import { getServerSession } from "next-auth";
 
 async function Register() {

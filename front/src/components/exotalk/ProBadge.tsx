@@ -1,6 +1,6 @@
 "use client";
 
-import { useSubscriptionStore } from "@/store/store";
+import { useSubscriptionStore } from "@/store/exotalk/store";
 import { StarIcon } from "@heroicons/react/20/solid";
 
 function ProBadge() {

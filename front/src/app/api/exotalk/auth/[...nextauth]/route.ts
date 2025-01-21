@@ -1,4 +1,4 @@
-import { authOptions } from "@/auth";
+import { authOptions } from "@/types/exotalk/auth";
 import { randomUUID } from "crypto";
 import { NextApiRequest, NextApiResponse } from "next";
 import NextAuth, { NextAuthOptions } from "next-auth";

@@ -3,7 +3,7 @@ import Logo from "./Logo";
 import { DarkModeToggle } from "./DarkModeToggle";
 import UserButton from "./UserButton";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/auth";
+import { authOptions } from "@/api/modify/auth/route";
 import Link from "next/link";
 import { MessagesSquareIcon } from "lucide-react";
 import CreateChatButton from "./CreateChatButton";
@@ -30,7 +30,7 @@ async function Header() {
 
 					{session ? (
 						<>
-							<Link href={"/chat"} prefetch={false}>
+							<Link href={"/exotalk/chat"} prefetch={false}>
 								{/* <MessagesSquare className="text-[#070502] dark:text-[#f8f9fd]" /> */}
 								{/* <MessagesSquare className="text-[#060602] dark:text-[#f8f9fd]" /> */}
 								<MessagesSquareIcon className="text-dark-gray-900 dark:text-white" />
@@ -38,7 +38,7 @@ async function Header() {
 							<CreateChatButton />
 						</>
 					) : (
-						<Link href="/pricing">Pricing</Link>
+						<Link href="/exotalk/pricing">Pricing</Link>
 					)}
 
 					<DarkModeToggle />

@@ -1,4 +1,4 @@
-import LoadingSpinner from "@/components/loadingSpinner";
+import LoadingSpinner from "@/components/exotalk/loadingSpinner";
 
 function Loading() {
 	return (

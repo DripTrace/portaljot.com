@@ -1,63 +1,4 @@
-// import { db } from "@/firebase";
-// import { Subscription } from "@/types/Subscription";
-// import {
-// 	DocumentData,
-// 	FirestoreDataConverter,
-// 	QueryDocumentSnapshot,
-// 	SnapshotOptions,
-// 	collection,
-// } from "firebase/firestore";
-
-// const subscriptionConverter: FirestoreDataConverter<Subscription> = {
-// 	toFirestore: function (subscription: Subscription): DocumentData {
-// 		return {
-// 			...subscription,
-// 			// ... other fields
-// 		};
-// 	},
-// 	fromFirestore: function (
-// 		snapshot: QueryDocumentSnapshot,
-// 		options: SnapshotOptions
-// 	): Subscription {
-// 		const data = snapshot.data(options);
-
-// 		const sub: Subscription = {
-// 			id: snapshot.id,
-// 			cancel_at_period_end: data.cancel_at_period_end,
-// 			created: data.created,
-// 			current_period_start: data.current_period_start,
-// 			items: data.items,
-// 			latest_invoice: data.latest_invoice,
-// 			metadata: data.metadata,
-// 			payment_method: data.payment_method,
-// 			price: data.price,
-// 			prices: data.prices,
-// 			product: data.product,
-// 			quantity: data.quantity,
-// 			status: data.status,
-// 			stripeLink: data.stripeLink,
-// 			cancel_at: data.cancel_at,
-// 			canceled_at: data.canceled_at,
-// 			current_period_end: data.current_period_end,
-// 			ended_at: data.ended_at,
-// 			trial_start: data.trial_start,
-// 			trial_end: data.trial_end,
-// 			// role: data.role,
-// 		};
-
-// 		return sub;
-// 	},
-// };
-
-// export const subscriptionRef = (userId: string) =>
-// 	collection(db, "customers", userId, "subscriptions").withConverter(
-// 		subscriptionConverter
-// 	);
-
 // prismaSubscriptions.ts
-
-// import { PrismaClient } from "@prisma/client";
-// import { prisma as PrismaClient } from "@/lib/client/prisma"
 import { prisma } from "@/lib/client/prisma";
 
 // If you already have a Subscription interface in "@/types/Subscription", you can import that.
@@ -94,9 +35,6 @@ export interface Subscription {
 	userId?: string; // foreign key to your User table
 }
 
-// Instantiate Prisma once in your application
-// const prisma = new PrismaClient();
-
 /**
  * Get all Subscriptions for a given user ID
  * (Equivalent to Firestore's 'collection(db, "customers", userId, "subscriptions")'
@@ -120,9 +58,10 @@ export async function getSubscriptionsForUser(
 		current_period_start: row.currentPeriodStart,
 		items: row.items,
 		latest_invoice: row.latestInvoice || undefined,
-		metadata: (typeof row.metadata === "object"
-			? row.metadata
-			: {}) as Record<string, any>,
+		metadata:
+			typeof row.metadata === "object" && row.metadata !== null
+				? (row.metadata as Record<string, any>)
+				: {},
 		payment_method: row.paymentMethod || undefined,
 		price: row.priceId, // if your schema calls the FK "priceId"
 		prices: (Array.isArray(row.priceIds) ? row.priceIds : []).filter(
