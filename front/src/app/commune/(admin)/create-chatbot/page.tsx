@@ -1,9 +1,9 @@
 "use client";
 
-import Avatar from "@/components/Avatar";
+import Avatar from "@/components/commune/Avatar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { CREATE_CHATBOT } from "@/graphql/mutations/mutations";
+import { CREATE_CHATBOT } from "@/graphql/commune/mutations/mutations";
 import { useMutation } from "@apollo/client";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
@@ -36,7 +36,7 @@ function CreateChatbot() {
 			setName(""); // Clear the input field after submission
 			console.log("data\n", data);
 
-			router.push(`/edit-chatbot/${data.data.insertChatbots.id}`);
+			router.push(`/commune/edit-chatbot/${data.data.insertChatbots.id}`);
 		} catch (err) {
 			console.log("data\n", data);
 			console.log("error\n", err);

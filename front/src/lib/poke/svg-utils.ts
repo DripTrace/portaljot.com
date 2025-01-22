@@ -1,5 +1,5 @@
 import { Prisma } from "@prisma/client";
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@/lib/client/prisma";
 
 /**
  * Generate an SVG using the Base64 image and cache it.

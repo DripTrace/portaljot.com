@@ -2,7 +2,7 @@ import MusicSection from "@/components/music/MusicSection";
 import Markdown from "react-markdown";
 
 export default function Home() {
-    const markdown = `
+	const markdown = `
 
 ---
 ## 👋 Introduction
@@ -36,7 +36,7 @@ We update quickly, please star us on Github:  [github.com/DripTrace/nexusconjure
 7. Locate the \`Cookie\` section, hover your mouse over it, and copy the value of the Cookie.
 `;
 
-    const markdown_part2 = `
+	const markdown_part2 = `
 ### 2. Clone and deploy this project
 
 You can choose your preferred deployment method:
@@ -70,7 +70,7 @@ yarn
   - Visit the \`https://<vercel-assigned-domain>/music/api/get_limit\` API for testing.
 - If running locally:
   - Run \`npm run dev\`.
-  - Visit the \`http://localhost:420/music/music/api/get_limit\` API for testing.
+  - Visit the \`${process.env.NEXT_PUBLIC_URL}/music/music/api/get_limit\` API for testing.
 - If the following result is returned:
 
   \`\`\`json
@@ -111,43 +111,43 @@ For more detailed documentation, please check out the demo site:
 👉 [nexusconjure.com/music/docs](https://nexusconjure.com/music/docs)
 
 `;
-    return (
-        <>
-            <MusicSection className="">
-                <div
-                    className="flex flex-col m-auto py-20 text-center items-center justify-center gap-4 my-8
+	return (
+		<>
+			<MusicSection className="">
+				<div
+					className="flex flex-col m-auto py-20 text-center items-center justify-center gap-4 my-8
         lg:px-20 px-4
         bg-indigo-900/90 rounded-2xl border shadow-2xl hover:shadow-none duration-200"
-                >
-                    <span
-                        className=" px-5 py-1 text-xs font-light border rounded-full 
+				>
+					<span
+						className=" px-5 py-1 text-xs font-light border rounded-full 
           border-white/20 uppercase text-white/50"
-                    >
-                        Unofficial
-                    </span>
-                    <h1 className="font-bold text-7xl flex text-white/90">
-                        Suno AI API
-                    </h1>
-                    <p className="text-white/80 text-lg">
-                        `Suno-api` is an open-source project that enables you to
-                        set up your own Suno AI API.
-                    </p>
-                </div>
-            </MusicSection>
-            <MusicSection className="my-10">
-                <article className="prose lg:prose-lg max-w-3xl">
-                    <Markdown>{markdown}</Markdown>
-                    <video
-                        controls
-                        width="1024"
-                        className="w-full border rounded-lg shadow-xl"
-                    >
-                        <source src="/get-cookie-demo.mp4" type="video/mp4" />
-                        Your browser does not support frames.
-                    </video>
-                    <Markdown>{markdown_part2}</Markdown>
-                </article>
-            </MusicSection>
-        </>
-    );
+					>
+						Unofficial
+					</span>
+					<h1 className="font-bold text-7xl flex text-white/90">
+						Suno AI API
+					</h1>
+					<p className="text-white/80 text-lg">
+						`Suno-api` is an open-source project that enables you to
+						set up your own Suno AI API.
+					</p>
+				</div>
+			</MusicSection>
+			<MusicSection className="my-10">
+				<article className="prose lg:prose-lg max-w-3xl">
+					<Markdown>{markdown}</Markdown>
+					<video
+						controls
+						width="1024"
+						className="w-full border rounded-lg shadow-xl"
+					>
+						<source src="/get-cookie-demo.mp4" type="video/mp4" />
+						Your browser does not support frames.
+					</video>
+					<Markdown>{markdown_part2}</Markdown>
+				</article>
+			</MusicSection>
+		</>
+	);
 }

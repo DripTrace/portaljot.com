@@ -1,4 +1,4 @@
-import FileUploader from "@/components/FileUploader";
+import FileUploader from "@/components/warpcatch/FileUploader";
 
 const UploadPage = () => {
 	return (

@@ -1,5 +1,5 @@
 "use client";
-import CreateLaneForm from "@/components/forms/lane-form";
+import CreateLaneForm from "@/components/nexusconjure/forms/lane-form";
 
 import {
 	AlertDialog,
@@ -21,17 +21,20 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { deleteLane, saveActivityLogsNotification } from "@/utils/nexusconjure/queries";
+import {
+	deleteLane,
+	saveActivityLogsNotification,
+} from "@/utils/nexusconjure/queries";
 import { LaneDetail, TicketWithTags } from "@/utils/nexusconjure/types";
 import { cn } from "@/lib/utils";
-import { useModal } from "@/providers/modal-provider";
+import { useModal } from "@/providers/nexusconjure/modal-provider";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 import { Edit, MoreVertical, PlusCircleIcon, Trash } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { Dispatch, SetStateAction, useMemo } from "react";
 // import PipelineTicket from './pipeline-ticket'
-import CustomModal from "@/components/global/custom-modal";
-import TicketForm from "@/components/forms/ticket-form";
+import CustomModal from "@/components/nexusconjure/global/custom-modal";
+import TicketForm from "@/components/nexusconjure/forms/ticket-form";
 import PipelineTicket from "./pipeline-ticket";
 
 interface PipelaneLaneProps {

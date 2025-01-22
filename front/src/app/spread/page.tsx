@@ -1,5 +1,5 @@
-import { onGetBlogPosts } from "@/actions/landing";
-import NavBar from "@/components/navbar";
+import { onGetBlogPosts } from "@/actions/spread/landing";
+import NavBar from "@/components/spread/navbar";
 import { Button } from "@/components/ui/button";
 import {
 	Card,
@@ -9,13 +9,13 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import { pricingCards } from "@/constants/landing-page";
+import { pricingCards } from "@/constants/spread/landing-page";
 import clsx from "clsx";
 import { ArrowRightCircleIcon, Check } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import parse from "html-react-parser";
-import { getMonthName } from "@/lib/utils";
+import { getMonthName } from "@/lib/spread/utils";
 
 export default async function Home() {
 	const posts:
@@ -37,7 +37,7 @@ export default async function Home() {
 						An AI powered sales assistant chatbot
 					</span>
 					<Image
-						src="/images/spread-ai-logo.png"
+						src="/spread/images/spread-ai-logo.png"
 						width={500}
 						height={100}
 						alt="Logo"
@@ -51,7 +51,7 @@ export default async function Home() {
 						Start For Free
 					</Button>
 					<Image
-						src="/images/iphonespread.png"
+						src="/spread/images/iphonespread.png"
 						width={400}
 						height={100}
 						alt="Logo"
@@ -113,7 +113,7 @@ export default async function Home() {
 								))}
 							</div>
 							<Link
-								href={`/dashbord?plan=${card.title}`}
+								href={`/spread/dashbord?plan=${card.title}`}
 								className="bg-[#f3d299] border-orange border-2 p-2 w-full text-center font-bold rounded-md"
 							>
 								Get Started
@@ -133,7 +133,7 @@ export default async function Home() {
 			<section className="md:grid-cols-3 grid-cols-1 grid gap-5 container mt-8">
 				{posts &&
 					posts.map((post) => (
-						<Link href={`/blogs/${post.id}`} key={post.id}>
+						<Link href={`/spread/blogs/${post.id}`} key={post.id}>
 							<Card className="flex flex-col gap-2 rounded-xl overflow-hidden h-full hover:bg-gray-100">
 								<div className="relative w-full aspect-video">
 									<Image

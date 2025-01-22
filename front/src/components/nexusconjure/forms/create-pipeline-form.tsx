@@ -19,9 +19,9 @@ import {
 } from "@/components/ui/card";
 import { useForm } from "react-hook-form";
 import { Funnel, Pipeline } from "@prisma/client";
-import { Input } from "../ui/input";
+import { Input } from "@/components/ui/input";
 
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import Loading from "../global/loading";
 import { CreatePipelineFormSchema } from "@/utils/nexusconjure/types";
 import {
@@ -30,8 +30,8 @@ import {
 	upsertPipeline,
 } from "@/utils/nexusconjure/queries";
 import { v4 } from "uuid";
-import { toast } from "../ui/use-toast";
-import { useModal } from "@/providers/modal-provider";
+import { toast } from "@/components/ui/use-toast";
+import { useModal } from "@/providers/nexusconjure/modal-provider";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 

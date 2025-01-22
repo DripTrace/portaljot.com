@@ -22,7 +22,7 @@ const Footer: React.FC<FooterProps> = ({ companyName }) => {
 			</ul>
 			<p className="mt-4">
 				<a
-					href="/about"
+					href="/nexusconjure/about"
 					className="text-purple-300 hover:text-purple-100 underline"
 				>
 					Learn more about NexusConjure

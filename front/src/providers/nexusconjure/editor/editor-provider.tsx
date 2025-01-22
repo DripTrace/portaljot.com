@@ -1,5 +1,5 @@
 "use client";
-import { EditorBtns } from "@/lib/constants";
+import { EditorBtns } from "@/lib/nexusconjure/constants";
 import { EditorAction } from "./editor-actions";
 import { Dispatch, createContext, useContext, useReducer } from "react";
 import { FunnelPage } from "@prisma/client";
@@ -188,7 +188,7 @@ const editorReducer = (
 							name: "",
 							styles: {},
 							type: null,
-					  },
+						},
 			};
 
 			const updatedHistoryWithUpdate = [

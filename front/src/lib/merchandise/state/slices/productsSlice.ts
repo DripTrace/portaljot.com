@@ -1,26 +1,26 @@
-import { ISyncProduct } from "@/pages/api/merchandise/products";
+import { ISyncProduct } from "@/api/merchandise/products";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type Products = { [id: string]: ISyncProduct };
 export interface ProductsState {
-    products: Products;
+	products: Products;
 }
 
 const initialState: ProductsState = {
-    products: {},
+	products: {},
 };
 
 const productsSlice = createSlice({
-    initialState,
-    name: "products",
-    reducers: {
-        receivedProducts(state, action: PayloadAction<ISyncProduct[]>) {
-            const products = action.payload;
-            products.forEach((product) => {
-                state.products[product.id] = product;
-            });
-        },
-    },
+	initialState,
+	name: "products",
+	reducers: {
+		receivedProducts(state, action: PayloadAction<ISyncProduct[]>) {
+			const products = action.payload;
+			products.forEach((product) => {
+				state.products[product.id] = product;
+			});
+		},
+	},
 });
 
 export const { receivedProducts } = productsSlice.actions;

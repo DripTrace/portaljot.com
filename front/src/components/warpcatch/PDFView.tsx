@@ -5,15 +5,8 @@ import "react-pdf/dist/Page/TextLayer.css";
 
 import { Document, Page, pdfjs } from "react-pdf";
 import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import { Loader2Icon, RotateCw, ZoomInIcon, ZoomOutIcon } from "lucide-react";
-
-// CORS configuration
-// gsutil cors set cors.json gs://stage-warpcatch-com.appspot.com
-// >> https://console.cloud.google.com/storage/browser/stage-warpcatch-com.appspot.com?project=stage-warpcatch-com
-// create new file in editor called cors.json
-// run >> // gsutil cors set cors.json gs://stage-warpcatch-com.appspot.com
-// >> https://firebase.google.com/docs/storage/web/download-files#cors_configuration
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 

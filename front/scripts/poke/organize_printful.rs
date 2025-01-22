@@ -5,12 +5,12 @@ use std::io::Write;
 use std::env;
 use tokio;
 
-const BASE_URL: &str = "https://api.printful.com/v2/catalog";
+const BASE_URL_POKE: &str = "https://api.printful.com/v2/catalog";
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Retrieve the API key from the environment variable
-    let api_key = env::var("PRINTFUL_API_KEY").expect("API key not set in PRINTFUL_API_KEY");
+    let api_key = env::var("PRINTFUL_API_KEY_POKE").expect("API key not set in PRINTFUL_API_KEY_POKE");
     let categories_dir = "public/printful/categories";
 
     for entry in fs::read_dir(categories_dir)? {
@@ -43,7 +43,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 async fn fetch_and_save_variants(category_dir: &str, product_id: i64, product_title: &str, api_key: &str) -> Result<(), Box<dyn std::error::Error>> {
     let client = reqwest::Client::new();
-    let url = format!("{}/products/{}/variants", BASE_URL, product_id);
+    let url = format!("{}/products/{}/variants", BASE_URL_POKE, product_id);
     let response = client
         .get(&url)
         .header(AUTHORIZATION, format!("Bearer {}", api_key))

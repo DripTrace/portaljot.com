@@ -1,5 +1,5 @@
-import LandingComponent from "@/components/landing/LandingComponent";
+import LandingComponent from "@/components/nexusconjure/landing/LandingComponent";
 
 export default function LandingPage() {
-    return <LandingComponent />;
+	return <LandingComponent />;
 }

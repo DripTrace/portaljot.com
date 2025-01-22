@@ -1,18 +1,18 @@
 "use client";
 
 import { FormEvent, useEffect, useRef, useState, useTransition } from "react";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-// import { askQuestion, Message } from "@/actions/askQuestion"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+// import { askQuestion, Message } from "@/actions/warpcatch/askQuestion"
 // import ChatMessage from "lucide-react";
 import { Loader2Icon } from "lucide-react";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { useUser } from "@clerk/nextjs";
 import { collection, orderBy, query } from "firebase/firestore";
 import { db } from "../../firebase";
-import { askQuestion } from "@/actions/askQuestion";
+import { askQuestion } from "@/actions/warpcatch/askQuestion";
 import ChatMessage from "./ChatMessage";
-import { useToast } from "./ui/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 
 export type Message = {
 	id?: string;
@@ -73,10 +73,6 @@ const Chat = ({ id }: { id: string }) => {
 		console.log("Updated snapshot", snapshot.docs);
 	}, [snapshot]);
 
-	// useEffect(() => {
-	// 	console.log("Messages NOW", messages);
-	// }[]);
-
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
 		// try {
@@ -102,8 +98,6 @@ const Chat = ({ id }: { id: string }) => {
 		startTransition(async () => {
 			const { success, message } = await askQuestion(id, q);
 			console.log("MESSAGES AFTER TRANSITION: ", q);
-			// console.log("Question asked: ", q);
-			// console.log("Success: ", success);
 
 			if (!success) {
 				toast({
@@ -122,29 +116,13 @@ const Chat = ({ id }: { id: string }) => {
 					])
 				);
 			}
-			// else {
-			// 	console.log("Question asked successfully");
-			// }
 		});
-		// } catch (error) {
-		// 	console.error(error);
-		// }
 
 		console.log("MESSAGES AFTER SET: ");
-
-		// useEffect(() => {
-		// 	console.log("CHAT INIT");
-		// });
-	};
 
 	return (
 		<div className="flex flex-col h-full overflow-scroll">
 			<div className="flex-1 w-full">
-				{/* {messages.map((message) => (
-					<div key={message.id}>
-						<p>{message.message}</p>
-					</div>
-				))} */}
 				{loading ? (
 					<div className="flex items-center justify-center">
 						<Loader2Icon className="h-20 w-20 text-indigo-600 animate-spin mt-20" />

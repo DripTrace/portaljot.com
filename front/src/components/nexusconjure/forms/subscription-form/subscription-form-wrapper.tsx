@@ -2,15 +2,15 @@
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "@/components/ui/use-toast";
 import { pricingCards } from "@/utils/nexusconjure/constants";
-import { useModal } from "@/providers/modal-provider";
+import { useModal } from "@/providers/nexusconjure/modal-provider";
 import { Plan } from "@prisma/client";
 import { StripeElementsOptions } from "@stripe/stripe-js";
 import clsx from "clsx";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useMemo, useState } from "react";
 import { Elements } from "@stripe/react-stripe-js";
-import { getStripe } from "@/lib/stripe/stripe-client";
-import Loading from "@/components/global/loading";
+import { getStripe } from "@/lib/nexusconjure/stripe/stripe-client";
+import Loading from "@/components/nexusconjure/global/loading";
 import SubscriptionForm from ".";
 
 type Props = {
@@ -43,7 +43,7 @@ const SubscriptionFormWrapper = ({ customerId, planExists }: Props) => {
 		if (!selectedPriceId) return;
 		const createSecret = async () => {
 			const subscriptionResponse = await fetch(
-				"/api/stripe/create-subscription",
+				"/nexusconjure/api/nexusconjure/stripe/create-subscription",
 				{
 					method: "POST",
 					headers: {

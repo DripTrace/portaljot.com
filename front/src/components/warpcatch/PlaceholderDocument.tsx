@@ -3,7 +3,7 @@
 import { FrownIcon, PlusCircleIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import useSubscription from "@/hooks/useSubscription";
+import useSubscription from "@/hooks/warpcatch/useSubscription";
 
 const PlaceholderDocument = () => {
 	const { isOverFileLimit } = useSubscription();
@@ -12,8 +12,8 @@ const PlaceholderDocument = () => {
 
 	const handleClick = () => {
 		if (isOverFileLimit) {
-			router.push("/upgrade");
-		} else router.push("/dashboard/upload");
+			router.push("/warpcatch/upgrade");
+		} else router.push("/warpcatch/dashboard/upload");
 	};
 
 	return (

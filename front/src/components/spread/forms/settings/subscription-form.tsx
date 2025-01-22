@@ -1,10 +1,10 @@
 "use client";
 
-import { Loader } from "@/components/loader";
-import { StripeElements } from "@/components/settings/stripe-elements";
-import SubscriptionCard from "@/components/settings/subscription-card";
+import { Loader } from "@/components/spread/loader";
+import { StripeElements } from "@/components/spread/settings/stripe-elements";
+import SubscriptionCard from "@/components/spread/settings/subscription-card";
 import { Button } from "@/components/ui/button";
-import { useSubscriptions } from "@/hooks/billing/use-billing";
+import { useSubscriptions } from "@/hooks/spread/billing/use-billing";
 import React from "react";
 
 type Props = {

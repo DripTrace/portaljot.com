@@ -1,4 +1,4 @@
-import InfoBar from "@/components/global/infobar";
+import InfoBar from "@/components/nexusconjure/global/infobar";
 import Sidebar from "@/components/nexusconjure/sidebar";
 import Unauthorized from "@/components/nexusconjure/unauthorized";
 import {
@@ -21,7 +21,7 @@ const SubaccountLayout = async ({ children, params }: Props) => {
 	if (!agencyId) return <Unauthorized />;
 	const user = await currentUser();
 	if (!user) {
-		return redirect("/");
+		return redirect("/nexusconjure/");
 	}
 
 	let notifications: any = [];

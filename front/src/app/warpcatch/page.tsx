@@ -19,19 +19,12 @@ const features = [
 		icon: ZapIcon,
 	},
 	{
-		feature: 2,
+		feature: 1,
 		name: "Store your PDF Documents",
 		description:
 			"Keep all your importand PDF files securely stored and easilty accessible anytime, anywhere.",
 		icon: GlobeIcon,
 	},
-	// {
-	// 	feature: 1,
-	// 	name: "Store your PDF Documents",
-	// 	decription:
-	// 		"Keep all your importand PDF files securely stored and easilty accessible anytime, anywhere.",
-	// 	icon: GlobeIcon,
-	// },
 	{
 		feature: 2,
 		name: "Chat Memorisation",
@@ -97,7 +90,7 @@ export default function Home() {
 						</p>
 					</div>
 					<Button asChild className="mt-10">
-						<Link href="/dashboard">Get Started</Link>
+						<Link href="/warpcatch/dashboard">Get Started</Link>
 					</Button>
 				</div>
 

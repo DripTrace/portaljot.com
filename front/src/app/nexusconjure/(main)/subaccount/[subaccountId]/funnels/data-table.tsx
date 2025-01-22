@@ -18,10 +18,10 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
-import { useModal } from "@/providers/modal-provider";
+import { useModal } from "@/providers/nexusconjure/modal-provider";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import CustomModal from "@/components/global/custom-modal";
+import CustomModal from "@/components/nexusconjure/global/custom-modal";
 
 interface FunnelsDataTableProps<TData, TValue> {
 	columns: ColumnDef<TData, TValue>[];
@@ -97,7 +97,7 @@ export default function FunnelsDataTable<TData, TValue>({
 														header.column.columnDef
 															.header,
 														header.getContext()
-												  )}
+													)}
 										</TableHead>
 									);
 								})}

@@ -33,7 +33,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-import { useEditor } from "@/providers/editor/editor-provider";
+import { useEditor } from "@/providers/nexusconjure/editor/editor-provider";
 import { Slider } from "@/components/ui/slider";
 
 type Props = {};
@@ -428,7 +428,7 @@ const SettingsTab = (props: Props) => {
 												state.editor.selectedElement
 													.styles?.opacity || "0"
 											).replace("%", "")
-									  ) || 0}
+										) || 0}
 								%
 							</small>
 						</div>
@@ -451,7 +451,7 @@ const SettingsTab = (props: Props) => {
 												state.editor.selectedElement
 													.styles?.opacity || "0"
 											).replace("%", "")
-									  ) || 0,
+										) || 0,
 							]}
 							max={100}
 							step={1}
@@ -472,7 +472,7 @@ const SettingsTab = (props: Props) => {
 												state.editor.selectedElement
 													.styles?.borderRadius || "0"
 											).replace("px", "")
-									  ) || 0}
+										) || 0}
 								px
 							</small>
 						</div>
@@ -495,7 +495,7 @@ const SettingsTab = (props: Props) => {
 												state.editor.selectedElement
 													.styles?.borderRadius || "0"
 											).replace("%", "")
-									  ) || 0,
+										) || 0,
 							]}
 							max={100}
 							step={1}

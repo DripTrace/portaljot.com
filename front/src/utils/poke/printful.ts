@@ -275,7 +275,7 @@ export async function processAndUploadImage(
 		console.log("Uploading image", { filename });
 
 		const uploadResponse = await axios.post(
-			`${process.env.NEXT_PUBLIC_BASE_URL}/api/images/upload`,
+			`${process.env.NEXT_PUBLIC_BASE_URL_POKE}/api/images/upload`,
 			{ pngBase64: resizedBuffer.toString("base64"), filename },
 			{ headers: { "Content-Type": "application/json" } }
 		);

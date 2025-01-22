@@ -6,8 +6,8 @@ import axios from "axios";
 
 const prisma = new PrismaClient();
 
-const clientId = process.env.PRINTFUL_CLIENT_ID as string;
-const clientSecret = process.env.PRINTFUL_SECRET_KEY as string;
+const clientId = process.env.PRINTFUL_CLIENT_ID_POKE as string;
+const clientSecret = process.env.PRINTFUL_SECRET_KEY_POKE as string;
 
 export async function POST(req_: NextRequest) {
 	try {

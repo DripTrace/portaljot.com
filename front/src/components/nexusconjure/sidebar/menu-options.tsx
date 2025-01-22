@@ -7,13 +7,22 @@ import {
 	SubAccountSidebarOption,
 } from "@prisma/client";
 import React, { useEffect, useMemo, useState } from "react";
-import { Sheet, SheetClose, SheetContent, SheetTrigger } from "../../ui/sheet";
-import { Button } from "../../ui/button";
+import {
+	Sheet,
+	SheetClose,
+	SheetContent,
+	SheetTrigger,
+} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
 import { ChevronsUpDown, Compass, Menu, PlusCircleIcon } from "lucide-react";
 import clsx from "clsx";
-import { AspectRatio } from "../../ui/aspect-ratio";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Image from "next/image";
-import { Popover, PopoverContent, PopoverTrigger } from "../../ui/popover";
+import {
+	Popover,
+	PopoverContent,
+	PopoverTrigger,
+} from "@/components/ui/popover";
 import {
 	Command,
 	CommandEmpty,
@@ -21,13 +30,13 @@ import {
 	CommandInput,
 	CommandItem,
 	CommandList,
-} from "../../ui/command";
+} from "@/components/ui/command";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
-import { useModal } from "@/providers/modal-provider";
+import { useModal } from "@/providers/nexusconjure/modal-provider";
 import CustomModal from "../../global/custom-modal";
 import SubAccountDetails from "../../forms/subaccount-details";
-import { Separator } from "../../ui/separator";
+import { Separator } from "@/components/ui/separator";
 import { icons } from "@/utils/nexusconjure/constants";
 
 type Props = {
@@ -132,7 +141,7 @@ const MenuOptions = ({
 												<CommandItem className="!bg-transparent my-2 text-primary broder-[1px] border-border p-2 rounded-md hover:!bg-muted cursor-pointer transition-all">
 													{defaultOpen ? (
 														<Link
-															href={`/agency/${user?.Agency?.id}`}
+															href={`/nexusconjure/agency/${user?.Agency?.id}`}
 															className="flex gap-4 w-full h-full"
 														>
 															<div className="relative w-16">
@@ -164,7 +173,7 @@ const MenuOptions = ({
 													) : (
 														<SheetClose asChild>
 															<Link
-																href={`/agency/${user?.Agency?.id}`}
+																href={`/nexusconjure/agency/${user?.Agency?.id}`}
 																className="flex gap-4 w-full h-full"
 															>
 																<div className="relative w-16">
@@ -207,7 +216,7 @@ const MenuOptions = ({
 													>
 														{defaultOpen ? (
 															<Link
-																href={`/subaccount/${subaccount.id}`}
+																href={`/nexusconjure/subaccount/${subaccount.id}`}
 																className="flex gap-4 w-full h-full"
 															>
 																<div className="relative w-16">
@@ -234,7 +243,7 @@ const MenuOptions = ({
 														) : (
 															<SheetClose asChild>
 																<Link
-																	href={`/subaccount/${subaccount.id}`}
+																	href={`/nexusconjure/subaccount/${subaccount.id}`}
 																	className="flex gap-4 w-full h-full"
 																>
 																	<div className="relative w-16">
@@ -261,7 +270,7 @@ const MenuOptions = ({
 															</SheetClose>
 														)}
 													</CommandItem>
-											  ))
+												))
 											: "No Accounts"}
 									</CommandGroup>
 								</CommandList>

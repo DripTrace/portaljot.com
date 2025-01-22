@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Header from "@/components/warpcatch/Header";
 import { ClerkLoaded } from "@clerk/nextjs";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {

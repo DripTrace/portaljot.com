@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 async function processAndUploadImage(pngBase64: string): Promise<string> {
 	try {
 		const uploadResponse = await axios.post(
-			`${process.env.NEXT_PUBLIC_BASE_URL}/api/images/upload`,
+			`${process.env.NEXT_PUBLIC_BASE_URL_POKE}/api/images/upload`,
 			{
 				pngBase64,
 				filename: `hat_variant_${uuidv4()}.png`,

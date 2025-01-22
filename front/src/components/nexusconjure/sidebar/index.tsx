@@ -19,14 +19,14 @@ const Sidebar = async ({ id, type }: Props) => {
 			? user?.Agency
 			: user?.Agency.SubAccount.find(
 					(subaccount) => subaccount.id === id
-			  );
+				);
 
 	const isWhiteLabeledAgency = user.Agency.whiteLabel;
 	if (!details) return;
 
 	let sideBarLogo =
 		user.Agency.agencyLogo ||
-		"/assets/nexusconjurecom-vector-optimized.svg";
+		"/nexusconjure/assets/nexusconjurecom-vector-optimized.svg";
 
 	if (!isWhiteLabeledAgency) {
 		if (type === "subaccount") {

@@ -1,13 +1,13 @@
 "use client";
-import LaneForm from "@/components/forms/lane-form";
-import CustomModal from "@/components/global/custom-modal";
+import LaneForm from "@/components/nexusconjure/forms/lane-form";
+import CustomModal from "@/components/nexusconjure/global/custom-modal";
 import { Button } from "@/components/ui/button";
 import {
 	LaneDetail,
 	PipelineDetailsWithLanesCardsTagsTickets,
 	TicketAndTags,
 } from "@/utils/nexusconjure/types";
-import { useModal } from "@/providers/modal-provider";
+import { useModal } from "@/providers/nexusconjure/modal-provider";
 import { Lane, Ticket } from "@prisma/client";
 import { Flag, Plus } from "lucide-react";
 import { useRouter } from "next/navigation";

@@ -7,7 +7,7 @@ import {
 	CardDescription,
 	CardHeader,
 	CardTitle,
-} from "../ui/card";
+} from "@/components/ui/card";
 import {
 	Form,
 	FormControl,
@@ -15,14 +15,14 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from "../ui/form";
+} from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Input } from "../ui/input";
+import { Input } from "@/components/ui/input";
 
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import Loading from "../global/loading";
-import { useToast } from "../ui/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 import { FunnelPage } from "@prisma/client";
 import { FunnelPageSchema } from "@/utils/nexusconjure/types";
 import {
@@ -203,9 +203,8 @@ const CreateFunnelPage: React.FC<CreateFunnelPageProps> = ({
 									disabled={form.formState.isSubmitting}
 									type="button"
 									onClick={async () => {
-										const response = await getFunnels(
-											subaccountId
-										);
+										const response =
+											await getFunnels(subaccountId);
 										const lastFunnelPage = response.find(
 											(funnel) => funnel.id === funnelId
 										)?.FunnelPages.length;

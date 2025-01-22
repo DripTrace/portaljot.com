@@ -1,5 +1,5 @@
-import BlurPage from "@/components/global/blur-page";
-import MediaComponent from "@/components/media";
+import BlurPage from "@/components/nexusconjure/global/blur-page";
+import MediaComponent from "@/components/nexusconjure/media";
 import { getMedia } from "@/utils/nexusconjure/queries";
 import React from "react";
 

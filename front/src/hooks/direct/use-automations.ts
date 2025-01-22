@@ -7,14 +7,14 @@ import {
 	savePosts,
 	saveTrigger,
 	updateAutomationName,
-} from "@/actions/automations";
+} from "@/actions/direct/automations";
 import { useMutationData } from "./use-mutation-data";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import useZodForm from "./use-zod-form";
-import { AppDispatch, useAppSelector } from "@/redux/store";
+import { AppDispatch, useAppSelector } from "@/providers/direct/redux/store";
 import { useDispatch } from "react-redux";
-import { TRIGGER } from "@/redux/slices/automation";
+import { TRIGGER } from "@/providers/direct/redux/slices/automation";
 
 export const useCreateAutomation = (id?: string) => {
 	const { isPending, mutate } = useMutationData(
@@ -138,17 +138,6 @@ export const useKeywords = (id: string) => {
 		(data: { id: string }) => deleteKeyword(data.id),
 		"automation-info"
 	);
-
-	// useEffect(() => {
-	// 	console.dir(
-	// 		{ "keyword-directory[useKeywords]": keyword },
-	// 		{
-	// 			depth: null,
-	// 			colors: true,
-	// 			maxArrayLength: null,
-	// 		}
-	// 	);
-	// }, [id]);
 
 	return { keyword, onValueChange, onKeyPress, deleteMutation };
 };

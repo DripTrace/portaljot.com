@@ -3,10 +3,10 @@ import {
 	AuthUserWithAgencySigebarOptionsSubAccounts,
 	UserWithPermissionsAndSubAccounts,
 } from "@/utils/nexusconjure/types";
-import { useModal } from "@/providers/modal-provider";
+import { useModal } from "@/providers/nexusconjure/modal-provider";
 import { SubAccount, User } from "@prisma/client";
 import React, { useEffect, useState } from "react";
-import { useToast } from "../ui/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 import {
 	changeUserPermissions,
@@ -24,7 +24,7 @@ import {
 	CardDescription,
 	CardHeader,
 	CardTitle,
-} from "../ui/card";
+} from "@/components/ui/card";
 
 import {
 	Form,
@@ -36,18 +36,18 @@ import {
 	FormMessage,
 } from "@/components/ui/form";
 import FileUpload from "../global/file-upload";
-import { Input } from "../ui/input";
+import { Input } from "@/components/ui/input";
 import {
 	Select,
 	SelectContent,
 	SelectItem,
 	SelectTrigger,
 	SelectValue,
-} from "../ui/select";
-import { Button } from "../ui/button";
+} from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
 import Loading from "../global/loading";
-import { Separator } from "../ui/separator";
-import { Switch } from "../ui/switch";
+import { Separator } from "@/components/ui/separator";
+import { Switch } from "@/components/ui/switch";
 import { v4 } from "uuid";
 
 type Props = {

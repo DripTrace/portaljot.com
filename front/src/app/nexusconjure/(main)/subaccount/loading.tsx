@@ -1,4 +1,4 @@
-import Loading from "@/components/global/loading";
+import Loading from "@/components/nexusconjure/global/loading";
 import React from "react";
 
 const LoadingAgencyPage = () => {

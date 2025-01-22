@@ -1,7 +1,7 @@
 // import Avatar from "@/components/Avatar";
 // import { Button } from "@/components/ui/button";
 
-// import { GET_CHATBOTS_BY_USER } from "@/graphql/queries/queries";
+// import { GET_CHATBOTS_BY_USER } from "@/graphql/commune/queries/queries";
 // import { serverClient } from "@/lib/server/serverClient";
 // import {
 // 	Chatbot,
@@ -234,7 +234,7 @@
 
 // import Avatar from "@/components/Avatar";
 // import { Button } from "@/components/ui/button";
-// import { GET_CHATBOTS_BY_USER } from "@/graphql/queries/queries";
+// import { GET_CHATBOTS_BY_USER } from "@/graphql/commune/queries/queries";
 // import { serverClient } from "@/lib/server/serverClient";
 // import {
 // 	Chatbot,
@@ -410,7 +410,7 @@
 
 // import Avatar from "@/components/Avatar";
 // import { Button } from "@/components/ui/button";
-// import { GET_CHATBOTS_BY_USER } from "@/graphql/queries/queries";
+// import { GET_CHATBOTS_BY_USER } from "@/graphql/commune/queries/queries";
 // import { serverClient } from "@/lib/server/serverClient";
 // import {
 // 	Chatbot,
@@ -568,7 +568,7 @@
 
 // import Avatar from "@/components/Avatar";
 // import { Button } from "@/components/ui/button";
-// import { GET_CHATBOTS_BY_USER } from "@/graphql/queries/queries";
+// import { GET_CHATBOTS_BY_USER } from "@/graphql/commune/queries/queries";
 // import { serverClient } from "@/lib/server/serverClient";
 // import {
 // 	Chatbot,
@@ -747,7 +747,7 @@
 // import Avatar from "@/components/Avatar";
 // import { Button } from "@/components/ui/button";
 // import { serverClient } from "@/lib/server/serverClient";
-// import { GET_CHATBOTS_BY_USER } from "@/graphql/queries/queries";
+// import { GET_CHATBOTS_BY_USER } from "@/graphql/commune/queries/queries";
 // import {
 // 	Chatbot,
 // 	GetChatbotsByUserData,
@@ -885,8 +885,8 @@
 
 // import Avatar from "@/components/Avatar";
 // import { Button } from "@/components/ui/button";
-// import client, { BASE_URL } from "@/graphql/apolloClient";
-// import { GET_CHATBOTS_BY_USER } from "@/graphql/queries/queries";
+// import client, { BASE_URL } from "@/graphql/commune/apolloClient";
+// import { GET_CHATBOTS_BY_USER } from "@/graphql/commune/queries/queries";
 // import { serverClient } from "@/lib/server/serverClient";
 // import {
 // 	Chatbot,
@@ -1153,7 +1153,7 @@
 
 // import Avatar from "@/components/Avatar";
 // import { Button } from "@/components/ui/button";
-// import { GET_CHATBOTS_BY_USER } from "@/graphql/queries/queries";
+// import { GET_CHATBOTS_BY_USER } from "@/graphql/commune/queries/queries";
 // import { serverClient } from "@/lib/server/serverClient";
 // import {
 // 	Chatbot,
@@ -1308,7 +1308,7 @@
 
 // import Avatar from "@/components/Avatar";
 // import { Button } from "@/components/ui/button";
-// import { GET_CHATBOTS_BY_USER } from "@/graphql/queries/queries";
+// import { GET_CHATBOTS_BY_USER } from "@/graphql/commune/queries/queries";
 // import { serverClient } from "@/lib/server/serverClient";
 // import {
 // 	Chatbot,
@@ -1456,19 +1456,24 @@
 // 	);
 // }
 
+"use server";
+
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 import Link from "next/link";
-import Avatar from "@/components/Avatar";
+import Avatar from "@/components/commune/Avatar";
 import { Button } from "@/components/ui/button";
-import { serverClient } from "@/lib/server/serverClient";
-import { GET_CHATBOTS, GET_CHATBOTS_BY_USER } from "@/graphql/queries/queries";
+import { serverClient } from "@/lib/commune/server/serverClient";
+import {
+	GET_CHATBOTS,
+	GET_CHATBOTS_BY_USER,
+} from "@/graphql/commune/queries/queries";
 import {
 	Chatbot,
 	GetChatbotsByUserData,
 	GetChatbotsByUserDataVariables,
 	GetChatbotsData,
-} from "@/types/chatbot";
+} from "@/types/commune/chatbot";
 import { Suspense } from "react";
 
 export const dynamic = "force-dynamic";
@@ -1530,7 +1535,7 @@ async function ChatbotList() {
 				(a, b) =>
 					new Date(b.created_at).getTime() -
 					new Date(a.created_at).getTime()
-		  )
+			)
 		: [];
 
 	if (!sortedChatbots.length) {
@@ -1540,7 +1545,7 @@ async function ChatbotList() {
 					You have not created any chatbots yet. Click on the button
 					below to create one.
 				</p>
-				<Link href="/create-chatbot">
+				<Link href="/commune/create-chatbot">
 					<Button className="bg-[#64B5F5] text-white p-3 rounded-md mt-5">
 						Create Chatbot
 					</Button>
@@ -1597,8 +1602,7 @@ async function ChatbotList() {
 
 export default async function ViewChatbots() {
 	async function refresh() {
-		"use server";
-		revalidatePath("/view-chatbots");
+		revalidatePath("/commune/view-chatbots");
 	}
 
 	return (

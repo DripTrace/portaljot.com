@@ -10,7 +10,7 @@
 // export const BASE_URL =
 // 	process.env.NODE_ENV !== "development"
 // 		? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-// 		: "http://localhost:3000";
+// 		: `${process.env.NEXT_PUBLIC_URL}`;
 
 // console.log(
 // 	"CLIENT >>> NEXT_PUBLIC_VERCEL_URL is ",
@@ -57,16 +57,19 @@ import { onError } from "@apollo/client/link/error";
 export const BASE_URL =
 	process.env.NODE_ENV !== "development"
 		? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-		: "http://localhost:3000";
+		: `${process.env.NEXT_PUBLIC_URL}`;
 
 console.log(
 	"CLIENT >>> NEXT_PUBLIC_VERCEL_URL is ",
 	process.env.NEXT_PUBLIC_VERCEL_URL
 );
-console.log("CLIENT DEBUG 1 >>> GraphQL URL is ", `${BASE_URL}/api/graphql`);
+console.log(
+	"CLIENT DEBUG 1 >>> GraphQL URL is ",
+	`${BASE_URL}/api/commune/graphql`
+);
 
 const httpLink = createHttpLink({
-	uri: `${BASE_URL}/api/graphql`,
+	uri: `${BASE_URL}/api/commune/graphql`,
 });
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {

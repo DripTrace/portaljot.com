@@ -2,7 +2,7 @@
 
 # Printful API key
 API_KEY="wtWkCCbnTAF1fSt0o1FkdUm8azvRxvN0kq9Mt953"
-BASE_URL="https://api.printful.com/v2/catalog-categories"
+BASE_URL_POKE="https://api.printful.com/v2/catalog-categories"
 
 # Create the categories directory
 mkdir -p public/printful/categories
@@ -22,7 +22,7 @@ if echo "$categories" | jq -e '.data' > /dev/null 2>&1; then
         json_file="public/printful/categories/${category_title}.json"
 
         # Fetch items in this category by using the product endpoint and category ID as a filter
-        items=$(curl -s -X GET "$BASE_URL?category_id=$category_id" -H "Authorization: Bearer $API_KEY")
+        items=$(curl -s -X GET "$BASE_URL_POKE?category_id=$category_id" -H "Authorization: Bearer $API_KEY")
 
         # Check if the API call for items was successful
         if echo "$items" | jq -e '.data' > /dev/null 2>&1; then

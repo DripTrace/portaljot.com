@@ -1,5 +1,5 @@
 import { db } from "@/utils/nexusconjure/db";
-import { stripe } from "@/lib/stripe";
+import { stripe } from "@/lib/nexusconjure/stripe";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {

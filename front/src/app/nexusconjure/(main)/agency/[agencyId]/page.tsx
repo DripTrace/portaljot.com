@@ -1,4 +1,4 @@
-import CircleProgress from "@/components/global/circle-progress";
+import CircleProgress from "@/components/nexusconjure/global/circle-progress";
 import {
 	Card,
 	CardContent,
@@ -10,7 +10,7 @@ import {
 import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
 import { db } from "@/utils/nexusconjure/db";
-import { stripe } from "@/lib/stripe";
+import { stripe } from "@/lib/nexusconjure/stripe";
 import { AreaChart } from "@tremor/react";
 import {
 	ClipboardIcon,
@@ -113,7 +113,7 @@ const Page = async ({
 								metrics
 							</CardDescription>
 							<Link
-								href={`/agency/${agencyDetails.id}/launchpad`}
+								href={`/nexusconjure/agency/${agencyDetails.id}/launchpad`}
 								className="p-2 w-fit bg-secondary text-white rounded-md flex items-center gap-2"
 							>
 								<ClipboardIcon />
@@ -152,7 +152,7 @@ const Page = async ({
 								{potentialIncome
 									? `${currency} ${potentialIncome.toFixed(
 											2
-									  )}`
+										)}`
 									: `$0.00`}
 							</CardTitle>
 							<small className="text-xs text-muted-foreground">

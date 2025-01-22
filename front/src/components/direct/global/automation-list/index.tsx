@@ -1,13 +1,14 @@
 "use client";
-import { usePaths } from "@/hooks/user-nav";
-import { cn, getMonth } from "@/lib/utils";
+import { usePaths } from "@/hooks/direct/user-nav";
+import { getMonth } from "@/lib/direct/utils";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React, { useMemo } from "react";
 import GradientButton from "../gradient-button";
 import { Button } from "@/components/ui/button";
-import { useQueryAutomations } from "@/hooks/user-queries";
+import { useQueryAutomations } from "@/hooks/direct/user-queries";
 import CreateAutomation from "../create-automation";
-import { useMutationDataState } from "@/hooks/use-mutation-data";
+import { useMutationDataState } from "@/hooks/direct/use-mutation-data";
 
 type Props = {};
 

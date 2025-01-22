@@ -29,7 +29,7 @@
 // //       },
 // //       {
 // //         headers: {
-// //           'Authorization': `Bearer ${process.env.PRINTFUL_API_KEY}`,
+// //           'Authorization': `Bearer ${process.env.PRINTFUL_API_KEY_POKE}`,
 // //         },
 // //       }
 // //     );
@@ -44,7 +44,7 @@
 // //         `https://api.printful.com/mockup-generator/task?task_key=${taskKey}`,
 // //         {
 // //           headers: {
-// //             'Authorization': `Bearer ${process.env.PRINTFUL_API_KEY}`,
+// //             'Authorization': `Bearer ${process.env.PRINTFUL_API_KEY_POKE}`,
 // //           },
 // //         }
 // //       );
@@ -92,7 +92,7 @@
 // // 			},
 // // 			{
 // // 				headers: {
-// // 					Authorization: `Bearer ${process.env.PRINTFUL_API_KEY}`,
+// // 					Authorization: `Bearer ${process.env.PRINTFUL_API_KEY_POKE}`,
 // // 				},
 // // 			}
 // // 		);
@@ -106,7 +106,7 @@
 // // 				`https://api.printful.com/mockup-generator/task?task_key=${taskKey}`,
 // // 				{
 // // 					headers: {
-// // 						Authorization: `Bearer ${process.env.PRINTFUL_API_KEY}`,
+// // 						Authorization: `Bearer ${process.env.PRINTFUL_API_KEY_POKE}`,
 // // 					},
 // // 				}
 // // 			);
@@ -167,7 +167,7 @@
 // 			},
 // 			{
 // 				headers: {
-// 					Authorization: `Bearer ${process.env.PRINTFUL_API_KEY}`,
+// 					Authorization: `Bearer ${process.env.PRINTFUL_API_KEY_POKE}`,
 // 				},
 // 			}
 // 		);
@@ -191,7 +191,7 @@
 // 				`https://api.printful.com/mockup-generator/task?task_key=${taskKey}`,
 // 				{
 // 					headers: {
-// 						Authorization: `Bearer ${process.env.PRINTFUL_API_KEY}`,
+// 						Authorization: `Bearer ${process.env.PRINTFUL_API_KEY_POKE}`,
 // 					},
 // 				}
 // 			);
@@ -252,7 +252,7 @@
 // 			`https://api.printful.com/store/products?limit=1`,
 // 			{
 // 				headers: {
-// 					Authorization: `Bearer ${process.env.PRINTFUL_API_KEY}`,
+// 					Authorization: `Bearer ${process.env.PRINTFUL_API_KEY_POKE}`,
 // 				},
 // 			}
 // 		);
@@ -291,7 +291,7 @@
 // 			},
 // 			{
 // 				headers: {
-// 					Authorization: `Bearer ${process.env.PRINTFUL_API_KEY}`,
+// 					Authorization: `Bearer ${process.env.PRINTFUL_API_KEY_POKE}`,
 // 				},
 // 			}
 // 		);
@@ -316,7 +316,7 @@
 // 				`https://api.printful.com/mockup-generator/task?task_key=${taskKey}`,
 // 				{
 // 					headers: {
-// 						Authorization: `Bearer ${process.env.PRINTFUL_API_KEY}`,
+// 						Authorization: `Bearer ${process.env.PRINTFUL_API_KEY_POKE}`,
 // 					},
 // 				}
 // 			);
@@ -380,7 +380,7 @@
 // // /app/api/mockup/route.ts
 // import { NextRequest, NextResponse } from "next/server";
 // import { getPrintfulClient } from "@/lib/printful/printful-auth";
-// import { prisma } from "@/lib/prisma";
+// import { prisma } from "@/lib/client/prisma";
 
 // async function waitForMockupTask(client: PrintfulClient, taskId: number, maxAttempts = 10) {
 //     let attempts = 0;
@@ -462,7 +462,7 @@
 //     });
 
 //     // Update Stripe product with new images
-//     const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+//     const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY_POKE);
 //     await stripe.products.update(
 //       variant.stripePriceId.split('_')[0], // Extract product ID from price ID
 //       {

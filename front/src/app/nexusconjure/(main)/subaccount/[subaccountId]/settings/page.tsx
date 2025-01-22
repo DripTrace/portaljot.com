@@ -1,6 +1,6 @@
-import SubAccountDetails from "@/components/forms/subaccount-details";
-import UserDetails from "@/components/forms/user-details";
-import BlurPage from "@/components/global/blur-page";
+import SubAccountDetails from "@/components/nexusconjure/forms/subaccount-details";
+import UserDetails from "@/components/nexusconjure/forms/user-details";
+import BlurPage from "@/components/nexusconjure/global/blur-page";
 import { db } from "@/utils/nexusconjure/db";
 import { currentUser } from "@clerk/nextjs";
 import React from "react";

@@ -1,5 +1,5 @@
-import BlurPage from "@/components/global/blur-page";
-import InfoBar from "@/components/global/infobar";
+import BlurPage from "@/components/nexusconjure/global/blur-page";
+import InfoBar from "@/components/nexusconjure/global/infobar";
 import Sidebar from "@/components/nexusconjure/sidebar";
 import Unauthorized from "@/components/nexusconjure/unauthorized";
 import {
@@ -20,11 +20,11 @@ const layout = async ({ children, params }: Props) => {
 	const user = await currentUser();
 
 	if (!user) {
-		return redirect("/");
+		return redirect("/nexusconjure/");
 	}
 
 	if (!agencyId) {
-		return redirect("/agency");
+		return redirect("/nexusconjure/agency");
 	}
 
 	if (

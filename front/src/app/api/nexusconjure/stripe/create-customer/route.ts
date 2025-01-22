@@ -1,4 +1,4 @@
-import { stripe } from "@/lib/stripe";
+import { stripe } from "@/lib/nexusconjure/stripe";
 import { StripeCustomerType } from "@/utils/nexusconjure/types";
 import { NextResponse } from "next/server";
 

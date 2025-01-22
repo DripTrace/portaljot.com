@@ -3,10 +3,10 @@
 import { useRouter } from "next/navigation";
 import byteSize from "byte-size";
 import { useTransition } from "react";
-import useSubscription from "@/hooks/useSubscription";
+import useSubscription from "@/hooks/warpcatch/useSubscription";
 import { DownloadCloud, DownloadIcon, Trash2Icon } from "lucide-react";
-import { Button } from "./ui/button";
-import { deleteDocument } from "@/actions/deleteDocument";
+import { Button } from "@/components/ui/button";
+import { deleteDocument } from "@/actions/warpcatch/deleteDocument";
 
 const Document = ({
 	id,
@@ -28,7 +28,7 @@ const Document = ({
 			<div
 				className="flex-1"
 				onClick={() => {
-					router.push(`/dashboard/files/${id}`);
+					router.push(`/warpcatch/dashboard/files/${id}`);
 				}}
 			>
 				<p className="font-semibold line-clamp-2">{name}</p>

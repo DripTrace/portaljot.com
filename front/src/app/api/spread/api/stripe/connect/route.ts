@@ -1,9 +1,9 @@
-import { client } from "@/lib/prisma";
+import { prisma as client } from "@/lib/client/prisma";
 import { currentUser } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET!, {
+const stripe = new Stripe(process.env.STRIPE_SECRET_SPREAD!, {
 	typescript: true,
 	apiVersion: "2024-04-10",
 });
@@ -131,8 +131,8 @@ export async function GET() {
 									const accountLink =
 										await stripe.accountLinks.create({
 											account: account.id,
-											refresh_url: `https://spread-xi.vercel.app/callback/stripe/refresh`,
-											return_url: `https://spread-xi.vercel.app/callback/stripe/success`,
+											refresh_url: `${process.env.DOMAIN_URL_SPREAD}/callback/stripe/refresh`,
+											return_url: `${process.env.DOMAIN_URL_SPREAD}/callback/stripe/success`,
 											type: "account_onboarding",
 											collection_options: {
 												fields: "currently_due",

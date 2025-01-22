@@ -9,7 +9,7 @@ import {
 	CardDescription,
 	CardHeader,
 	CardTitle,
-} from "../ui/card";
+} from "@/components/ui/card";
 import {
 	Form,
 	FormControl,
@@ -17,9 +17,9 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from "../ui/form";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import Loading from "../global/loading";
 
 type Props = {

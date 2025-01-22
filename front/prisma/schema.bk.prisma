@@ -1,0 +1,1837 @@
+// prisma/schema.prisma
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_URL") // Ensure this environment variable points to your MongoDB instance
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id                        String                    @id @default(auto()) @map("_id") @db.ObjectId
+//   direct
+  idDirect                  String?                   @default(uuid())
+  clerkId                   String?                   @unique
+  subscription              Subscription?
+  integrations              Integrations[]
+  automations               Automation[]
+  avatarUrl                 String?
+  name                      String?
+  email                     String?                   @unique
+  emailVerified             DateTime?
+  image                     String?
+  
+  // Custom fields
+  password                  String?
+  firstname                 String?
+  lastname                  String?
+  role                      String?
+  stripeId                  String?
+  customerId                String?
+  username                  String?
+  modifyId                  String?
+  registeredInfo            Json?
+  shipping                  Json?
+  neccessary_actions        Json?
+  personal_info             Json?
+  verification              Json?
+  company_verification      Json?
+  individual_verification   Json?
+  stripe_metadata           Json?
+  stripeBalance             Json?
+  external_accounts         Json?
+  
+  accounts                  Account[]
+  sessions                  Session[]
+  Authenticators            Authenticator[]
+
+  createdAt                 DateTime                  @default(now())
+  updatedAt                 DateTime                  @updatedAt
+
+  availableLanguages        String[]                  @default(["en"])
+  hasSelectedSecondLanguage Boolean                   @default(false)
+  lastUpdated               DateTime                  @default(now())
+
+  memberships               Membership[]
+
+  ncRole                    Role                      @default(SUBACCOUNT_USER)
+  agencyId                  String?                   @db.ObjectId
+  Agency                    Agency?                   @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+  Permissions               Permissions[]
+  Ticket                    Ticket[]
+  Notification              Notification[]
+
+  @@index([agencyId])
+}
+
+model Agency {
+  id                        String                    @id @default(auto()) @map("_id") @db.ObjectId
+  connectAccountId          String?                   @default("")
+  customerId                String                    @default("")
+  name                      String
+  agencyLogo                String
+  companyEmail              String
+  companyPhone              String
+  whiteLabel                Boolean                   @default(true)
+  address                   String
+  city                      String
+  zipCode                   String
+  state                     String
+  country                   String
+  goal                      Int                       @default(5)
+  users                     User[]
+  createdAt                 DateTime                  @default(now())
+  updatedAt                 DateTime                  @updatedAt
+  SubAccount                SubAccount[]
+  SidebarOption             AgencySidebarOption[]
+  Invitation                Invitation[]
+  Notification              Notification[]
+  Subscription              Subscription?
+  AddOns                    AddOns[]
+}
+
+model Permissions {
+  id                        String                    @id @default(auto()) @map("_id") @db.ObjectId
+  email                     String
+  User                      User                      @relation(fields: [email], references: [email], onDelete: Cascade)
+  subAccountId              String                    @db.ObjectId
+  SubAccount                SubAccount                @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+  access                    Boolean
+
+  @@index([subAccountId])
+  @@index([email])
+}
+
+model SubAccount {
+  id                        String                    @id @default(auto()) @map("_id") @db.ObjectId
+  connectAccountId          String?                   @default("")
+  name                      String
+  subAccountLogo            String
+  createdAt                 DateTime                  @default(now())
+  updatedAt                 DateTime                  @updatedAt
+  companyEmail              String
+  companyPhone              String
+  goal                      Int                       @default(5)
+  address                   String
+  city                      String
+  zipCode                   String
+  state                     String
+  country                   String
+  agencyId                  String                    @db.ObjectId
+  Agency                    Agency                    @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+  SidebarOption             SubAccountSidebarOption[]
+  Permissions               Permissions[]
+  Funnels                   Funnel[]
+  Media                     Media[]
+  Contact                   Contact[]
+  Trigger                   Trigger[]
+  Automation                Automation[]
+  Pipeline                  Pipeline[]
+  Tags                      Tag[]
+  Notification              Notification[]
+
+  @@index([agencyId])
+}
+
+model AgencySidebarOption {
+  id                        String                    @id @default(auto()) @map("_id") @db.ObjectId
+  name                      String                    @default("Menu")
+  link                      String                    @default("#")
+  icon                      Icon                      @default(info)
+  agencyId                  String                    @db.ObjectId
+  Agency                    Agency?                   @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+  createdAt                 DateTime                  @default(now())
+  updatedAt                 DateTime                  @updatedAt
+
+  @@index([agencyId])
+}
+
+enum InvitationStatus {
+  ACCEPTED
+  REVOKED
+  PENDING
+}
+
+model Invitation {
+  id                        String                    @id @default(auto()) @map("_id") @db.ObjectId
+  email                     String                    @unique
+  agencyId                  String                    @db.ObjectId
+  Agency                    Agency                    @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+  status                    InvitationStatus          @default(PENDING)
+  role                      Role                      @default(SUBACCOUNT_USER)
+
+  @@index([agencyId])
+}
+
+model Notification {
+  id                        String                    @id @default(auto()) @map("_id") @db.ObjectId
+  notification              String
+  agencyId                  String                    @db.ObjectId
+  subAccountId              String?                   @db.ObjectId
+  userId                    String                    @db.ObjectId
+
+  User                      User                      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  Agency                    Agency                    @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+  SubAccount                SubAccount?               @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+
+  createdAt                 DateTime                  @default(now())
+  updatedAt                 DateTime                  @updatedAt
+
+  @@index([agencyId])
+  @@index([subAccountId])
+  @@index([userId])
+}
+
+model AddOns {
+  id                        String                    @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt                 DateTime                  @default(now())
+  updatedAt                 DateTime                  @updatedAt
+  name                      String
+  active                    Boolean                   @default(false)
+  priceId                   String                    @unique
+  agencyId                  String?                   @db.ObjectId
+  Agency                    Agency?                   @relation(fields: [agencyId], references: [id])
+
+  @@index([agencyId])
+}
+
+model SubAccountSidebarOption {
+  id                        String                    @id @default(auto()) @map("_id") @db.ObjectId
+  name                      String                    @default("Menu")
+  link                      String                    @default("#")
+  icon                      Icon                      @default(info)
+  createdAt                 DateTime                  @default(now())
+  updatedAt                 DateTime                  @updatedAt
+  SubAccount                SubAccount?               @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+  subAccountId              String?                   @db.ObjectId
+
+  @@index([subAccountId])
+}
+
+model Funnel {
+  id                        String                    @id @default(auto()) @map("_id") @db.ObjectId
+  name                      String
+  createdAt                 DateTime                  @default(now())
+  updatedAt                 DateTime                  @updatedAt
+  description               String?
+  published                 Boolean                   @default(false)
+  subDomainName             String?                   @unique
+  favicon                   String?
+  subAccountId              String                    @db.ObjectId
+  SubAccount                SubAccount                @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+  FunnelPages               FunnelPage[]
+  liveProducts              String?                   @default("[]")
+  ClassName                 ClassName[]
+
+  @@index([subAccountId])
+}
+
+model Media {
+  id                        String                    @id @default(auto()) @map("_id") @db.ObjectId
+  type                      String?
+  name                      String
+  link                      String                    @unique
+  subAccountId              String                    @db.ObjectId
+  createdAt                 DateTime                  @default(now())
+  updatedAt                 DateTime                  @updatedAt
+  Subaccount                SubAccount                @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+
+  @@index([subAccountId])
+}
+
+model Contact {
+  id                        String                    @id @default(auto()) @map("_id") @db.ObjectId
+  name                      String
+  email                     String
+  createdAt                 DateTime                  @default(now())
+  updatedAt                 DateTime                  @updatedAt
+  subAccountId              String                    @db.ObjectId
+
+  Subaccount                SubAccount                @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+  Ticket                    Ticket[]
+
+  @@index([subAccountId])
+}
+
+model Pipeline {
+  id                        String                    @id @default(auto()) @map("_id") @db.ObjectId
+  name                      String
+  createdAt                 DateTime                  @default(now())
+  updatedAt                 DateTime                  @updatedAt
+  Lane                      Lane[]
+  SubAccount                SubAccount                @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+  subAccountId              String                    @db.ObjectId
+
+  @@index([subAccountId])
+}
+
+model Tag {
+  id                        String                    @id @default(auto()) @map("_id") @db.ObjectId
+  name                      String
+  color                     String
+  createdAt                 DateTime                  @default(now())
+  updatedAt                 DateTime                  @updatedAt
+  subAccountId              String                    @db.ObjectId
+
+  SubAccount                SubAccount                @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+  Ticket                    Ticket[]
+
+  @@index([subAccountId])
+}
+
+model FunnelPage {
+  id                        String                    @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  pathName     String   @default("")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  visits       Int      @default(0)
+  content      String?
+  order        Int
+  previewImage String?
+  funnelId     String
+  Funnel       Funnel   @relation(fields: [funnelId], references: [id], onDelete: Cascade)
+
+  @@index([funnelId])
+}
+
+model ClassName {
+  id                        String                    @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  color      String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  funnelId   String
+  customData String?
+  Funnel     Funnel   @relation(fields: [funnelId], references: [id], onDelete: Cascade)
+
+  @@index([funnelId])
+}
+
+model Ticket {
+  id                        String                    @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  laneId      String
+  order       Int      @default(0)
+  value       Float?   // Changed from Decimal? to Float?
+  description String?
+  Tags        Tag[]
+  Lane        Lane     @relation(fields: [laneId], references: [id], onDelete: Cascade)
+
+  customerId String?
+  Customer   Contact? @relation(fields: [customerId], references: [id], onDelete: SetNull)
+
+  assignedUserId String?
+  Assigned       User?   @relation(fields: [assignedUserId], references: [id], onDelete: SetNull)
+
+  @@index([laneId])
+  @@index([customerId])
+  @@index([assignedUserId])
+}
+
+model Lane {
+  id                        String                    @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  Pipeline   Pipeline @relation(fields: [pipelineId], references: [id], onDelete: Cascade)
+  pipelineId String
+  Tickets    Ticket[]
+  order      Int      @default(0)
+
+  @@index([pipelineId])
+}
+
+model Document {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String?
+  // ...
+  memberships Membership[]
+}
+
+model Membership {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  role      String
+  createdAt DateTime  @default(now())
+  // Foreign keys
+  userId    String    @db.ObjectId
+  docId     String    @db.ObjectId
+  
+  // Relations
+  user      User      @relation(fields: [userId], references: [id])
+  document  Document  @relation(fields: [docId], references: [id])
+}
+
+model Subscription {
+  id         String            @id @default(auto()) @map("_id") @db.ObjectId
+  User       User?             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     String?           @unique @db.ObjectId
+  createdAt  DateTime          @default(now())
+  plan       SUBSCRIPTION_PLAN @default(FREE)
+  updatedAt  DateTime          @default(now())
+  customerId String?           @unique
+//   exotalk
+  /**
+   * Using Json for metadata (key/value) and items (array of Stripe items).
+   * If you'd rather have a separate table for items, change accordingly.
+   */
+  metadata           Json?
+  stripeLink         String
+  quantity           Int
+  items             Json       // storing Stripe.SubscriptionItem[] as JSON
+
+  // Single "primary" Price reference
+  priceId            String    @db.ObjectId
+  price              Price     @relation(fields: [priceId], references: [id])
+
+  // Single "primary" Product reference
+  productId          String    @db.ObjectId
+  product            Product   @relation(fields: [productId], references: [id])
+
+  /**
+   * If you want multiple Price references, you can store them as JSON as well
+   * or create a separate join table. Here's a JSON approach for simplicity:
+   */
+  priceIds           Json      // an array of string IDs
+
+  paymentMethod      String?
+  latestInvoice      String?
+
+  // Subscription status
+  status             String
+
+  // Cancels
+  cancelAtPeriodEnd  Boolean   @default(false)
+
+  // Dates
+  created            DateTime  @default(now())
+  currentPeriodStart DateTime
+  currentPeriodEnd   DateTime
+  endedAt            DateTime?
+  cancelAt           DateTime?
+  canceledAt         DateTime?
+  trialStart         DateTime?
+  trialEnd           DateTime?
+
+  // For auditing or linking to a User if needed
+  // userId           String?
+  // user             User?       @relation(fields: [userId], references: [id])
+
+//    nexusconjure
+  Agency     Agency?    @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+  agencyId   String?    @unique @db.ObjectId
+}
+
+enum SUBSCRIPTION_PLAN {
+  PRO
+  FREE
+}
+
+enum SubscriptionStatus {
+  active
+  canceled
+  incomplete
+  incomplete_expired
+  past_due
+  trialing
+  unpaid
+}
+
+model ChatMember {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  chatId     String   @db.ObjectId
+  userId     String   @db.ObjectId
+  email      String
+  timestamp  DateTime?
+  isAdmin    Boolean  @default(false)
+  image      String?
+  chat       Chat     @relation(fields: [chatId], references: [id], onDelete: Cascade)
+
+
+  // If you have more columns (e.g. role, createdAt, updatedAt), add them here.
+}
+
+model Customer {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String   @unique
+  stripeId   String
+  stripeLink String
+}
+
+model Message {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  chatId     String   @db.ObjectId  // Add ObjectId type to match Chat.id
+  chat       Chat     @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  input      String
+  timestamp  DateTime @default(now())
+  
+  // Store `user` inline as JSON or create a separate relation if you prefer
+  user       Json
+
+  // Store the translations as JSON
+  translated Json?
+
+  // Additional fields can go here...
+}
+
+model Chat {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String?
+  // etc...
+  messages  Message[]
+  members   ChatMember[]
+  memberCount Int          @default(0)
+  maxMembers  Int          @default(3)
+}
+
+
+
+model Integrations {
+  id          String       @id @default(auto()) @map("_id") @db.ObjectId
+  name        INTEGRATIONS @default(INSTAGRAM)
+  createdAt   DateTime     @default(now())
+  User        User?        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String?      @db.ObjectId  // Changed to ObjectId for MongoDB
+  token       String       @unique
+  expiresAt   DateTime?
+  instagramId String?      @unique
+}
+
+enum INTEGRATIONS {
+  INSTAGRAM
+}
+
+model Automation {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  name      String    @default("Untitled")
+  createdAt DateTime  @default(now())
+  active    Boolean   @default(false)
+  trigger   Trigger[]
+  listener  Listener?
+  posts     Post[]
+  dms       Dms[]
+  User      User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String?   @db.ObjectId  // Changed from @db.Uuid to @db.ObjectId
+  keywords  Keyword[]
+  SubAccount   SubAccount? @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+  subAccountId String?     @db.ObjectId
+}
+
+model Trigger {
+  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  type         String
+  Automation   Automation? @relation(fields: [automationId], references: [id], onDelete: Cascade)
+  automationId String?     @db.ObjectId
+  SubAccount   SubAccount? @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+  subAccountId String?     @db.ObjectId
+}
+
+model Listener {
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+  Automation   Automation @relation(fields: [automationId], references: [id], onDelete: Cascade)
+  automationId String     @unique @db.ObjectId
+  prompt       String
+  commentReply String?
+  dmCount      Int        @default(0)
+  commentCount Int        @default(0)
+  listener     LISTENERS  @default(MESSAGE)
+}
+
+enum LISTENERS {
+  SMARTAI
+  MESSAGE
+}
+
+model Post {
+  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  postid       String
+  caption      String?
+  media        String
+  mediaType    MEDIATYPE   @default(IMAGE)
+  Automation   Automation? @relation(fields: [automationId], references: [id], onDelete: Cascade)
+  automationId String?     @db.ObjectId
+}
+
+enum MEDIATYPE {
+  IMAGE
+  VIDEO
+  CAROSEL_ALBUM
+}
+
+model Dms {
+  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  Automation   Automation? @relation(fields: [automationId], references: [id])
+  automationId String?     @db.ObjectId
+  createdAt    DateTime    @default(now())
+  senderId     String?
+  reciever     String?
+  message      String?
+}
+
+model Keyword {
+  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  word         String
+  Automation   Automation? @relation(fields: [automationId], references: [id], onDelete: Cascade)
+  automationId String?     @db.ObjectId
+
+  @@unique([automationId, word]) //this constraints ensure user cant use the same keyword on multiple automations
+}
+
+model Account {
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String  @db.ObjectId
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.String
+  access_token      String? @db.String
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.String
+  session_state     String?
+
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  sessionToken String   @unique
+  userId       String   @db.ObjectId
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model VerificationToken {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Authenticator {
+  credentialID         String  @id @map("_id")
+  userId               String  @db.ObjectId
+  providerAccountId    String
+  credentialPublicKey  String
+  counter              Int
+  credentialDeviceType String
+  credentialBackedUp   Boolean
+  transports           String?
+
+  user                 User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, credentialID])
+}
+
+model Product {
+  id          String         @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  // Add any other fields as needed
+
+  // Relation back to Subscriptions
+  subscriptions Subscription[]
+}
+
+model Price {
+  id          String         @id @default(auto()) @map("_id") @db.ObjectId
+  nickname    String?
+  unitAmount  Int?
+  currency    String
+  interval    String          // e.g. "month", "year", etc.
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  // Add any other fields as needed
+
+  // Relation back to Subscriptions
+  subscriptions Subscription[]
+}
+
+// boil
+// model Post {
+//   id          Int     @id @default(autoincrement())
+//   title       String
+//   content     String
+//   published   Boolean @default(false)
+//   authorId    String
+//   author      User    @relation(fields: [authorId], references: [id], onDelete: Cascade)
+//   createdAt   DateTime  @default(now()) @map(name: "created_at")
+//   updatedAt   DateTime  @updatedAt @map(name: "updated_at")
+//   // hero image, tag, category, comments, likes
+
+//   @@map("posts")
+// }
+
+// model User {
+//   id            String    @id @default(cuid())
+//   name          String
+//   email         String    @unique // optional, facebook
+//   username      String    @unique @default(cuid())
+//   provider      String    @default("credentials")
+//   password      String? 
+//   emailVerified DateTime? @map("email_verified")
+//   image         String?
+//   headerImage   String?   @map("header_image")
+//   bio           String?
+//   role          String    @default("user") // user, admin
+//   accounts      Account[] // next-auth requires this schema, user is in schema too
+//   sessions      Session[]
+//   posts         Post[]
+//   createdAt     DateTime  @default(now()) @map(name: "created_at")
+//   updatedAt     DateTime  @updatedAt @map(name: "updated_at")
+
+//   @@map("users")
+// }
+
+// model Account {
+//   id                 String  @id @default(cuid())
+//   userId             String  @map("user_id")
+//   user               User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   type               String
+//   provider           String
+//   providerAccountId  String  @map("provider_account_id")
+//   refresh_token      String?
+//   access_token       String?
+//   expires_at         Int?
+//   token_type         String?
+//   scope              String?
+//   id_token           String?
+//   session_state      String?
+
+//   @@unique([provider, providerAccountId])
+//   @@map("accounts")
+// }
+
+// model Session {
+//   id           String   @id @default(cuid())
+//   sessionToken String   @unique @map("session_token")
+//   expires      DateTime  
+//   userId       String   @map("user_id")
+//   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+//   @@map("sessions")
+// }
+
+// model VerificationToken {  
+//   identifier String  
+//   token      String   @unique  
+//   expires    DateTime
+
+//   @@unique([identifier, token])  
+//   @@map("verificationtokens")
+// }
+
+
+//nexusconjure
+
+enum Role {
+  AGENCY_OWNER
+  AGENCY_ADMIN
+  SUBACCOUNT_USER
+  SUBACCOUNT_GUEST
+}
+
+enum Icon {
+  settings
+  chart
+  calendar
+  check
+  chip
+  compass
+  database
+  flag
+  home
+  info
+  link
+  lock
+  messages
+  notification
+  payment
+  power
+  receipt
+  shield
+  star
+  tune
+  videorecorder
+  wallet
+  warning
+  headphone
+  send
+  pipelines
+  person
+  category
+  contact
+  clipboardIcon
+}
+
+// model User {
+//   id           String         @id @default(uuid())
+//   name         String
+//   avatarUrl    String
+//   email        String         @unique
+//   createdAt    DateTime       @default(now())
+//   updatedAt    DateTime       @updatedAt
+//   role         Role           @default(SUBACCOUNT_USER)
+//   agencyId     String?
+//   Agency       Agency?        @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+//   Permissions  Permissions[]
+//   Ticket       Ticket[]
+//   Notification Notification[]
+
+//   @@index([agencyId])
+// }
+
+// model Permissions {
+//   id           String     @id @default(uuid())
+//   email        String
+//   User         User       @relation(fields: [email], references: [email], onDelete: Cascade)
+//   subAccountId String
+//   SubAccount   SubAccount @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+//   access       Boolean
+
+//   @@index([subAccountId])
+//   @@index([email])
+// }
+
+// model Agency {
+//   id               String                @id @default(uuid())
+//   connectAccountId String?               @default("")
+//   customerId       String                @default("")
+//   name             String
+//   agencyLogo       String
+//   companyEmail     String
+//   companyPhone     String
+//   whiteLabel       Boolean               @default(true)
+//   address          String
+//   city             String
+//   zipCode          String
+//   state            String
+//   country          String
+//   goal             Int                   @default(5)
+//   users            User[]
+//   createdAt        DateTime              @default(now())
+//   updatedAt        DateTime              @updatedAt
+//   SubAccount       SubAccount[]
+//   SidebarOption    AgencySidebarOption[]
+//   Invitation       Invitation[]
+//   Notification     Notification[]
+//   Subscription     Subscription?
+//   AddOns           AddOns[]
+// }
+
+// model SubAccount {
+//   id               String                    @id @default(uuid())
+//   connectAccountId String?                   @default("")
+//   name             String
+//   subAccountLogo   String
+//   createdAt        DateTime                  @default(now())
+//   updatedAt        DateTime                  @updatedAt
+//   companyEmail     String
+//   companyPhone     String
+//   goal             Int                       @default(5)
+//   address          String
+//   city             String
+//   zipCode          String
+//   state            String
+//   country          String
+//   agencyId         String
+//   Agency           Agency                    @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+//   SidebarOption    SubAccountSidebarOption[]
+//   Permissions      Permissions[]
+//   Funnels          Funnel[]
+//   Media            Media[]
+//   Contact          Contact[]
+//   Trigger          Trigger[]
+//   Automation       Automation[]
+//   Pipeline         Pipeline[]
+//   Tags             Tag[]
+//   Notification     Notification[]
+
+//   @@index([agencyId])
+// }
+
+// model Tag {
+//   id           String   @id @default(uuid())
+//   name         String
+//   color        String
+//   createdAt    DateTime @default(now())
+//   updatedAt    DateTime @updatedAt
+//   subAccountId String
+
+//   SubAccount SubAccount @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+//   Ticket     Ticket[]
+
+//   @@index([subAccountId])
+// }
+
+// model Pipeline {
+//   id           String     @id @default(uuid())
+//   name         String
+//   createdAt    DateTime   @default(now())
+//   updatedAt    DateTime   @updatedAt
+//   Lane         Lane[]
+//   SubAccount   SubAccount @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+//   subAccountId String
+
+//   @@index([subAccountId])
+// }
+
+// model Lane {
+//   id         String   @id @default(uuid())
+//   name       String
+//   createdAt  DateTime @default(now())
+//   updatedAt  DateTime @updatedAt
+//   Pipeline   Pipeline @relation(fields: [pipelineId], references: [id], onDelete: Cascade)
+//   pipelineId String
+//   Tickets    Ticket[]
+//   order      Int      @default(0)
+
+//   @@index([pipelineId])
+// }
+
+// model Ticket {
+//   id          String   @id @default(uuid())
+//   name        String
+//   createdAt   DateTime @default(now())
+//   updatedAt   DateTime @updatedAt
+//   laneId      String
+//   order       Int      @default(0)
+//   Lane        Lane     @relation(fields: [laneId], references: [id], onDelete: Cascade)
+//   value       Decimal?
+//   description String?
+//   Tags        Tag[]
+
+//   customerId String?
+//   Customer   Contact? @relation(fields: [customerId], references: [id], onDelete: SetNull)
+
+//   assignedUserId String?
+//   Assigned       User?   @relation(fields: [assignedUserId], references: [id], onDelete: SetNull)
+
+//   @@index([laneId])
+//   @@index([customerId])
+//   @@index([assignedUserId])
+// }
+
+// enum TriggerTypes {
+//   CONTACT_FORM
+// }
+
+// model Trigger {
+//   id           String       @id @default(uuid())
+//   name         String
+//   type         TriggerTypes
+//   createdAt    DateTime     @default(now())
+//   updatedAt    DateTime     @updatedAt
+//   subAccountId String
+//   Subaccount   SubAccount   @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+//   Automations  Automation[]
+
+//   @@index([subAccountId])
+// }
+
+// model Automation {
+//   id                 String               @id @default(uuid())
+//   name               String
+//   createdAt          DateTime             @default(now())
+//   updatedAt          DateTime             @updatedAt
+//   triggerId          String?
+//   published          Boolean              @default(false)
+//   Trigger            Trigger?             @relation(fields: [triggerId], references: [id], onDelete: Cascade)
+//   subAccountId       String
+//   Subaccount         SubAccount           @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+//   Action             Action[]
+//   AutomationInstance AutomationInstance[]
+
+//   @@index([triggerId])
+//   @@index([subAccountId])
+// }
+
+// model AutomationInstance {
+//   id           String     @id @default(uuid())
+//   createdAt    DateTime   @default(now())
+//   updatedAt    DateTime   @updatedAt
+//   automationId String
+//   Automation   Automation @relation(fields: [automationId], references: [id], onDelete: Cascade)
+//   active       Boolean    @default(false)
+
+//   @@index([automationId])
+// }
+
+// enum ActionType {
+//   CREATE_CONTACT
+// }
+
+// model Action {
+//   id           String     @id @default(uuid())
+//   name         String
+//   type         ActionType
+//   createdAt    DateTime   @default(now())
+//   updatedAt    DateTime   @updatedAt
+//   automationId String
+//   order        Int
+//   Automation   Automation @relation(fields: [automationId], references: [id], onDelete: Cascade)
+//   laneId       String     @default("0")
+
+//   @@index([automationId])
+// }
+
+// model Contact {
+//   id           String   @id @default(uuid())
+//   name         String
+//   email        String
+//   createdAt    DateTime @default(now())
+//   updatedAt    DateTime @updatedAt
+//   subAccountId String
+
+//   Subaccount SubAccount @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+//   Ticket     Ticket[]
+
+//   @@index([subAccountId])
+// }
+
+// model Media {
+//   id           String     @id @default(uuid())
+//   type         String?
+//   name         String
+//   link         String     @unique
+//   subAccountId String
+//   createdAt    DateTime   @default(now())
+//   updatedAt    DateTime   @updatedAt
+//   Subaccount   SubAccount @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+
+//   @@index([subAccountId])
+// }
+
+// model Funnel {
+//   id            String       @id @default(uuid())
+//   name          String
+//   createdAt     DateTime     @default(now())
+//   updatedAt     DateTime     @updatedAt
+//   description   String?
+//   published     Boolean      @default(false)
+//   subDomainName String?      @unique
+//   favicon       String?
+//   subAccountId  String
+//   SubAccount    SubAccount   @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+//   FunnelPages   FunnelPage[]
+//   liveProducts  String?      @default("[]")
+//   ClassName     ClassName[]
+
+//   @@index([subAccountId])
+// }
+
+// model ClassName {
+//   id         String   @id @default(uuid())
+//   name       String
+//   color      String
+//   createdAt  DateTime @default(now())
+//   updatedAt  DateTime @updatedAt
+//   funnelId   String
+//   customData String?
+//   Funnel     Funnel   @relation(fields: [funnelId], references: [id], onDelete: Cascade)
+
+//   @@index([funnelId])
+// }
+
+// model FunnelPage {
+//   id           String   @id @default(uuid())
+//   name         String
+//   pathName     String   @default("")
+//   createdAt    DateTime @default(now())
+//   updatedAt    DateTime @updatedAt
+//   visits       Int      @default(0)
+//   content      String?
+//   order        Int
+//   previewImage String?
+//   funnelId     String
+//   Funnel       Funnel   @relation(fields: [funnelId], references: [id], onDelete: Cascade)
+
+//   @@index([funnelId])
+// }
+
+// model AgencySidebarOption {
+//   id        String   @id @default(uuid())
+//   name      String   @default("Menu")
+//   link      String   @default("#")
+//   icon      Icon     @default(info)
+//   agencyId  String
+//   Agency    Agency?  @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+
+//   @@index([agencyId])
+// }
+
+// model SubAccountSidebarOption {
+//   id           String      @id @default(uuid())
+//   name         String      @default("Menu")
+//   link         String      @default("#")
+//   icon         Icon        @default(info)
+//   createdAt    DateTime    @default(now())
+//   updatedAt    DateTime    @updatedAt
+//   SubAccount   SubAccount? @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+//   subAccountId String?
+
+//   @@index([subAccountId])
+// }
+
+// enum InvitationStatus {
+//   ACCEPTED
+//   REVOKED
+//   PENDING
+// }
+
+// model Invitation {
+//   id       String           @id @default(uuid())
+//   email    String           @unique
+//   agencyId String
+//   Agency   Agency           @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+//   status   InvitationStatus @default(PENDING)
+//   role     Role             @default(SUBACCOUNT_USER)
+
+//   @@index([agencyId])
+// }
+
+// model Notification {
+//   id           String  @id @default(uuid())
+//   notification String
+//   agencyId     String
+//   subAccountId String?
+//   userId       String
+
+//   User       User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   Agency     Agency      @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+//   SubAccount SubAccount? @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+
+//   @@index([agencyId])
+//   @@index([subAccountId])
+//   @@index([userId])
+// }
+
+// enum Plan {
+//   price_1Oh5X0GPaa0QUDfnATA57adG
+//   price_1Oh5sNGPaa0QUDfnTLSaIYFR
+// }
+
+// model Subscription {
+//   id        String   @id @default(uuid())
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+//   plan      Plan?
+//   price     String?
+//   active    Boolean  @default(false)
+
+//   priceId              String
+//   customerId           String
+//   currentPeriodEndDate DateTime
+//   subscritiptionId     String   @unique
+
+//   agencyId String? @unique
+//   Agency   Agency? @relation(fields: [agencyId], references: [id])
+
+//   @@index([customerId])
+// }
+
+// model AddOns {
+//   id        String   @id @default(uuid())
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+//   name      String
+//   active    Boolean  @default(false)
+//   priceId   String   @unique
+//   agencyId  String?
+//   Agency    Agency?  @relation(fields: [agencyId], references: [id])
+
+//   @@index([agencyId])
+// }
+
+
+
+
+//poke
+// generator client {
+//   provider = "prisma-client-js"
+// }
+
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+// model Product {
+//   id          String    @id @default(uuid())
+//   name        String
+//   type        String
+//   description String
+//   printfulId  Int       @unique
+//   createdAt   DateTime  @default(now())
+//   updatedAt   DateTime  @updatedAt
+//   variants    Variant[] @relation("ProductVariants")
+// }
+
+// model Variant {
+//   id            String   @id @default(uuid())
+//   name          String
+//   size          String
+//   color         String
+//   printfulPrice Float
+//   retailPrice   Float
+//   printfulId    Int      @unique
+//   productId     String
+//   createdAt     DateTime @default(now())
+//   updatedAt     DateTime @updatedAt
+//   stripePriceId String?  @unique
+//   mockupUrl     String?
+//   orders        Order[]  @relation("VariantToOrder")
+//   product       Product  @relation("ProductVariants", fields: [productId], references:    [id])
+//   mockupImages   String[] @default([])
+//   printfulFileId Int
+// }
+
+// model Order {
+//   id              String   @id @default(cuid())
+//   variantId       String
+//   stripeSessionId String   @unique
+//   status          String
+//   shippingDetails Json
+//   createdAt       DateTime @default(now())
+//   updatedAt       DateTime @updatedAt
+//   variant         Variant  @relation("VariantToOrder", fields: [variantId], references: [id])
+// }
+
+// model UserUpload {
+//   id        String   @id @default(cuid())
+//   userId    String
+//   imageUrl  String
+//   createdAt DateTime @default(now())
+// }
+
+// model QuizResult {
+//   id                     String                   @id @default(cuid())
+//   createdAt              DateTime                 @default(now())
+//   trainerName            String?
+//   grassPokemon           Json
+//   firePokemon            Json
+//   waterPokemon           Json
+//   teamSummary            String
+//   audioStatus            String                   @default("pending")
+//   rankings               Json?
+//   base64ImageMap         Json                     @default("{}")
+//   svgMap                 Json?
+//   audioData              Bytes?
+//   pokemonResultPngs      Json?
+//   PixelatedPokemonResult PixelatedPokemonResult[]
+// }
+
+// model HatProduct {
+//   id             String       @id @default(uuid())
+//   printfulId     Int
+//   mainCategoryId Int
+//   type           String
+//   description    String
+//   title          String
+//   brand          String
+//   model          String
+//   image          String
+//   variantCount   Int
+//   currency       String
+//   origin_country String?
+//   createdAt      DateTime     @default(now())
+//   updatedAt      DateTime     @updatedAt
+//   files          File[]
+//   hatVariants    HatVariant[]
+//   options        Option[]
+//   techniques     Technique[]
+// }
+
+// model HatVariant {
+//   id              String     @id @default(uuid())
+//   printfulFileId  Int
+//   name            String
+//   color           String
+//   size            String
+//   image           String
+//   retailPrice     Float
+//   currency        String
+//   stripePriceId   String
+//   hatProductId    String
+//   createdAt       DateTime   @default(now())
+//   updatedAt       DateTime   @updatedAt
+//   selectedOptions Json
+//   hatProduct      HatProduct @relation(fields: [hatProductId], references: [id])
+// }
+
+// model Option {
+//   id                         String     @id @default(uuid())
+//   title                      String
+//   type                       OptionType
+//   values                     Json?
+//   additional_price           Float?
+//   additional_price_breakdown Json
+//   hatProductId               String
+//   hatProduct                 HatProduct @relation(fields: [hatProductId], references: [id])
+// }
+
+// model Technique {
+//   key          String     @id @default(uuid())
+//   display_name String
+//   is_default   Boolean
+//   hatProductId String
+//   hatProduct   HatProduct @relation(fields: [hatProductId], references: [id])
+// }
+
+// model File {
+//   id               String       @id @default(uuid())
+//   type             FileType
+//   title            String
+//   additional_price Float?
+//   hatProductId     String
+//   hatProduct       HatProduct   @relation(fields: [hatProductId], references: [id])
+//   options          FileOption[]
+// }
+
+// model FileOption {
+//   id               String         @id @default(uuid())
+//   type             FileOptionType
+//   title            String
+//   additional_price Float
+//   fileId           String
+//   file             File           @relation(fields: [fileId], references: [id])
+// }
+
+// model Image {
+//   id        String   @id @default(uuid())
+//   data      Bytes
+//   mimeType  String
+//   filename  String
+//   createdAt DateTime @default(now())
+// }
+
+// model AccessCode {
+//   id           String   @id @default(cuid())
+//   createdAt    DateTime @default(now())
+//   updatedAt    DateTime @updatedAt
+//   accessToken  String   @map("access_token")
+//   expiresAt    Int      @map("expires_at")
+//   refreshToken String   @map("refresh_token")
+// }
+
+// model PixelatedPokemonResult {
+//   id                 String     @id
+//   quizResultId       String
+//   pokemonName        String
+//   finalPng           String
+//   pixelationSettings Json
+//   createdAt          DateTime   @default(now())
+//   QuizResult         QuizResult @relation(fields: [quizResultId], references: [id])
+
+//   @@index([quizResultId, pokemonName])
+// }
+
+// enum OptionType {
+//   radio
+//   multi_select
+//   text
+// }
+
+// enum FileType {
+//   embroidery_front_large
+//   embroidery_front
+//   embroidery_back
+//   embroidery_right
+//   embroidery_left
+//   mockup
+// }
+
+// enum FileOptionType {
+//   bool
+// }
+
+
+
+//school
+// generator client {
+//   provider = "prisma-client-js"
+// }
+
+// datasource db {
+//   provider  = "postgresql"
+//   url       = env("DATABASE_URL")
+//   directUrl = env("DATABASE_URL")
+// }
+
+// model User {
+//   id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   firstname  String
+//   lastname   String
+//   createdAt  DateTime  @default(now())
+//   clerkId    String    @unique
+//   image      String?
+//   stripeId   String?
+//   comments   Comment[]
+//   group      Group[]
+//   likes      Like[]
+//   membership Members[]
+//   message    Message[]
+//   posts      Post[]
+// }
+
+// model Subscription {
+//   id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   createdAt DateTime @default(now())
+//   price     Int?
+//   active    Boolean  @default(false)
+//   groupId   String?  @db.Uuid
+//   Group     Group?   @relation(fields: [groupId], references: [id], onDelete: Cascade)
+// }
+
+// model Group {
+//   id              String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   name            String         @unique
+//   category        String
+//   thumbnail       String?
+//   description     String?
+//   gallery         String[]
+//   jsonDescription String?
+//   htmlDescription String?
+//   icon            String?
+//   privacy         GROUP_PRIVACY  @default(PRIVATE)
+//   active          Boolean        @default(false)
+//   createdAt       DateTime       @default(now())
+//   userId          String         @db.Uuid
+//   domain          String?
+//   affiliate       Affiliate?
+//   channel         Channel[]
+//   courses         Course[]
+//   User            User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   member          Members[]
+//   subscription    Subscription[]
+// }
+
+// model Members {
+//   id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   userId    String?  @db.Uuid
+//   groupId   String?  @db.Uuid
+//   createdAt DateTime @default(now())
+//   Group     Group?   @relation(fields: [groupId], references: [id])
+//   User      User?    @relation(fields: [userId], references: [id])
+
+//   @@index([userId, groupId])
+// }
+
+// model Post {
+//   id          String    @id @db.Uuid
+//   createdAt   DateTime  @default(now())
+//   title       String?
+//   htmlContent String?
+//   jsonContent String?
+//   content     String
+//   authorId    String    @db.Uuid
+//   channelId   String    @db.Uuid
+//   comments    Comment[]
+//   likes       Like[]
+//   author      User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
+//   channel     Channel   @relation(fields: [channelId], references: [id], onDelete: Cascade)
+// }
+
+// model Like {
+//   id        String   @id @db.Uuid
+//   createdAt DateTime @default(now())
+//   postId    String   @db.Uuid
+//   userId    String   @db.Uuid
+//   post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+//   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+// }
+
+// model Comment {
+//   id        String    @id @db.Uuid
+//   createdAt DateTime  @default(now())
+//   content   String
+//   postId    String    @db.Uuid
+//   userId    String    @db.Uuid
+//   replied   Boolean?  @default(false)
+//   commentId String?   @db.Uuid
+//   Comment   Comment?  @relation("CommentToComment", fields: [commentId], references: [id])
+//   reply     Comment[] @relation("CommentToComment")
+//   post      Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+//   user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+// }
+
+// model Channel {
+//   id        String   @id @db.Uuid
+//   name      String
+//   icon      String
+//   createdAt DateTime @default(now())
+//   groupId   String?  @db.Uuid
+//   Group     Group?   @relation(fields: [groupId], references: [id], onDelete: Cascade)
+//   posts     Post[]
+// }
+
+// model Course {
+//   id          String   @id @db.Uuid
+//   name        String
+//   thumbnail   String
+//   published   Boolean  @default(false)
+//   privacy     String
+//   description String
+//   createdAt   DateTime @default(now())
+//   groupId     String?  @db.Uuid
+//   Group       Group?   @relation(fields: [groupId], references: [id], onDelete: Cascade)
+//   modules     Module[]
+// }
+
+// model Module {
+//   id        String    @id @db.Uuid
+//   courseId  String?   @db.Uuid
+//   title     String
+//   createdAt DateTime  @default(now())
+//   Course    Course?   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+//   section   Section[]
+// }
+
+// model Section {
+//   id          String   @id @db.Uuid
+//   name        String   @default("New Section")
+//   icon        String   @default("doc")
+//   complete    Boolean  @default(false)
+//   createdAt   DateTime @default(now())
+//   moduleId    String?  @db.Uuid
+//   content     String?
+//   htmlContent String?
+//   JsonContent String?
+//   Module      Module?  @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+// }
+
+// model Affiliate {
+//   id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   groupId   String?  @unique @db.Uuid
+//   createdAt DateTime @default(now())
+//   Group     Group?   @relation(fields: [groupId], references: [id])
+// }
+
+// model Message {
+//   id         String   @id @db.Uuid
+//   message    String
+//   createdAt  DateTime @default(now())
+//   senderid   String?  @db.Uuid
+//   recieverId String?  @db.Uuid
+//   sender     User?    @relation(fields: [senderid], references: [id], onDelete: Cascade)
+// }
+
+// enum GROUP_PRIVACY {
+//   PUBLIC
+//   PRIVATE
+// }
+
+
+
+//spread
+// generator client {
+//   provider = "prisma-client-js"
+// }
+
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+// model User {
+//   id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   fullname  String
+//   clerkId   String   @unique
+//   type      String
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+
+//   stripeId String?
+
+//   domains Domain[]
+
+//   campaign Campaign[]
+
+//   subscription Billings?
+// }
+
+// model Domain {
+//   id   String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   name String
+//   icon String
+
+//   chatBot         ChatBot?
+//   helpdesk        HelpDesk[]
+//   filterQuestions FilterQuestions[]
+//   products        Product[]
+
+//   customer   Customer[]
+//   User       User?      @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   userId     String?    @db.Uuid
+//   Campaign   Campaign?  @relation(fields: [campaignId], references: [id])
+//   campaignId String?    @db.Uuid
+// }
+
+// model ChatBot {
+//   id             String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   welcomeMessage String?
+//   icon           String?
+//   background     String?
+//   textColor      String?
+//   helpdesk       Boolean @default(false)
+//   Domain         Domain? @relation(fields: [domainId], references: [id], onDelete: Cascade)
+//   domainId       String? @unique @db.Uuid
+// }
+
+// model Billings {
+//   id      String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   plan    Plans   @default(STANDARD)
+//   credits Int     @default(10)
+//   User    User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   userId  String? @unique @db.Uuid
+// }
+
+// model HelpDesk {
+//   id       String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   question String
+//   answer   String
+
+//   Domain   Domain? @relation(fields: [domainId], references: [id], onDelete: Cascade)
+//   domainId String? @db.Uuid
+// }
+
+// model FilterQuestions {
+//   id       String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   question String
+//   answered String?
+
+//   Domain   Domain? @relation(fields: [domainId], references: [id], onDelete: Cascade)
+//   domainId String? @db.Uuid
+// }
+
+// model CustomerResponses {
+//   id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   question   String
+//   answered   String?
+//   customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+//   customerId String   @db.Uuid
+// }
+
+// model Customer {
+//   id    String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   email String? 
+
+//   questions CustomerResponses[]
+
+//   chatRoom ChatRoom[]
+
+//   booking Bookings[]
+
+//   Domain   Domain? @relation(fields: [domainId], references: [id], onDelete: Cascade)
+//   domainId String? @db.Uuid
+// }
+
+// model ChatRoom {
+//   id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   live       Boolean   @default(false)
+//   mailed     Boolean   @default(false)
+//   createdAt  DateTime  @default(now())
+//   updatedAt  DateTime  @updatedAt
+//   Customer   Customer? @relation(fields: [customerId], references: [id], onDelete: Cascade)
+//   customerId String?   @db.Uuid
+
+//   message ChatMessage[]
+// }
+
+// model ChatMessage {
+//   id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   message    String
+//   role       Role?
+//   createdAt  DateTime  @default(now())
+//   updatedAt  DateTime  @updatedAt
+//   ChatRoom   ChatRoom? @relation(fields: [chatRoomId], references: [id], onDelete: Cascade)
+//   chatRoomId String?   @db.Uuid
+//   seen       Boolean   @default(false)
+// }
+
+// model Bookings {
+//   id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   date       DateTime
+//   slot       String
+//   email      String
+//   Customer   Customer? @relation(fields: [customerId], references: [id], onDelete: Cascade)
+//   customerId String?   @db.Uuid
+//   domainId   String?   @db.Uuid
+//   createdAt  DateTime  @default(now())
+// }
+
+// model Campaign {
+//   id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   name      String
+//   customers String[]
+//   domain    Domain[]
+//   template  String?
+//   User      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   userId    String?  @db.Uuid
+//   createdAt DateTime @default(now())
+// }
+
+// model Product {
+//   id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   name      String
+//   price     Int
+//   image     String
+//   createdAt DateTime @default(now())
+//   Domain    Domain?  @relation(fields: [domainId], references: [id], onDelete: Cascade)
+//   domainId  String?  @db.Uuid
+// }
+
+// enum Plans {
+//   STANDARD
+//   PRO
+//   ULTIMATE
+// }
+
+// enum Role {
+//   user
+//   assistant
+// }
+
+
+
+//direct
+
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+// model User {
+//   id           String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   clerkId      String         @unique
+//   email        String         @unique
+//   firstname    String?        @unique
+//   lastname     String?        @unique
+//   createdAt    DateTime       @default(now())
+//   subscription Subscription?
+//   integrations Integrations[]
+//   automations  Automation[]
+// }
+
+// model Subscription {
+//   id         String            @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   User       User?             @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   userId     String?           @unique @db.Uuid
+//   createdAt  DateTime          @default(now())
+//   plan       SUBSCRIPTION_PLAN @default(FREE)
+//   updatedAt  DateTime          @default(now())
+//   customerId String?           @unique
+// }
+
+// model Integrations {
+//   id          String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   name        INTEGRATIONS @default(INSTAGRAM)
+//   createdAt   DateTime     @default(now())
+//   User        User?        @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   userId      String?      @db.Uuid
+//   token       String       @unique
+//   expiresAt   DateTime?
+//   instagramId String?      @unique
+// }
+
+// model Automation {
+//   id        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   name      String    @default("Untitled")
+//   createdAt DateTime  @default(now())
+//   active    Boolean   @default(false)
+//   trigger   Trigger[]
+//   listener  Listener?
+//   posts     Post[]
+//   dms       Dms[]
+//   User      User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   userId    String?   @db.Uuid
+//   keywords  Keyword[]
+// }
+
+// model Dms {
+//   id           String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   Automation   Automation? @relation(fields: [automationId], references: [id])
+//   automationId String?     @db.Uuid
+//   createdAt    DateTime    @default(now())
+//   senderId     String?
+//   reciever     String?
+//   message      String?
+// }
+
+// model Post {
+//   id           String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   postid       String
+//   caption      String?
+//   media        String
+//   mediaType    MEDIATYPE   @default(IMAGE)
+//   Automation   Automation? @relation(fields: [automationId], references: [id], onDelete: Cascade)
+//   automationId String?     @db.Uuid
+// }
+
+// model Listener {
+//   id           String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   Automation   Automation @relation(fields: [automationId], references: [id], onDelete: Cascade)
+//   automationId String     @unique @db.Uuid
+//   listener     LISTENERS  @default(MESSAGE)
+//   prompt       String
+//   commentReply String?
+//   dmCount      Int        @default(0)
+//   commentCount Int        @default(0)
+// }
+
+// model Trigger {
+//   id           String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   type         String
+//   Automation   Automation? @relation(fields: [automationId], references: [id], onDelete: Cascade)
+//   automationId String?     @db.Uuid
+// }
+
+// model Keyword {
+//   id           String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+//   word         String
+//   Automation   Automation? @relation(fields: [automationId], references: [id], onDelete: Cascade)
+//   automationId String?     @db.Uuid
+
+//   @@unique([automationId, word]) //this constraints ensure user cant use the same keyword on multiple automations
+// }
+
+// enum SUBSCRIPTION_PLAN {
+//   PRO
+//   FREE
+// }
+
+// enum INTEGRATIONS {
+//   INSTAGRAM
+// }
+
+// enum MEDIATYPE {
+//   IMAGE
+//   VIDEO
+//   CAROSEL_ALBUM
+// }
+
+// enum LISTENERS {
+//   SMARTAI
+//   MESSAGE
+// }

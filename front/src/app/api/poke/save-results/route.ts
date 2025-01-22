@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@/lib/client/prisma";
 import { NextRequest, NextResponse } from "next/server";
 import { SaveResultsRequestBody, SaveResultsResponse } from "@/types/api";
 import { Prisma } from "@prisma/client";
@@ -102,7 +102,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
 			const fullText = `${trainerName}'s Pokémon Starter Team.\n\n${teamSummary}`;
 
-			const baseUrl = `${process.env.BASE_URL}`;
+			const baseUrl = `${process.env.BASE_URL_POKE}`;
 			fetch(`${baseUrl}/api/process-pending-audios`, {
 				method: "POST",
 				headers: {

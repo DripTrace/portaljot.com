@@ -1,6 +1,6 @@
-import { onGetBlogPost } from "@/actions/landing";
+import { onGetBlogPost } from "@/actions/spread/landing";
 import { CardDescription } from "@/components/ui/card";
-import { getMonthName } from "@/lib/utils";
+import { getMonthName } from "@/lib/spread/utils";
 import parse from "html-react-parser";
 import React from "react";
 

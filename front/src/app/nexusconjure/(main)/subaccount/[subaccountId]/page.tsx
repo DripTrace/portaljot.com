@@ -1,7 +1,7 @@
-import BlurPage from "@/components/global/blur-page";
-import CircleProgress from "@/components/global/circle-progress";
-import PipelineValue from "@/components/global/pipeline-value";
-import SubaccountFunnelChart from "@/components/global/subaccount-funnel-chart";
+import BlurPage from "@/components/nexusconjure/global/blur-page";
+import CircleProgress from "@/components/nexusconjure/global/circle-progress";
+import PipelineValue from "@/components/nexusconjure/global/pipeline-value";
+import SubaccountFunnelChart from "@/components/nexusconjure/global/subaccount-funnel-chart";
 import { Badge } from "@/components/ui/badge";
 import {
 	Card,
@@ -21,7 +21,7 @@ import {
 	TableRow,
 } from "@/components/ui/table";
 import { db } from "@/utils/nexusconjure/db";
-import { stripe } from "@/lib/stripe";
+import { stripe } from "@/lib/nexusconjure/stripe";
 import { AreaChart, BadgeDelta } from "@tremor/react";
 import {
 	ClipboardIcon,
@@ -145,7 +145,7 @@ const SubaccountPageId = async ({ params, searchParams }: Props) => {
 									see metrics
 								</CardDescription>
 								<Link
-									href={`/subaccount/${subaccountDetails.id}/launchpad`}
+									href={`/nexusconjure/subaccount/${subaccountDetails.id}/launchpad`}
 									className="p-2 w-fit bg-secondary text-white rounded-md flex items-center gap-2"
 								>
 									<ClipboardIcon />
@@ -184,7 +184,7 @@ const SubaccountPageId = async ({ params, searchParams }: Props) => {
 									{potentialIncome
 										? `${currency} ${potentialIncome.toFixed(
 												2
-										  )}`
+											)}`
 										: `$0.00`}
 								</CardTitle>
 								<small className="text-xs text-muted-foreground">
@@ -331,7 +331,7 @@ const SubaccountPageId = async ({ params, searchParams }: Props) => {
 															</TableCell>
 														</TableRow>
 													)
-											  )
+												)
 											: "No Data"}
 									</TableBody>
 								</Table>

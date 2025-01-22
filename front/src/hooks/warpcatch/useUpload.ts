@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { db, storage } from "../../firebase";
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
-import { generateEmbeddings } from "@/actions/generateEmbeddings";
+import { generateEmbeddings } from "@/actions/warpcatch/generateEmbeddings";
 
 export enum StatusText {
 	UPLOADING = "Uploading file . . .",
@@ -19,13 +19,6 @@ export enum StatusText {
 }
 
 export type Status = StatusText[keyof StatusText];
-
-// export interface UploadResult {
-// 	progress: number | null;
-// 	status: string | null;
-// 	fileId: string | null;
-// 	handleUpload: (file: File) => void;
-// }
 
 function useUpload() {
 	const { user } = useUser();
@@ -79,7 +72,6 @@ function useUpload() {
 						type: file.type,
 						downloadUrl: downloadUrl,
 						ref: uploadTask.snapshot.ref.fullPath,
-						// createdAt: serverTimestamp(),
 						createdAt: new Date(),
 					}
 				);

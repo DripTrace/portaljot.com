@@ -17,7 +17,7 @@ import {
 import LoadingSpinner from "./loadingSpinner";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { ScrollArea } from "./ui/scroll-area";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { doc, getDoc } from "firebase/firestore";
 import { useSession } from "next-auth/react";
 import { db } from "@/firebase";

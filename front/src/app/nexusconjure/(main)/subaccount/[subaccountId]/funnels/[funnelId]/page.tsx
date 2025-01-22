@@ -1,4 +1,4 @@
-import BlurPage from "@/components/global/blur-page";
+import BlurPage from "@/components/nexusconjure/global/blur-page";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getFunnel } from "@/utils/nexusconjure/queries";
 import Link from "next/link";
@@ -14,12 +14,14 @@ type Props = {
 const FunnelPage = async ({ params }: Props) => {
 	const funnelPages = await getFunnel(params.funnelId);
 	if (!funnelPages)
-		return redirect(`/subaccount/${params.subaccountId}/funnels`);
+		return redirect(
+			`/nexusconjure/subaccount/${params.subaccountId}/funnels`
+		);
 
 	return (
 		<BlurPage>
 			<Link
-				href={`/subaccount/${params.subaccountId}/funnels`}
+				href={`/nexusconjure/subaccount/${params.subaccountId}/funnels`}
 				className="flex justify-between gap-4 mb-4 text-muted-foreground"
 			>
 				Back

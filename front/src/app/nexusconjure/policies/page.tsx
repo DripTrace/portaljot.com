@@ -185,14 +185,14 @@ const PolicyPage: React.FC = () => {
 					<p className="mb-4 text-muted-foreground">
 						For more detailed information, please review our full{" "}
 						<a
-							href="/terms-of-service"
+							href="/nexusconjure/terms-of-service"
 							className="text-primary hover:underline"
 						>
 							Terms of Service
 						</a>{" "}
 						and{" "}
 						<a
-							href="/privacy"
+							href="/nexusconjure/privacy"
 							className="text-primary hover:underline"
 						>
 							Privacy Policy

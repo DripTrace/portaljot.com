@@ -1,5 +1,5 @@
-import AgencyDetails from "@/components/forms/agency-details";
-import UserDetails from "@/components/forms/user-details";
+import AgencyDetails from "@/components/nexusconjure/forms/agency-details";
+import UserDetails from "@/components/nexusconjure/forms/user-details";
 import { db } from "@/utils/nexusconjure/db";
 import { currentUser } from "@clerk/nextjs";
 import React from "react";

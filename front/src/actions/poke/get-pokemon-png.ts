@@ -1,6 +1,6 @@
 "use server";
 
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@/lib/client/prisma";
 
 interface PokemonResultPngs {
 	[key: string]: string; // This indicates that the object will have string keys and string values

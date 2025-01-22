@@ -1,6 +1,6 @@
 "use client";
-import CreatePipelineForm from "@/components/forms/create-pipeline-form";
-import CustomModal from "@/components/global/custom-modal";
+import CreatePipelineForm from "@/components/nexusconjure/forms/create-pipeline-form";
+import CustomModal from "@/components/nexusconjure/global/custom-modal";
 import { Button } from "@/components/ui/button";
 import {
 	Command,
@@ -14,7 +14,7 @@ import {
 	PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-import { useModal } from "@/providers/modal-provider";
+import { useModal } from "@/providers/nexusconjure/modal-provider";
 import { Pipeline } from "@prisma/client";
 import { Check, ChevronsUpDown, Plus } from "lucide-react";
 import Link from "next/link";
@@ -56,7 +56,7 @@ const PipelineInfoBar = ({ pipelineId, pipelines, subAccountId }: Props) => {
 							{value
 								? pipelines.find(
 										(pipeline) => pipeline.id === value
-								  )?.name
+									)?.name
 								: "Select a pipeline..."}
 							<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 						</Button>
@@ -68,7 +68,7 @@ const PipelineInfoBar = ({ pipelineId, pipelines, subAccountId }: Props) => {
 								{pipelines.map((pipeline) => (
 									<Link
 										key={pipeline.id}
-										href={`/subaccount/${subAccountId}/pipelines/${pipeline.id}`}
+										href={`/nexusconjure/subaccount/${subAccountId}/pipelines/${pipeline.id}`}
 									>
 										<CommandItem
 											key={pipeline.id}

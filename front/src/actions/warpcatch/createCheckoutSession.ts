@@ -4,8 +4,8 @@ import { UserDetails } from "@/app/upgrade/page";
 // import type UserDetails from "../../app/dashboard/upgrade/page";
 import { adminDb } from "../../firebaseAdmin";
 import { auth } from "@clerk/nextjs/server";
-import stripe from "@/lib/stripe";
-import getBaseUrl from "@/lib/getBaseUrl";
+import stripe from "@/lib/warpcatch/stripe";
+import getBaseUrl from "@/lib/warpcatch/getBaseUrl";
 
 const FREE_LIMIT = 20;
 const PRO_LIMIT = 100;
@@ -42,14 +42,14 @@ export async function createCheckoutSession(userDetails: UserDetails) {
 		payment_method_types: ["card"],
 		line_items: [
 			{
-				price: process.env.STRIPE_PRICE_ID,
+				price: process.env.STRIPE_PRICE_ID_WARPCATCH,
 				quantity: 1,
 			},
 		],
 		mode: "subscription",
 		customer: stripeCustomerId,
-		success_url: `${getBaseUrl()}/dashboard?upgrade=true`,
-		cancel_url: `${getBaseUrl()}/upgrade`,
+		success_url: `${getBaseUrl()}/warpcatch/dashboard?upgrade=true`,
+		cancel_url: `${getBaseUrl()}/warpcatch/upgrade`,
 	});
 
 	return session.id;

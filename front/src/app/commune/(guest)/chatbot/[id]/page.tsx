@@ -35,7 +35,7 @@
 // import {
 // 	GET_CHATBOT_BY_ID,
 // 	GET_MESSAGES_BY_CHAT_SESSION_ID,
-// } from "@/graphql/queries/queries";
+// } from "@/graphql/commune/queries/queries";
 // import { useEffect, useState } from "react";
 // import startNewChat from "@/lib/startNewChat";
 // import Messages from "@/components/Messages";
@@ -310,23 +310,23 @@ import {
 } from "@/components/ui/dialog";
 
 import { z } from "zod";
-import Avatar from "@/components/Avatar";
+import Avatar from "@/components/commune/Avatar";
 import { useQuery } from "@apollo/client";
 import {
 	GetChatbotByIdResponse,
 	GetChatbotsData,
 	Message,
 	MessagesByChatSessionIdResponse,
-} from "@/types/chatbot";
+} from "@/types/commune/chatbot";
 import {
 	GET_CHATBOT_BY_ID,
 	GET_CHATBOTS,
 	GET_MESSAGES_BY_CHAT_SESSION_ID,
-} from "@/graphql/queries/queries";
+} from "@/graphql/commune/queries/queries";
 import { useEffect, useState } from "react";
-import startNewChat from "@/lib/startNewChat";
-import Messages from "@/components/Messages";
-import { Chatbot as ChatbotType } from "@/types/chatbot";
+import startNewChat from "@/lib/commune/startNewChat";
+import Messages from "@/components/commune/Messages";
+import { Chatbot as ChatbotType } from "@/types/commune/chatbot";
 
 const formSchema = z.object({
 	message: z.string().min(2, "Your Message is too short!"),
@@ -380,15 +380,6 @@ function Chatbot({ params: { id } }: { params: { id: string } }) {
 			setMessages(data.chat_sessions.messages);
 		}
 	}, [data, name]);
-
-	// useEffect(() => {
-	//     if (chatBotsData) {
-	//       const foundChatbot = chatBotsData.chatbotsList.find(bot => bot.id === Number(id));
-	//       if (foundChatbot) {
-	//         setChatbot(foundChatbot);
-	//       }
-	//     }
-	//   }, [chatBotsData, id]);
 
 	useEffect(() => {
 		if (chatBotsData) {
@@ -452,7 +443,7 @@ function Chatbot({ params: { id } }: { params: { id: string } }) {
 		]);
 
 		try {
-			const response = await fetch("/api/send-message", {
+			const response = await fetch("/api/commune/send-message", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -481,35 +472,6 @@ function Chatbot({ params: { id } }: { params: { id: string } }) {
 			console.error("Error sending message:", error);
 		}
 	}
-
-	// const handleInformationSubmit = async (e: React.FormEvent) => {
-	// 	e.preventDefault();
-	// 	setLoading(true);
-
-	// 	const chatId = await startNewChat(name, email, Number(id));
-
-	// 	setChatId(chatId);
-	// 	setLoading(false);
-	// 	setIsOpen(false);
-	// };
-
-	// const handleInformationSubmit = async (e: React.FormEvent) => {
-	// 	e.preventDefault();
-	// 	setLoading(true);
-
-	// 	try {
-	// 		const chatId = await startNewChat(name, email, Number(id));
-	// 		setChatId(chatId);
-	// 		setLoading(false);
-	// 		setIsOpen(false);
-	// 	} catch (error) {
-	// 		console.error("Error starting new chat:", error);
-	// 		setLoading(false);
-	// 		// Handle error (e.g., show error message to user)
-	// 		// You might want to add some state to show an error message to the user
-	// 		// setErrorMessage("Failed to start chat. Please try again.");
-	// 	}
-	// };
 
 	const handleInformationSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();

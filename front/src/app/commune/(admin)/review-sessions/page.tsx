@@ -1,6 +1,6 @@
 // import ChatBotSessions from "@/components/ChatBotSessions";
 
-// import { GET_USER_CHATBOTS } from "@/graphql/queries/queries";
+// import { GET_USER_CHATBOTS } from "@/graphql/commune/queries/queries";
 // import { serverClient } from "@/lib/server/serverClient";
 // import {
 // 	Chatbot,
@@ -51,10 +51,10 @@
 
 // export default ReviewSessions;
 
-import ChatBotSessions from "@/components/ChatBotSessions";
-import { GET_CHATBOTS } from "@/graphql/queries/queries";
-import { serverClient } from "@/lib/server/serverClient";
-import { Chatbot, GetChatbotsData } from "@/types/chatbot";
+import ChatBotSessions from "@/components/commune/ChatBotSessions";
+import { GET_CHATBOTS } from "@/graphql/commune/queries/queries";
+import { serverClient } from "@/lib/commune/server/serverClient";
+import { Chatbot, GetChatbotsData } from "@/types/commune/chatbot";
 import { auth } from "@clerk/nextjs/server";
 
 export const dynamic = "force-dynamic";

@@ -1,6 +1,6 @@
 // // /src/app/api/get-audio/[id]/route.ts
 
-// import { prisma } from "@/lib/prisma";
+// import { prisma } from "@/lib/client/prisma";
 // import { NextRequest, NextResponse } from "next/server";
 // // import { prisma } from '../../../../../lib/prisma';
 
@@ -52,7 +52,7 @@
 // /src/app/api/get-audio/[id]/route.ts
 
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@/lib/client/prisma";
 import { GetAudioResponse } from "@/types/api";
 
 export async function GET(

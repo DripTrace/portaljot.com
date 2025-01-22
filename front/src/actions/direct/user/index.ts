@@ -1,12 +1,11 @@
 "use server";
 
 import { currentUser } from "@clerk/nextjs/server";
-
 import { redirect } from "next/navigation";
 import { createUser, findUser, updateSubscription } from "./queries";
 import { refreshToken } from "@/lib/direct/fetch";
 import { updateIntegration } from "../integrations/queries";
-import { stripe } from "@/lib/stripe";
+import { stripe } from "@/lib/direct/stripe";
 
 export const onCurrentUser = async () => {
 	const user = await currentUser();

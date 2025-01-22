@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { z } from "zod";
-import { useToast } from "../ui/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,7 +11,7 @@ import {
 	CardDescription,
 	CardHeader,
 	CardTitle,
-} from "../ui/card";
+} from "@/components/ui/card";
 import {
 	Form,
 	FormControl,
@@ -19,11 +19,14 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from "../ui/form";
-import { createMedia, saveActivityLogsNotification } from "@/utils/nexusconjure/queries";
-import { Input } from "../ui/input";
+} from "@/components/ui/form";
+import {
+	createMedia,
+	saveActivityLogsNotification,
+} from "@/utils/nexusconjure/queries";
+import { Input } from "@/components/ui/input";
 import FileUpload from "../global/file-upload";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 
 type Props = {
 	subaccountId: string;

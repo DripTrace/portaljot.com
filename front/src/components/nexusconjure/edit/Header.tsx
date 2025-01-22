@@ -5,7 +5,7 @@ import {
 	addText,
 	updateSettings,
 	exportToJson,
-} from "../../../lib/edit/playerFunctions";
+} from "@/lib/edit/playerFunctions";
 
 const Header = () => {
 	return (

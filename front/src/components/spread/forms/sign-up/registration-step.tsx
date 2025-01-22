@@ -1,10 +1,10 @@
 "use client";
-import { useAuthContextHook } from "@/context/use-auth-context";
+import { useAuthContextHook } from "@/context/spread/use-auth-context";
 import React, { useState } from "react";
 import { useFormContext } from "react-hook-form";
 import TypeSelectionForm from "./type-selection-form";
 import dynamic from "next/dynamic";
-import { Spinner } from "@/components/spinner";
+import { Spinner } from "@/components/spread/spinner";
 
 const DetailForm = dynamic(() => import("./account-details-form"), {
 	ssr: false,

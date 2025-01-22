@@ -1,7 +1,7 @@
 "use server";
 
 import { adminDb, adminStorage } from "../../firebaseAdmin";
-import { indexName } from "../lib/langchain";
+import { indexName } from "../lib/warpcatch/langchain";
 import pineconeClient from "../lib/pinecone";
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
@@ -26,12 +26,12 @@ export async function deleteDocument(docId: string) {
 	// await pineconeClient.deleteIndex(indexName, docId);
 
 	await adminStorage
-		.bucket(process.env.FIREBASE_STORAGE_BUCKET)
+		.bucket(process.env.FIREBASE_STORAGE_BUCKET_WARPCATCH)
 		.file(`users/${userId}/files/${docId}`)
 		.delete();
 
 	const index = await pineconeClient.index(indexName);
 	await index.namespace(docId).deleteAll();
 
-	revalidatePath(`/dashboard`);
+	revalidatePath(`/warpcatch/dashboard`);
 }

@@ -1,4 +1,4 @@
-// import { prisma } from "@/lib/prisma";
+// import { prisma } from "@/lib/client/prisma";
 
 // interface PokemonResultPngs {
 // 	[key: string]: string; // This indicates that the object will have string keys and string values
@@ -27,7 +27,7 @@
 
 // /app/api/get-pokemon-png/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@/lib/client/prisma";
 
 export async function POST(req: NextRequest) {
 	try {

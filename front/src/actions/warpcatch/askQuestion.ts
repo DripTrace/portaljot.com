@@ -1,81 +1,10 @@
-// "use server";
-
-// import { Message } from "@/components/Chat";
-// import { adminDb } from "../../firebaseAdmin";
-// import { auth } from "@clerk/nextjs/server";
-// import { generateLangchainCompletion } from "./langchain";
-// // import { generateLangchainCompletion } from "@/lib/langchain";
-
-// const FREE_LIMIT = 3;
-// const PRO_LIMIT = 100;
-
-// export async function askQuestion(id: string, question: string) {
-// 	// try {
-// 	auth().protect();
-// 	const { userId } = await auth();
-
-// 	console.log("USER IDENTIFIER", id);
-// 	// console.log("THE USER ID", userId);
-// 	console.log("QUESTION ASKED", question);
-// 	console.log("CHAT REFERENCE");
-// 	const chatRef = adminDb
-// 		.collection("users")
-// 		.doc(userId!)
-// 		.collection("files")
-// 		.doc(id)
-// 		.collection("chat");
-
-// 	// console.dir(chatRef, { depth: null });
-// 	console.log("CHAT REFERENCE: ", chatRef);
-// 	console.log("CREATING USER MESSAGES SNAPSHOT");
-// 	const chatSnapshot = await chatRef.get();
-// 	console.log("SNAPSHOT RETRIEVEDN\n\n");
-// 	// console.log("chatSnapshot", chatSnapshot);
-// 	console.log("USER MESSAGES SNAPSHOT: ");
-// 	console.log(chatSnapshot);
-// 	// console.dir(chatSnapshot, { depth: null });
-
-// 	console.log("RETRIEVING USER MESSAGES");
-// 	const userMessages = await chatSnapshot.docs.filter(
-// 		(doc) => doc.data().role === "human"
-// 	);
-// 	console.log("RETRIEVING COMPLETE\n\n");
-// 	// console.dir(userMessages, { depth: null });
-// 	console.log("USER MESSAGES: ", userMessages);
-// 	console.log("USER MESSAGES RETRIEVED\n\n");
-
-// 	// console.log("USER MESSAGES AFTER INITIAL RETRIEVAL: ", userMessages);
-
-// 	// try {
-// 	await chatRef.add(userMessages);
-// 	// } catch (error) {
-// 	// 	console.log("Error adding user messages", error);
-// 	// }
-
-// 	const reply = await generateLangchainCompletion(id, question);
-// 	console.log("LANG REPLY", reply);
-
-// 	const aiMessage: Message = {
-// 		role: "ai",
-// 		message: reply,
-// 		createdAt: new Date(),
-// 	};
-
-// 	await chatRef.add(aiMessage);
-
-// 	return { success: true, message: null };
-// 	// } catch (error) {
-// 	// 	return { success: false, message: (error as any).message };
-// 	// }
-// }
-
 "use server";
 
-import { Message } from "@/components/Chat";
+import { Message } from "@/components/warpcatch/Chat";
 import { adminDb } from "../../firebaseAdmin";
 import { auth } from "@clerk/nextjs/server";
-import { generateLangchainCompletion } from "../lib/langchain";
-// import { FREE_LIMIT, PRO_LIMIT } from "@/hooks/useSubscription";
+import { generateLangchainCompletion } from "../lib/warpcatch/langchain";
+// import { FREE_LIMIT, PRO_LIMIT } from "@/hooks/warpcatch/useSubscription";
 
 const FREE_LIMIT = 3;
 const PRO_LIMIT = 100;

@@ -190,7 +190,7 @@ const AboutPage: React.FC = () => {
 						Ready to transform your industry with NexusConjure?
 					</p>
 					<motion.a
-						href="/alerts"
+						href="/nexusconjure/alerts"
 						whileHover={{ scale: 1.05 }}
 						whileTap={{ scale: 0.95 }}
 						className="inline-flex items-center px-6 py-2 bg-primary text-primary-foreground rounded-full shadow-lg"

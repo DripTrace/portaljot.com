@@ -1,5 +1,5 @@
 "use client";
-import ContactForm from "@/components/forms/contact-form";
+import ContactForm from "@/components/nexusconjure/forms/contact-form";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "@/components/ui/use-toast";
 import { EditorBtns } from "@/utils/nexusconjure/constants";
@@ -10,7 +10,10 @@ import {
 } from "@/utils/nexusconjure/queries";
 
 import { ContactUserFormSchema } from "@/utils/nexusconjure/types";
-import { EditorElement, useEditor } from "@/providers/editor/editor-provider";
+import {
+	EditorElement,
+	useEditor,
+} from "@/providers/nexusconjure/editor/editor-provider";
 import clsx from "clsx";
 import { Trash } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -54,7 +57,7 @@ const ContactFormComponent = (props: Props) => {
 			);
 			if (!nextPage) return;
 			router.replace(
-				`${process.env.NEXT_PUBLIC_SCHEME}${funnelPages.subDomainName}.${process.env.NEXT_PUBLIC_DOMAIN}/${nextPage.pathName}`
+				`${process.env.NEXT_PUBLIC_SCHEME}${funnelPages.subDomainName}.${process.env.NEXT_PUBLIC_DOMAIN_NEXUSCONJURE}/${nextPage.pathName}`
 			);
 		}
 	};

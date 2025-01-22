@@ -1,10 +1,10 @@
 "use client";
 
-import { createCheckoutSession } from "@/actions/createCheckoutSession";
-import { createStripePortal } from "@/actions/createStripePortal";
+import { createCheckoutSession } from "@/actions/warpcatch/createCheckoutSession";
+import { createStripePortal } from "@/actions/warpcatch/createStripePortal";
 import { Button } from "@/components/ui/button";
-import useSubscription from "@/hooks/useSubscription";
-import getStripe from "@/lib/stripe-js";
+import useSubscription from "@/hooks/warpcatch/useSubscription";
+import getStripe from "@/lib/warpcatch/stripe-js";
 import { useUser } from "@clerk/nextjs";
 import { CheckIcon } from "lucide-react";
 import { useRouter } from "next/navigation";

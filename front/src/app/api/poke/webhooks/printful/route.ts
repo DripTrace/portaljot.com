@@ -96,27 +96,29 @@ import Stripe from "stripe";
 
 const prisma = new PrismaClient();
 
-const PRINTFUL_API_KEY = process.env.PRINTFUL_API_KEY;
-const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
-const NEXT_PUBLIC_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+const PRINTFUL_API_KEY_POKE = process.env.PRINTFUL_API_KEY_POKE;
+const STRIPE_SECRET_KEY_POKE = process.env.STRIPE_SECRET_KEY_POKE;
+const NEXT_PUBLIC_BASE_URL_POKE = process.env.NEXT_PUBLIC_BASE_URL_POKE;
 
-if (!PRINTFUL_API_KEY) {
-	throw new Error("PRINTFUL_API_KEY is not defined in environment variables");
-}
-
-if (!STRIPE_SECRET_KEY) {
+if (!PRINTFUL_API_KEY_POKE) {
 	throw new Error(
-		"STRIPE_SECRET_KEY is not defined in environment variables"
+		"PRINTFUL_API_KEY_POKE is not defined in environment variables"
 	);
 }
 
-if (!NEXT_PUBLIC_BASE_URL) {
+if (!STRIPE_SECRET_KEY_POKE) {
 	throw new Error(
-		"NEXT_PUBLIC_BASE_URL is not defined in environment variables"
+		"STRIPE_SECRET_KEY_POKE is not defined in environment variables"
 	);
 }
 
-const stripe = new Stripe(STRIPE_SECRET_KEY, {
+if (!NEXT_PUBLIC_BASE_URL_POKE) {
+	throw new Error(
+		"NEXT_PUBLIC_BASE_URL_POKE is not defined in environment variables"
+	);
+}
+
+const stripe = new Stripe(STRIPE_SECRET_KEY_POKE, {
 	apiVersion: "2024-09-30.acacia",
 });
 
@@ -336,7 +338,7 @@ async function checkFileStatus(fileId: number) {
 		try {
 			const response = await axios.get(statusUrl, {
 				headers: {
-					Authorization: `Bearer ${PRINTFUL_API_KEY}`,
+					Authorization: `Bearer ${PRINTFUL_API_KEY_POKE}`,
 				},
 			});
 
@@ -375,7 +377,7 @@ async function uploadToImage(pngBase64: string): Promise<string> {
 	try {
 		console.log("Initiating image upload...");
 		const uploadResponse = await axios.post(
-			`${NEXT_PUBLIC_BASE_URL}/api/images/upload`,
+			`${NEXT_PUBLIC_BASE_URL_POKE}/api/images/upload`,
 			{
 				pngBase64,
 				filename: `hat_variant_${uuidv4()}.png`,
@@ -412,7 +414,7 @@ async function uploadToPrintful(
 			{
 				headers: {
 					"Content-Type": "application/json",
-					Authorization: `Bearer ${PRINTFUL_API_KEY}`,
+					Authorization: `Bearer ${PRINTFUL_API_KEY_POKE}`,
 				},
 			}
 		);
@@ -458,9 +460,8 @@ export async function POST(req: NextRequest) {
 		}
 
 		const imageUrl = await uploadToImage(pngBase64);
-		const { id: printfulFileId, url: printfulUrl } = await uploadToPrintful(
-			imageUrl
-		);
+		const { id: printfulFileId, url: printfulUrl } =
+			await uploadToPrintful(imageUrl);
 
 		const hatProductRaw = await prisma.hatProduct.findUnique({
 			where: { id: resultId },

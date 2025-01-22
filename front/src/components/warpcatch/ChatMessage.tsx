@@ -4,12 +4,11 @@ import { useUser } from "@clerk/nextjs";
 import Image from "next/image";
 import { BotIcon, Loader2Icon } from "lucide-react";
 import Markdown from "react-markdown";
-import { Message } from "@/components/Chat";
+import { Message } from "@/components/warpcatch/Chat";
 
 const ChatMessage = ({ message }: { message: Message }) => {
 	const isHuman = message.role === "human";
 	const { user } = useUser();
-	// console.log("THE MESSAGE", message);
 
 	return (
 		<div className={`chat ${isHuman ? "chat-end" : "chat-start"}`}>
@@ -18,7 +17,6 @@ const ChatMessage = ({ message }: { message: Message }) => {
 					{isHuman ? (
 						user?.imageUrl && (
 							<Image
-								// src={`${user?.imageUrl}`}
 								src={user?.imageUrl}
 								alt="Profile Pic"
 								width={40}

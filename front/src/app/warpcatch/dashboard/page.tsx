@@ -1,16 +1,4 @@
-// import Dashboard from "@/components/Dashboard";
-
-// const DashboardPage = () => {
-// 	return (
-// 		<>
-// 			<Dashboard />
-// 		</>
-// 	);
-// };
-
-// export default DashboardPage;
-
-import Documents from "@/components/Documents";
+import Documents from "@/components/warpcatch/Documents";
 
 export const dynamic = "force-dynamic";
 

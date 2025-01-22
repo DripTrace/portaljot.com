@@ -19,14 +19,17 @@ import {
 	CardDescription,
 	CardContent,
 } from "@/components/ui/card";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import Loading from "../global/loading";
 import { ContactUserFormSchema } from "@/utils/nexusconjure/types";
-import { saveActivityLogsNotification, upsertContact } from "@/utils/nexusconjure/queries";
-import { toast } from "../ui/use-toast";
+import {
+	saveActivityLogsNotification,
+	upsertContact,
+} from "@/utils/nexusconjure/queries";
+import { toast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
-import { useModal } from "@/providers/modal-provider";
+import { useModal } from "@/providers/nexusconjure/modal-provider";
 
 interface ContactUserFormProps {
 	subaccountId: string;

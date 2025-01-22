@@ -40,7 +40,7 @@ export function ShareLink({
 	// const linkToChat =
 	//   process.env.NODE_ENV !== "development"
 	//     ? `https://${process.env.VERCEL_URL}/chat/${chatId}`
-	//     : `http://localhost:3000/chat/${chatId}`;
+	//     : `${process.env.NEXT_PUBLIC_URL}/chat/${chatId}`;
 
 	async function copyToClipboard() {
 		try {

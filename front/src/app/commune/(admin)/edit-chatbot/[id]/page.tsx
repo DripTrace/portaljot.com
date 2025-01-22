@@ -2,22 +2,25 @@
 
 import { useMutation, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
-import { GetChatbotByIdResponse, ChatbotCharacteristic } from "@/types/chatbot"; // Import necessary types
-import { GET_CHATBOT_BY_ID } from "@/graphql/queries/queries";
+import {
+	GetChatbotByIdResponse,
+	ChatbotCharacteristic,
+} from "@/types/commune/chatbot"; // Import necessary types
+import { GET_CHATBOT_BY_ID } from "@/graphql/commune/queries/queries";
 import {
 	ADD_CHARACTERISTIC,
 	DELETE_CHATBOT,
 	UPDATE_CHATBOT,
-} from "@/graphql/mutations/mutations";
+} from "@/graphql/commune/mutations/mutations";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Copy } from "lucide-react";
 import Link from "next/link";
-import Avatar from "@/components/Avatar";
+import Avatar from "@/components/commune/Avatar";
 import { toast } from "sonner";
-import Characteristic from "@/components/Characteristic";
+import Characteristic from "@/components/commune/Characteristic";
 import { notFound, redirect } from "next/navigation";
-import { BASE_URL } from "@/graphql/apolloClient";
+import { BASE_URL } from "@/graphql/commune/apolloClient";
 
 function EditChatBot({ params: { id } }: { params: { id: string } }) {
 	const [newCharacteristic, setNewCharacteristic] = useState<string>("");
@@ -50,7 +53,7 @@ function EditChatBot({ params: { id } }: { params: { id: string } }) {
 
 	useEffect(() => {
 		setDate(new Date().toISOString());
-		const url = `${BASE_URL}/chatbot/${id}`;
+		const url = `${BASE_URL}/commune/chatbot/${id}`;
 
 		setUrl(url);
 	}, [id]);

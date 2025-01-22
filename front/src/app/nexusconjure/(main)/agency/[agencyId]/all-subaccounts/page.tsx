@@ -56,7 +56,7 @@ const AllSubaccountsPage = async ({ params }: Props) => {
 											className="h-32 !bg-background my-2 text-primary border-[1px] border-border p-4 rounded-lg hover:!bg-background cursor-pointer transition-all"
 										>
 											<Link
-												href={`/subaccount/${subaccount.id}`}
+												href={`/nexusconjure/subaccount/${subaccount.id}`}
 												className="flex gap-4 w-full h-full"
 											>
 												<div className="relative w-32">

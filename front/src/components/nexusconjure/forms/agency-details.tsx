@@ -16,7 +16,7 @@ import {
 	AlertDialogHeader,
 	AlertDialogTitle,
 	AlertDialogTrigger,
-} from "../ui/alert-dialog";
+} from "@/components/ui/alert-dialog";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
 	Card,
@@ -24,7 +24,7 @@ import {
 	CardDescription,
 	CardHeader,
 	CardTitle,
-} from "../ui/card";
+} from "@/components/ui/card";
 import {
 	Form,
 	FormControl,
@@ -33,13 +33,13 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from "../ui/form";
-import { useToast } from "../ui/use-toast";
+} from "@/components/ui/form";
+import { useToast } from "@/components/ui/use-toast";
 
 import * as z from "zod";
 import FileUpload from "../global/file-upload";
-import { Input } from "../ui/input";
-import { Switch } from "../ui/switch";
+import { Input } from "@/components/ui/input";
+import { Switch } from "@/components/ui/switch";
 import {
 	deleteAgency,
 	initUser,
@@ -47,7 +47,7 @@ import {
 	updateAgencyDetails,
 	upsertAgency,
 } from "@/utils/nexusconjure/queries";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import Loading from "../global/loading";
 
 type Props = {
@@ -125,7 +125,7 @@ const AgencyDetails = ({ data }: Props) => {
 				};
 
 				const customerResponse = await fetch(
-					"/api/stripe/create-customer",
+					"/nexusconjure/api/nexusconjure/stripe/create-customer",
 					{
 						method: "POST",
 						headers: {

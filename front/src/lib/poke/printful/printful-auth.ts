@@ -2,17 +2,17 @@
 
 // import { PrintfulClient } from "./printful-client";
 
-// const PRINTFUL_API_KEY = process.env.PRINTFUL_API_KEY;
+// const PRINTFUL_API_KEY_POKE = process.env.PRINTFUL_API_KEY_POKE;
 
-// if (!PRINTFUL_API_KEY) {
+// if (!PRINTFUL_API_KEY_POKE) {
 // 	throw new Error(
-// 		"PRINTFUL_API_KEY is not configured in environment variables"
+// 		"PRINTFUL_API_KEY_POKE is not configured in environment variables"
 // 	);
 // }
 
 // export const getPrintfulClient = async (): Promise<PrintfulClient> => {
 // 	try {
-// 		return new PrintfulClient(PRINTFUL_API_KEY);
+// 		return new PrintfulClient(PRINTFUL_API_KEY_POKE);
 // 	} catch (error) {
 // 		console.error("Error getting Printful client:", error);
 // 		throw error;
@@ -23,17 +23,17 @@
 
 // import { PrintfulClient } from "./printful-client";
 
-// const PRINTFUL_API_KEY = process.env.PRINTFUL_API_KEY;
+// const PRINTFUL_API_KEY_POKE = process.env.PRINTFUL_API_KEY_POKE;
 
-// if (!PRINTFUL_API_KEY) {
+// if (!PRINTFUL_API_KEY_POKE) {
 // 	throw new Error(
-// 		"PRINTFUL_API_KEY is not configured in environment variables"
+// 		"PRINTFUL_API_KEY_POKE is not configured in environment variables"
 // 	);
 // }
 
 // export const getPrintfulClient = async (): Promise<PrintfulClient> => {
 // 	try {
-// 		return new PrintfulClient(PRINTFUL_API_KEY);
+// 		return new PrintfulClient(PRINTFUL_API_KEY_POKE);
 // 	} catch (error) {
 // 		console.error("Error getting Printful client:", {
 // 			error,
@@ -49,17 +49,17 @@
 // file errors
 // import { PrintfulClient } from "./printful-client";
 
-// const PRINTFUL_API_KEY = process.env.PRINTFUL_API_KEY;
+// const PRINTFUL_API_KEY_POKE = process.env.PRINTFUL_API_KEY_POKE;
 
-// if (!PRINTFUL_API_KEY) {
+// if (!PRINTFUL_API_KEY_POKE) {
 // 	throw new Error(
-// 		"PRINTFUL_API_KEY is not configured in environment variables"
+// 		"PRINTFUL_API_KEY_POKE is not configured in environment variables"
 // 	);
 // }
 
 // export const getPrintfulClient = async (): Promise<PrintfulClient> => {
 // 	try {
-// 		const client = new PrintfulClient(PRINTFUL_API_KEY);
+// 		const client = new PrintfulClient(PRINTFUL_API_KEY_POKE);
 
 // 		// Test the connection
 // 		try {
@@ -86,17 +86,17 @@
 
 // import { PrintfulClient } from "./printful-client";
 
-// const PRINTFUL_API_KEY = process.env.PRINTFUL_API_KEY;
+// const PRINTFUL_API_KEY_POKE = process.env.PRINTFUL_API_KEY_POKE;
 
-// if (!PRINTFUL_API_KEY) {
+// if (!PRINTFUL_API_KEY_POKE) {
 // 	throw new Error(
-// 		"PRINTFUL_API_KEY is not configured in environment variables"
+// 		"PRINTFUL_API_KEY_POKE is not configured in environment variables"
 // 	);
 // }
 
 // export const getPrintfulClient = async (): Promise<PrintfulClient> => {
 // 	try {
-// 		const client = new PrintfulClient(PRINTFUL_API_KEY);
+// 		const client = new PrintfulClient(PRINTFUL_API_KEY_POKE);
 
 // 		// Test the connection
 // 		try {
@@ -123,17 +123,17 @@
 
 import { PrintfulClient } from "./printful-client";
 
-const PRINTFUL_API_KEY = process.env.PRINTFUL_API_KEY;
+const PRINTFUL_API_KEY_POKE = process.env.PRINTFUL_API_KEY_POKE;
 
-if (!PRINTFUL_API_KEY) {
+if (!PRINTFUL_API_KEY_POKE) {
 	throw new Error(
-		"PRINTFUL_API_KEY is not configured in environment variables"
+		"PRINTFUL_API_KEY_POKE is not configured in environment variables"
 	);
 }
 
 export const getPrintfulClient = async (): Promise<PrintfulClient> => {
 	try {
-		return new PrintfulClient(PRINTFUL_API_KEY);
+		return new PrintfulClient(PRINTFUL_API_KEY_POKE);
 	} catch (error) {
 		console.error("Error getting Printful client:", {
 			error,

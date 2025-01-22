@@ -1,11 +1,11 @@
-import Messages from "@/components/Messages";
+import Messages from "@/components/commune/Messages";
 
-import { GET_CHAT_SESSION_MESSAGES } from "@/graphql/queries/queries";
-import { serverClient } from "@/lib/server/serverClient";
+import { GET_CHAT_SESSION_MESSAGES } from "@/graphql/commune/queries/queries";
+import { serverClient } from "@/lib/commune/server/serverClient";
 import {
 	GetChatSessionMessagesResponse,
 	GetChatSessionMessagesVariables,
-} from "@/types/chatbot";
+} from "@/types/commune/chatbot";
 
 export const dynamic = "force-dynamic";
 async function ReviewSessionChat({

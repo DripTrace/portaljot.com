@@ -21,7 +21,7 @@ export const useStripe = () => {
 	const onStripeConnect = async () => {
 		try {
 			setOnStripeAccountPending(true);
-			const account = await axios.get(`/api/stripe/connect`);
+			const account = await axios.get(`/api/spread/stripe/connect`);
 			if (account) {
 				setOnStripeAccountPending(false);
 				if (account) {
@@ -83,7 +83,7 @@ export const useCompleteCustomerPayment = (onNext: () => void) => {
 			const { error, paymentIntent } = await stripe.confirmPayment({
 				elements,
 				confirmParams: {
-					return_url: `https://spread-xi.vercel.app/settings`,
+					return_url: `${process.env.DOMAIN_URL_SPREAD}/spread/settings`,
 				},
 				redirect: "if_required",
 			});
@@ -191,7 +191,7 @@ export const useCompletePayment = (
 			const { error, paymentIntent } = await stripe.confirmPayment({
 				elements,
 				confirmParams: {
-					return_url: `https://spread-xi.vercel.app/settings`,
+					return_url: `${process.env.DOMAIN_URL_SPREAD}/spread/settings`,
 				},
 				redirect: "if_required",
 			});

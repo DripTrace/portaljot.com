@@ -1,6 +1,6 @@
 "use server";
 
-import { generateEmbeddingsInPineconeVectorStore } from "@/lib/langchain";
+import { generateEmbeddingsInPineconeVectorStore } from "@/lib/warpcatch/langchain";
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 
@@ -9,7 +9,7 @@ export async function generateEmbeddings(docId: string) {
 
 	await generateEmbeddingsInPineconeVectorStore(docId);
 
-	revalidatePath("/dashboard");
+	revalidatePath("/warpcatch/dashboard");
 
 	return { completed: true };
 }

@@ -12,7 +12,7 @@ function LiveBlocksProvider({ children }: { children: React.ReactNode }) {
 		<LiveblocksProvider
 			// publicApiKey={process.env.NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_KEY}
 			throttle={16}
-			authEndpoint={"/auth-endpoint"}
+			authEndpoint={"/collab/auth-endpoint"}
 		>
 			{children}
 		</LiveblocksProvider>

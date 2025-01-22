@@ -6,15 +6,15 @@ import {
 	upsertTicket,
 } from "@/utils/nexusconjure/queries";
 import { TicketFormSchema, TicketWithTags } from "@/utils/nexusconjure/types";
-import { useModal } from "@/providers/modal-provider";
+import { useModal } from "@/providers/nexusconjure/modal-provider";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Contact, Tag, User } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { toast } from "../ui/use-toast";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { toast } from "@/components/ui/use-toast";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
 	Form,
 	FormControl,
@@ -24,8 +24,8 @@ import {
 	FormLabel,
 	FormMessage,
 } from "@/components/ui/form";
-import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import {
 	Select,
 	SelectContent,
@@ -35,17 +35,21 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { CheckIcon, ChevronsUpDownIcon, User2 } from "lucide-react";
-import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
-import { Button } from "../ui/button";
+import {
+	Popover,
+	PopoverContent,
+	PopoverTrigger,
+} from "@/components/ui/popover";
+import { Button } from "@/components/ui/button";
 import {
 	Command,
 	CommandEmpty,
 	CommandGroup,
 	CommandInput,
 	CommandItem,
-} from "../ui/command";
+} from "@/components/ui/command";
 import { cn } from "@/lib/utils";
 import Loading from "../global/loading";
 import TagCreator from "../global/tag-creator";
@@ -267,7 +271,7 @@ const TicketForm = ({ getNewTicket, laneId, subaccountId }: Props) => {
 									{contact
 										? contactList.find(
 												(c) => c.id === contact
-										  )?.name
+											)?.name
 										: "Select Customer..."}
 									<ChevronsUpDownIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 								</Button>

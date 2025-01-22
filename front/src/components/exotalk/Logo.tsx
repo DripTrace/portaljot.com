@@ -1,6 +1,6 @@
 import LogoImage from "@logos/favicon.svg";
 import Link from "next/link";
-import { AspectRatio } from "./ui/aspect-ratio";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Image from "next/image";
 function Logo() {
 	return (

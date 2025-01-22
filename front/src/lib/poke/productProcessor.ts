@@ -3,8 +3,8 @@ import { JSONLoader } from "langchain/document_loaders/fs/json";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { MemoryVectorStore } from "langchain/vectorstores/memory";
 import { GoogleGenerativeAIEmbeddings } from "@langchain/google-genai";
-import { stripMarkdownCodeBlocks } from "./utils";
-import logger from "@/lib/logger";
+import { stripMarkdownCodeBlocks } from "@/lib/poke/utils";
+import logger from "@/lib/poke/logger";
 import { v4 as uuidv4 } from "uuid"; // To generate unique IDs
 
 export interface ProcessedProduct {
@@ -32,7 +32,7 @@ export class ProductCatalogProcessor {
 	private initializationPromise: Promise<void> | null = null;
 
 	private constructor() {
-		const apiKey = process.env.GOOGLE_API_KEY;
+		const apiKey = process.env.GOOGLE_API_KEY_POKE;
 		if (!apiKey) throw new Error("Google API key is required");
 
 		this.model = new ChatGoogleGenerativeAI({

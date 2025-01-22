@@ -144,7 +144,7 @@ export const createTeamUser = async (agencyId: string, user: User) => {
 
 export const verifyAndAcceptInvitation = async () => {
 	const user = await currentUser();
-	if (!user) return redirect("/sign-in");
+	if (!user) return redirect("/nexusconjure/sign-in");
 	const invitationExists = await db.invitation.findUnique({
 		where: {
 			email: user.emailAddresses[0].emailAddress,
@@ -253,32 +253,32 @@ export const upsertAgency = async (agency: Agency, price?: Plan) => {
 						{
 							name: "Dashboard",
 							icon: "category",
-							link: `/agency/${agency.id}`,
+							link: `/nexusconjure/agency/${agency.id}`,
 						},
 						{
 							name: "Launchpad",
 							icon: "clipboardIcon",
-							link: `/agency/${agency.id}/launchpad`,
+							link: `/nexusconjure/agency/${agency.id}/launchpad`,
 						},
 						{
 							name: "Billing",
 							icon: "payment",
-							link: `/agency/${agency.id}/billing`,
+							link: `/nexusconjure/agency/${agency.id}/billing`,
 						},
 						{
 							name: "Settings",
 							icon: "settings",
-							link: `/agency/${agency.id}/settings`,
+							link: `/nexusconjure/agency/${agency.id}/settings`,
 						},
 						{
 							name: "Sub Accounts",
 							icon: "person",
-							link: `/agency/${agency.id}/all-subaccounts`,
+							link: `/nexusconjure/agency/${agency.id}/all-subaccounts`,
 						},
 						{
 							name: "Team",
 							icon: "shield",
-							link: `/agency/${agency.id}/team`,
+							link: `/nexusconjure/agency/${agency.id}/team`,
 						},
 					],
 				},
@@ -341,42 +341,42 @@ export const upsertSubAccount = async (subAccount: SubAccount) => {
 					{
 						name: "Launchpad",
 						icon: "clipboardIcon",
-						link: `/subaccount/${subAccount.id}/launchpad`,
+						link: `/nexusconjure/subaccount/${subAccount.id}/launchpad`,
 					},
 					{
 						name: "Settings",
 						icon: "settings",
-						link: `/subaccount/${subAccount.id}/settings`,
+						link: `/nexusconjure/subaccount/${subAccount.id}/settings`,
 					},
 					{
 						name: "Funnels",
 						icon: "pipelines",
-						link: `/subaccount/${subAccount.id}/funnels`,
+						link: `/nexusconjure/subaccount/${subAccount.id}/funnels`,
 					},
 					{
 						name: "Media",
 						icon: "database",
-						link: `/subaccount/${subAccount.id}/media`,
+						link: `/nexusconjure/subaccount/${subAccount.id}/media`,
 					},
 					{
 						name: "Automations",
 						icon: "chip",
-						link: `/subaccount/${subAccount.id}/automations`,
+						link: `/nexusconjure/subaccount/${subAccount.id}/automations`,
 					},
 					{
 						name: "Pipelines",
 						icon: "flag",
-						link: `/subaccount/${subAccount.id}/pipelines`,
+						link: `/nexusconjure/subaccount/${subAccount.id}/pipelines`,
 					},
 					{
 						name: "Contacts",
 						icon: "person",
-						link: `/subaccount/${subAccount.id}/contacts`,
+						link: `/nexusconjure/subaccount/${subAccount.id}/contacts`,
 					},
 					{
 						name: "Dashboard",
 						icon: "category",
-						link: `/subaccount/${subAccount.id}`,
+						link: `/nexusconjure/subaccount/${subAccount.id}`,
 					},
 				],
 			},
@@ -482,7 +482,7 @@ export const sendInvitation = async (
 	try {
 		const invitation = await clerkClient.invitations.createInvitation({
 			emailAddress: email,
-			redirectUrl: process.env.NEXT_PUBLIC_URL,
+			redirectUrl: process.env.NEXT_PUBLIC_URL_NEXUSXONJURE,
 			publicMetadata: {
 				throughInvitation: true,
 				role,
@@ -860,12 +860,15 @@ export const upsertFunnelPage = async (
 							styles: { backgroundColor: "white" },
 							type: "__body",
 						},
-				  ]),
+					]),
 			funnelId,
 		},
 	});
 
-	revalidatePath(`/subaccount/${subaccountId}/funnels/${funnelId}`, "page");
+	revalidatePath(
+		`/nexusconjure/subaccount/${subaccountId}/funnels/${funnelId}`,
+		"page"
+	);
 	return response;
 };
 

@@ -2,7 +2,7 @@
 import React from "react";
 import PipelineInfobar from "./pipeline-infobar";
 import { Pipeline } from "@prisma/client";
-import CreatePipelineForm from "@/components/forms/create-pipeline-form";
+import CreatePipelineForm from "@/components/nexusconjure/forms/create-pipeline-form";
 import { Button } from "@/components/ui/button";
 import {
 	AlertDialog,
@@ -59,7 +59,7 @@ const PipelineSettings = ({
 											description: "Pipeline is deleted",
 										});
 										router.replace(
-											`/subaccount/${subaccountId}/pipelines`
+											`/nexusconjure/subaccount/${subaccountId}/pipelines`
 										);
 									} catch (error) {
 										toast({

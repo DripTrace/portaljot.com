@@ -1,5 +1,5 @@
-// import client from "@/graphql/apolloClient";
-// import { INSERT_MESSAGE } from "@/graphql/mutations/mutations";
+// import client from "@/graphql/commune/apolloClient";
+// import { INSERT_MESSAGE } from "@/graphql/commune/mutations/mutations";
 // import { gql } from "@apollo/client";
 
 // async function startNewChat(
@@ -68,8 +68,8 @@
 
 // export default startNewChat;
 
-import client from "@/graphql/apolloClient";
-import { INSERT_MESSAGE } from "@/graphql/mutations/mutations";
+import client from "@/graphql/commune/apolloClient";
+import { INSERT_MESSAGE } from "@/graphql/commune/mutations/mutations";
 import { gql } from "@apollo/client";
 
 async function startNewChat(

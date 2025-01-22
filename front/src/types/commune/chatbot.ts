@@ -1,12 +1,3 @@
-// export interface Chatbot {
-// 	id: number;
-// 	clerk_user_id: string;
-// 	name: string;
-// 	created_at: string;
-// 	chatbot_characteristics: ChatbotCharacteristic[];
-// 	chat_sessions: ChatSession[];
-// }
-
 export interface Chatbot {
 	id: number;
 	name: string;
@@ -29,12 +20,6 @@ export interface ChatSession {
 	messages: Message[];
 }
 
-// export interface Message {
-// 	id: number;
-// 	content: string;
-// 	created_at: string;
-// }
-
 export interface Message {
 	id: number;
 	content: string;
@@ -53,37 +38,12 @@ export interface MessagesByChatSessionIdResponse {
 	};
 }
 
-// export interface Chatbot {
-// 	id: number;
-// 	name: string;
-// 	created_at: string;
-// 	clerk_user_id: string;
-// 	chatbot_characteristics: ChatbotCharacteristic[];
-// 	chat_sessions: ChatSession[];
-// }
-
-// export interface ChatbotCharacteristic {
-// 	id: number;
-// 	chatbot_id: number;
-// 	content: string;
-// 	created_at: string;
-// }
-
 export interface Guest {
 	id: number;
 	name: string;
 	email: string;
 	created_at: string;
 }
-
-// export interface ChatSession {
-// 	id: number;
-// 	chatbot_id: number;
-// 	guest_id: number | null;
-// 	created_at: string;
-// 	messages: Message[];
-// 	guests: Guest;
-// }
 
 export interface Message {
 	id: number;
@@ -92,16 +52,6 @@ export interface Message {
 	created_at: string;
 	sender: "ai" | "user";
 }
-
-// GraphQL Query and Mutation Response Types
-
-// export interface GetChatbotsByUserData {
-// 	chatbotsByUser: Chatbot[];
-// }
-
-// export interface GetChatbotsByUserDataVariables {
-// 	clerk_user_id: string;
-// }
 
 export interface GetChatbotsByUserData {
 	chatbotsList: Chatbot[];
@@ -133,11 +83,6 @@ export interface InsertMessageResponse {
 	};
 }
 
-// export interface MessagesByChatSessionIdResponse {
-// 	chat_sessions: ChatSession;
-// }
-
-// Define the type for the query variables
 export interface GetChatbotCharacteristicsVariables {
 	chatbot_id: number;
 }

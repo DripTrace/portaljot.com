@@ -1,6 +1,6 @@
 import { db } from "@/utils/nexusconjure/db";
 import { getDomainContent } from "@/utils/nexusconjure/queries";
-import EditorProvider from "@/providers/editor/editor-provider";
+import EditorProvider from "@/providers/nexusconjure/editor/editor-provider";
 import { notFound } from "next/navigation";
 import React from "react";
 import FunnelEditorNavigation from "../(main)/subaccount/[subaccountId]/funnels/[funnelId]/editor/[funnelPageId]/_components/funnel-editor-navigation";

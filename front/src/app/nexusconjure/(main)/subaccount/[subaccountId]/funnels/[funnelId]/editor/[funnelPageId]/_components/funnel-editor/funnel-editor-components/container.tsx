@@ -1,7 +1,10 @@
 "use client";
 import { Badge } from "@/components/ui/badge";
 import { EditorBtns, defaultStyles } from "@/utils/nexusconjure/constants";
-import { EditorElement, useEditor } from "@/providers/editor/editor-provider";
+import {
+	EditorElement,
+	useEditor,
+} from "@/providers/nexusconjure/editor/editor-provider";
 import clsx from "clsx";
 import React from "react";
 import { v4 } from "uuid";

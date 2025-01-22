@@ -1,7 +1,7 @@
 // // // /src/app/api/process-pending-audios/route.ts
 
 // // import { generateAudio } from "@/actions/generateAudio";
-// // import { prisma } from "@/lib/prisma";
+// // import { prisma } from "@/lib/client/prisma";
 // // import { NextRequest, NextResponse } from "next/server";
 // // // import { prisma } from '../../../../lib/prisma';
 // // // import { generateAudio } from '../../../../actions/generateAudio';
@@ -70,7 +70,7 @@
 
 // // /src/app/api/process-pending-audios/route.ts
 
-// import { prisma } from "@/lib/prisma";
+// import { prisma } from "@/lib/client/prisma";
 // import { NextRequest, NextResponse } from "next/server";
 // import { generateAudio } from "@/actions/generateAudio";
 // import { ProcessPendingAudiosResponse } from "@/types/api";
@@ -174,7 +174,7 @@
 // 	}
 // }
 
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@/lib/client/prisma";
 import { NextRequest, NextResponse } from "next/server";
 import { generateAudio } from "@/actions/generateAudio";
 import { ProcessPendingAudiosResponse } from "@/types/api";

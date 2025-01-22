@@ -3,8 +3,8 @@ import React from "react";
 import FunnelsDataTable from "./data-table";
 import { Plus } from "lucide-react";
 import { columns } from "./columns";
-import FunnelForm from "@/components/forms/funnel-form";
-import BlurPage from "@/components/global/blur-page";
+import FunnelForm from "@/components/nexusconjure/forms/funnel-form";
+import BlurPage from "@/components/nexusconjure/global/blur-page";
 
 const Funnels = async ({ params }: { params: { subaccountId: string } }) => {
 	const funnels = await getFunnels(params.subaccountId);

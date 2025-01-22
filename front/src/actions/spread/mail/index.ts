@@ -1,6 +1,6 @@
 "use server";
 
-import { client } from "@/lib/prisma";
+import { prisma as client } from "@/lib/client/prisma";
 import { currentUser } from "@clerk/nextjs";
 import nodemailer from "nodemailer";
 

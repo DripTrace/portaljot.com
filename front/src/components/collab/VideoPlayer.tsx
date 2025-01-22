@@ -230,3 +230,5 @@
 
 //   document.exitFullscreen();
 // }
+
+export {};

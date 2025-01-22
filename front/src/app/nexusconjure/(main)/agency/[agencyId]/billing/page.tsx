@@ -1,5 +1,5 @@
 import React from "react";
-import { stripe } from "@/lib/stripe";
+import { stripe } from "@/lib/nexusconjure/stripe";
 import { addOnProducts, pricingCards } from "@/utils/nexusconjure/constants";
 import { db } from "@/utils/nexusconjure/db";
 import { Separator } from "@/components/ui/separator";
@@ -97,7 +97,7 @@ const page = async ({ params }: Props) => {
 					description={
 						agencySubscription?.Subscription?.active === true
 							? currentPlanDetails?.description ||
-							  "Lets get started"
+								"Lets get started"
 							: "Lets get started! Pick a plan that works best for you."
 					}
 					duration="/ month"
@@ -105,10 +105,10 @@ const page = async ({ params }: Props) => {
 						agencySubscription?.Subscription?.active === true
 							? currentPlanDetails?.features || []
 							: currentPlanDetails?.features ||
-							  pricingCards.find(
+								pricingCards.find(
 									(pricing) => pricing.title === "Starter"
-							  )?.features ||
-							  []
+								)?.features ||
+								[]
 					}
 					title={
 						agencySubscription?.Subscription?.active === true
@@ -128,7 +128,7 @@ const page = async ({ params }: Props) => {
 							//@ts-ignore
 							addOn.default_price?.unit_amount
 								? //@ts-ignore
-								  `$${addOn.default_price.unit_amount / 100}`
+									`$${addOn.default_price.unit_amount / 100}`
 								: "$0"
 						}
 						buttonCta="Subscribe"

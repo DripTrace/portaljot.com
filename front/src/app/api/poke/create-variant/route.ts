@@ -8,15 +8,15 @@ import { getPrintfulClient } from "@/lib/printful/printful-auth";
 
 const prisma = new PrismaClient();
 
-const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
+const STRIPE_SECRET_KEY_POKE = process.env.STRIPE_SECRET_KEY_POKE;
 
-if (!STRIPE_SECRET_KEY) {
+if (!STRIPE_SECRET_KEY_POKE) {
 	throw new Error(
-		"STRIPE_SECRET_KEY is not defined in environment variables"
+		"STRIPE_SECRET_KEY_POKE is not defined in environment variables"
 	);
 }
 
-const stripe = new Stripe(STRIPE_SECRET_KEY, {
+const stripe = new Stripe(STRIPE_SECRET_KEY_POKE, {
 	apiVersion: "2024-09-30.acacia",
 });
 
@@ -208,9 +208,8 @@ export async function POST(req: NextRequest) {
 			);
 		}
 
-		const { id: printfulFileId, url: printfulUrl } = await uploadToPrintful(
-			imageUrl
-		);
+		const { id: printfulFileId, url: printfulUrl } =
+			await uploadToPrintful(imageUrl);
 
 		const hatProductRaw = await prisma.hatProduct.findUnique({
 			where: { id: resultId },

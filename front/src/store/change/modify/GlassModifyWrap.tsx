@@ -1,23 +1,12 @@
 "use client";
 
 import { DefaultSeo } from "next-seo";
-// import { Provider } from "react-redux";
 import { type ReactNode, useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
-// import "normalize.css";
-// import "tailwindcss/tailwind.css";
 import Head from "next/head";
-// import store from "@/lib/merchandise/state/store";
-// import Obinsun from "@/lib/merchandise/Production/Obinsun";
-// import useProgressStore from "@/lib/merchandise/state/progressing/useProgressStore";
-// import Progress from "@/components/merchandise/Progress/Progress";
-// import Preload from "@/components/merchandise/Progress/Preload";
-// import UserProvider from "@/lib/merchandise/features/UserContext";
-// import NextAuthProvider from "@/lib/merchandise/context/NextAuthProvider";
 import UserProvider from "./GlassUserContext";
 import NextAuthProvider from "./NextAuthProvider";
 import Glass from "@/components/modify/Glass";
-// import { WishlistProvider } from "@/lib/merchandise/context/WishlistProvider";
 
 interface GlassModifyWrapProps {
 	children: ReactNode;
@@ -25,7 +14,6 @@ interface GlassModifyWrapProps {
 
 export default function GlassModifyWrap({ children }: GlassModifyWrapProps) {
 	const [loading, setLoading] = useState(true);
-	// const isAnimating = useProgressStore((state) => state.isAnimating);
 
 	useEffect(() => {
 		if (typeof window !== "undefined") {
@@ -74,22 +62,11 @@ export default function GlassModifyWrap({ children }: GlassModifyWrapProps) {
 					initial={false}
 					onExitComplete={() => window.scrollTo(0, 0)}
 				>
-					{/* {loading ? (
-                        <Preload />
-                    ) : (
-                        <> */}
-					{/* <Progress isAnimating={isAnimating} /> */}
 					<NextAuthProvider>
-						{/* <Provider store={store}> */}
-						{/* <WishlistProvider> */}
 						<UserProvider>
 							<Glass>{children}</Glass>
 						</UserProvider>
-						{/* </WishlistProvider> */}
-						{/* </Provider> */}
 					</NextAuthProvider>
-					{/* </>
-                    )} */}
 				</AnimatePresence>
 			</div>
 			<div id="glass-modal-root"></div>

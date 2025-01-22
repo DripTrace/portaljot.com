@@ -29,7 +29,7 @@
 // // // // //       // Fetch products from Printful API
 // // // // //       const response = await axios.get('https://api.printful.com/products', {
 // // // // //         headers: {
-// // // // //           'Authorization': `Bearer ${process.env.PRINTFUL_API_KEY}`,
+// // // // //           'Authorization': `Bearer ${process.env.PRINTFUL_API_KEY_POKE}`,
 // // // // //         },
 // // // // //       });
 
@@ -96,7 +96,7 @@
 // // // //     if (products.length === 0) {
 // // // //       const response = await axios.get('https://api.printful.com/products', {
 // // // //         headers: {
-// // // //           'Authorization': `Bearer ${process.env.PRINTFUL_API_KEY}`,
+// // // //           'Authorization': `Bearer ${process.env.PRINTFUL_API_KEY_POKE}`,
 // // // //         },
 // // // //       });
 
@@ -137,7 +137,7 @@
 // // // // src/app/api/products/route.ts
 
 // // // import { NextResponse } from "next/server";
-// // // import { prisma } from "@/lib/prisma";
+// // // import { prisma } from "@/lib/client/prisma";
 // // // import axios from "axios";
 
 // // // interface PrintfulProduct {
@@ -169,7 +169,7 @@
 // // // 				"https://api.printful.com/products",
 // // // 				{
 // // // 					headers: {
-// // // 						Authorization: `Bearer ${process.env.PRINTFUL_API_KEY}`,
+// // // 						Authorization: `Bearer ${process.env.PRINTFUL_API_KEY_POKE}`,
 // // // 					},
 // // // 				}
 // // // 			);
@@ -226,7 +226,7 @@
 // // // src/app/api/products/route.ts
 
 // // // import { NextResponse } from "next/server";
-// // // import { prisma } from "@/lib/prisma";
+// // // import { prisma } from "@/lib/client/prisma";
 // // // import axios from "axios";
 
 // // // interface PrintfulProduct {
@@ -274,7 +274,7 @@
 // // // 				"https://api.printful.com/sync/products",
 // // // 				{
 // // // 					headers: {
-// // // 						Authorization: `Bearer ${process.env.PRINTFUL_API_KEY}`,
+// // // 						Authorization: `Bearer ${process.env.PRINTFUL_API_KEY_POKE}`,
 // // // 					},
 // // // 				}
 // // // 			);
@@ -335,7 +335,7 @@
 // // // src/app/api/products/route.ts
 
 // // // import { NextResponse } from "next/server";
-// // // import { prisma } from "@/lib/prisma";
+// // // import { prisma } from "@/lib/client/prisma";
 // // // import axios from "axios";
 
 // // // const PRINTFUL_API_URL = "https://api.printful.com";
@@ -393,7 +393,7 @@
 // // // 				`${PRINTFUL_API_URL}/store/products`,
 // // // 				{
 // // // 					headers: {
-// // // 						Authorization: `Bearer ${process.env.PRINTFUL_API_KEY}`,
+// // // 						Authorization: `Bearer ${process.env.PRINTFUL_API_KEY_POKE}`,
 // // // 					},
 // // // 				}
 // // // 			);
@@ -410,7 +410,7 @@
 // // // 						`${PRINTFUL_API_URL}/store/products/${product.id}`,
 // // // 						{
 // // // 							headers: {
-// // // 								Authorization: `Bearer ${process.env.PRINTFUL_API_KEY}`,
+// // // 								Authorization: `Bearer ${process.env.PRINTFUL_API_KEY_POKE}`,
 // // // 							},
 // // // 						}
 // // // 					);

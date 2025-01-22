@@ -1,5 +1,8 @@
 "use client";
-import { EditorElement, useEditor } from "@/providers/editor/editor-provider";
+import {
+	EditorElement,
+	useEditor,
+} from "@/providers/nexusconjure/editor/editor-provider";
 import React from "react";
 import RecursiveElement from "./recursive";
 

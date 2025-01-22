@@ -7,10 +7,10 @@ import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { FaRandom, FaShoppingCart, FaTshirt, FaSpinner } from "react-icons/fa";
 import { loadStripe } from "@stripe/stripe-js";
 import NextImage from "next/image";
-import { Pokemon } from "@/lib/constants";
+import { Pokemon } from "@/lib/poke/constants";
 
 const stripePromise = loadStripe(
-	process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
+	process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_POKE!
 );
 
 interface ProductModalProps {

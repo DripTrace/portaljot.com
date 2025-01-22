@@ -1,7 +1,7 @@
 // // /pages/api/pixelate-pokemon-png.ts
 
 // import type { NextApiRequest, NextApiResponse } from "next";
-// import { prisma } from "@/lib/prisma";
+// import { prisma } from "@/lib/client/prisma";
 
 // /**
 //  * Converts a Base64 string to an HTMLImageElement.

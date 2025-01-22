@@ -9,7 +9,7 @@ import {
 } from "@/actions/webhook/queries";
 import { sendDM, sendPrivateMessage } from "@/lib/fetch";
 import { openai } from "@/lib/openai";
-import { client } from "@/lib/prisma";
+import { prisma as client } from "@/lib/client/prisma";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {

@@ -1,5 +1,5 @@
 "use client";
-import Section from "@/components/section-label";
+import Section from "@/components/spread/section-label";
 import { useToast } from "@/components/ui/use-toast";
 import { Copy } from "lucide-react";
 import React from "react";
@@ -27,16 +27,16 @@ const CodeSnippet = ({ id }: Props) => {
             border: none;
         }
     ')
-    iframe.src = "https://spread-xi.vercel.app/chatbot"
+    iframe.src = "${process.env.DOMAIN_URL_SPREAD}/spreadchatbot"
     iframe.classList.add('chat-frame')
     document.body.appendChild(iframe)
     
     window.addEventListener("message", (e) => {
-        if(e.origin !== "https://spread-xi.vercel.app") return null
+        if(e.origin !== "${process.env.DOMAIN_URL_SPREAD}/spread") return null
         let dimensions = JSON.parse(e.data)
         iframe.width = dimensions.width
         iframe.height = dimensions.height
-        iframe.contentWindow.postMessage("${id}", "https://spread-xi.vercel.app/")
+        iframe.contentWindow.postMessage("${id}", "${process.env.DOMAIN_URL_SPREAD}/spread")
     })
         `;
 

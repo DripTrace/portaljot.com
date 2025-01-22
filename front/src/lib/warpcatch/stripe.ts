@@ -1,6 +1,6 @@
 import Stripe from "stripe";
 
-const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY_WARPCATCH;
 
 if (!stripeSecretKey) {
 	throw new Error("Stripe Secret key not found");

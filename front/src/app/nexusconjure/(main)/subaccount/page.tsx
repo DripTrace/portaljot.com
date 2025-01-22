@@ -1,5 +1,8 @@
 import Unauthorized from "@/components/nexusconjure/unauthorized";
-import { getAuthUserDetails, verifyAndAcceptInvitation } from "@/utils/nexusconjure/queries";
+import {
+	getAuthUserDetails,
+	verifyAndAcceptInvitation,
+} from "@/utils/nexusconjure/queries";
 import { redirect } from "next/navigation";
 import React from "react";
 
@@ -26,13 +29,13 @@ const SubAccountMainPage = async ({ searchParams }: Props) => {
 		const stateSubaccountId = searchParams.state.split("___")[1];
 		if (!stateSubaccountId) return <Unauthorized />;
 		return redirect(
-			`/subaccount/${stateSubaccountId}/${statePath}?code=${searchParams.code}`
+			`/nexusconjure/subaccount/${stateSubaccountId}/${statePath}?code=${searchParams.code}`
 		);
 	}
 
 	if (getFirstSubaccountWithAccess) {
 		return redirect(
-			`/subaccount/${getFirstSubaccountWithAccess.subAccountId}`
+			`/nexusconjure/subaccount/${getFirstSubaccountWithAccess.subAccountId}`
 		);
 	}
 

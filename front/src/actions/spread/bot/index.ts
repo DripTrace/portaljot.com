@@ -1,14 +1,17 @@
 "use server";
 
-import { client } from "@/lib/prisma";
-import { extractEmailsFromString, extractURLfromString } from "@/lib/utils";
+import { prisma as client } from "@/lib/client/prisma";
+import {
+	extractEmailsFromString,
+	extractURLfromString,
+} from "@/lib/spread/utils";
 import { onRealTimeChat } from "../conversation";
 import { clerkClient } from "@clerk/nextjs";
 import { onMailer } from "../mailer";
 import OpenAi from "openai";
 
 const openai = new OpenAi({
-	apiKey: process.env.OPEN_AI_KEY,
+	apiKey: process.env.OPENAI_API_KEY,
 });
 
 export const onStoreConversations = async (

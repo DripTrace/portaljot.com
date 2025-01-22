@@ -1,7 +1,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { adminDb } from "../../../../../firebaseAdmin";
-import PDFView from "@/components/PDFView";
-import Chat from "@/components/Chat";
+import PDFView from "@/components/warpcatch/PDFView";
+import Chat from "@/components/warpcatch/Chat";
 
 const ChatToFilePage = async ({
 	params: { id },

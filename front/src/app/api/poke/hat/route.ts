@@ -1,13 +1,13 @@
 // // src/app/api/hat/route.ts
 
 // import { NextResponse } from "next/server";
-// import { prisma } from "@/lib/prisma";
+// import { prisma } from "@/lib/client/prisma";
 // import { printfulClient } from "@/lib/printfulClient";
 // import Stripe from "stripe";
 // import { Prisma } from "@prisma/client";
 
 // // Initialize Stripe
-// const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+// const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_POKE!, {
 // 	apiVersion: "2024-09-30.acacia",
 // });
 

@@ -6,8 +6,8 @@ import axios from "axios";
 const prisma = new PrismaClient();
 
 export async function initializeAccessCode(authorizationCode: string) {
-	const clientId = process.env.PRINTFUL_CLIENT_ID;
-	const clientSecret = process.env.PRINTFUL_SECRET_KEY;
+	const clientId = process.env.PRINTFUL_CLIENT_ID_POKE;
+	const clientSecret = process.env.PRINTFUL_SECRET_KEY_POKE;
 
 	try {
 		const response = await axios.post(
@@ -17,7 +17,7 @@ export async function initializeAccessCode(authorizationCode: string) {
 				client_id: clientId,
 				client_secret: clientSecret,
 				code: authorizationCode,
-				redirect_uri: `${process.env.NEXT_PUBLIC_BASE_URL}/api/printful/callback`,
+				redirect_uri: `${process.env.NEXT_PUBLIC_BASE_URL_POKE}/api/printful/callback`,
 			}
 		);
 

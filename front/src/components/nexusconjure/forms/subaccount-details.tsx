@@ -27,11 +27,14 @@ import {
 
 import FileUpload from "../global/file-upload";
 import { Agency, SubAccount } from "@prisma/client";
-import { useToast } from "../ui/use-toast";
-import { saveActivityLogsNotification, upsertSubAccount } from "@/utils/nexusconjure/queries";
+import { useToast } from "@/components/ui/use-toast";
+import {
+	saveActivityLogsNotification,
+	upsertSubAccount,
+} from "@/utils/nexusconjure/queries";
 import { useEffect } from "react";
 import Loading from "../global/loading";
-import { useModal } from "@/providers/modal-provider";
+import { useModal } from "@/providers/nexusconjure/modal-provider";
 
 const formSchema = z.object({
 	name: z.string(),

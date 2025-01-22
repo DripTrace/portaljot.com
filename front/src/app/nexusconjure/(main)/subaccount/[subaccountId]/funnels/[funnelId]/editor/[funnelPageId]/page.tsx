@@ -1,5 +1,5 @@
 import { db } from "@/utils/nexusconjure/db";
-import EditorProvider from "@/providers/editor/editor-provider";
+import EditorProvider from "@/providers/nexusconjure/editor/editor-provider";
 import { redirect } from "next/navigation";
 import React from "react";
 import FunnelEditorNavigation from "./_components/funnel-editor-navigation";
@@ -22,7 +22,7 @@ const Page = async ({ params }: Props) => {
 	});
 	if (!funnelPageDetails) {
 		return redirect(
-			`/subaccount/${params.subaccountId}/funnels/${params.funnelId}`
+			`/nexusconjure/subaccount/${params.subaccountId}/funnels/${params.funnelId}`
 		);
 	}
 

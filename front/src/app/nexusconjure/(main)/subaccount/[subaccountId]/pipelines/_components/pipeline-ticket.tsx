@@ -1,6 +1,6 @@
-import TicketForm from "@/components/forms/ticket-form";
-import CustomModal from "@/components/global/custom-modal";
-import TagComponent from "@/components/global/tag";
+import TicketForm from "@/components/nexusconjure/forms/ticket-form";
+import CustomModal from "@/components/nexusconjure/global/custom-modal";
+import TagComponent from "@/components/nexusconjure/global/tag";
 import LinkIcon from "@/components/nexusconjure/icons/link";
 import {
 	AlertDialog,
@@ -35,9 +35,12 @@ import {
 	HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { toast } from "@/components/ui/use-toast";
-import { deleteTicket, saveActivityLogsNotification } from "@/utils/nexusconjure/queries";
+import {
+	deleteTicket,
+	saveActivityLogsNotification,
+} from "@/utils/nexusconjure/queries";
 import { TicketWithTags } from "@/utils/nexusconjure/types";
-import { useModal } from "@/providers/modal-provider";
+import { useModal } from "@/providers/nexusconjure/modal-provider";
 import { Contact2, Edit, MoreHorizontalIcon, Trash, User2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { Dispatch, SetStateAction } from "react";

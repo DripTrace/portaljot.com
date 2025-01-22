@@ -9,10 +9,10 @@ import {
 	RocketIcon,
 	SaveIcon,
 } from "lucide-react";
-import useUpload, { StatusText } from "@/hooks/useUpload";
+import useUpload, { StatusText } from "@/hooks/warpcatch/useUpload";
 import { useRouter } from "next/navigation";
-import { useToast } from "./ui/use-toast";
-import useSubscription from "@/hooks/useSubscription";
+import { useToast } from "@/components/ui/use-toast";
+import useSubscription from "@/hooks/warpcatch/useSubscription";
 
 const FileUploader = () => {
 	const { progress, status, fileId, handleUpload } = useUpload();
@@ -22,7 +22,7 @@ const FileUploader = () => {
 
 	useEffect(() => {
 		if (fileId) {
-			router.push(`/dashboard/files/${fileId}`);
+			router.push(`/warpcatch/dashboard/files/${fileId}`);
 		}
 	}, [fileId, router]);
 

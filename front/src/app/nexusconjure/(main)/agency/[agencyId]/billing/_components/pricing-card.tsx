@@ -1,6 +1,6 @@
 "use client";
-import SubscriptionFormWrapper from "@/components/forms/subscription-form/subscription-form-wrapper";
-import CustomModal from "@/components/global/custom-modal";
+import SubscriptionFormWrapper from "@/components/nexusconjure/forms/subscription-form/subscription-form-wrapper";
+import CustomModal from "@/components/nexusconjure/global/custom-modal";
 import { Button } from "@/components/ui/button";
 import {
 	Card,
@@ -11,7 +11,7 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import { PricesList } from "@/utils/nexusconjure/types";
-import { useModal } from "@/providers/modal-provider";
+import { useModal } from "@/providers/nexusconjure/modal-provider";
 import { useSearchParams } from "next/navigation";
 import React from "react";
 

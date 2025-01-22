@@ -2,9 +2,9 @@
 import { ChevronRight, PencilIcon } from "lucide-react";
 import React, { useEffect } from "react";
 import ActivateAutomationButton from "../../activate-automation-button";
-import { useQueryAutomation } from "@/hooks/user-queries";
-import { useEditAutomation } from "@/hooks/use-automations";
-import { useMutationDataState } from "@/hooks/use-mutation-data";
+import { useQueryAutomation } from "@/hooks/direct/user-queries";
+import { useEditAutomation } from "@/hooks/direct/use-automations";
+import { useMutationDataState } from "@/hooks/direct/use-mutation-data";
 import { Input } from "@/components/ui/input";
 
 type Props = {

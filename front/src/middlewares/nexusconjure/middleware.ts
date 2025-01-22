@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 // Please edit this to allow other routes to be public as needed.
 // See https://clerk.com/docs/references/nextjs/auth-middleware for more information about configuring your Middleware
 export default authMiddleware({
-	publicRoutes: ["/site", "/api/uploadthing"],
+	publicRoutes: ["/nexusconjure/site", "/nexusconjure/api/uploadthing"],
 	async beforeAuth(auth, req) {},
 	async afterAuth(auth, req) {
 		//rewrite for domains
@@ -20,7 +20,7 @@ export default authMiddleware({
 		//if subdomain exists
 		const customSubDomain = hostname
 			.get("host")
-			?.split(`${process.env.NEXT_PUBLIC_DOMAIN}`)
+			?.split(`${process.env.NEXT_PUBLIC_DOMAIN_NEXUSCONJURE}`)
 			.filter(Boolean)[0];
 
 		if (customSubDomain) {
@@ -29,21 +29,26 @@ export default authMiddleware({
 			);
 		}
 
-		if (url.pathname === "/sign-in" || url.pathname === "/sign-up") {
-			return NextResponse.redirect(new URL(`/agency/sign-in`, req.url));
-		}
-
 		if (
-			url.pathname === "/" ||
-			(url.pathname === "/site" &&
-				url.host === process.env.NEXT_PUBLIC_DOMAIN)
+			url.pathname === "/nexusconjure/sign-in" ||
+			url.pathname === "/nexusconjure/sign-up"
 		) {
-			return NextResponse.rewrite(new URL("/site", req.url));
+			return NextResponse.redirect(
+				new URL(`/nexusconjure/agency/sign-in`, req.url)
+			);
 		}
 
 		if (
-			url.pathname.startsWith("/agency") ||
-			url.pathname.startsWith("/subaccount")
+			url.pathname === "/nexusconjure/" ||
+			(url.pathname === "/nexusconjure/site" &&
+				url.host === process.env.NEXT_PUBLIC_DOMAIN_NEXUSCONJURE)
+		) {
+			return NextResponse.rewrite(new URL("/nexusconjure/site", req.url));
+		}
+
+		if (
+			url.pathname.startsWith("/nexusconjure/agency") ||
+			url.pathname.startsWith("/nexusconjure/subaccount")
 		) {
 			return NextResponse.rewrite(
 				new URL(`${pathWithSearchParams}`, req.url)
@@ -53,5 +58,9 @@ export default authMiddleware({
 });
 
 export const config = {
-	matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
+	matcher: [
+		"/nexusconjure/((?!.+\\.[\\w]+$|_next).*)",
+		"/nexusconjure/",
+		"/nexusconjure/(api|trpc)(.*)",
+	],
 };

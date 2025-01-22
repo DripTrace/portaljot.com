@@ -2,15 +2,15 @@
 
 import axios from "axios";
 
-if (!process.env.PRINTFUL_API_KEY) {
-	throw new Error("PRINTFUL_API_KEY environment variable is not set");
+if (!process.env.PRINTFUL_API_KEY_POKE) {
+	throw new Error("PRINTFUL_API_KEY_POKE environment variable is not set");
 }
 
 export const printfulClient = axios.create({
 	baseURL: "https://api.printful.com/",
 	headers: {
 		"Content-Type": "application/json",
-		Authorization: `Bearer ${process.env.PRINTFUL_API_KEY}`,
+		Authorization: `Bearer ${process.env.PRINTFUL_API_KEY_POKE}`,
 	},
 });
 

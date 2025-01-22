@@ -1,4 +1,4 @@
-import BlurPage from "@/components/global/blur-page";
+import BlurPage from "@/components/nexusconjure/global/blur-page";
 import { Button } from "@/components/ui/button";
 import {
 	Card,
@@ -8,8 +8,8 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import { db } from "@/utils/nexusconjure/db";
-import { stripe } from "@/lib/stripe";
-import { getStripeOAuthLink } from "@/lib/utils";
+import { stripe } from "@/lib/nexusconjure/stripe";
+import { getStripeOAuthLink } from "@/lib/nexusconjure/utils";
 import { CheckCircleIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -85,7 +85,7 @@ const LaunchPad = async ({ params, searchParams }: Props) => {
 							<div className="flex justify-between items-center w-full h-20 border p-4 rounded-lg ">
 								<div className="flex items-center gap-4">
 									<Image
-										src="/appstore.png"
+										src="/nexusconjure/appstore.png"
 										alt="App logo"
 										height={80}
 										width={80}
@@ -101,7 +101,7 @@ const LaunchPad = async ({ params, searchParams }: Props) => {
 							<div className="flex justify-between items-center w-full h-20 border p-4 rounded-lg">
 								<div className="flex items-center gap-4">
 									<Image
-										src="/stripelogo.png"
+										src="/nexusconjure/stripelogo.png"
 										alt="App logo"
 										height={80}
 										width={80}
@@ -146,7 +146,7 @@ const LaunchPad = async ({ params, searchParams }: Props) => {
 								) : (
 									<Link
 										className="bg-primary py-2 px-4 rounded-md text-white"
-										href={`/subaccount/${subaccountDetails.id}/settings`}
+										href={`/nexusconjure/subaccount/${subaccountDetails.id}/settings`}
 									>
 										Start
 									</Link>

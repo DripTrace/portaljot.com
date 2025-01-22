@@ -1,26 +1,28 @@
-import {
-	initializeApp,
-	getApps,
-	applicationDefault,
-	App,
-	getApp,
-	cert,
-} from "firebase-admin/app";
+// import {
+// 	initializeApp,
+// 	getApps,
+// 	applicationDefault,
+// 	App,
+// 	getApp,
+// 	cert,
+// } from "firebase-admin/app";
 
-import { getFirestore } from "firebase-admin/firestore";
+// import { getFirestore } from "firebase-admin/firestore";
 
-const serviceKey = require("@/config/collab/service_key.json");
+// const serviceKey = require("@/config/collab/service_key.json");
 
-let app: App;
+// let app: App;
 
-if (getApps().length === 0) {
-	app = initializeApp({
-		credential: cert(serviceKey),
-	});
-} else {
-	app = getApp();
-}
+// if (getApps().length === 0) {
+// 	app = initializeApp({
+// 		credential: cert(serviceKey),
+// 	});
+// } else {
+// 	app = getApp();
+// }
 
-const adminDb = getFirestore(app);
+// const adminDb = getFirestore(app);
 
-export { app as adminApp, adminDb };
+// export { app as adminApp, adminDb };
+
+export {};

@@ -58,6 +58,7 @@ import AdminControls from "@/components/exotalk/AdminControls";
 import ChatMembersBadges from "@/components/exotalk/ChatMembersBadges";
 import ChatMessages from "@/components/exotalk/ChatMessages";
 import ChatInput from "@/components/exotalk/ChatInput";
+import { User } from "@/types/exotalk/MessageTypes";
 
 type Props = {
 	params: {

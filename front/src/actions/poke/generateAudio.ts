@@ -4,13 +4,13 @@ import axios from "axios";
 
 export async function generateAudio(text: string): Promise<Buffer> {
 	const apiKey = process.env.ELEVENLABS_API_KEY;
-	const voiceId = process.env.ELEVENLABS_VOICE_ID;
+	const voiceId = process.env.ELEVENLABS_VOICE_ID_POKE;
 
 	if (!apiKey) {
 		throw new Error("ELEVENLABS_API_KEY is not set");
 	}
 	if (!voiceId) {
-		throw new Error("ELEVENLABS_VOICE_ID is not set");
+		throw new Error("ELEVENLABS_VOICE_ID_POKE is not set");
 	}
 
 	const url = `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`;

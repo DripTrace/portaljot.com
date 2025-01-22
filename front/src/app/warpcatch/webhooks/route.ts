@@ -1,4 +1,4 @@
-import stripe from "@/lib/stripe";
+import stripe from "@/lib/warpcatch/stripe";
 import { headers } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import type Stripe from "stripe";
@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
 		return new Response("No signature", { status: 400 });
 	}
 
-	if (!process.env.STRIPE_WEBHOOK_SECRET) {
+	if (!process.env.STRIPE_WEBHOOK_SECRET_WARPCATCH) {
 		console.log("⚠️ Stripe webhook secret is not set.");
 		return new NextResponse("Stripe webhook secret is not set", {
 			status: 400,
@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
 		event = stripe.webhooks.constructEvent(
 			body,
 			signature,
-			process.env.STRIPE_WEBHOOK_SECRET
+			process.env.STRIPE_WEBHOOK_SECRET_WARPCATCH
 		);
 	} catch (err) {
 		console.log(err);

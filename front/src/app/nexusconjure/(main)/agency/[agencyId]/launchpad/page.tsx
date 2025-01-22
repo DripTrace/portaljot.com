@@ -7,12 +7,12 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import { db } from "@/utils/nexusconjure/db";
-import { getStripeOAuthLink } from "@/lib/utils";
+import { getStripeOAuthLink } from "@/lib/nexusconjure/utils";
 import { CheckCircleIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { stripe } from "@/lib/stripe";
+import { stripe } from "@/lib/nexusconjure/stripe";
 
 type Props = {
 	params: {
@@ -79,7 +79,7 @@ const LaunchPadPage = async ({ params, searchParams }: Props) => {
 						<div className="flex justify-between items-center w-full border p-4 rounded-lg gap-2">
 							<div className="flex md:items-center gap-4 flex-col md:!flex-row">
 								<Image
-									src="/appstore.png"
+									src="/nexusconjure/appstore.png"
 									alt="app logo"
 									height={80}
 									width={80}
@@ -96,7 +96,7 @@ const LaunchPadPage = async ({ params, searchParams }: Props) => {
 						<div className="flex justify-between items-center w-full border p-4 rounded-lg gap-2">
 							<div className="flex md:items-center gap-4 flex-col md:!flex-row">
 								<Image
-									src="/stripelogo.png"
+									src="/nexusconjure/stripelogo.png"
 									alt="app logo"
 									height={80}
 									width={80}
@@ -141,7 +141,7 @@ const LaunchPadPage = async ({ params, searchParams }: Props) => {
 							) : (
 								<Link
 									className="bg-primary py-2 px-4 rounded-md text-white"
-									href={`/agency/${params.agencyId}/settings`}
+									href={`/nexusconjure/agency/${params.agencyId}/settings`}
 								>
 									Start
 								</Link>

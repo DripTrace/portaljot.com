@@ -13,13 +13,13 @@ import {
 } from "@/utils/printful";
 import { getPrintfulClient } from "@/lib/printful/printful-auth";
 
-const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
+const STRIPE_SECRET_KEY_POKE = process.env.STRIPE_SECRET_KEY_POKE;
 
-if (!STRIPE_SECRET_KEY) {
-	throw new Error("STRIPE_SECRET_KEY is not defined");
+if (!STRIPE_SECRET_KEY_POKE) {
+	throw new Error("STRIPE_SECRET_KEY_POKE is not defined");
 }
 
-const stripe = new Stripe(STRIPE_SECRET_KEY, {
+const stripe = new Stripe(STRIPE_SECRET_KEY_POKE, {
 	apiVersion: "2024-09-30.acacia",
 });
 
@@ -60,9 +60,8 @@ export async function POST(req: NextRequest) {
 
 		// Step 2: Upload to Printful and wait for processing
 		const printfulClient = await getPrintfulClient();
-		const { id: printfulFileId, url: printfulUrl } = await uploadToPrintful(
-			imageUrl
-		);
+		const { id: printfulFileId, url: printfulUrl } =
+			await uploadToPrintful(imageUrl);
 
 		// Step 3: Wait for file processing to complete with more attempts
 		console.log("Waiting for Printful file processing...");

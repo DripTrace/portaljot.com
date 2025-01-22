@@ -1,5 +1,5 @@
 // import { NextApiRequest, NextApiResponse } from "next";
-// import { prisma } from "@/lib/prisma";
+// import { prisma } from "@/lib/client/prisma";
 
 // export default async function handler(
 // 	req: NextApiRequest,
@@ -40,7 +40,7 @@
 
 // /app/api/upload-pokemon-png/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@/lib/client/prisma";
 
 export async function POST(req: NextRequest) {
 	try {

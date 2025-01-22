@@ -47,10 +47,10 @@
 // // 		});
 
 // // 		// Construct the image URL (assuming your app is deployed at example.com)
-// // 		// Replace '${process.env.NEXT_PUBLIC_BASE_URL}' with your actual domain in production
+// // 		// Replace '${process.env.NEXT_PUBLIC_BASE_URL_POKE}' with your actual domain in production
 // // 		const imageUrl = `${
-// // 			process.env.NEXT_PUBLIC_BASE_URL ||
-// // 			"${process.env.NEXT_PUBLIC_BASE_URL}"
+// // 			process.env.NEXT_PUBLIC_BASE_URL_POKE ||
+// // 			"${process.env.NEXT_PUBLIC_BASE_URL_POKE}"
 // // 		}/api/images/${image.id}`;
 
 // // 		return NextResponse.json(
@@ -128,10 +128,10 @@
 // 		});
 
 // 		// Construct the image URL (assuming your app is deployed at example.com)
-// 		// Replace '${process.env.NEXT_PUBLIC_BASE_URL}/' with your actual domain in production
+// 		// Replace '${process.env.NEXT_PUBLIC_BASE_URL_POKE}/' with your actual domain in production
 // 		const imageUrl = `${
-// 			process.env.NEXT_PUBLIC_BASE_URL ||
-// 			"${process.env.NEXT_PUBLIC_BASE_URL}"
+// 			process.env.NEXT_PUBLIC_BASE_URL_POKE ||
+// 			"${process.env.NEXT_PUBLIC_BASE_URL_POKE}"
 // 		}/api/images/${image.id}`;
 
 // 		return NextResponse.json(
@@ -211,8 +211,8 @@ export async function POST(req: NextRequest) {
 
 		// Construct the image URL
 		const imageUrl = `${
-			process.env.NEXT_PUBLIC_BASE_URL ||
-			"${process.env.NEXT_PUBLIC_BASE_URL}/"
+			process.env.NEXT_PUBLIC_BASE_URL_POKE ||
+			"${process.env.NEXT_PUBLIC_BASE_URL_POKE}/"
 		}/api/images/${image.id}`;
 
 		return NextResponse.json(

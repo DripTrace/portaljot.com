@@ -20,7 +20,9 @@ type Props = {
 const PipelinePage = async ({ params }: Props) => {
 	const pipelineDetails = await getPipelineDetails(params.pipelineId);
 	if (!pipelineDetails)
-		return redirect(`/subaccount/${params.subaccountId}/pipelines`);
+		return redirect(
+			`/nexusconjure/subaccount/${params.subaccountId}/pipelines`
+		);
 
 	const pipelines = await db.pipeline.findMany({
 		where: { subAccountId: params.subaccountId },

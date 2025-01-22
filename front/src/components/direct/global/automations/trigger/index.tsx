@@ -1,12 +1,12 @@
 "use client";
-import { useQueryAutomation } from "@/hooks/user-queries";
+import { useQueryAutomation } from "@/hooks/direct/user-queries";
 import React, { useEffect } from "react";
 import ActiveTrigger from "./active";
 import { Separator } from "@/components/ui/separator";
 import ThenAction from "../then/then-action";
 import TriggerButton from "../trigger-button";
-import { AUTOMATION_TRIGGERS } from "@/constants/automation";
-import { useTriggers } from "@/hooks/use-automations";
+import { AUTOMATION_TRIGGERS } from "@/constants/direct/automation";
+import { useTriggers } from "@/hooks/direct/use-automations";
 import { cn } from "@/lib/utils";
 import Keywords from "./keywords";
 import { Button } from "@/components/ui/button";
@@ -19,17 +19,6 @@ type Props = {
 const Trigger = ({ id }: Props) => {
 	const { types, onSetTrigger, onSaveTrigger, isPending } = useTriggers(id);
 	const { data } = useQueryAutomation(id);
-
-	// useEffect(() => {
-	// 	console.dir(
-	// 		{ "data-directory[trigger]": data },
-	// 		{
-	// 			depth: null,
-	// 			colors: true,
-	// 			maxArrayLength: null,
-	// 		}
-	// 	);
-	// }, [data, onSaveTrigger]);
 
 	if (data?.data && data?.data?.trigger.length > 0) {
 		return (

@@ -1,10 +1,10 @@
 "use client";
 
-import useSubscription from "@/hooks/useSubscription";
+import useSubscription from "@/hooks/warpcatch/useSubscription";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Loader2Icon, StarIcon } from "lucide-react";
-import { createStripePortal } from "@/actions/createStripePortal";
+import { createStripePortal } from "@/actions/warpcatch/createStripePortal";
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 
@@ -27,7 +27,7 @@ const UpgradeButton = () => {
 	if (!hasActiveMembership && !loading)
 		return (
 			<Button asChild variant="default" className="border-indigo-600">
-				<Link href="/upgrade">
+				<Link href="/warpcatch/upgrade">
 					Upgrade{" "}
 					<StarIcon className="ml-3 fill-indigo-600 text-white" />
 				</Link>

@@ -1,9 +1,9 @@
 "use server";
 
-import stripe from "@/lib/stripe";
+import stripe from "@/lib/warpcatch/stripe";
 import { adminDb } from "../../firebaseAdmin";
 import { auth } from "@clerk/nextjs/server";
-import getBaseUrl from "@/lib/getBaseUrl";
+import getBaseUrl from "@/lib/warpcatch/getBaseUrl";
 
 export async function createStripePortal() {
 	auth().protect();
@@ -23,7 +23,7 @@ export async function createStripePortal() {
 
 	const session = await stripe.billingPortal.sessions.create({
 		customer: stripeCustomerId,
-		return_url: `${getBaseUrl()}/dashboard`,
+		return_url: `${getBaseUrl()}/warpcatch/dashboard`,
 	});
 
 	return session.url;

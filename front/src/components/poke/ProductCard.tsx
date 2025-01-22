@@ -3,12 +3,12 @@
 
 import { useState } from "react";
 import axios from "axios";
-import { Variant } from "@/lib/constants";
+import { Variant } from "@/lib/poke/constants";
 import { loadStripe } from "@stripe/stripe-js";
 import Image from "next/image";
 
 const stripePromise = loadStripe(
-	process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
+	process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_POKE!
 );
 
 interface ProductCardProps {
@@ -29,7 +29,7 @@ export default function ProductCard({ variant }: ProductCardProps) {
 			formData.append("file", file);
 			try {
 				const uploadResponse = await axios.post(
-					"/api/upload",
+					"/api/poke/upload",
 					formData,
 					{
 						headers: { "Content-Type": "multipart/form-data" },
@@ -37,7 +37,7 @@ export default function ProductCard({ variant }: ProductCardProps) {
 				);
 				const imageUrl = uploadResponse.data.imageUrl;
 
-				const mockupResponse = await axios.post("/api/mockup", {
+				const mockupResponse = await axios.post("/api/poke/mockup", {
 					variantId: variant.printfulId,
 					imageUrl,
 				});
@@ -56,10 +56,13 @@ export default function ProductCard({ variant }: ProductCardProps) {
 	const handlePurchase = async () => {
 		if (!mockupUrl) return;
 		try {
-			const response = await axios.post("/api/stripe/create-session", {
-				variantId: variant.id,
-				mockupUrl,
-			});
+			const response = await axios.post(
+				"/api/poke/stripe/create-session",
+				{
+					variantId: variant.id,
+					mockupUrl,
+				}
+			);
 			const stripe = await stripePromise;
 			await stripe?.redirectToCheckout({
 				sessionId: response.data.sessionId,

@@ -1,8 +1,8 @@
-import { GET_CHATBOTS_BY_USER } from "@/graphql/queries/queries";
+import { GET_CHATBOTS_BY_USER } from "@/graphql/commune/queries/queries";
 import {
 	GetChatbotsByUserData,
 	GetChatbotsByUserDataVariables,
-} from "@/types/chatbot";
+} from "@/types/commune/chatbot";
 import { serverClient } from "./serverClient";
 
 export async function fetchChatbots(userId: string) {

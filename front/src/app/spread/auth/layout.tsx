@@ -10,13 +10,13 @@ type Props = {
 const Layout = async ({ children }: Props) => {
 	const user = await currentUser();
 
-	if (user) redirect("/");
+	if (user) redirect("/spread/");
 
 	return (
 		<div className="h-screen flex w-full justify-center">
 			<div className="w-[600px] ld:w-full flex flex-col items-start p-6">
 				<Image
-					src="/images/logo.png"
+					src="/spread/images/logo.png"
 					alt="LOGO"
 					sizes="100vw"
 					style={{
@@ -38,7 +38,7 @@ const Layout = async ({ children }: Props) => {
 					something never done before 😉
 				</p>
 				<Image
-					src="/images/app-ui.png"
+					src="/spread/images/app-ui.png"
 					alt="app image"
 					loading="lazy"
 					sizes="30"

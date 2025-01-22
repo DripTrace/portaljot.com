@@ -4,7 +4,7 @@
 // import Stripe from 'stripe';
 // import {prisma} from '@/lib/prisma';
 
-// const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+// const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_POKE!, {
 //   apiVersion: '2024-09-30.acacia', // Use the latest stable API version
 // });
 
@@ -89,9 +89,9 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@/lib/client/prisma";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_POKE!, {
 	apiVersion: "2024-09-30.acacia",
 });
 

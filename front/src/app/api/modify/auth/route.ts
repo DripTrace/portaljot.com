@@ -150,7 +150,7 @@ const authOptions: AuthOptions = {
 	// -- Add the Firestore-like "newUser" page redirection
 	//
 	pages: {
-		newUser: "/pricing", // redirect first-time users to pricing if needed
+		newUser: "/exotalk/pricing", // redirect first-time users to pricing if needed
 	},
 
 	//
