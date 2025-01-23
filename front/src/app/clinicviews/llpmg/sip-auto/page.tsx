@@ -1,23 +1,23 @@
 "use client";
 
 import React, { useState } from "react";
-import Sip from "@/components/LLPMG/sip/Sip";
-import SipErrorBoundary from "@/components/LLPMG/sip/SipErrorBoundary";
+import Sip from "@/components/clinicviews/LLPMG/sip/Sip";
+import SipErrorBoundary from "@/components/clinicviews/LLPMG/sip/SipErrorBoundary";
 
 export const dynamic = "auto";
 
 const SipAutoPage = () => {
-    const [callActive, setCallActive] = useState(false);
+	const [callActive, setCallActive] = useState(false);
 
-    const handleCallStateChange = (isActive: boolean) => {
-        setCallActive(isActive);
-    };
+	const handleCallStateChange = (isActive: boolean) => {
+		setCallActive(isActive);
+	};
 
-    return (
-        <SipErrorBoundary>
-            <Sip onCallStateChange={handleCallStateChange} />
-        </SipErrorBoundary>
-    );
+	return (
+		<SipErrorBoundary>
+			<Sip onCallStateChange={handleCallStateChange} />
+		</SipErrorBoundary>
+	);
 };
 
 export default SipAutoPage;

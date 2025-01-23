@@ -27,7 +27,7 @@ import {
 
 import FileUpload from "../global/file-upload";
 import { Agency, SubAccount } from "@prisma/client";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import {
 	saveActivityLogsNotification,
 	upsertSubAccount,

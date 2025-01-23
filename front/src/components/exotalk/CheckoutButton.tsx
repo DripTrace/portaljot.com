@@ -7,7 +7,7 @@
 // import { useSubscriptionStore } from "@/store/exotalk/store";
 // import ManageAccountButton from "./ManageAccountButton";
 // import LoadingSpinner from "./loadingSpinner";
-// import { useToast } from "@/components/ui/use-toast";
+// import { useToast } from "@/hooks/use-toast";
 
 // function CheckoutButton() {
 // 	const [loading, setLoading] = useState(false);
@@ -116,7 +116,7 @@ import { useSession } from "next-auth/react";
 import { useSubscriptionStore } from "@/store/exotalk/store";
 import ManageAccountButton from "./ManageAccountButton";
 import LoadingSpinner from "./loadingSpinner";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 function CheckoutButton() {
 	const [loading, setLoading] = useState(false);

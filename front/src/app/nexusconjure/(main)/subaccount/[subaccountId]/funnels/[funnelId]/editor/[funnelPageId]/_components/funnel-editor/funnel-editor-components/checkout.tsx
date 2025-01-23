@@ -1,7 +1,7 @@
 "use client";
 import Loading from "@/components/nexusconjure/global/loading";
 import { Badge } from "@/components/ui/badge";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/hooks/use-toast";
 import { EditorBtns } from "@/utils/nexusconjure/constants";
 import { getFunnel, getSubaccountDetails } from "@/utils/nexusconjure/queries";
 import { getStripe } from "@/lib/nexusconjure/stripe/stripe-client";

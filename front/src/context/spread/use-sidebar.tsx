@@ -1,5 +1,5 @@
 "use client";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import { useEffect, useState } from "react";

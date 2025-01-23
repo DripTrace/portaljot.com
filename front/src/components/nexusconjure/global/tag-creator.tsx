@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import TagComponent from "./tag";
 import { PlusCircleIcon, TrashIcon, X } from "lucide-react";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/hooks/use-toast";
 import { v4 } from "uuid";
 import {
 	deleteTag,

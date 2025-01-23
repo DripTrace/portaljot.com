@@ -6,7 +6,7 @@ import {
 import { useModal } from "@/providers/nexusconjure/modal-provider";
 import { SubAccount, User } from "@prisma/client";
 import React, { useEffect, useState } from "react";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
 import {
 	changeUserPermissions,

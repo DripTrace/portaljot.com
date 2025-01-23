@@ -1,12 +1,12 @@
 "use client";
 
-import { anAMHStore } from "@/store/access-mentalhealth/anAMHStore";
+import { anAMHStore } from "@/store/clinicviews/access-mentalhealth/anAMHStore";
 import { Provider } from "react-redux";
 
 export function AMHProviderWrapper({
-    children,
+	children,
 }: {
-    children: React.ReactNode;
+	children: React.ReactNode;
 }) {
-    return <Provider store={anAMHStore}>{children}</Provider>;
+	return <Provider store={anAMHStore}>{children}</Provider>;
 }

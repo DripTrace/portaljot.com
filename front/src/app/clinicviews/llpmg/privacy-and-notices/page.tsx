@@ -1,13 +1,13 @@
-import { PrivacyAndNotices } from "@/components/LLPMG";
+import { PrivacyAndNotices } from "@/components/clinicviews/LLPMG";
 
 export const dynamic = "auto";
 
 const PrivacyAndNoticesPage = () => {
-    return (
-        <>
-            <PrivacyAndNotices />
-        </>
-    );
+	return (
+		<>
+			<PrivacyAndNotices />
+		</>
+	);
 };
 
 export default PrivacyAndNoticesPage;

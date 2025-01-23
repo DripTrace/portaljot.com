@@ -1,6 +1,6 @@
 "use client";
 import Section from "@/components/spread/section-label";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { Copy } from "lucide-react";
 import React from "react";
 

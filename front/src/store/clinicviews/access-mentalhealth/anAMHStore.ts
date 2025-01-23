@@ -1,11 +1,11 @@
 // store/store.ts
 import { configureStore } from "@reduxjs/toolkit";
-import anAMHDarkModeReducer from "@/store/access-mentalhealth/anAMHDarkModeSlice";
+import anAMHDarkModeReducer from "@/store/clinicviews/access-mentalhealth/anAMHDarkModeSlice";
 
 export const anAMHStore = configureStore({
-    reducer: {
-        anAMHDarkMode: anAMHDarkModeReducer,
-    },
+	reducer: {
+		anAMHDarkMode: anAMHDarkModeReducer,
+	},
 });
 
 export type AMHRootState = ReturnType<typeof anAMHStore.getState>;

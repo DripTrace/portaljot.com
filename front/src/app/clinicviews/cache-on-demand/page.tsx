@@ -42,7 +42,7 @@ export default function Page() {
 					<span>
 						Go offline and navigate to{" "}
 						<Link
-							href="/cache-on-demand/cached"
+							href="/clinicviews/cache-on-demand/cached"
 							className="inline-block"
 						>
 							image page

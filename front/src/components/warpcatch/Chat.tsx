@@ -12,7 +12,7 @@ import { collection, orderBy, query } from "firebase/firestore";
 import { db } from "../../firebase";
 import { askQuestion } from "@/actions/warpcatch/askQuestion";
 import ChatMessage from "./ChatMessage";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 export type Message = {
 	id?: string;

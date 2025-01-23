@@ -4,26 +4,26 @@
 
 import { useEffect } from "react";
 import {
-    requestNotificationPermission,
-    sendNotification,
-} from "@/utils/notifications";
+	requestNotificationPermission,
+	sendNotification,
+} from "@/utils/clinicviews/notifications";
 
 const NotificationExample: React.FC = () => {
-    useEffect(() => {
-        const setup = async () => {
-            const permissionGranted = await requestNotificationPermission();
-            if (permissionGranted) {
-                sendNotification("Welcome to our clinic!", {
-                    body: "Thank you for enabling notifications.",
-                    icon: "/path-to-your-icon.png",
-                });
-            }
-        };
+	useEffect(() => {
+		const setup = async () => {
+			const permissionGranted = await requestNotificationPermission();
+			if (permissionGranted) {
+				sendNotification("Welcome to our clinic!", {
+					body: "Thank you for enabling notifications.",
+					icon: "/path-to-your-icon.png",
+				});
+			}
+		};
 
-        setup();
-    }, []);
+		setup();
+	}, []);
 
-    return null; // This component doesn't render anything
+	return null; // This component doesn't render anything
 };
 
 export default NotificationExample;

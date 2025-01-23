@@ -9,7 +9,7 @@ import { Model as FSClinicalsModel } from "survey-core";
 import {
 	data as fsclinicalsData,
 	json as fsclinicalsJson,
-} from "../../../../data/dashboard_data-0";
+} from "@/data/clinicviews/dashboard_data-0";
 
 export default function FSClinicalsDashboard() {
 	const [fsclinicalsVizPanel, setFsclinicalsVizPanel] =

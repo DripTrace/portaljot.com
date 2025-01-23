@@ -6,7 +6,7 @@ import {
 	onGetStripeClientSecret,
 	onUpdateSubscription,
 } from "@/actions/stripe";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import axios from "axios";
 import {
 	useElements,

@@ -33,7 +33,7 @@
 // import { useSession } from "next-auth/react";
 // import { useState } from "react";
 // import { getUserByEmailRef } from "@/lib/exotalk/converters/User";
-// import { useToast } from "@/components/ui/use-toast";
+// import { useToast } from "@/hooks/use-toast";
 // import useAdminId from "@/hooks/exotalk/useAdminId";
 // import { PlusCircleIcon } from "lucide-react";
 // import { ShareLink } from "./ShareLink";
@@ -238,7 +238,7 @@ import * as z from "zod";
 import { PlusCircleIcon } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { useState } from "react";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import useAdminId from "@/hooks/exotalk/useAdminId";
 import { ShareLink } from "./ShareLink";
 import { useSubscriptionStore } from "@/store/exotalk/store";

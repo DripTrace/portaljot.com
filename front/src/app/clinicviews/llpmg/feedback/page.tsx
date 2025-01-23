@@ -1,13 +1,13 @@
-import Feedback from "@/components/LLPMG/Feedback";
+import Feedback from "@/components/clinicviews/LLPMG/Feedback";
 
 export const dynamic = "auto";
 
 const FeedbackPage = () => {
-    return (
-        <>
-            <Feedback />
-        </>
-    );
+	return (
+		<>
+			<Feedback />
+		</>
+	);
 };
 
 export default FeedbackPage;

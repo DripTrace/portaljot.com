@@ -1,7 +1,7 @@
-import HorizontalSVGPageComponent from "@/components/effects/HorizontalSVGPageComponent";
+import HorizontalSVGPageComponent from "@/components/clinicviews/effects/HorizontalSVGPageComponent";
 
 const HSPPage = () => {
-    return <HorizontalSVGPageComponent />;
+	return <HorizontalSVGPageComponent />;
 };
 
 export default HSPPage;

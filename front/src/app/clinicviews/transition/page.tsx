@@ -1,4 +1,4 @@
-// import PageTransition from "@/components/effects/PageTransition";
+// import PageTransition from "@/components/clinicviews/effects/PageTransition";
 // import type { NextPage } from "next";
 
 // const Home: NextPage = () => {
@@ -7,10 +7,10 @@
 
 // export default Home;
 
-import PageTransition from "@/components/effects/PageTransition";
+import PageTransition from "@/components/clinicviews/effects/PageTransition";
 
 const PageTransitionPage = () => {
-    return <PageTransition />;
+	return <PageTransition />;
 };
 
 export default PageTransitionPage;

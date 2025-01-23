@@ -11,7 +11,7 @@ import {
 	SurveyCreator as FSClinicalsFormCreator,
 	SurveyCreatorComponent as FSClinicalsCreatorComponent,
 } from "survey-creator-react";
-import { fsclinicalsForm } from "@/data/fsclinicals-config";
+import { fsclinicalsForm } from "@/data/clinicviews/fsclinicals-config";
 
 export default function FSClinicalsFormCreatorWidget(fsclinicalsProps: {
 	fsclinicalsJson?: Object;

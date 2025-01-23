@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import useUpload, { StatusText } from "@/hooks/warpcatch/useUpload";
 import { useRouter } from "next/navigation";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import useSubscription from "@/hooks/warpcatch/useSubscription";
 
 const FileUploader = () => {

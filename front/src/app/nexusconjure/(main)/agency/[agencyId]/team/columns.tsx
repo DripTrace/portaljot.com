@@ -39,7 +39,7 @@ import { useModal } from "@/providers/nexusconjure/modal-provider";
 import UserDetails from "@/components/nexusconjure/forms/user-details";
 
 import { deleteUser, getUser } from "@/utils/nexusconjure/queries";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { UsersWithAgencySubAccountPermissionsSidebarOptions } from "@/utils/nexusconjure/types";

@@ -11,7 +11,7 @@
 // import LoadingSpinner from "./loadingSpinner";
 // import { v4 as uuidv4 } from "uuid";
 // import { MessageSquarePlusIcon } from "lucide-react";
-// import { useToast } from "@/components/ui/use-toast";
+// import { useToast } from "@/hooks/use-toast";
 
 // function CreateChatButton({ isLarge }: { isLarge?: boolean }) {
 // 	const { data: session } = useSession();
@@ -90,7 +90,7 @@ import { useState } from "react";
 import LoadingSpinner from "./loadingSpinner";
 import { v4 as uuidv4 } from "uuid";
 import { MessageSquarePlusIcon } from "lucide-react";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 // 1) Import Prisma client
 import { prisma } from "@/lib/client/prisma";

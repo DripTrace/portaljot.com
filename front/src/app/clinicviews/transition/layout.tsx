@@ -1,12 +1,12 @@
 // src/app/transition/layout.tsx
 "use client";
 
-import { TransitionLayout } from "@/components/effects/TransitionLayout";
+import { TransitionLayout } from "@/components/clinicviews/effects/TransitionLayout";
 
 export default function TransitionLayoutWrapper({
-    children,
+	children,
 }: {
-    children: React.ReactNode;
+	children: React.ReactNode;
 }) {
-    return <TransitionLayout>{children}</TransitionLayout>;
+	return <TransitionLayout>{children}</TransitionLayout>;
 }

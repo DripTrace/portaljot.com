@@ -3,7 +3,7 @@ import {
 	onDomainCustomerResponses,
 	saveAnswers,
 } from "@/actions/spread/appointment";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 

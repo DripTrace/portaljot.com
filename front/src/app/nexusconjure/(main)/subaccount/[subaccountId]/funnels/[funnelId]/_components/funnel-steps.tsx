@@ -4,7 +4,7 @@ import CustomModal from "@/components/nexusconjure/global/custom-modal";
 import { AlertDialog } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/hooks/use-toast";
 import { upsertFunnelPage } from "@/utils/nexusconjure/queries";
 import { FunnelsForSubAccount } from "@/utils/nexusconjure/types";
 import { useModal } from "@/providers/nexusconjure/modal-provider";

@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import { Item as ItemType, preloadFonts, preloadImages } from "./Item";
-// import { Item, preloadImages, preloadFonts } from '../components/Item';
 
 // Add this type definition above the component or in a separate file
 class Item {

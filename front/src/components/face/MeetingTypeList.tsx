@@ -11,7 +11,7 @@ import { useUser } from "@clerk/nextjs";
 import Loader from "./Loader";
 import { Textarea } from "@/components/ui/textarea";
 import ReactDatePicker from "react-datepicker";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";
 
 const initialValues = {

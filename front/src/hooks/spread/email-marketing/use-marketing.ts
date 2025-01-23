@@ -6,7 +6,7 @@ import {
 	onGetEmailTemplate,
 	onSaveEmailTemplate,
 } from "@/actions/spread/mail";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import {
 	EmailMarketingBodySchema,
 	EmailMarketingSchema,

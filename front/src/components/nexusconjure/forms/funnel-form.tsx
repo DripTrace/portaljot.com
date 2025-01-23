@@ -24,7 +24,7 @@ import {
 	upsertFunnel,
 } from "@/utils/nexusconjure/queries";
 import { v4 } from "uuid";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/hooks/use-toast";
 import { useModal } from "@/providers/nexusconjure/modal-provider";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";

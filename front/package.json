@@ -32,6 +32,11 @@
 		"aws-sdk",
 		"protobufjs"
 	],
+	"resolutions": {
+		"eslint": "8.56.0",
+		"@typescript-eslint/eslint-plugin": "^7.16.1",
+		"@typescript-eslint/parser": "^7.16.1"
+	},
 	"prisma": {
 		"seed": "ts-node prisma/seed.ts"
 	},
@@ -69,7 +74,7 @@
 	"engineStrict": true,
 	"scripts": {
 		"dev": "next dev -p 420",
-		"build": "next build",
+		"build": "next build --debug && yarn run change",
 		"start": "next start",
 		"lint": "ESLINT_TS_PATCH_LOADER=tsx eslint .",
 		"pr-init-pg": "prisma init --output src/schema/prisma-postgres.prisma --datasource-provider postgresql --url postgres://default:0eBZIN4aUJnq@ep-empty-cloud-a60f7twr.us-west-2.aws.neon.tech:5432/verceldb?sslmode=require",
@@ -77,7 +82,8 @@
 		"pr-pull": "prisma db pull --schema=src/schema/prisma-postgres.prisma",
 		"pr-gen": "prisma --url postgres://default:0eBZIN4aUJnq@ep-empty-cloud-a60f7twr.us-west-2.aws.neon.tech:5432/verceldb?sslmode=require --output src/schema/prisma-postgres.prisma",
 		"pr-st": "prisma studio",
-		"prebuild": "ts-node src/lib/utils/generateFontLoader.ts",
+		"prebuild": "node scripts/clinicviews/runGenerateManifest.js",
+		"prebuild-g": "ts-node src/lib/utils/generateFontLoader.ts",
 		"predev": "tsc --skipLibCheck src/lib/utils/generateFontLoader.ts",
 		"predevting": "node --loader ts-node/esm src/lib/utils/fontLoader.ts",
 		"postinstall": "prisma generate",
@@ -96,7 +102,7 @@
 		"retrieve-domains": "npx tsx src/scripts/retrieveDomainsInfo.ts",
 		"get-aws": "npx tsx src/scripts/get-aws.ts",
 		"dev:turbo": "next dev --turbo",
-		"prebuild-dom": "node scripts/runGenerateManifest.js",
+		"prebuild-dom": "node src/scripts/clinicviews/runGenerateManifest.js",
 		"sim": "yarn change && chmod +x ./scripts/start-dev-servers.sh && sh ./scripts/start-dev-servers.sh",
 		"dev-dom": "yarn change && next dev",
 		"dev:driptrace": "next dev -p 42069",

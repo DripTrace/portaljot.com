@@ -1,7 +1,7 @@
 "use client";
 import ContactForm from "@/components/nexusconjure/forms/contact-form";
 import { Badge } from "@/components/ui/badge";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/hooks/use-toast";
 import { EditorBtns } from "@/utils/nexusconjure/constants";
 import {
 	getFunnel,

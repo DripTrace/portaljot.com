@@ -11,7 +11,7 @@ import "tabulator-tables/dist/css/tabulator.min.css";
 import {
 	data as fsclinicalsData,
 	json as fsclinicalsJson,
-} from "../../../../data/dashboard_data-0";
+} from "@/data/clinicviews/dashboard_data-0";
 
 const FSClinicalsDashboardTabulator = () => {
 	const [fsclinicalsVizPanel, setFsclinicalsVizPanel] =

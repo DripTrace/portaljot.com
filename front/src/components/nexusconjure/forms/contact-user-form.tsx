@@ -27,7 +27,7 @@ import {
 	saveActivityLogsNotification,
 	upsertContact,
 } from "@/utils/nexusconjure/queries";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
 import { useModal } from "@/providers/nexusconjure/modal-provider";
 

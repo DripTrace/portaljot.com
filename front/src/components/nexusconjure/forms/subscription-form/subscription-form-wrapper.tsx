@@ -1,6 +1,6 @@
 "use client";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/hooks/use-toast";
 import { pricingCards } from "@/utils/nexusconjure/constants";
 import { useModal } from "@/providers/nexusconjure/modal-provider";
 import { Plan } from "@prisma/client";

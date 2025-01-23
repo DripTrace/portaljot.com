@@ -2,7 +2,7 @@
 
 import { Model as FSClinicalsModel } from "survey-core";
 import { SurveyPDF as FSClinicalsFormPDF } from "survey-pdf";
-import { json as fsclinicalsJson } from "../../../../data/survey_json-0.js";
+import { json as fsclinicalsJson } from "@/data/clinicviews/survey_json-0.js";
 
 function saveFsclinicalsPDF(fsclinicalsModel: FSClinicalsModel) {
 	const fsclinicalsPdfWidth =

@@ -1,13 +1,13 @@
-import Locations from "@/components/LLPMG/Locations";
+import Locations from "@/components/clinicviews/LLPMG/Locations";
 
 export const dynamic = "auto";
 
 const LLPMGLocationsPage = () => {
-    return (
-        <>
-            <Locations />
-        </>
-    );
+	return (
+		<>
+			<Locations />
+		</>
+	);
 };
 
 export default LLPMGLocationsPage;

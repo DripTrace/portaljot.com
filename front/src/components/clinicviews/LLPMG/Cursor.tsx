@@ -2,7 +2,6 @@
 
 import useCustomCursor from "@/app/hooks/LLPMGCursor";
 import React from "react";
-// import useCustomCursor from './useCustomCursor';
 
 const Cursor: React.FC = () => {
 	const { x, y } = useCustomCursor();

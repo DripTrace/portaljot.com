@@ -5,7 +5,7 @@ export default authMiddleware({
 		"/spread/",
 		"/spread/auth(.*)",
 		"/spread/portal(.*)",
-		"/images(.*)",
+		"/spread/images(.*)",
 	],
 	ignoredRoutes: ["/spread/chatbot"],
 });

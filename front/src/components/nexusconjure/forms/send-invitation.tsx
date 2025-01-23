@@ -32,7 +32,7 @@ import {
 	saveActivityLogsNotification,
 	sendInvitation,
 } from "@/utils/nexusconjure/queries";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 interface SendInvitationProps {
 	agencyId: string;
