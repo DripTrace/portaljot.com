@@ -1,4 +1,4 @@
-// // src/app/api/webhooks/printful/route.ts
+// // src/app/api/poke/webhooks/printful/route.ts
 
 // import { NextRequest, NextResponse } from "next/server";
 // import { PrismaClient } from "@prisma/client";
@@ -79,7 +79,7 @@
 // 		// Respond to Printful to acknowledge receipt of the webhook
 // 		return NextResponse.json({ received: true }, { status: 200 });
 // 	} catch (error) {
-// 		console.error("Error in /api/webhooks/printful:", error);
+// 		console.error("Error in /api/poke/webhooks/printful:", error);
 // 		return NextResponse.json(
 // 			{ error: "Internal Server Error." },
 // 			{ status: 500 }
@@ -377,7 +377,7 @@ async function uploadToImage(pngBase64: string): Promise<string> {
 	try {
 		console.log("Initiating image upload...");
 		const uploadResponse = await axios.post(
-			`${NEXT_PUBLIC_BASE_URL_POKE}/api/images/upload`,
+			`${NEXT_PUBLIC_BASE_URL_POKE}/api/poke/images/upload`,
 			{
 				pngBase64,
 				filename: `hat_variant_${uuidv4()}.png`,

@@ -31,26 +31,26 @@
 
 import { useEffect, useState } from "react";
 import Preload from "@/components/merchandise/Progress/Preload";
-import { checkSession } from "@/actions/merchandise/checkSession"; // Adjust this import path as needed
+import { checkSession } from "@/actions/feature/merchandise/checkSession"; // Adjust this import path as needed
 
 export default function AuthenticateComponent() {
-    const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        async function authenticate() {
-            const session = await checkSession();
-            if (session) {
-                console.log("RETRIEVED SESSION >>>", session);
-                setIsLoading(false);
-            }
-        }
+	useEffect(() => {
+		async function authenticate() {
+			const session = await checkSession();
+			if (session) {
+				console.log("RETRIEVED SESSION >>>", session);
+				setIsLoading(false);
+			}
+		}
 
-        authenticate();
-    }, []);
+		authenticate();
+	}, []);
 
-    if (isLoading) {
-        return <Preload />;
-    }
+	if (isLoading) {
+		return <Preload />;
+	}
 
-    return null; // Or any other component you want to render when not loading
+	return null; // Or any other component you want to render when not loading
 }

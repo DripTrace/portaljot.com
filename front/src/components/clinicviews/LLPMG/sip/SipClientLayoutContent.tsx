@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ConvoRootState } from "@/lib/clinicviews/llpmg/redux/stores/convoStore";
-import { useConvoAppSelector } from "@/clinicviews/hooks/llpmg/sip/useConvoRedux";
+import { useConvoAppSelector } from "@/hooks/clinicviews/llpmg/sip/useConvoRedux";
 
 interface SipClientLayoutContentProps {
 	children: React.ReactNode;

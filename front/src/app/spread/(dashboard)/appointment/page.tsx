@@ -1,4 +1,4 @@
-import { onGetAllBookingsForCurrentUser } from "@/actions/spread/appointment";
+import { onGetAllBookingsForCurrentUser } from "@/actions/feature/spread/appointment";
 import AllAppointments from "@/components/appointment/all-appointments";
 import InfoBar from "@/components/spread/infobar";
 import Section from "@/components/spread/section-label";

@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import axios from "axios";
-import { Variant } from "@/lib/poke/constants";
+import { Variant } from "@/lib/poke/poke/constants";
 import { loadStripe } from "@stripe/stripe-js";
 import Image from "next/image";
 

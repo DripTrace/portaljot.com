@@ -42,12 +42,12 @@ share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
+# MANIFEST
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
+# *.manifest
 *.spec
 
 # Installer logs
@@ -560,6 +560,7 @@ front/data/keys/nexusconjure-elite_credentials.csv
 *.key
 *.csr
 
+photo-gallery-upload-firebase-adminsdk-wnbhz-ae0e426bf6.json``
 
 # back
 # # Byte-compiled / optimized / DLL files

@@ -1,4 +1,4 @@
-import { onIntegrate } from "@/actions/integrations";
+import { onIntegrate } from "@/actions/feature/direct/integrations";
 import { redirect } from "next/navigation";
 import React from "react";
 

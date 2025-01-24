@@ -1,4 +1,4 @@
-import { ISyncProduct } from "@/api/merchandise/products";
+import { ISyncProduct } from "@/app/api/merchandise/products";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type Products = { [id: string]: ISyncProduct };

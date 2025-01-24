@@ -4,7 +4,7 @@ import { ReactNode, useEffect, useState } from "react";
 import { StreamVideoClient, StreamVideo } from "@stream-io/video-react-sdk";
 import { useUser } from "@clerk/nextjs";
 
-import { tokenProvider } from "@/actions/face/stream.actions";
+import { tokenProvider } from "@/actions/feature/face/stream";
 import Loader from "@/components/face/Loader";
 
 const API_KEY = process.env.NEXT_PUBLIC_STREAM_API_KEY;

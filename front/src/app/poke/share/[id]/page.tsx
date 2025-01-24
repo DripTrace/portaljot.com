@@ -1,8 +1,8 @@
 // latest correct ordering not correct card sizing
 import { prisma } from "@/lib/client/prisma";
 import { notFound } from "next/navigation";
-import SharedResults from "@/components/SharedResults";
-import { Pokemon } from "@/types/Pokemon";
+import SharedResults from "@/components/poke/SharedResults";
+import { Pokemon } from "@/types/poke/Pokemon";
 
 interface Rankings {
 	grass?: {

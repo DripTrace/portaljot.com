@@ -1,8 +1,8 @@
 import {
 	getAllAutomations,
 	getAutomationInfo,
-} from "@/actions/direct/automations";
-import { onUserInfo } from "@/actions/direct/user";
+} from "@/actions/feature/direct/automations";
+import { onUserInfo } from "@/actions/feature/direct/user";
 import { QueryClient, QueryFunction } from "@tanstack/react-query";
 
 const prefetch = async (

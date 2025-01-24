@@ -193,7 +193,7 @@
 
 // import { useRef, useState, useEffect, type CSSProperties } from "react";
 // import { useRouter } from "next/navigation";
-// import { getNextAuthSessionAction } from "@/actions/modify/getNextAuthSession";
+// import { getNextAuthSessionAction } from "@/actions/demonstrate/portaljot/modify/getNextAuthSession";
 // import { loadStripe, TokenResult } from "@stripe/stripe-js";
 // import { v4 as uuidv4 } from "uuid";
 // import { signIn } from "next-auth/react";
@@ -863,7 +863,7 @@
 
 import { useRef, useState, useEffect, type CSSProperties } from "react";
 import { useRouter } from "next/navigation";
-// import { getNextAuthSessionAction } from "@/actions/modify/getNextAuthSession";
+// import { getNextAuthSessionAction } from "@/actions/demonstrate/portaljot/modify/getNextAuthSession";
 import { loadStripe, TokenResult } from "@stripe/stripe-js";
 import { v4 as uuidv4 } from "uuid";
 import { signIn } from "next-auth/react";

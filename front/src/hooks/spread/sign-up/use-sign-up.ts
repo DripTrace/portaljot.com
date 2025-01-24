@@ -3,13 +3,13 @@ import { useToast } from "@/hooks/use-toast";
 import {
 	UserRegistrationProps,
 	UserRegistrationSchema,
-} from "@/schemas/spread/auth.schema";
+} from "@/schema/spread/auth.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSignUp } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { onCompleteUserRegistration } from "@/actions/spread/auth";
+import { onCompleteUserRegistration } from "@/actions/feature/spread/auth";
 
 export const useSignUpForm = () => {
 	const { toast } = useToast();

@@ -1,4 +1,4 @@
-// import client from "@/graphql/commune/apolloClient";
+// import client from "@/config/commune/apolloClient";
 // import { INSERT_MESSAGE } from "@/graphql/commune/mutations/mutations";
 // import { gql } from "@apollo/client";
 
@@ -68,7 +68,7 @@
 
 // export default startNewChat;
 
-import client from "@/graphql/commune/apolloClient";
+import client from "@/config/commune/apolloClient";
 import { INSERT_MESSAGE } from "@/graphql/commune/mutations/mutations";
 import { gql } from "@apollo/client";
 

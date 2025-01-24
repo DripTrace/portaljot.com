@@ -1,4 +1,4 @@
-import { onGetBlogPosts } from "@/actions/spread/landing";
+import { onGetBlogPosts } from "@/actions/feature/spread/landing";
 import NavBar from "@/components/spread/navbar";
 import { Button } from "@/components/ui/button";
 import {

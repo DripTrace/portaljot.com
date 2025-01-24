@@ -7,7 +7,7 @@ import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { FaRandom, FaShoppingCart, FaTshirt, FaSpinner } from "react-icons/fa";
 import { loadStripe } from "@stripe/stripe-js";
 import NextImage from "next/image";
-import { Pokemon } from "@/lib/poke/constants";
+import { Pokemon } from "@/lib/poke/poke/constants";
 
 const stripePromise = loadStripe(
 	process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_POKE!
@@ -91,7 +91,7 @@ const ProductModal = ({
 
 	const fetchHatProduct = async () => {
 		try {
-			const response = await fetch("/api/hat");
+			const response = await fetch("/api/poke/hat");
 			const data: HatProduct = await response.json();
 			setHatProduct(data);
 
@@ -149,7 +149,7 @@ const ProductModal = ({
 
 		try {
 			setIsGeneratingMockup(true);
-			const response = await fetch("/api/create-hat-variant", {
+			const response = await fetch("/api/poke/create-hat-variant", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({

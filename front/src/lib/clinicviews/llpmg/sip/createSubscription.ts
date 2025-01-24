@@ -12,7 +12,7 @@ export async function createSubscription() {
 				],
 				deliveryMode: {
 					transportType: "WebHook",
-					address: `${process.env.WEBHOOK_URL}/api/clinicviews/webhooks/ringcentral/sms`,
+					address: `${process.env.WEBHOOK_URL}/api/clinicviews/llpmg/ringcentral/sms`,
 				},
 				expiresIn: 3600,
 			}

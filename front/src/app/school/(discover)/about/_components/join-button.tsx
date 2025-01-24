@@ -1,46 +1,53 @@
-import { GlassModal } from "@/components/global/glass-modal";
-import { JoinGroupPaymentForm } from "@/components/global/join-group";
-import { StripeElements } from "@/components/global/stripe/elements";
+import { GlassModal } from "@/components/school/global/glass-modal";
+import { JoinGroupPaymentForm } from "@/components/school/global/join-group";
+import { StripeElements } from "@/components/school/global/stripe/elements";
 import { Button } from "@/components/ui/button";
-import { useActiveGroupSubscription, useJoinFree } from "@/hooks/payment";
+import {
+	useActiveGroupSubscription,
+	useJoinFree,
+} from "@/hooks/school/payment";
 
 type JoinButtonProps = {
-  owner: boolean;
-  groupid: string;
+	owner: boolean;
+	groupid: string;
 };
 
 export const JoinButton = ({ owner, groupid }: JoinButtonProps) => {
-  const { data } = useActiveGroupSubscription(groupid);
-  const { onJoinFreeGroup } = useJoinFree(groupid);
+	const { data } = useActiveGroupSubscription(groupid);
+	const { onJoinFreeGroup } = useJoinFree(groupid);
 
-  if (!owner) {
-    if (data?.status === 200) {
-      return (
-        <GlassModal
-          trigger={
-            <Button className="w-full p-10" variant="ghost">
-              <p>Join ${data.subscription?.price}/Month</p>
-            </Button>
-          }
-          title="Join this group"
-          description="Pay now to join this community"
-        >
-          <StripeElements>
-            <JoinGroupPaymentForm groupid={groupid} />
-          </StripeElements>
-        </GlassModal>
-      );
-    }
-    return (
-      <Button onClick={onJoinFreeGroup} className="w-full p-10" variant="ghost">
-        Join now
-      </Button>
-    );
-  }
+	if (!owner) {
+		if (data?.status === 200) {
+			return (
+				<GlassModal
+					trigger={
+						<Button className="w-full p-10" variant="ghost">
+							<p>Join ${data.subscription?.price}/Month</p>
+						</Button>
+					}
+					title="Join this group"
+					description="Pay now to join this community"
+				>
+					<StripeElements>
+						<JoinGroupPaymentForm groupid={groupid} />
+					</StripeElements>
+				</GlassModal>
+			);
+		}
+		return (
+			<Button
+				onClick={onJoinFreeGroup}
+				className="w-full p-10"
+				variant="ghost"
+			>
+				Join now
+			</Button>
+		);
+	}
 
-  return (
-    <Button disabled={owner} className="w-full p-10" variant="ghost">
-      Owner
-    </Button>
-  );
+	return (
+		<Button disabled={owner} className="w-full p-10" variant="ghost">
+			Owner
+		</Button>
+	);
 };

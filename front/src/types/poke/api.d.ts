@@ -28,7 +28,7 @@
 
 // // /src/types/api.ts
 
-// import { Pokemon } from "@/types/Pokemon"; // Ensure correct import path
+// import { Pokemon } from "@/types/poke/Pokemon"; // Ensure correct import path
 
 // export interface SaveResultsRequestBody {
 //   trainerName: string;
@@ -56,7 +56,7 @@
 
 // /src/types/api.ts
 
-// import { Pokemon } from "@/types/Pokemon"; // Ensure correct import path
+// import { Pokemon } from "@/types/poke/Pokemon"; // Ensure correct import path
 
 // export interface SaveResultsRequestBody {
 // 	trainerName: string;
@@ -82,7 +82,7 @@
 // 	error?: string;
 // }
 
-import { Pokemon } from "@/types/Pokemon";
+import { Pokemon } from "@/types/poke/Pokemon";
 
 // export interface SaveResultsRequestBody {
 // 	trainerName: string;
@@ -99,7 +99,7 @@ import { Pokemon } from "@/types/Pokemon";
 // 	};
 // }
 
-// @/types/api.ts
+// @/types/poke/api.ts
 
 export interface SaveResultsRequestBody {
 	trainerName: string;

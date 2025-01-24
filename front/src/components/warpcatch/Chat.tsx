@@ -3,14 +3,14 @@
 import { FormEvent, useEffect, useRef, useState, useTransition } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-// import { askQuestion, Message } from "@/actions/warpcatch/askQuestion"
+// import { askQuestion, Message } from "@/actions/demonstrate/warpcatch/askQuestion"
 // import ChatMessage from "lucide-react";
 import { Loader2Icon } from "lucide-react";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { useUser } from "@clerk/nextjs";
 import { collection, orderBy, query } from "firebase/firestore";
-import { db } from "../../firebase";
-import { askQuestion } from "@/actions/warpcatch/askQuestion";
+import { db } from "@/config/warpcatch/firebase";
+import { askQuestion } from "@/actions/demonstrate/warpcatch/askQuestion";
 import ChatMessage from "./ChatMessage";
 import { useToast } from "@/hooks/use-toast";
 

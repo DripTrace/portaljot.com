@@ -1,4 +1,4 @@
-import { serviceAccount } from "@/api/merchandise/stripe/webhook";
+import { serviceAccount } from "@/app/api/merchandise/stripe/webhook/route";
 import { PrintfulClient } from "./printful-request";
 import axios from "axios";
 import * as admin from "firebase-admin";

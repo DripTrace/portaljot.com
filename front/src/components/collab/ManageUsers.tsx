@@ -10,7 +10,7 @@
 // } from "@/components/ui/dialog";
 // import { Button } from "@/components/ui/button";
 // import { useState, useTransition } from "react";
-// import { removeUserFromDocument } from "@/actions/collab/actions";
+// import { removeUserFromDocument } from "@/actions/feature/collab";
 // import { toast } from "sonner";
 // import { collectionGroup, query, where } from "firebase/firestore";
 // import { useUser } from "@clerk/nextjs";
@@ -117,7 +117,7 @@ import { toast } from "sonner";
 import { useSession } from "next-auth/react";
 import { useRoom } from "@liveblocks/react/suspense";
 import useOwner from "@/lib/collab/useOwner";
-import { removeUserFromDocument } from "@/actions/collab/actions"; // Your Prisma-based action
+import { removeUserFromDocument } from "@/actions/feature/collab"; // Your Prisma-based action
 // Define the membership type as returned by the API
 type Membership = {
 	userId: string;

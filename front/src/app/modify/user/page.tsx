@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { checkNextAuthSession } from "@/actions/modify/checkNextAuthSession";
+import { checkNextAuthSession } from "@/actions/demonstrate/portaljot/modify/checkNextAuthSession";
 import UserComponent from "@/components/modify/UserComponent";
 import GlassContent from "@/store/change/modify/GlassContent";
 

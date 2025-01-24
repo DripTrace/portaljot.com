@@ -1,4 +1,4 @@
-import { onLoginUser } from "@/actions/spread/auth";
+import { onLoginUser } from "@/actions/feature/spread/auth";
 import SideBar from "@/components/spread/sidebar";
 import { ChatProvider } from "@/context/spread/user-chat-context";
 import React from "react";

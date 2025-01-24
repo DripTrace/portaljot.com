@@ -3,7 +3,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import ErrorBoundary from "./ErrorBoundary";
-import { useClientSideRendering } from "@/clinicviews/hooks/useClientSideRendering";
+import { useClientSideRendering } from "@/hooks/clinicviews/useClientSideRendering";
 
 const ThreeDVisualizationInner = dynamic(
 	() => import("./ThreeDVisualizationInner"),

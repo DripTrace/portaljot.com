@@ -4,7 +4,6 @@ import { AMHRootState } from "@/store/clinicviews/access-mentalhealth/anAMHStore
 import { motion, useAnimation, useReducedMotion } from "framer-motion";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-// import { RootState } from "../store/store";
 
 const AnimatedBackground: React.FC = () => {
 	const someAMHControls = useAnimation();

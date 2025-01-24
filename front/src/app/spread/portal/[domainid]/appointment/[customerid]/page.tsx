@@ -1,7 +1,7 @@
 import {
 	onDomainCustomerResponses,
 	onGetAllDomainBookings,
-} from "@/actions/spread/appointment";
+} from "@/actions/feature/spread/appointment";
 import PortalForm from "@/components/spread/forms/portal/portal-form";
 import React from "react";
 

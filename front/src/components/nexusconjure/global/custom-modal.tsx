@@ -1,5 +1,5 @@
 "use client";
-import { useModal } from "@/providers/nexuxconjure/modal-provider";
+import { useModal } from "@/providers/nexusconjure/modal-provider";
 import React from "react";
 import {
 	Dialog,

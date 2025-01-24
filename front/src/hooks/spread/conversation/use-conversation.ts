@@ -4,13 +4,13 @@ import {
 	onOwnerSendMessage,
 	onRealTimeChat,
 	onViewUnReadMessages,
-} from "@/actions/spread/conversation";
+} from "@/actions/feature/spread/conversation";
 import { useChatContext } from "@/context/spread/user-chat-context";
 import { getMonthName, pusherClient } from "@/lib/spread/utils";
 import {
 	ChatBotMessageSchema,
 	ConversationSearchSchema,
-} from "@/schemas/spread/conversation.schema";
+} from "@/schema/spread/conversation.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";

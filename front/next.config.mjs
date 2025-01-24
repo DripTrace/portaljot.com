@@ -14,9 +14,9 @@ const withVanillaExtract = createVanillaExtractPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	onError: (error, errorInfo) => {
-		console.error("Global error occurred:", error, errorInfo);
-	},
+	// onError: (error, errorInfo) => {
+	// 	console.error("Global error occurred:", error, errorInfo);
+	// },
 	reactStrictMode: false,
 	i18n: {
 		locales: ["en", "ja"],
@@ -242,6 +242,11 @@ const nextConfig = {
 				hostname: "img.clerk.com",
 				pathname: "**",
 			},
+			{
+				protocol: "https",
+				hostname: "driptrace.github.io",
+				pathname: "**",
+			},
 		],
 	},
 	async rewrites() {
@@ -306,16 +311,13 @@ const nextConfig = {
 			},
 		];
 	},
-	swcMinify: true,
-	api: {
-		bodyParser: {
-			sizeLimit: "4.5mb",
-		},
-	},
+	// swcMinify: true,
+	// api: {
+	// 	bodyParser: {
+	// 		sizeLimit: "4.5mb",
+	// 	},
+	// },
 	distDir: "out",
-	images: {
-		domains: ["driptrace.github.io"],
-	},
 	output: "export",
 	// basePath: "/clinicviews_com",
 	// assetPrefix: "/clinicviews_com/",

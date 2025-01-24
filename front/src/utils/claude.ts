@@ -1,5 +1,5 @@
 import { HumanMessage } from "@langchain/core/messages";
-import { chatModel } from "../lib/client/anthropic";
+import { chatModel } from "@/lib/client/anthropic";
 
 export const summarizeWithClaude = async (
 	description: string,

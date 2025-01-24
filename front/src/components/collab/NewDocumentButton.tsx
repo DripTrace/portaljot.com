@@ -1,6 +1,6 @@
 "use client";
 
-import { createNewDocument } from "@/actions/collab/actions";
+import { createNewDocument } from "@/actions/feature/collab";
 import { Button } from "@/components/ui/button";
 import { useTransition } from "react";
 import { useRouter } from "next/navigation";

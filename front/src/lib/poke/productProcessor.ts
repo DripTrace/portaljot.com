@@ -3,8 +3,8 @@ import { JSONLoader } from "langchain/document_loaders/fs/json";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { MemoryVectorStore } from "langchain/vectorstores/memory";
 import { GoogleGenerativeAIEmbeddings } from "@langchain/google-genai";
-import { stripMarkdownCodeBlocks } from "@/lib/poke/utils";
-import logger from "@/lib/poke/logger";
+import { stripMarkdownCodeBlocks } from "@/lib/poke/poke/utils";
+import logger from "@/lib/poke/poke/logger";
 import { v4 as uuidv4 } from "uuid"; // To generate unique IDs
 
 export interface ProcessedProduct {

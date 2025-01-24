@@ -1,41 +1,53 @@
-export default async function fetchWithAutoRetry(
-    fetcher: () => Promise<any>,
-    maxRetryCount: number
+import { NextRequest, NextResponse } from "next/server";
+
+export async function fetchWithAutoRetry(
+	fetcher: () => Promise<any>,
+	maxRetryCount: number
 ): Promise<any> {
-    return new Promise((resolve, reject) => {
-        let retries = 0;
+	return new Promise((resolve, reject) => {
+		let retries = 0;
 
-        const caller = () => {
-            fetcher()
-                .then((data) => {
-                    resolve(data);
-                })
-                .catch((error) => {
-                    if (retries < maxRetryCount) {
-                        retries++;
-                        console.log(`Retrying... Attempt ${retries}`);
-                        caller();
-                    } else {
-                        reject(error);
-                    }
-                });
-        };
+		const retryCaller = async () => {
+			try {
+				const data = await fetcher();
+				resolve(data);
+			} catch (error) {
+				if (retries < maxRetryCount) {
+					retries++;
+					console.log(`Retrying... Attempt ${retries}`);
+					retryCaller();
+				} else {
+					reject(error);
+				}
+			}
+		};
 
-        caller();
-    });
+		retryCaller();
+	});
 }
 
-// Example usage:
-const fetchGithubProfile = async () => {
-    const rawResponse = await fetch("https://api.github.com/users/russpalms");
-    if (!rawResponse.ok) {
-        throw new Error(`HTTP error! status: ${rawResponse.status}`);
-    }
-    const jsonResponse = await rawResponse.json();
-    console.log(jsonResponse);
-    return jsonResponse;
-};
+// Example usage within Next.js API Route
+export async function GET(req: NextRequest) {
+	const fetchGithubProfile = async () => {
+		const response = await fetch("https://api.github.com/users/russpalms");
 
-fetchWithAutoRetry(fetchGithubProfile, 5)
-    .then((data) => console.log("Fetched data:", data))
-    .catch((error) => console.error("Failed after retries:", error));
+		if (!response.ok) {
+			throw new Error(`HTTP error! status: ${response.status}`);
+		}
+
+		const data = await response.json();
+		return data;
+	};
+
+	try {
+		const data = await fetchWithAutoRetry(fetchGithubProfile, 5);
+		console.log("Fetched data:", data);
+		return NextResponse.json({ success: true, data });
+	} catch (error: any) {
+		console.error("Failed after retries:", error);
+		return NextResponse.json(
+			{ success: false, error: error.message },
+			{ status: 500 }
+		);
+	}
+}

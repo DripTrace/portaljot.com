@@ -1,6 +1,6 @@
 "use client";
 
-import client from "@/graphql/commune/apolloClient";
+import client from "@/config/commune/apolloClient";
 import { ApolloProvider } from "@apollo/client";
 
 const ApolloProviderWrapper = ({ children }: { children: React.ReactNode }) => {

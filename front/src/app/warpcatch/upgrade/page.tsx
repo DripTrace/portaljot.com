@@ -1,7 +1,7 @@
 "use client";
 
-import { createCheckoutSession } from "@/actions/warpcatch/createCheckoutSession";
-import { createStripePortal } from "@/actions/warpcatch/createStripePortal";
+import { createCheckoutSession } from "@/actions/demonstrate/warpcatch/createCheckoutSession";
+import { createStripePortal } from "@/actions/demonstrate/warpcatch/createStripePortal";
 import { Button } from "@/components/ui/button";
 import useSubscription from "@/hooks/warpcatch/useSubscription";
 import getStripe from "@/lib/warpcatch/stripe-js";

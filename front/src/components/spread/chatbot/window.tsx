@@ -1,4 +1,4 @@
-import { ChatBotMessageProps } from "@/schemas/spread/conversation.schema";
+import { ChatBotMessageProps } from "@/schema/spread/conversation.schema";
 import React, { forwardRef } from "react";
 import { UseFormRegister } from "react-hook-form";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";

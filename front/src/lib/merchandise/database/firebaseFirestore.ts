@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { FirebaseAdapter } from "./firebase-adapter";
-import { firebaseConfig } from "@/api/merchandise/keys/firebase";
+import { firebaseConfig } from "@/app/api/merchandise/keys/firebase";
 
 export async function connectToFirebase() {
 	const firestoreConnect = await getFirestore(initializeApp(firebaseConfig));

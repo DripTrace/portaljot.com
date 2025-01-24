@@ -11,7 +11,7 @@ import Section from "@/components/spread/section-label";
 import FormGenerator from "../form-generator";
 import { Button } from "@/components/ui/button";
 import { Loader } from "@/components/spread/loader";
-import Accordion from "@/components/accordian";
+import Accordion from "@/components/spread/accordian";
 
 type Props = {
 	id: string;

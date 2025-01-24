@@ -1,4 +1,4 @@
-import { onGetPaymentConnected } from "@/actions/spread/settings";
+import { onGetPaymentConnected } from "@/actions/feature/spread/settings";
 import InfoBar from "@/components/spread/infobar";
 import IntegrationsList from "@/components/spread/integrations";
 

@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState, useCallback, useRef } from "react";
-import WebPhone, { WebPhoneOptions } from "@/utils/cliniciviews/ref/web/src";
+import WebPhone, { WebPhoneOptions } from "@/utils/clinicviews/ref/web/src";
 import {
 	WebPhoneSession,
 	WebPhoneInvitation,
-} from "@/utils/cliniciviews/ref/web/src/session";
-import { WebPhoneUserAgent } from "@/utils/cliniciviews/ref/web/src/userAgent";
+} from "@/utils/clinicviews/ref/web/src/session";
+import { WebPhoneUserAgent } from "@/utils/clinicviews/ref/web/src/userAgent";
 
 interface SipComponentProps {
 	onHangup: () => void;

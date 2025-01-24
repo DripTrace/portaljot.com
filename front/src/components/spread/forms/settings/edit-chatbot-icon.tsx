@@ -1,5 +1,5 @@
 import Section from "@/components/spread/section-label";
-import UploadButton from "@/components/upload-button";
+import UploadButton from "@/components/spread/upload-button";
 import { BotIcon } from "@/components/spread/icons/bot-icon";
 
 import Image from "next/image";

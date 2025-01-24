@@ -1,4 +1,4 @@
-import { onGetAllAccountDomains } from "@/actions/spread/settings";
+import { onGetAllAccountDomains } from "@/actions/feature/spread/settings";
 import ConversationMenu from "@/components/conversations";
 import Messenger from "@/components/conversations/messenger";
 import InfoBar from "@/components/spread/infobar";

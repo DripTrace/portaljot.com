@@ -8,7 +8,7 @@
 
 // 	try {
 // 		const response = await fetch(
-// 			`https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`
+// 			`https://pokeapi.co/api/poke/v2/pokemon/${name.toLowerCase()}`
 // 		);
 // 		if (!response.ok) {
 // 			return NextResponse.json(
@@ -29,7 +29,7 @@
 // 	}
 // }
 
-// /app/api/pokemon/[name]/route.ts
+// /app/api/poke/pokemon/[name]/route.ts
 
 import { NextResponse } from "next/server";
 
@@ -63,7 +63,7 @@ export async function GET(
 	try {
 		// Fetch Pokémon data
 		const pokemonResponse = await fetch(
-			`https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`
+			`https://pokeapi.co/api/poke/v2/pokemon/${name.toLowerCase()}`
 		);
 		if (!pokemonResponse.ok) {
 			return NextResponse.json(

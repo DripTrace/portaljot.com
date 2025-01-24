@@ -290,8 +290,8 @@
 // }
 //  GET /api/modify/auth/callback/google?state=OL5W7pKyqOQ_Ar2NqPSEmPsvzuAkuQ2A40o9HoAoGjk&code=4%2F0AVG7fiSzdpANAgcts_pEQ4YkitSA5CyfiBVVX3ycb4CtVp1C070C0fo61wVBiXyOI91e-g&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&authuser=0&prompt=consent 302 in 4170ms
 //  GET /modify/home 200 in 267ms
-//  GET /favicon.ico 200 in 83ms
-//  GET /favicon.ico 200 in 22ms
+//  GET /favicon/default/favicon.ico 200 in 83ms
+//  GET /favicon/default/favicon.ico 200 in 22ms
 // DEFINED URL >>>> http://127.0.0.1:420/modify/home BASE URL >>>> http://127.0.0.1:420
 // DEBUG: JWT Callback - token: {
 //   name: 'Loma Linda Psychiatric Medical Group',

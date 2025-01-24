@@ -1,8 +1,8 @@
-// // /src/app/api/get-audio/[id]/route.ts
+// // /src/app/api/poke/get-audio/[id]/route.ts
 
 // import { prisma } from "@/lib/client/prisma";
 // import { NextRequest, NextResponse } from "next/server";
-// // import { prisma } from '../../../../../lib/prisma';
+// // import { prisma } from '../../../../@/lib/prisma';
 
 // export async function GET(
 // 	request: NextRequest,
@@ -49,11 +49,11 @@
 // 	}
 // }
 
-// /src/app/api/get-audio/[id]/route.ts
+// /src/app/api/poke/get-audio/[id]/route.ts
 
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/client/prisma";
-import { GetAudioResponse } from "@/types/api";
+import { GetAudioResponse } from "@/types/poke/api";
 
 export async function GET(
 	request: NextRequest,

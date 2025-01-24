@@ -7,7 +7,7 @@ import {
 	savePosts,
 	saveTrigger,
 	updateAutomationName,
-} from "@/actions/direct/automations";
+} from "@/actions/feature/direct/automations";
 import { useMutationData } from "./use-mutation-data";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";

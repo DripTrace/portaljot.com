@@ -4,7 +4,7 @@ import useSubscription from "@/hooks/warpcatch/useSubscription";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Loader2Icon, StarIcon } from "lucide-react";
-import { createStripePortal } from "@/actions/warpcatch/createStripePortal";
+import { createStripePortal } from "@/actions/demonstrate/warpcatch/createStripePortal";
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 

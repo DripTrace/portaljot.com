@@ -1,4 +1,4 @@
-import { PokeballProps } from "@/lib/constants";
+import { PokeballProps } from "@/lib/poke/constants";
 
 export const Pokeball = ({ isOpen, children, imageSize }: PokeballProps) => (
 	<div

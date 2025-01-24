@@ -1,8 +1,5 @@
-// /src/app/api/pokemon/generate-team-summary/route.ts
-
-import { generateTeamSummary } from "@/actions/generateTeamSummary";
+import { generateTeamSummary } from "@/actions/feature/pokegenerateTeamSummary";
 import { NextRequest, NextResponse } from "next/server";
-// import { generateTeamSummary } from '@/actions/generateTeamSummary';
 
 export async function POST(request: NextRequest) {
 	const { prompt } = await request.json();

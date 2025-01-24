@@ -20,7 +20,7 @@ import Avatar from "@/components/commune/Avatar";
 import { toast } from "sonner";
 import Characteristic from "@/components/commune/Characteristic";
 import { notFound, redirect } from "next/navigation";
-import { BASE_URL } from "@/graphql/commune/apolloClient";
+import { BASE_URL } from "@/config/commune/apolloClient";
 
 function EditChatBot({ params: { id } }: { params: { id: string } }) {
 	const [newCharacteristic, setNewCharacteristic] = useState<string>("");

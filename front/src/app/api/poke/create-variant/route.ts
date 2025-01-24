@@ -1,10 +1,10 @@
-// src/app/api/create-variant/route.ts
+// src/app/api/poke/create-variant/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import axios from "axios";
 import { PrismaClient } from "@prisma/client";
 import { v4 as uuidv4 } from "uuid";
 import Stripe from "stripe";
-import { getPrintfulClient } from "@/lib/printful/printful-auth";
+import { getPrintfulClient } from "@/lib/poke/printful/printful-auth";
 
 const prisma = new PrismaClient();
 

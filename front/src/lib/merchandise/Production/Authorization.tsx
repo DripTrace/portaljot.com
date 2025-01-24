@@ -647,7 +647,7 @@
 // // // // // import { signIn } from "next-auth/react";
 // // // // // import { loadStripe, TokenResult } from "@stripe/stripe-js";
 // // // // // import { v4 as uuidv4 } from "uuid";
-// // // // // import { getSessionAction } from "@/actions/merchandise/getSessionAction"; // Import the custom session action
+// // // // // import { getSessionAction } from "@/actions/feature/merchandise/getSessionAction"; // Import the custom session action
 
 // // // // // const stripePromise = loadStripe(`${process.env.stripe_public_key}`);
 
@@ -1193,7 +1193,7 @@
 // // // import { useRouter } from "next/navigation";
 // // // import { loadStripe, TokenResult } from "@stripe/stripe-js";
 // // // import { v4 as uuidv4 } from "uuid";
-// // // import { getSessionAction } from "@/actions/merchandise/getSessionAction"; // Import the custom session action
+// // // import { getSessionAction } from "@/actions/feature/merchandise/getSessionAction"; // Import the custom session action
 
 // // // const stripePromise = loadStripe(`${process.env.stripe_public_key}`);
 
@@ -1502,7 +1502,7 @@
 
 // // import { useRef, useState } from "react";
 // // import { useRouter } from "next/navigation";
-// // import { getSessionAction } from "@/actions/merchandise/getSessionAction";
+// // import { getSessionAction } from "@/actions/feature/merchandise/getSessionAction";
 
 // // interface AuthorizationProps {
 // //     closeModal: () => void;
@@ -1677,7 +1677,7 @@
 
 // import { useRef, useState } from "react";
 // import { useRouter } from "next/navigation";
-// import { getSessionAction } from "@/actions/merchandise/getSessionAction";
+// import { getSessionAction } from "@/actions/feature/merchandise/getSessionAction";
 
 // interface AuthorizationProps {
 //     closeModal: () => void;
@@ -2136,141 +2136,141 @@
 
 import { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { getSessionAction } from "@/actions/merchandise/getSessionAction";
+import { getSessionAction } from "@/actions/feature/merchandise/getSessionAction";
 
 interface AuthorizationProps {
-    closeModal: () => void;
+	closeModal: () => void;
 }
 
 const Authorization = ({ closeModal }: AuthorizationProps) => {
-    const emailInputRef = useRef<HTMLInputElement | null>(null);
-    const passwordInputRef = useRef<HTMLInputElement | null>(null);
+	const emailInputRef = useRef<HTMLInputElement | null>(null);
+	const passwordInputRef = useRef<HTMLInputElement | null>(null);
 
-    const [csrfToken, setCsrfToken] = useState<string | null>(null);
-    const [userResponse, setUserResponse] = useState<string>("");
-    const [isLogin, setIsLogin] = useState(true);
-    const router = useRouter();
+	const [csrfToken, setCsrfToken] = useState<string | null>(null);
+	const [userResponse, setUserResponse] = useState<string>("");
+	const [isLogin, setIsLogin] = useState(true);
+	const router = useRouter();
 
-    useEffect(() => {
-        // Fetch CSRF token
-        async function fetchCsrfToken() {
-            const response = await fetch("/api/merchandise/api/auth/csrf");
-            const data = await response.json();
-            setCsrfToken(data.csrfToken);
-        }
+	useEffect(() => {
+		// Fetch CSRF token
+		async function fetchCsrfToken() {
+			const response = await fetch("/api/merchandise/api/auth/csrf");
+			const data = await response.json();
+			setCsrfToken(data.csrfToken);
+		}
 
-        fetchCsrfToken();
-    }, []);
+		fetchCsrfToken();
+	}, []);
 
-    async function submitHandler(e: React.FormEvent) {
-        e.preventDefault();
+	async function submitHandler(e: React.FormEvent) {
+		e.preventDefault();
 
-        const enteredEmail = emailInputRef.current?.value as string;
-        const enteredPassword = passwordInputRef.current?.value as string;
+		const enteredEmail = emailInputRef.current?.value as string;
+		const enteredPassword = passwordInputRef.current?.value as string;
 
-        if (!csrfToken) {
-            setUserResponse("CSRF token not found. Please try again.");
-            return;
-        }
+		if (!csrfToken) {
+			setUserResponse("CSRF token not found. Please try again.");
+			return;
+		}
 
-        try {
-            const response = await fetch(
-                "/api/merchandise/api/auth/callback/credentials",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        csrfToken,
-                        email: enteredEmail,
-                        password: enteredPassword,
-                    }),
-                }
-            );
+		try {
+			const response = await fetch(
+				"/api/merchandise/api/auth/callback/credentials",
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+						csrfToken,
+						email: enteredEmail,
+						password: enteredPassword,
+					}),
+				}
+			);
 
-            if (!response.ok) {
-                throw new Error("Authentication failed");
-            }
+			if (!response.ok) {
+				throw new Error("Authentication failed");
+			}
 
-            const session = await getSessionAction();
+			const session = await getSessionAction();
 
-            if (session) {
-                closeModal();
-                router.push("/merchandise/profile");
-            } else {
-                setUserResponse(
-                    "Authentication failed, session not established."
-                );
-            }
-        } catch (error) {
-            setUserResponse("Authentication failed, please try again.");
-        }
-    }
+			if (session) {
+				closeModal();
+				router.push("/merchandise/profile");
+			} else {
+				setUserResponse(
+					"Authentication failed, session not established."
+				);
+			}
+		} catch (error) {
+			setUserResponse("Authentication failed, please try again.");
+		}
+	}
 
-    function switchAuthModeHandler() {
-        setIsLogin((prevState) => !prevState);
-    }
+	function switchAuthModeHandler() {
+		setIsLogin((prevState) => !prevState);
+	}
 
-    return (
-        <section
-            key="loginModal"
-            className="relative top-[0%] left-0 flex justify-center align-center"
-        >
-            <div className="absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]">
-                <div className="relative top-0 left-0 vs:w-[15em] xs:w-[20em] mobile-l:w-[21em] tablet:w-[22em] laptop:-w-[23em] laptop-l:w-[24em] 2xl:w-[25em min-h-[25em] bg-gray-300/90 dark:bg-gray-800/90 border rounded-[0.625em] flex justify-center align-center backdrop-blur-[5px] shadow-glass3 glass-container border-white/50">
-                    <div className="form-body">
-                        <button onClick={closeModal}>Close Modal</button>
-                        <h2 className="form-header">
-                            {isLogin ? "Login " : "Register "} Form
-                        </h2>
-                        <form onSubmit={submitHandler}>
-                            <p>{userResponse}</p>
+	return (
+		<section
+			key="loginModal"
+			className="relative top-[0%] left-0 flex justify-center align-center"
+		>
+			<div className="absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]">
+				<div className="relative top-0 left-0 vs:w-[15em] xs:w-[20em] mobile-l:w-[21em] tablet:w-[22em] laptop:-w-[23em] laptop-l:w-[24em] 2xl:w-[25em min-h-[25em] bg-gray-300/90 dark:bg-gray-800/90 border rounded-[0.625em] flex justify-center align-center backdrop-blur-[5px] shadow-glass3 glass-container border-white/50">
+					<div className="form-body">
+						<button onClick={closeModal}>Close Modal</button>
+						<h2 className="form-header">
+							{isLogin ? "Login " : "Register "} Form
+						</h2>
+						<form onSubmit={submitHandler}>
+							<p>{userResponse}</p>
 
-                            <div className="inputBox">
-                                <input
-                                    className="input input-glass-container"
-                                    type="email"
-                                    placeholder="E-Mail"
-                                    id="email"
-                                    required
-                                    ref={emailInputRef}
-                                />
-                            </div>
-                            <div className="inputBox">
-                                <input
-                                    className="input input-glass-container"
-                                    type="password"
-                                    placeholder="Password"
-                                    id="password"
-                                    required
-                                    ref={passwordInputRef}
-                                />
-                            </div>
+							<div className="inputBox">
+								<input
+									className="input input-glass-container"
+									type="email"
+									placeholder="E-Mail"
+									id="email"
+									required
+									ref={emailInputRef}
+								/>
+							</div>
+							<div className="inputBox">
+								<input
+									className="input input-glass-container"
+									type="password"
+									placeholder="Password"
+									id="password"
+									required
+									ref={passwordInputRef}
+								/>
+							</div>
 
-                            <div className="inputBox">
-                                <input
-                                    className="input input-glass-container text-black dark:text-[#4C8EFF] bg-gray-800/40 dark:bg-gray-300/40 max-w-[10.25em] cursor-pointer mb-[1.25em] font-semibold"
-                                    type="submit"
-                                    value={isLogin ? "Login" : "Register"}
-                                />
-                            </div>
-                            <p className="mt-[0.3125em] text-gray-800 dark:text-gray-300">
-                                <a
-                                    className="font-semibold cursor-pointer"
-                                    onClick={switchAuthModeHandler}
-                                >
-                                    {isLogin
-                                        ? "Create new account"
-                                        : "Sign in with existing account"}
-                                </a>
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+							<div className="inputBox">
+								<input
+									className="input input-glass-container text-black dark:text-[#4C8EFF] bg-gray-800/40 dark:bg-gray-300/40 max-w-[10.25em] cursor-pointer mb-[1.25em] font-semibold"
+									type="submit"
+									value={isLogin ? "Login" : "Register"}
+								/>
+							</div>
+							<p className="mt-[0.3125em] text-gray-800 dark:text-gray-300">
+								<a
+									className="font-semibold cursor-pointer"
+									onClick={switchAuthModeHandler}
+								>
+									{isLogin
+										? "Create new account"
+										: "Sign in with existing account"}
+								</a>
+							</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
 };
 
 export default Authorization;

@@ -25,7 +25,7 @@
 // 	}
 // }
 
-// /app/api/get-pokemon-png/route.ts
+// /app/api/poke/get-pokemon-png/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/client/prisma";
 

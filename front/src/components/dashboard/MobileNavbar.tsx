@@ -1,8 +1,8 @@
 import Link from "next/link";
 import NavLinks, { NonUserLinks } from "./NavLinks";
 import BrandLink from "./BrandLink";
-import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
-import { Button } from "../ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
 import { useAuth } from "./authProvider";
 import { Menu } from "lucide-react";
 

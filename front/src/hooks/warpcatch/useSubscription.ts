@@ -3,7 +3,7 @@
 import { useUser } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
 import { useCollection, useDocument } from "react-firebase-hooks/firestore";
-import { db } from "../../firebase";
+import { db } from "@/config/warpcatch/firebase";
 import { collection, doc } from "firebase/firestore";
 
 export const PRO_LIMIT = 100;

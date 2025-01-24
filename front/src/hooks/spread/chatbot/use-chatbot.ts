@@ -1,9 +1,12 @@
-import { onAiChatBotAssistant, onGetCurrentChatBot } from "@/actions/bot";
+import {
+	onAiChatBotAssistant,
+	onGetCurrentChatBot,
+} from "@/actions/feature/spread/bot";
 import { postToParent, pusherClient } from "@/lib/spread/utils";
 import {
 	ChatBotMessageProps,
 	ChatBotMessageSchema,
-} from "@/schemas/spread/conversation.schema";
+} from "@/schema/spread/conversation.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useRef, useState } from "react";
 import { UploadClient } from "@uploadcare/upload-client";

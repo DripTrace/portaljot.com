@@ -34,8 +34,8 @@ import {
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
 import { useModal } from "@/providers/nexusconjure/modal-provider";
-import CustomModal from "../../global/custom-modal";
-import SubAccountDetails from "../../forms/subaccount-details";
+import CustomModal from "@/components/nexusconjure/global/custom-modal";
+import SubAccountDetails from "@/components/nexusconjure/forms/subaccount-details";
 import { Separator } from "@/components/ui/separator";
 import { icons } from "@/utils/nexusconjure/constants";
 

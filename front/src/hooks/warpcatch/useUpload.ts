@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { db, storage } from "../../firebase";
+import { db, storage } from "@/config/warpcatch/firebase";
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
-import { generateEmbeddings } from "@/actions/warpcatch/generateEmbeddings";
+import { generateEmbeddings } from "@/actions/demonstrate/warpcatch/generateEmbeddings";
 
 export enum StatusText {
 	UPLOADING = "Uploading file . . .",

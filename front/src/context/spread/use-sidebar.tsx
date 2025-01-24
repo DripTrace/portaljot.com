@@ -7,7 +7,7 @@ import { useChatContext } from "./user-chat-context";
 import {
 	onGetConversationMode,
 	onToggleRealtime,
-} from "@/actions/spread/conversation";
+} from "@/actions/feature/spread/conversation";
 import { useClerk } from "@clerk/nextjs";
 
 const useSideBar = () => {

@@ -17,7 +17,7 @@ export async function initializeAccessCode(authorizationCode: string) {
 				client_id: clientId,
 				client_secret: clientSecret,
 				code: authorizationCode,
-				redirect_uri: `${process.env.NEXT_PUBLIC_BASE_URL_POKE}/api/printful/callback`,
+				redirect_uri: `${process.env.NEXT_PUBLIC_BASE_URL_POKE}/api/poke/printful/callback`,
 			}
 		);
 

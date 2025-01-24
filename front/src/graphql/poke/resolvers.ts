@@ -1,7 +1,7 @@
 // // // // src/graphql/resolvers.ts
 
 // // // import { PrismaClient } from '@prisma/client';
-// // // import { ProductCatalogProcessor, ProcessedProduct } from '@/lib/productProcessor';
+// // // import { ProductCatalogProcessor, ProcessedProduct } from '@/lib/poke/productProcessor';
 // // // import { IResolvers } from '@graphql-tools/utils';
 // // // import { GraphQLResolveInfo } from 'graphql';
 
@@ -129,7 +129,7 @@
 // // import {
 // // 	ProductCatalogProcessor,
 // // 	ProcessedProduct,
-// // } from "@/lib/productProcessor";
+// // } from "@/lib/poke/productProcessor";
 
 // // // Define resolver arguments types
 // // interface ProductsArgs {
@@ -327,8 +327,8 @@
 // import {
 // 	ProductCatalogProcessor,
 // 	ProcessedProduct,
-// } from "@/lib/productProcessor";
-// import logger from "@/lib/logger";
+// } from "@/lib/poke/productProcessor";
+// import logger from "@/lib/poke/logger";
 
 // // Define resolver arguments types
 // interface ProductsArgs {

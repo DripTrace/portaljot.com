@@ -1,4 +1,4 @@
-// src/app/api/printful/init/route.ts
+// src/app/api/poke/printful/init/route.ts
 
 import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";

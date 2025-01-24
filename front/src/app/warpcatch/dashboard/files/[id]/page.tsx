@@ -1,5 +1,5 @@
 import { auth } from "@clerk/nextjs/server";
-import { adminDb } from "../../../../../firebaseAdmin";
+import { adminDb } from "../../../@/config/warpcatch/firebaseAdmin";
 import PDFView from "@/components/warpcatch/PDFView";
 import Chat from "@/components/warpcatch/Chat";
 

@@ -1,4 +1,4 @@
-import { onGetSubscriptionPlan } from "@/actions/spread/settings";
+import { onGetSubscriptionPlan } from "@/actions/feature/spread/settings";
 import React from "react";
 import Section from "../section-label";
 import { Card, CardContent, CardDescription } from "@/components/ui/card";

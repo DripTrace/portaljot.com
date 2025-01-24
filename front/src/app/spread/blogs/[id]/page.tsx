@@ -1,4 +1,4 @@
-import { onGetBlogPost } from "@/actions/spread/landing";
+import { onGetBlogPost } from "@/actions/feature/spread/landing";
 import { CardDescription } from "@/components/ui/card";
 import { getMonthName } from "@/lib/spread/utils";
 import parse from "html-react-parser";

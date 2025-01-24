@@ -1,4 +1,4 @@
-import { onAuthenticatedUser } from "@/actions/auth";
+import { onAuthenticatedUser } from "@/actions/feature/school/auth";
 import { prisma as client } from "@/lib/client/prisma";
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";

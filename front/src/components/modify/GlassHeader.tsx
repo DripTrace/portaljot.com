@@ -15,7 +15,7 @@ import { VscSettingsGear } from "react-icons/vsc";
 // import { FaPenFancy } from "react-icons/fa";
 import { MdPrint } from "react-icons/md";
 import { useGlassModifyUserContext } from "@/store/change/modify/GlassUserContext";
-import { checkNextAuthSession } from "@/actions/modify/checkNextAuthSession";
+import { checkNextAuthSession } from "@/actions/demonstrate/portaljot/modify/checkNextAuthSession";
 import { Session } from "next-auth";
 import PortalJotBlack from "../logo/PortalJotBlack";
 import PortalJotWhite from "../logo/PortalJotWhite";

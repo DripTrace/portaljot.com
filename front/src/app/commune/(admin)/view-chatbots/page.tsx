@@ -885,7 +885,7 @@
 
 // import Avatar from "@/components/Avatar";
 // import { Button } from "@/components/ui/button";
-// import client, { BASE_URL } from "@/graphql/commune/apolloClient";
+// import client, { BASE_URL } from "@/config/commune/apolloClient";
 // import { GET_CHATBOTS_BY_USER } from "@/graphql/commune/queries/queries";
 // import { serverClient } from "@/lib/server/serverClient";
 // import {

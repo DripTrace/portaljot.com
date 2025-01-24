@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Provider } from "react-redux";
-import { store } from "../@/store/clinicviews/store";
+import { store } from "@/store/clinicviews/store";
 import Header from "./Header";
 import Footer from "./Footer";
 import ClientLayoutContent from "./ClientLayoutContent";

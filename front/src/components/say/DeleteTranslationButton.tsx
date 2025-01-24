@@ -2,7 +2,7 @@
 
 import { TrashIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import deleteTranslation from "@/actions/say/deleteTranslation";
+import deleteTranslation from "@/actions/feature/say/deleteTranslation";
 
 function DeleteTranslationButton({ id }: { id: string }) {
 	const deleteTranslationAction = deleteTranslation.bind(null, id);

@@ -1,4 +1,4 @@
-// // // src/app/api/mockup/route.ts
+// // // src/app/api/poke/mockup/route.ts
 
 // // import { NextRequest, NextResponse } from 'next/server';
 // // import axios from 'axios';
@@ -377,9 +377,9 @@
 //     get: (url: string) => Promise<{ result: MockupTaskResult | string }>; // Allow for string or MockupTaskResult
 // }
 
-// // /app/api/mockup/route.ts
+// // /app/api/poke/mockup/route.ts
 // import { NextRequest, NextResponse } from "next/server";
-// import { getPrintfulClient } from "@/lib/printful/printful-auth";
+// import { getPrintfulClient } from "@/lib/poke/printful/printful-auth";
 // import { prisma } from "@/lib/client/prisma";
 
 // async function waitForMockupTask(client: PrintfulClient, taskId: number, maxAttempts = 10) {

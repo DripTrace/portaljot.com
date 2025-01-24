@@ -5,7 +5,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ProductCard from "./ProductCard";
-import { Variant } from "@/lib/constants";
+import { Variant } from "@/lib/poke/constants";
 
 export default function ProductList() {
 	const [variants, setVariants] = useState<Variant[]>([]);
@@ -14,7 +14,7 @@ export default function ProductList() {
 	useEffect(() => {
 		async function fetchVariants() {
 			try {
-				const response = await axios.get("/api/products");
+				const response = await axios.get("/api/poke/products");
 				const allVariants: Variant[] = response.data.flatMap(
 					(product: { variants: Variant[] }) => product.variants
 				);

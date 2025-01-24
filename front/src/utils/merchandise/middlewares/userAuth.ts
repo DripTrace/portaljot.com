@@ -1,25 +1,43 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextRequest, NextResponse } from "next/server";
 import { NextHandler } from "next-connect";
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/app/api/modify/auth/route";
 import { ExtendedSession } from "@/types/merchandise/ExtendedSession";
 
-interface ExtendedRequest extends NextApiRequest {
-    session?: ExtendedSession | null;
+interface ExtendedRequest extends NextRequest {
+	session?: ExtendedSession | null;
 }
 
 const userAuth = async (
-    req: ExtendedRequest,
-    res: NextApiResponse,
-    next: NextHandler
+	req: ExtendedRequest,
+	res: NextResponse,
+	next: NextHandler
 ) => {
-    req.session = await getSession({ req });
-    if (!req.session) {
-        return res.status(403).json({
-            ok: false,
-            message: `User authentication required.`,
-        });
-    }
-    return next();
+	try {
+		const session = await getServerSession(authOptions);
+
+		if (!session) {
+			return res.json(
+				{
+					ok: false,
+					message: "User authentication required.",
+				},
+				{ status: 403 }
+			);
+		}
+
+		req.session = session as ExtendedSession;
+		next();
+	} catch (error) {
+		console.error("Authentication middleware error:", error);
+		return res.json(
+			{
+				ok: false,
+				message: "Internal server error during authentication.",
+			},
+			{ status: 500 }
+		);
+	}
 };
 
 export default userAuth;

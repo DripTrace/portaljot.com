@@ -1,5 +1,5 @@
 // // // // import { NextRequest, NextResponse } from "next/server";
-// // // // import { convertFileToBase64 } from "@/lib/base64-utils";
+// // // // import { convertFileToBase64 } from "@/lib/poke/base64-utils";
 
 // // // // interface PokemonData {
 // // // // 	name: string;
@@ -146,10 +146,10 @@
 // // // // 	}
 // // // // }
 
-// // // // File: src/app/api/generate-pokemon-svg/route.ts
+// // // // File: src/app/api/poke/generate-pokemon-svg/route.ts
 
 // // // // import { NextRequest, NextResponse } from "next/server";
-// // // // import { convertFileToBase64 } from "@/lib/base64-utils";
+// // // // import { convertFileToBase64 } from "@/lib/poke/base64-utils";
 
 // // // // interface PokemonData {
 // // // // 	name: string;
@@ -290,7 +290,7 @@
 // // // // }
 
 // // // import { NextRequest, NextResponse } from "next/server";
-// // // import { convertFileToBase64 } from "@/lib/base64-utils";
+// // // import { convertFileToBase64 } from "@/lib/poke/base64-utils";
 
 // // // interface PokemonData {
 // // // 	name: string;
@@ -437,7 +437,7 @@
 // // // }
 
 // // import { NextRequest, NextResponse } from "next/server";
-// // import { convertFileToBase64 } from "@/lib/base64-utils";
+// // import { convertFileToBase64 } from "@/lib/poke/base64-utils";
 
 // // interface PokemonData {
 // // 	name: string;
@@ -608,7 +608,7 @@
 // // }
 
 // import { NextRequest, NextResponse } from "next/server";
-// import { convertFileToBase64 } from "@/lib/base64-utils";
+// import { convertFileToBase64 } from "@/lib/poke/base64-utils";
 
 // interface PokemonData {
 // 	name: string;
@@ -782,8 +782,8 @@
 // }
 
 import { NextRequest, NextResponse } from "next/server";
-// import { convertFileToBase64 } from "@/lib/base64-utils";
-import { PokemonData } from "@/lib/constants";
+// import { convertFileToBase64 } from "@/lib/poke/base64-utils";
+import { PokemonData } from "@/lib/poke/constants";
 
 export async function POST(req: NextRequest) {
 	try {
@@ -886,8 +886,8 @@ export async function POST(req: NextRequest) {
                     .trait { font-size: ${traitSize}px; }
                 </style>
                 <path id="archPath" d="M ${svgSize / 4} ${140 * dpiScale} Q ${
-			svgSize / 2
-		} ${100 * dpiScale}, ${(3 * svgSize) / 4} ${140 * dpiScale}" />
+					svgSize / 2
+				} ${100 * dpiScale}, ${(3 * svgSize) / 4} ${140 * dpiScale}" />
             </defs>
 
             <text text-anchor="middle" class="pokemon-name">
@@ -897,8 +897,8 @@ export async function POST(req: NextRequest) {
             </text>
 
             <image href="${pixelatedOg}" x="${(svgSize - imageSize) / 2}" y="${
-			160 * dpiScale
-		}" width="${imageSize}" height="${imageSize}" />
+				160 * dpiScale
+			}" width="${imageSize}" height="${imageSize}" />
 
             ${descriptionLines
 				.map(
@@ -913,11 +913,11 @@ export async function POST(req: NextRequest) {
 				.join("")}
 
             <g transform="translate(${svgSize / 2 - 150 * dpiScale}, ${
-			svgSize - 180 * dpiScale
-		})">
+				svgSize - 180 * dpiScale
+			})">
                 <svg width="${40 * dpiScale}" height="${
-			40 * dpiScale
-		}" viewBox="0 0 576 512">
+					40 * dpiScale
+				}" viewBox="0 0 576 512">
                     ${getRankIconSVG(index)}
                 </svg>
                 <text x="${50 * dpiScale}" y="${28 * dpiScale}" class="rank">

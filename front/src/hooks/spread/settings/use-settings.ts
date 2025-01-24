@@ -9,12 +9,12 @@ import {
 	onUpdateDomain,
 	onUpdatePassword,
 	onUpdateWelcomeMessage,
-} from "@/actions/spread/settings";
+} from "@/actions/feature/spread/settings";
 import { useToast } from "@/hooks/use-toast";
 import {
 	ChangePasswordProps,
 	ChangePasswordSchema,
-} from "@/schemas/spread/auth.schema";
+} from "@/schema/spread/auth.schema";
 import {
 	AddProductProps,
 	AddProductSchema,
@@ -24,7 +24,7 @@ import {
 	FilterQuestionsSchema,
 	HelpDeskQuestionsProps,
 	HelpDeskQuestionsSchema,
-} from "@/schemas/spread/settings.schema";
+} from "@/schema/spread/settings.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UploadClient } from "@uploadcare/upload-client";
 import { useTheme } from "next-themes";

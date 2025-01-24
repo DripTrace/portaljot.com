@@ -2,8 +2,8 @@ import {
 	getAllAutomations,
 	getAutomationInfo,
 	getProfilePosts,
-} from "@/actions/direct/automations";
-import { onUserInfo } from "@/actions/direct/user";
+} from "@/actions/feature/direct/automations";
+import { onUserInfo } from "@/actions/feature/direct/user";
 import { useQuery } from "@tanstack/react-query";
 
 export const useQueryAutomations = () => {

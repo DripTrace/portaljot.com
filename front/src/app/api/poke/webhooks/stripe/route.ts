@@ -5,7 +5,7 @@ import axios from "axios";
 import {
 	PrismaShippingDetails,
 	StripeShippingDetails,
-} from "@/lib/poke/constants";
+} from "@/lib/poke/poke/constants";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_POKE!, {
 	apiVersion: "2024-09-30.acacia",

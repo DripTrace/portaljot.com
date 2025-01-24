@@ -4,17 +4,22 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactConfetti from "react-confetti";
 import Image from "next/image";
-import AnimatedTitle from "@/components/AnimatedTitle";
-import GrassAnimation from "@/components/GrassAnimation";
-import FireAnimation from "@/components/FireAnimation";
-import WaterAnimation from "@/components/WaterAnimation";
+import AnimatedTitle from "@/components/poke/AnimatedTitle";
+import GrassAnimation from "@/components/poke/GrassAnimation";
+import FireAnimation from "@/components/poke/FireAnimation";
+import WaterAnimation from "@/components/poke/WaterAnimation";
 import { FaStar, FaMedal, FaHandsHelping } from "react-icons/fa";
-import type { Pokemon, PokemonGroup, Stage, SubStage } from "@/lib/constants"; // Type-only imports
+import type {
+	Pokemon,
+	PokemonGroup,
+	Stage,
+	SubStage,
+} from "@/lib/poke/constants"; // Type-only imports
 import {
 	firePokemonGroups,
 	waterPokemonGroups,
 	grassPokemonGroups,
-} from "@/lib/constants"; // Regular imports
+} from "@/lib/poke/constants"; // Regular imports
 
 // -------------------------
 // TypeStyles Interface
@@ -546,7 +551,7 @@ export default function QuizPage() {
 					group.pokemons.map(async (pokemon) => {
 						try {
 							const res = await fetch(
-								`/api/pokemon/${pokemon.name}`
+								`/api/poke/pokemon/${pokemon.name}`
 							);
 							if (!res.ok) {
 								throw new Error(
@@ -776,11 +781,14 @@ ${Object.entries(topPokemon)
 Provide an uplifting summary that highlights the strengths and synergy of the team. Make sure to complete your last sentence.`;
 
 		try {
-			const response = await fetch("/api/pokemon/generate-team-summary", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ prompt }),
-			});
+			const response = await fetch(
+				"/api/poke/pokemon/generate-team-summary",
+				{
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ prompt }),
+				}
+			);
 
 			const data = await response.json();
 
@@ -832,7 +840,7 @@ Provide an uplifting summary that highlights the strengths and synergy of the te
 			}));
 
 		try {
-			const response = await fetch("/api/save-results", {
+			const response = await fetch("/api/poke/save-results", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
@@ -915,7 +923,7 @@ Provide an uplifting summary that highlights the strengths and synergy of the te
 									.find((p) => p.name === pokemonName)
 							: getWinners()[type].find(
 									(p) => p.name === pokemonName
-							  );
+								);
 
 						return pokemon ? { pokemon, type, rank } : null;
 					}
@@ -1274,17 +1282,17 @@ Provide an uplifting summary that highlights the strengths and synergy of the te
 // import { motion, AnimatePresence } from "framer-motion";
 // import ReactConfetti from "react-confetti";
 // import Image from "next/image";
-// import AnimatedTitle from "@/components/AnimatedTitle";
-// import GrassAnimation from "@/components/GrassAnimation";
-// import FireAnimation from "@/components/FireAnimation";
-// import WaterAnimation from "@/components/WaterAnimation";
+// import AnimatedTitle from "@/components/poke/AnimatedTitle";
+// import GrassAnimation from "@/components/poke/GrassAnimation";
+// import FireAnimation from "@/components/poke/FireAnimation";
+// import WaterAnimation from "@/components/poke/WaterAnimation";
 // import { FaStar, FaMedal, FaHandsHelping, FaInfoCircle } from "react-icons/fa";
-// import { Pokemon, PokemonGroup, Stage, SubStage } from "@/lib/constants"; // Adjusted path
+// import { Pokemon, PokemonGroup, Stage, SubStage } from "@/lib/poke/constants"; // Adjusted path
 // import {
 // 	firePokemonGroups,
 // 	waterPokemonGroups,
 // 	grassPokemonGroups,
-// } from "@/lib/constants"; // Adjusted path
+// } from "@/lib/poke/constants"; // Adjusted path
 
 // // -------------------------
 // // TypeStyles Interface
@@ -1848,7 +1856,7 @@ Provide an uplifting summary that highlights the strengths and synergy of the te
 // 					group.pokemons.map(async (pokemon) => {
 // 						try {
 // 							const res = await fetch(
-// 								`/api/pokemon/${pokemon.name}`
+// 								`/api/poke/pokemon/${pokemon.name}`
 // 							);
 // 							if (!res.ok) {
 // 								throw new Error(
@@ -2078,7 +2086,7 @@ Provide an uplifting summary that highlights the strengths and synergy of the te
 // Provide an uplifting summary that highlights the strengths and synergy of the team. Make sure to complete your last sentence.`;
 
 // 		try {
-// 			const response = await fetch("/api/pokemon/generate-team-summary", {
+// 			const response = await fetch("/api/poke/pokemon/generate-team-summary", {
 // 				method: "POST",
 // 				headers: { "Content-Type": "application/json" },
 // 				body: JSON.stringify({ prompt }),
@@ -2134,7 +2142,7 @@ Provide an uplifting summary that highlights the strengths and synergy of the te
 // 			}));
 
 // 		try {
-// 			const response = await fetch("/api/save-results", {
+// 			const response = await fetch("/api/poke/save-results", {
 // 				method: "POST",
 // 				headers: { "Content-Type": "application/json" },
 // 				body: JSON.stringify({

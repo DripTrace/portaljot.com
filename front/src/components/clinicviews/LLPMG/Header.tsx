@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { FaBars, FaTimes, FaMoon, FaSun } from "react-icons/fa";
-import { useAppDispatch, useAppSelector } from "@/clinicviews/hooks/useRedux";
+import { useAppDispatch, useAppSelector } from "@/hooks/clinicviews/useRedux";
 import { toggleMenu, setTheme } from "@/store/clinicviews/slices/uiSlice";
 import LLPMGLogo from "./LLPMGLogo";
 import { useRouter } from "next/navigation";

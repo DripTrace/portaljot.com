@@ -1,6 +1,6 @@
 "use client";
 
-import useCustomCursor from "@/app/hooks/LLPMGCursor";
+import useCustomCursor from "@/hooks/clinicviews/LLPMGCursor";
 import React from "react";
 
 const Cursor: React.FC = () => {

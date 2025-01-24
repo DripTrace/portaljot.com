@@ -1,4 +1,4 @@
-// src/app/api/images/[id]/route.ts
+// src/app/api/poke/images/[id]/route.ts
 
 import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";

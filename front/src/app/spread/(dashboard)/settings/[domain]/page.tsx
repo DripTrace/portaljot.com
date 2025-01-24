@@ -1,4 +1,4 @@
-import { onGetCurrentDomainInfo } from "@/actions/spread/settings";
+import { onGetCurrentDomainInfo } from "@/actions/feature/spread/settings";
 import BotTrainingForm from "@/components/spread/forms/settings/bot-training";
 import SettingsForm from "@/components/spread/forms/settings/form";
 import InfoBar from "@/components/spread/infobar";

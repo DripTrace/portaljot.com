@@ -1,5 +1,5 @@
-import { onGetAffiliateLink } from "@/actions/groups";
-import { CopyButton } from "@/components/global/copy-button";
+import { onGetAffiliateLink } from "@/actions/feature/school/groups";
+import { CopyButton } from "@/components/school/global/copy-button";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 
 type Props = {

@@ -1,4 +1,4 @@
-// // // src/app/api/images/upload/route.ts
+// // // src/app/api/poke/images/upload/route.ts
 
 // // import { NextRequest, NextResponse } from "next/server";
 // // import { PrismaClient } from "@prisma/client";
@@ -51,7 +51,7 @@
 // // 		const imageUrl = `${
 // // 			process.env.NEXT_PUBLIC_BASE_URL_POKE ||
 // // 			"${process.env.NEXT_PUBLIC_BASE_URL_POKE}"
-// // 		}/api/images/${image.id}`;
+// // 		}/api/poke/images/${image.id}`;
 
 // // 		return NextResponse.json(
 // // 			{ id: image.id, url: imageUrl },
@@ -66,7 +66,7 @@
 // // 	}
 // // }
 
-// // src/app/api/images/upload/route.ts
+// // src/app/api/poke/images/upload/route.ts
 
 // import { NextRequest, NextResponse } from "next/server";
 // import { PrismaClient } from "@prisma/client";
@@ -132,7 +132,7 @@
 // 		const imageUrl = `${
 // 			process.env.NEXT_PUBLIC_BASE_URL_POKE ||
 // 			"${process.env.NEXT_PUBLIC_BASE_URL_POKE}"
-// 		}/api/images/${image.id}`;
+// 		}/api/poke/images/${image.id}`;
 
 // 		return NextResponse.json(
 // 			{ id: image.id, url: imageUrl },
@@ -147,7 +147,7 @@
 // 	}
 // }
 
-// src/app/api/images/upload/route.ts
+// src/app/api/poke/images/upload/route.ts
 
 import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
@@ -213,7 +213,7 @@ export async function POST(req: NextRequest) {
 		const imageUrl = `${
 			process.env.NEXT_PUBLIC_BASE_URL_POKE ||
 			"${process.env.NEXT_PUBLIC_BASE_URL_POKE}/"
-		}/api/images/${image.id}`;
+		}/api/poke/images/${image.id}`;
 
 		return NextResponse.json(
 			{ id: image.id, url: imageUrl },

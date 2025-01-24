@@ -3,20 +3,20 @@
 import { useEffect } from "react";
 import ContentComponent from "@/components/merchandise/ContentComponent";
 import ImageCaputure from "@/components/merchandise/Payments/Uploads/ImageCaputure";
-import { checkSession } from "@/actions/merchandise/checkSession"; // Adjust the path as needed
+import { checkSession } from "@/actions/feature/merchandise/checkSession"; // Adjust the path as needed
 
 export default function VerifyDocument() {
-    useEffect(() => {
-        async function verifySession() {
-            await checkSession();
-        }
+	useEffect(() => {
+		async function verifySession() {
+			await checkSession();
+		}
 
-        verifySession();
-    }, []);
+		verifySession();
+	}, []);
 
-    return (
-        <ContentComponent title="" description="">
-            <ImageCaputure />
-        </ContentComponent>
-    );
+	return (
+		<ContentComponent title="" description="">
+			<ImageCaputure />
+		</ContentComponent>
+	);
 }

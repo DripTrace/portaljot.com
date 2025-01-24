@@ -1,7 +1,7 @@
-// // // // // // src/app/api/products/route.ts
+// // // // // // src/app/api/poke/products/route.ts
 
 // // // // // import { NextResponse } from 'next/server';
-// // // // // import {prisma} from '@/lib/prisma';
+// // // // // import {prisma} from '@/lib/poke/prisma';
 // // // // // import axios from 'axios';
 
 // // // // // interface PrintfulProduct {
@@ -69,7 +69,7 @@
 // // // // // }
 
 // // // // import { NextResponse } from 'next/server';
-// // // // import { prisma } from '@/lib/prisma';
+// // // // import { prisma } from '@/lib/poke/prisma';
 // // // // import axios from 'axios';
 
 // // // // interface PrintfulProduct {
@@ -134,7 +134,7 @@
 // // // //   }
 // // // // }
 
-// // // // src/app/api/products/route.ts
+// // // // src/app/api/poke/products/route.ts
 
 // // // import { NextResponse } from "next/server";
 // // // import { prisma } from "@/lib/client/prisma";
@@ -223,7 +223,7 @@
 // // // 	}
 // // // }
 
-// // // src/app/api/products/route.ts
+// // // src/app/api/poke/products/route.ts
 
 // // // import { NextResponse } from "next/server";
 // // // import { prisma } from "@/lib/client/prisma";
@@ -332,7 +332,7 @@
 // // // 	}
 // // // }
 
-// // // src/app/api/products/route.ts
+// // // src/app/api/poke/products/route.ts
 
 // // // import { NextResponse } from "next/server";
 // // // import { prisma } from "@/lib/client/prisma";
@@ -486,14 +486,14 @@
 // // // 	return "OTHER";
 // // // }
 
-// // // src/app/api/products/route.ts
+// // // src/app/api/poke/products/route.ts
 
 // // import { ApolloServer } from "@apollo/server";
 // // import { startServerAndCreateNextHandler } from "@as-integrations/next";
 // // import { typeDefs } from "@/graphql/schema";
 // // import { resolvers } from "@/graphql/resolvers";
 // // import { PrismaClient } from "@prisma/client";
-// // import { ProductCatalogProcessor } from "@/lib/productProcessor";
+// // import { ProductCatalogProcessor } from "@/lib/poke/productProcessor";
 
 // // // Define ResolverContext interface (must match resolvers.ts)
 // // interface ResolverContext {
@@ -533,14 +533,14 @@
 // // 	);
 // // }
 
-// // src/app/api/products/route.ts
+// // src/app/api/poke/products/route.ts
 
 // import { ApolloServer } from "@apollo/server";
 // import { startServerAndCreateNextHandler } from "@as-integrations/next";
 // import { typeDefs } from "@/graphql/schema";
 // import { resolvers } from "@/graphql/resolvers";
 // import { PrismaClient } from "@prisma/client";
-// import { ProductCatalogProcessor } from "@/lib/productProcessor";
+// import { ProductCatalogProcessor } from "@/lib/poke/productProcessor";
 
 // // Define ResolverContext interface
 // interface ResolverContext {
@@ -581,15 +581,15 @@
 // 	);
 // }
 
-// src/app/api/products/route.ts
+// src/app/api/poke/products/route.ts
 
 // import { ApolloServer } from "@apollo/server";
 // import { startServerAndCreateNextHandler } from "@as-integrations/next";
 // import { typeDefs } from "@/graphql/schema";
 // import { resolvers } from "@/graphql/resolvers";
 // import { PrismaClient } from "@prisma/client";
-// import { ProductCatalogProcessor } from "@/lib/productProcessor";
-// import logger from "@/lib/logger";
+// import { ProductCatalogProcessor } from "@/lib/poke/productProcessor";
+// import logger from "@/lib/poke/logger";
 
 // // Define ResolverContext interface
 // interface ResolverContext {

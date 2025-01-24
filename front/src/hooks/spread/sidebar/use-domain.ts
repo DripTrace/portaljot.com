@@ -1,6 +1,6 @@
-import { onIntegrateDomain } from "@/actions/spread/settings";
+import { onIntegrateDomain } from "@/actions/feature/spread/settings";
 import { useToast } from "@/hooks/use-toast";
-import { AddDomainSchema } from "@/schemas/spread/settings.schema";
+import { AddDomainSchema } from "@/schema/spread/settings.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UploadClient } from "@uploadcare/upload-client";
 import { usePathname, useRouter } from "next/navigation";

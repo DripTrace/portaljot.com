@@ -5,12 +5,12 @@ import {
 	onGetAllCustomerResponses,
 	onGetEmailTemplate,
 	onSaveEmailTemplate,
-} from "@/actions/spread/mail";
+} from "@/actions/feature/spread/mail";
 import { useToast } from "@/hooks/use-toast";
 import {
 	EmailMarketingBodySchema,
 	EmailMarketingSchema,
-} from "@/schemas/spread/marketing.schema";
+} from "@/schema/spread/marketing.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";

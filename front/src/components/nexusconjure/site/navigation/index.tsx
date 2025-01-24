@@ -1,7 +1,7 @@
 "use client";
 
 import { ModeToggle } from "@/components/nexusconjure/global/mode-toggle";
-import NexusConjureWhite from "@/components/nexusconjure/logo/NexusConjureWhite";
+import NexusConjureWhite from "@/components/logo/NexusConjureWhite";
 import { UserButton } from "@clerk/nextjs";
 import { User } from "@clerk/nextjs/server";
 import Image from "next/image";

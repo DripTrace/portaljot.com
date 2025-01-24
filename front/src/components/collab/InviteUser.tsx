@@ -11,7 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState, useTransition } from "react";
-import { inviteUserToDocument } from "@/actions/collab/actions";
+import { inviteUserToDocument } from "@/actions/feature/collab";
 import { usePathname } from "next/navigation";
 import { toast } from "sonner";
 

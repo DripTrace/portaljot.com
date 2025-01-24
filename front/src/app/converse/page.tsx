@@ -1,6 +1,6 @@
 "use client";
 
-import transcript from "@/actions/converse/transcript";
+import transcript from "@/actions/feature/converse/transcript";
 import { useFormState } from "react-dom";
 import { useEffect, useRef, useState } from "react";
 import Recorder from "@/components/converse/Recorder";

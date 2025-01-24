@@ -2,12 +2,12 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import WebPhone, { WebPhoneOptions } from "@/utils/cliniciviews/ref/web/src";
+import WebPhone, { WebPhoneOptions } from "@/utils/clinicviews/ref/web/src";
 import {
 	WebPhoneInvitation,
 	WebPhoneSession,
-} from "@/utils/cliniciviews/ref/web/src/session";
-import { WebPhoneUserAgent } from "@/utils/cliniciviews/ref/web/src/userAgent";
+} from "@/utils/clinicviews/ref/web/src/session";
+import { WebPhoneUserAgent } from "@/utils/clinicviews/ref/web/src/userAgent";
 import {
 	addPatientMessage,
 	addSystemMessage,

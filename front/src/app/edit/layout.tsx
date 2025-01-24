@@ -14,7 +14,7 @@ export default function EditRootLayout({
 	return (
 		<html lang="en">
 			<head>
-				<link rel="icon" href="/favicon.ico" />
+				<link rel="icon" href="/favicon/default/favicon.ico" />
 				<meta charSet="UTF-8" />
 				<meta
 					content="width=device-width, user-scalable=no"

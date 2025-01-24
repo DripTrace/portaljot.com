@@ -4,7 +4,7 @@ import {
 	onGetGroupChannels,
 	onGetGroupSubscriptions,
 	onJoinGroup,
-} from "@/actions/groups";
+} from "@/actions/feature/school/groups";
 import {
 	onActivateSubscription,
 	onCreateNewGroupSubscription,
@@ -12,9 +12,9 @@ import {
 	onGetGroupSubscriptionPaymentIntent,
 	onGetStripeClientSecret,
 	onTransferCommission,
-} from "@/actions/payments";
-import { CreateGroupSchema } from "@/components/forms/create-group/schema";
-import { CreateGroupSubscriptionSchema } from "@/components/forms/subscription/schema";
+} from "@/actions/feature/school/payments";
+import { CreateGroupSchema } from "@/components/school/forms/create-group/schema";
+import { CreateGroupSubscriptionSchema } from "@/components/school/forms/subscription/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { StripeCardElement, loadStripe } from "@stripe/stripe-js";

@@ -1,5 +1,5 @@
 import axios, { type AxiosError, isAxiosError } from "axios";
-import { ELEVENLABS_API_URL } from "../lib/constants/elevenlabs";
+import { ELEVENLABS_API_URL } from "@/lib/constants/elevenlabs";
 
 export const generateAudioSegment = async (
 	prompt: string,

@@ -4,10 +4,10 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactConfetti from "react-confetti";
 import Image from "next/image";
-import AnimatedTitle from "@/components/AnimatedTitle";
-import GrassAnimation from "@/components/GrassAnimation";
-import FireAnimation from "@/components/FireAnimation";
-import WaterAnimation from "@/components/WaterAnimation";
+import AnimatedTitle from "@/components/poke/AnimatedTitle";
+import GrassAnimation from "@/components/poke/GrassAnimation";
+import FireAnimation from "@/components/poke/FireAnimation";
+import WaterAnimation from "@/components/poke/WaterAnimation";
 import {
 	firePokemonGroups,
 	grassPokemonGroups,
@@ -16,8 +16,8 @@ import {
 	Stage,
 	SubStage,
 	waterPokemonGroups,
-} from "@/lib/constants";
-import { getTypeStyles } from "@/lib/getTypeStyles";
+} from "@/lib/poke/constants";
+import { getTypeStyles } from "@/lib/poke/getTypeStyles";
 
 const AudioControl = ({
 	isPlaying,
@@ -191,7 +191,7 @@ export default function QuizPage() {
 					group.pokemons.map(async (pokemon) => {
 						try {
 							const res = await fetch(
-								`/api/pokemon/${pokemon.name}`
+								`/api/poke/pokemon/${pokemon.name}`
 							);
 							const data = await res.json();
 							return { ...pokemon, image: data.imageUrl || null };
@@ -263,8 +263,8 @@ export default function QuizPage() {
 					stage === "grass"
 						? "fire"
 						: stage === "fire"
-						? "water"
-						: "result";
+							? "water"
+							: "result";
 				setStage(nextStage);
 				setSubStage(1);
 				setQuestionIndex(0);
@@ -412,11 +412,14 @@ export default function QuizPage() {
         `;
 
 		try {
-			const response = await fetch("/api/pokemon/generate-team-summary", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ prompt }),
-			});
+			const response = await fetch(
+				"/api/poke/pokemon/generate-team-summary",
+				{
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ prompt }),
+				}
+			);
 
 			const data = await response.json();
 
@@ -456,7 +459,7 @@ export default function QuizPage() {
 			}));
 
 		try {
-			const response = await fetch("/api/save-results", {
+			const response = await fetch("/api/poke/save-results", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({

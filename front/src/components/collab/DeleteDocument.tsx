@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { useState, useTransition } from "react";
-import { deleteDocument } from "@/actions/collab/actions";
+import { deleteDocument } from "@/actions/feature/collab";
 import { usePathname, useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { DialogClose } from "@radix-ui/react-dialog";

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import "@/styles/pokeball.css";
+import "@/styles/poke/pokeball.css";
 import Image from "next/image";
 
 const PokemonReveal: React.FC = () => {
@@ -230,7 +230,7 @@ const PokemonReveal: React.FC = () => {
 				<div className="pokemon relative text-center ml-[60px]">
 					<Image
 						ref={pokemonImageRef}
-						// src="/api/placeholder/400/320"
+						// src="/api/poke/placeholder/400/320"
 						src="https://i.imgur.com/E4t72wb.png"
 						alt="charizard"
 						className="w-[400px] bg-[radial-gradient(#5684b5_60%,transparent_60%)] bg-[length:300px_300px] bg-no-repeat bg-[50%_90%]"

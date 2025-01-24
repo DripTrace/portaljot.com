@@ -1,4 +1,4 @@
-import { handleWireguardView } from "@/actions/cloud/wireguard";
+import { handleWireguardView } from "@/actions/feature/cloud/wireguard";
 import { NextResponse } from "next/server";
 
 export async function GET() {

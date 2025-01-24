@@ -1,8 +1,8 @@
-import { getProducts } from "@/actions/merchandise/getProducts";
+import { getProducts } from "@/actions/feature/merchandise/getProducts";
 import Merchandise from "@/components/merchandise/Merchandise";
 
 export default async function MerchandisePage() {
-    const products = await getProducts();
+	const products = await getProducts();
 
-    return <Merchandise products={products} />;
+	return <Merchandise products={products} />;
 }

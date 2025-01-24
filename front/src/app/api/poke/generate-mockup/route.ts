@@ -1,5 +1,5 @@
 // import { NextRequest, NextResponse } from "next/server";
-// import { getPrintfulClient } from "@/lib/printful/printful-auth";
+// import { getPrintfulClient } from "@/lib/poke/printful/printful-auth";
 // import { prisma } from "@/lib/client/prisma";
 // import Stripe from "stripe";
 

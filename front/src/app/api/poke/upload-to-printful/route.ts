@@ -1,7 +1,7 @@
-// src/app/api/upload-to-printful/route.ts
+// src/app/api/poke/upload-to-printful/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { v4 as uuidv4 } from "uuid";
-import { getPrintfulClient } from "@/lib/printful/printful-auth";
+import { getPrintfulClient } from "@/lib/poke/printful/printful-auth";
 
 async function uploadToPrintful(
 	imageUrl: string
@@ -43,9 +43,8 @@ export async function POST(req: NextRequest) {
 			);
 		}
 
-		const { id: printfulFileId, url: printfulUrl } = await uploadToPrintful(
-			imageUrl
-		);
+		const { id: printfulFileId, url: printfulUrl } =
+			await uploadToPrintful(imageUrl);
 
 		return NextResponse.json(
 			{ printfulFileId, printfulUrl },

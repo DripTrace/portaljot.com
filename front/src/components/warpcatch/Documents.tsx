@@ -1,5 +1,5 @@
 import PlaceholderDocument from "@/components/warpcatch/PlaceholderDocument";
-import { adminDb } from "../../firebaseAdmin";
+import { adminDb } from "@/config/warpcatch/firebaseAdmin";
 import { auth } from "@clerk/nextjs/server";
 import Document from "./Document";
 

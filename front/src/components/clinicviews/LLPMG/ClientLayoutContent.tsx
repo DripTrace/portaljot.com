@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { useAppSelector } from "@/clinicviews/hooks/useRedux";
-import { RootState } from "../@/store/clinicviews/store";
+import { useAppSelector } from "@/hooks/clinicviews/useRedux";
+import { RootState } from "@/store/clinicviews";
 import { gsap } from "gsap";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 

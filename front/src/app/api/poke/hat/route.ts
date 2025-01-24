@@ -1,8 +1,8 @@
-// // src/app/api/hat/route.ts
+// // src/app/api/poke/hat/route.ts
 
 // import { NextResponse } from "next/server";
 // import { prisma } from "@/lib/client/prisma";
-// import { printfulClient } from "@/lib/printfulClient";
+// import { printfulClient } from "@/lib/poke/printfulClient";
 // import Stripe from "stripe";
 // import { Prisma } from "@prisma/client";
 

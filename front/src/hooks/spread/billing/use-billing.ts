@@ -5,7 +5,7 @@ import {
 	onCreateCustomerPaymentIntentSecret,
 	onGetStripeClientSecret,
 	onUpdateSubscription,
-} from "@/actions/stripe";
+} from "@/actions/feature/spread/stripe";
 import { useToast } from "@/hooks/use-toast";
 import axios from "axios";
 import {

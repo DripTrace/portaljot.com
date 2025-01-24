@@ -11,7 +11,7 @@ import {
 	uploadToPrintful,
 	waitForFile,
 } from "@/utils/printful";
-import { getPrintfulClient } from "@/lib/printful/printful-auth";
+import { getPrintfulClient } from "@/lib/poke/printful/printful-auth";
 
 const STRIPE_SECRET_KEY_POKE = process.env.STRIPE_SECRET_KEY_POKE;
 

@@ -1,18 +1,18 @@
 "use client";
 
 import { useFormStatus } from "react-dom";
-import { BeatLoader } from "react-spinners";
+import { BeatLoader } from "react-spinner";
 
 function SubmitButton() {
-  const { pending } = useFormStatus();
+	const { pending } = useFormStatus();
 
-  return (
-    pending && (
-      <p className="message ml-auto">
-        <BeatLoader />
-      </p>
-    )
-  );
+	return (
+		pending && (
+			<p className="message ml-auto">
+				<BeatLoader />
+			</p>
+		)
+	);
 }
 
 export default SubmitButton;

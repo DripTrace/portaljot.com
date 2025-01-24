@@ -1,21 +1,21 @@
-import { onVerifyAffilateLink } from "@/actions/groups";
+import { onVerifyAffilateLink } from "@/actions/feature/school/groups";
 import { redirect } from "next/navigation";
 
 const AffiliatesPage = async ({ params }: { params: { id: string } }) => {
-  const status = await onVerifyAffilateLink(params.id);
+	const status = await onVerifyAffilateLink(params.id);
 
-  if (status.status === 200) {
-    return redirect(`/group/create?affiliate=${params.id}`);
-  }
+	if (status.status === 200) {
+		return redirect(`/group/create?affiliate=${params.id}`);
+	}
 
-  if (status.status !== 200) {
-    return redirect("/");
-  }
+	if (status.status !== 200) {
+		return redirect("/");
+	}
 };
 
 export default AffiliatesPage;
 
-// import { onVerifyAffilateLink } from "@/actions/groups"
+// import { onVerifyAffilateLink } from "@/actions/feature/school/groups"
 // import { redirect } from "next/navigation"
 
 // const AffiliatesPage = async ({ params }: { params: { id: string } }) => {

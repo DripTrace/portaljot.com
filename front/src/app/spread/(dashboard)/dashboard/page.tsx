@@ -1,4 +1,4 @@
-import { getUserAppointments } from "@/actions/spread/appointment";
+import { getUserAppointments } from "@/actions/feature/spread/appointment";
 import {
 	getUserBalance,
 	getUserClients,

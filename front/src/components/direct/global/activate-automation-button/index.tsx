@@ -3,7 +3,7 @@ import { Loader2 } from "lucide-react";
 import React from "react";
 import { useQueryAutomation } from "@/hooks/direct/user-queries";
 import { useMutationData } from "@/hooks/direct/use-mutation-data";
-import { activateAutomation } from "@/actions/direct/automations";
+import { activateAutomation } from "@/actions/feature/direct/automations";
 import { ActiveAutomation } from "@/components/direct/icons/active-automation";
 
 type Props = {

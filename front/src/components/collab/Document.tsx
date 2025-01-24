@@ -84,7 +84,7 @@ import InviteUser from "./InviteUser";
 import ManageUsers from "./ManageUsers";
 import useOwner from "@/lib/collab/useOwner";
 import DeleteDocument from "./DeleteDocument";
-import LoadingSpinner from "./loadingSpinner";
+import LoadingSpinner from "./LoadingSpinner";
 
 type DocumentData = {
 	id: string;

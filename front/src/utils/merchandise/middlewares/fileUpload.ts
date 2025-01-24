@@ -1,29 +1,39 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextRequest, NextResponse } from "next/server";
 import { createRouter, NextHandler } from "next-connect";
 import multiparty from "multiparty";
 
-interface ExtendedRequest extends NextApiRequest {
-    body: any;
-    files: any;
+interface ExtendedRequest extends NextRequest {
+	body?: Record<string, any>;
+	files?: Record<string, any>;
 }
 
-const fileUpload = createRouter<ExtendedRequest, NextApiResponse>();
+const fileUpload = createRouter<ExtendedRequest, NextResponse>();
 
 fileUpload.use(
-    async (req: ExtendedRequest, res: NextApiResponse, next: NextHandler) => {
-        const form = new multiparty.Form();
+	async (req: ExtendedRequest, res: NextResponse, next: NextHandler) => {
+		try {
+			const form = new multiparty.Form();
 
-        form.parse(req, (err, fields, files) => {
-            if (err) {
-                return res
-                    .status(500)
-                    .json({ error: "Error parsing form data" });
-            }
-            req.body = fields;
-            req.files = files;
-            next();
-        });
-    }
+			form.parse(req as any, (err, fields, files) => {
+				if (err) {
+					return res.json(
+						{ error: "Error parsing form data" },
+						{ status: 500 }
+					);
+				}
+
+				req.body = fields;
+				req.files = files;
+				next();
+			});
+		} catch (error) {
+			console.error("Error in file upload middleware:", error);
+			return res.json(
+				{ error: "Internal server error during file upload." },
+				{ status: 500 }
+			);
+		}
+	}
 );
 
 export default fileUpload;

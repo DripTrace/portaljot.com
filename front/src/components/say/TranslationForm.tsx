@@ -1,6 +1,6 @@
 "use client";
 
-import translate from "@/actions/say/translate";
+import translate from "@/actions/feature/say/translate";
 import { TranslationLanguages } from "@/app/api/say/translate/page";
 import { useEffect, useRef, useState } from "react";
 import { useFormState } from "react-dom";

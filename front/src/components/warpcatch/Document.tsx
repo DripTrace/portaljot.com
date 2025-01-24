@@ -6,7 +6,7 @@ import { useTransition } from "react";
 import useSubscription from "@/hooks/warpcatch/useSubscription";
 import { DownloadCloud, DownloadIcon, Trash2Icon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { deleteDocument } from "@/actions/warpcatch/deleteDocument";
+import { deleteDocument } from "@/actions/demonstrate/warpcatch/deleteDocument";
 
 const Document = ({
 	id,

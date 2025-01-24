@@ -1,9 +1,9 @@
-// // // /src/app/api/process-pending-audios/route.ts
+// // // /src/app/api/poke/process-pending-audios/route.ts
 
-// // import { generateAudio } from "@/actions/generateAudio";
+// // import { generateAudio } from "@/actions/feature/pokegenerateAudio";
 // // import { prisma } from "@/lib/client/prisma";
 // // import { NextRequest, NextResponse } from "next/server";
-// // // import { prisma } from '../../../../lib/prisma';
+// // // import { prisma } from '../../../@/lib/prisma';
 // // // import { generateAudio } from '../../../../actions/generateAudio';
 
 // // export async function GET(_request: NextRequest) {
@@ -68,16 +68,16 @@
 // // 	}
 // // }
 
-// // /src/app/api/process-pending-audios/route.ts
+// // /src/app/api/poke/process-pending-audios/route.ts
 
 // import { prisma } from "@/lib/client/prisma";
 // import { NextRequest, NextResponse } from "next/server";
-// import { generateAudio } from "@/actions/generateAudio";
-// import { ProcessPendingAudiosResponse } from "@/types/api";
+// import { generateAudio } from "@/actions/feature/pokegenerateAudio";
+// import { ProcessPendingAudiosResponse } from "@/types/poke/api";
 
 // export async function POST(request: NextRequest): Promise<NextResponse> {
 // 	try {
-// 		console.log("Received request at /api/process-pending-audios");
+// 		console.log("Received request at /api/poke/process-pending-audios");
 
 // 		// Authenticate the request using a secret token
 // 		const authHeader = request.headers.get("authorization");
@@ -176,12 +176,12 @@
 
 import { prisma } from "@/lib/client/prisma";
 import { NextRequest, NextResponse } from "next/server";
-import { generateAudio } from "@/actions/generateAudio";
-import { ProcessPendingAudiosResponse } from "@/types/api";
+import { generateAudio } from "@/actions/feature/pokegenerateAudio";
+import { ProcessPendingAudiosResponse } from "@/types/poke/api";
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
 	try {
-		console.log("Received request at /api/process-pending-audios");
+		console.log("Received request at /api/poke/process-pending-audios");
 
 		// Authenticate the request using a secret token
 		const authHeader = request.headers.get("authorization");

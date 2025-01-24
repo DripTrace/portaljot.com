@@ -2,7 +2,7 @@ import {
 	onBookNewAppointment,
 	onDomainCustomerResponses,
 	saveAnswers,
-} from "@/actions/spread/appointment";
+} from "@/actions/feature/spread/appointment";
 import { useToast } from "@/hooks/use-toast";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";

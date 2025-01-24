@@ -1,4 +1,4 @@
-import Softphone from "@/utils/cliniciviews/ref/soft/src/softphone";
+import Softphone from "@/utils/clinicviews/ref/soft/src/softphone";
 
 let softphone: Softphone;
 

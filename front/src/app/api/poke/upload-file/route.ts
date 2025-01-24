@@ -1,4 +1,4 @@
-// src/app/api/upload-file/route.ts
+// src/app/api/poke/upload-file/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 async function processAndUploadImage(pngBase64: string): Promise<string> {
 	try {
 		const uploadResponse = await axios.post(
-			`${process.env.NEXT_PUBLIC_BASE_URL_POKE}/api/images/upload`,
+			`${process.env.NEXT_PUBLIC_BASE_URL_POKE}/api/poke/images/upload`,
 			{
 				pngBase64,
 				filename: `hat_variant_${uuidv4()}.png`,
