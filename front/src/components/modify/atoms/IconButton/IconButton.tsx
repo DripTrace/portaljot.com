@@ -5,7 +5,6 @@ import {
 	type Spacing,
 } from "@/styles/modify/ui-tokens";
 
-// import { Icon, type IconName, type IconSizing } from "../Icon";
 import {
 	iconButtonStyles,
 	iconColorVar,

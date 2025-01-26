@@ -1,28 +1,37 @@
+"use server";
+
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/app/api/modify/auth/route"; // Adjust path if needed
 import { onGetAllBookingsForCurrentUser } from "@/actions/feature/spread/appointment";
-import AllAppointments from "@/components/appointment/all-appointments";
+import AllAppointments from "@/components/spread/appointment/all-appointments";
 import InfoBar from "@/components/spread/infobar";
 import Section from "@/components/spread/section-label";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { currentUser } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 import React from "react";
 
 type Props = {};
 
 const Page = async (props: Props) => {
-	const user = await currentUser();
+	const session = await getServerSession(authOptions);
 
-	if (!user) return null;
-	const domainBookings = await onGetAllBookingsForCurrentUser(user.id);
+	if (!session?.user) {
+		redirect("/sign-in");
+	}
+
+	const userEmail = session.user.email;
+	const domainBookings = await onGetAllBookingsForCurrentUser();
 	const today = new Date();
 
-	if (!domainBookings)
+	if (!domainBookings || domainBookings.bookings.length === 0) {
 		return (
 			<div className="w-full flex justify-center">
 				<p>No Appointments</p>
 			</div>
 		);
+	}
 
 	const bookingsExistToday = domainBookings.bookings.filter(
 		(booking) => booking.date.getDate() === today.getDate()
@@ -33,7 +42,7 @@ const Page = async (props: Props) => {
 			<InfoBar />
 			<div className="grid grid-cols-1 lg:grid-cols-3 flex-1 h-0 gap-5">
 				<div className="lg:col-span-2 overflow-y-auto">
-					<AllAppointments bookings={domainBookings?.bookings} />
+					<AllAppointments bookings={domainBookings.bookings} />
 				</div>
 				<div className="col-span-1">
 					<Section
@@ -71,7 +80,7 @@ const Page = async (props: Props) => {
 										<div className="w-full flex items-center p-3 gap-2">
 											<Avatar>
 												<AvatarFallback>
-													{booking.email[0]}
+													{booking.email[0].toUpperCase()}
 												</AvatarFallback>
 											</Avatar>
 											<p className="text-sm">

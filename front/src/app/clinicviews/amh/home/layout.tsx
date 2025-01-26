@@ -49,17 +49,17 @@ export default function AMHHomeRootLayout({
 			<body className="demo-1 loading">
 				<main>
 					<header className="frame sticky top-0">
-						<h1 className="frame__title">
+						<h1 className="frame-title">
 							Empowering Minds Through Accessible Technology
 						</h1>
 						<a
-							className="frame__archive"
+							className="frame-archive"
 							href="https://access-mentalhealth.org/about"
 						>
 							About Us
 						</a>
 						<a
-							className="frame__github"
+							className="frame-github"
 							href="https://access-mentalhealth.org/contact"
 						>
 							Contact Us

@@ -2,10 +2,10 @@ import stripe from "@/lib/warpcatch/stripe";
 import { headers } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import type Stripe from "stripe";
-import { adminDb } from "../@/config/warpcatch/firebaseAdmin";
+import { adminDb } from "@/config/warpcatch/firebaseAdmin";
 
 export async function POST(req: NextRequest) {
-	const headersList = headers();
+	const headersList = await headers();
 	const body = await req.text();
 	const signature = headersList.get("stripe-signature");
 

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import "@/styles/commune/globals.css";
+import "@/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import ApolloProviderWrapper from "@/components/commune/ApolloProvider";
 import { Toaster } from "@/components/ui/sonner";

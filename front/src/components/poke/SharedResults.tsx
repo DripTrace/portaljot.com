@@ -457,7 +457,7 @@ const SharedResults = ({
 	>({});
 	const [hoveredPokemon, setHoveredPokemon] = useState<string | null>(null);
 	const [clickedPokemon, setClickedPokemon] = useState<string | null>(null);
-	const iconRefs = useRef<Record<string, HTMLDivElement | null>>({});
+	const iconRefs = useRef<Record<string, HTMLElement | null>>({});
 
 	const [pngImages, setPngImages] = useState<Record<string, string>>({});
 	const [isLoadingPng, setIsLoadingPng] = useState<Record<string, boolean>>(
@@ -912,7 +912,7 @@ const SharedResults = ({
 		return 200;
 	};
 
-	const getRankIcon = (index: number): JSX.Element => {
+	const getRankIcon = (index: number): React.ReactNode => {
 		if (index < 3) return <FaStar />;
 		if (index >= 3 && index < 6) return <FaMedal />;
 		return <FaHandsHelping />;
@@ -1035,10 +1035,10 @@ const SharedResults = ({
 															: [pokemon.traits]
 													}
 													anchorRef={{
-														current:
-															iconRefs.current[
-																pokemon.name
-															],
+														current: iconRefs
+															.current[
+															pokemon.name
+														] as HTMLElement,
 													}}
 													isVisible={
 														hoveredPokemon ===

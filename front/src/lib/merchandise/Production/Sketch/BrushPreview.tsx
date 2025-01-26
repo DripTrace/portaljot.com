@@ -10,12 +10,12 @@ const BrushPreview: React.FC<Props> = ({ currentColor, currentWidth }) => {
         height: `${currentWidth}px`,
     };
     return (
-        <div className="tool-section tool-section--lrg">
+        <div className="tool-section tool-section-lrg">
             <small>
                 <strong>Brush Preview</strong>
             </small>
             <div className="preview">
-                <div style={styles} className="preview__brush"></div>
+                <div style={styles} className="preview-brush"></div>
             </div>
         </div>
     );

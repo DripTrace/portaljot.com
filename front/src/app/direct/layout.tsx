@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
-import "@/styles/direct/globals.css";
+import "@/styles/globals.css";
 import { ThemeProvider } from "@/providers/direct/theme-provider";
 import { Toaster } from "sonner";
 import ReactQueryProvider from "@/providers/direct/react-query-provider";

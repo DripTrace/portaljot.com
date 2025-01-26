@@ -54,7 +54,7 @@ const Toolbar: React.FC<ToolbarProps> = ({
                     currentWidth={currentWidth}
                     currentColor={currentColor}
                 />
-                <div className="tool-section tool-section--lrg">
+                <div className="tool-section tool-section-lrg">
                     <div className="tool-section">
                         <small>
                             <strong>Brush color</strong>
@@ -62,7 +62,7 @@ const Toolbar: React.FC<ToolbarProps> = ({
                     </div>
                     <input
                         disabled={!isRegularMode}
-                        className="btn--color"
+                        className="btn-color"
                         type="color"
                         id="toolColorPicker"
                         title="Choose brush color"
@@ -74,11 +74,11 @@ const Toolbar: React.FC<ToolbarProps> = ({
                         <strong>Tools</strong>
                     </small>
                 </div>
-                <div className="tool-grid tool-section tool-section--lrg">
+                <div className="tool-grid tool-section tool-section-lrg">
                     <div>
                         <button
-                            className={`btn btn--tool ${
-                                isRegularMode && !isEraser ? "btn--active" : ""
+                            className={`btn btn-tool ${
+                                isRegularMode && !isEraser ? "btn-active" : ""
                             }`}
                             onClick={handleRegularMode}
                             title="Regular Brush Mode"
@@ -88,8 +88,8 @@ const Toolbar: React.FC<ToolbarProps> = ({
                     </div>
                     <div>
                         <button
-                            className={`btn btn--tool ${
-                                !isRegularMode ? "btn--dream-active" : ""
+                            className={`btn btn-tool ${
+                                !isRegularMode ? "btn-dream-active" : ""
                             }`}
                             onClick={handleSpecialMode}
                             title="Special Brush Mode"
@@ -99,8 +99,8 @@ const Toolbar: React.FC<ToolbarProps> = ({
                     </div>
                     <div>
                         <button
-                            className={`btn btn--tool ${
-                                isEraser ? "btn--eraser-active" : ""
+                            className={`btn btn-tool ${
+                                isEraser ? "btn-eraser-active" : ""
                             }`}
                             onClick={handleEraserMode}
                             title="Eraser Mode"
@@ -119,8 +119,8 @@ const Toolbar: React.FC<ToolbarProps> = ({
                         />{" "}
                         <label
                             htmlFor="tool-autowidth"
-                            className={`btn btn--tool ${
-                                isAutoWidth ? "btn--width-active" : ""
+                            className={`btn btn-tool ${
+                                isAutoWidth ? "btn-width-active" : ""
                             }`}
                         >
                             <FontAwesomeIcon icon={faArrowsAltH} />
@@ -128,7 +128,7 @@ const Toolbar: React.FC<ToolbarProps> = ({
                     </div>
                 </div>
                 {!isAutoWidth && (
-                    <div className="tool-section tool-section--lrg">
+                    <div className="tool-section tool-section-lrg">
                         <div className="tool-section">
                             <small>
                                 <strong>Brush size</strong>
@@ -147,7 +147,7 @@ const Toolbar: React.FC<ToolbarProps> = ({
                     </div>
                 )}
                 {!isRegularMode && (
-                    <div className="tool-section tool-section--lrg">
+                    <div className="tool-section tool-section-lrg">
                         <div className="tool-section">
                             <small>
                                 <strong>Magic brush</strong>
@@ -182,7 +182,7 @@ const Toolbar: React.FC<ToolbarProps> = ({
             </div>
             <div>
                 <a
-                    className="btn btn--main btn--block"
+                    className="btn btn-main btn-block"
                     download="image.png"
                     onClick={handleDownload}
                     href={dateUrl}
@@ -191,7 +191,7 @@ const Toolbar: React.FC<ToolbarProps> = ({
                     Save Image
                 </a>
                 <button
-                    className="btn btn--block"
+                    className="btn btn-block"
                     onClick={handleClear}
                     title="Clear Canvas"
                 >

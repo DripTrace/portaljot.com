@@ -849,7 +849,7 @@ const SharedResults = ({
 		return 200;
 	};
 
-	const getRankIcon = (index: number): JSX.Element => {
+	const getRankIcon = (index: number): React.ReactNode => {
 		if (index < 3) return <FaStar />;
 		if (index >= 3 && index < 6) return <FaMedal />;
 		return <FaHandsHelping />;

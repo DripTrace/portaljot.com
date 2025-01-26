@@ -5,7 +5,7 @@ import {
 	getUserPlanInfo,
 	getUserTotalProductPrices,
 	getUserTransactions,
-} from "@/actions/dashboard";
+} from "@/actions/feature/spread/dashboard";
 import DashboardCard from "@/components/spread/dashboard/cards";
 import { PlanUsage } from "@/components/spread/dashboard/plan-usage";
 import InfoBar from "@/components/spread/infobar";
@@ -16,6 +16,8 @@ import PersonIcon from "@/components/spread/icons/person-icon";
 import { TransactionsIcon } from "@/components/spread/icons/transactions-icon";
 import { DollarSign } from "lucide-react";
 import React from "react";
+
+type SubscriptionPlan = "PRO" | "STANDARD" | "ULTIMATE" | "FREE";
 
 type Props = {};
 
@@ -65,10 +67,19 @@ const Page = async (props: Props) => {
 							</p>
 						</div>
 						<PlanUsage
-							plan={plan?.plan!}
+							plan={
+								["PRO", "STANDARD", "ULTIMATE"].includes(
+									plan?.plan as string
+								)
+									? (plan?.plan as
+											| "PRO"
+											| "STANDARD"
+											| "ULTIMATE")
+									: "STANDARD"
+							}
 							credits={plan?.credits || 0}
 							domains={plan?.domains || 0}
-							clients={clients || 0}
+							clients={plan?.clients || 0}
 						/>
 					</div>
 					<div className="flex flex-col">

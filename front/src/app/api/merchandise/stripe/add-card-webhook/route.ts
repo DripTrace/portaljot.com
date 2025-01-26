@@ -1,7 +1,7 @@
 import { buffer } from "micro";
 import * as admin from "firebase-admin";
 import Stripe from "stripe";
-import { serviceAccount } from "@/app/api/merchandise/stripe/webhook/route";
+import { serviceAccount } from "@/config/firebase/serviceAccount";
 import { NextRequest, NextResponse } from "next/server";
 
 // Initialize Firebase Admin SDK

@@ -1,5 +1,5 @@
+import { getTrueNASConfig } from "@/client/cloud/truenas";
 import { NextRequest, NextResponse } from "next/server";
-import { getTrueNASConfig } from "@/utils/cloud/trunasClient";
 
 export async function GET(req: NextRequest) {
 	try {

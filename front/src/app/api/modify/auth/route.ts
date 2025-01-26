@@ -20,6 +20,7 @@ import { isJwtExpired, makeUrl } from "@/lib/modify/authentication/jwtUtils";
 import { verifyPassword } from "@/lib/modify/authentication/password";
 import ac from "@/lib/modify/authentication/accessControl";
 import { getServerSession } from "next-auth";
+import { Role } from "@prisma/client"; // Adjust the import based on your project structure
 
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/lib/client/prisma";
@@ -309,7 +310,7 @@ const authOptions: AuthOptions = {
 				await prisma.user.update({
 					where: { id: user.id },
 					data: {
-						role: "standard",
+						role: Role.user["user"], // Use the enum value instead of a string
 						availableLanguages: ["en"],
 						hasSelectedSecondLanguage: false,
 						lastUpdated: new Date().toISOString(),

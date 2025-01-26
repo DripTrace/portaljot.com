@@ -1,12 +1,11 @@
 import type { VideoBox } from "@/lib/modify/VideoBox";
 import { SliderControlType } from "@/types/modify";
-import { VideoTrackBox } from "@/components/modify/molecules";
-
 import {
 	trackBoxStyles,
 	sliderBoxStyles,
 	trackStyles,
 } from "./PlayerSlider.css";
+import { VideoTrackBox } from "../../../molecules/VideoTrackBox/VideoTrackBox";
 
 interface PlayerSliderProps {
 	timeToPx: number;

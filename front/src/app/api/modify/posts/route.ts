@@ -2,7 +2,6 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
-// import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { TPost } from "@/types/modify/post";
 import { authOptions } from "../auth/route";
 

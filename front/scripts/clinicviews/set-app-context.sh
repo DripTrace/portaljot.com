@@ -65,11 +65,11 @@ determine_app_context() {
 if [ -z "$HOSTNAME" ]; then
     HOSTNAME=$(hostname)
 fi
-PORT=$(echo $HOSTNAME | cut -d: -f2)
-HOSTNAME=$(echo $HOSTNAME | cut -d: -f1)
+PORT=$(echo "$HOSTNAME" | cut -d: -f2)
+HOSTNAME=$(echo "$HOSTNAME" | cut -d: -f1)
 
 # Determine and set the app context and port
-read APP_CONTEXT APP_PORT <<< $(determine_app_context $HOSTNAME $PORT)
+read -r APP_CONTEXT APP_PORT <<< "$(determine_app_context "$HOSTNAME" "$PORT")"
 export NEXT_PUBLIC_APP_CONTEXT=$APP_CONTEXT
 
 echo "NEXT_PUBLIC_APP_CONTEXT set to: $NEXT_PUBLIC_APP_CONTEXT"

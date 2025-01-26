@@ -25,7 +25,7 @@
 // ];
 
 // interface AnimatedShapeProps {
-// 	geometry: JSX.Element;
+// 	geometry: React.ReactNode;
 // 	color: string;
 // 	position: [number, number, number];
 // 	spinning?: boolean;
@@ -117,8 +117,8 @@
 // 				]}
 // 			>
 // 				<meshPhongMaterial
-// 					color="#ffffff"
-// 					emissive="#ffffff"
+// 					color="#fff"
+// 					emissive="#fff"
 // 					emissiveIntensity={0.3}
 // 				/>
 // 			</Circle>
@@ -260,7 +260,7 @@
 // 					/>
 // 					<AnimatedShape
 // 						geometry={<FlowerOfLife />}
-// 						color="#ffffff"
+// 						color="#fff"
 // 						position={randomPosition()}
 // 						spinning={false}
 // 					/>

@@ -22,7 +22,7 @@ const PaymentCard = ({ current, label, landing }: Props) => {
 		>
 			<div
 				className={cn(
-					landing && "radial--gradient--pink",
+					landing && "radial-gradient-pink",
 					"flex flex-col rounded-xl pl-5 py-5 pr-10 bg-background-90 h-full"
 				)}
 			>

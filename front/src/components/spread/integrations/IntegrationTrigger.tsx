@@ -2,7 +2,7 @@ import React from "react";
 import { Card } from "@/components/ui/card";
 import { CloudIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-import Modal from "../mondal";
+import Modal from "../modal";
 import { IntegrationModalBody } from "./integration-modal-body";
 
 type Props = {

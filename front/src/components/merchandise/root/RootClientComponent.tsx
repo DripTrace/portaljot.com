@@ -1,8 +1,9 @@
 "use client";
 
+import { useViewportContext } from "@/hooks/useViewportContext";
 import { useEffect } from "react";
 
-export const RootHome = () => {
+const RootClientComponent = () => {
 	const { width, height, fontSize, deviceInfo } = useViewportContext();
 
 	useEffect(() => {
@@ -18,3 +19,5 @@ export const RootHome = () => {
 		</div>
 	);
 };
+
+export default RootClientComponent;

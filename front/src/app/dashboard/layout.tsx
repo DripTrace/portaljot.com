@@ -1,11 +1,6 @@
 import { Inter } from "next/font/google";
-// import "./globals.css";
-// import { AuthProvider } from "@/components/authProvider";
-
 import { Inter as FontSans } from "next/font/google";
-
 import { cn } from "@/lib/utils";
-// import { ThemeProvider } from "@/components/themeProvider";
 import BaseLayout from "@/components/dashboard/BaseLayout";
 import { ReactNode, Suspense } from "react";
 import { ThemeProvider } from "@/components/dashboard/themeProvider";

@@ -5,7 +5,11 @@ import "survey-core/defaultV2.css";
 import { Survey } from "survey-react-ui";
 import { SurveyPDF } from "survey-pdf";
 import { useEffect, useState } from "react";
-import { json, themeJson } from "@/data/clinicviews/llpmg-patient-form";
+import {
+	json,
+	themeJson,
+} from "@/data/clinicviews/accessable/llpmg-patient-form";
+// import { json, themeJson } from "@/data/clinicviews/llpmg-patient-form";
 
 interface FormResultItem {
 	name: string;

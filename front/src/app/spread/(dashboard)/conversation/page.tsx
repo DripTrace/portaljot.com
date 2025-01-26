@@ -1,6 +1,6 @@
 import { onGetAllAccountDomains } from "@/actions/feature/spread/settings";
-import ConversationMenu from "@/components/conversations";
-import Messenger from "@/components/conversations/messenger";
+import ConversationMenu from "@/components/spread/conversations";
+import Messenger from "@/components/spread/conversations/messenger";
 import InfoBar from "@/components/spread/infobar";
 import { Separator } from "@/components/ui/separator";
 import React from "react";

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { cookies } from "next/headers";
-import "@/styles/clinicviews/globals.css";
+import "@/styles/globals.css";
 import { getFavicon } from "@/utils/clinicviews/getFavicon";
 import RootClientLayout from "@/components/clinicviews/RootClientLayout";
 import InstallPrompt from "@/components/clinicviews/SafeInstallPrompt";

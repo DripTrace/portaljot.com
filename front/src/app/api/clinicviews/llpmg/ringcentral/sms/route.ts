@@ -19,7 +19,7 @@ interface Conversation {
 const activeConversations: { [key: string]: Conversation } = {};
 const processedMessageIds: Set<string> = new Set();
 
-function createOrUpdateConversation(
+export function createOrUpdateConversation(
 	patientNumber: string,
 	doctorNumber: string
 ): string {
@@ -29,7 +29,9 @@ function createOrUpdateConversation(
 	return conversationId;
 }
 
-async function getMessageDetails(messageId: string): Promise<MessageDetails> {
+export async function getMessageDetails(
+	messageId: string
+): Promise<MessageDetails> {
 	console.log(`Fetching details for message ID: ${messageId}`);
 	await ringCentralClient.login({ jwt: process.env.RC_JWT });
 	const response = await ringCentralClient.get(
@@ -40,7 +42,7 @@ async function getMessageDetails(messageId: string): Promise<MessageDetails> {
 	return details;
 }
 
-async function sendSMS(to: string, message: string) {
+export async function sendSMS(to: string, message: string) {
 	console.log(`Sending SMS to ${to}: ${message}`);
 	await ringCentralClient.login({ jwt: process.env.RC_JWT });
 	const response = await ringCentralClient.post(
@@ -55,7 +57,7 @@ async function sendSMS(to: string, message: string) {
 	console.log(`SMS sent successfully:`, JSON.stringify(result, null, 2));
 }
 
-async function handleNewMessage(messageDetails: MessageDetails) {
+export async function handleNewMessage(messageDetails: MessageDetails) {
 	console.log(
 		`Handling new message:`,
 		JSON.stringify(messageDetails, null, 2)
@@ -152,5 +154,3 @@ export async function POST(req: NextRequest) {
 		);
 	}
 }
-
-export { createOrUpdateConversation };

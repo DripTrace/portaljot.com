@@ -12,7 +12,7 @@ import {
 export type GroupListProps = {
 	id: string;
 	label: string;
-	icon: JSX.Element;
+	icon: React.ReactNode;
 	path: string;
 };
 

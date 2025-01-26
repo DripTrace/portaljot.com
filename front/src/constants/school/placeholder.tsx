@@ -11,7 +11,7 @@ import {
 export type CreateGroupPlaceholderProps = {
 	id: string;
 	label: string;
-	icon: JSX.Element;
+	icon: React.ReactNode;
 };
 
 export const CREATE_GROUP_PLACEHOLDER: CreateGroupPlaceholderProps[] = [

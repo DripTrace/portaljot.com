@@ -206,7 +206,7 @@
 
 // // // // // //                             {isLogin ? (
 // // // // // //                                 <>
-// // // // // //                                     <div className="inputBox">
+// // // // // //                                     <div className="input-box">
 // // // // // //                                         <input
 // // // // // //                                             className="input input-glass-container"
 // // // // // //                                             type="email"
@@ -216,7 +216,7 @@
 // // // // // //                                             ref={emailInputRef}
 // // // // // //                                         />
 // // // // // //                                     </div>
-// // // // // //                                     <div className="inputBox">
+// // // // // //                                     <div className="input-box">
 // // // // // //                                         <input
 // // // // // //                                             className="input input-glass-container"
 // // // // // //                                             type="password"
@@ -229,7 +229,7 @@
 // // // // // //                                 </>
 // // // // // //                             ) : (
 // // // // // //                                 <>
-// // // // // //                                     <div className="inputBox">
+// // // // // //                                     <div className="input-box">
 // // // // // //                                         <input
 // // // // // //                                             className="input input-glass-container"
 // // // // // //                                             type="text"
@@ -239,7 +239,7 @@
 // // // // // //                                             ref={usernameInputRef}
 // // // // // //                                         />
 // // // // // //                                     </div>
-// // // // // //                                     <div className="inputBox">
+// // // // // //                                     <div className="input-box">
 // // // // // //                                         <input
 // // // // // //                                             className="input input-glass-container"
 // // // // // //                                             type="text"
@@ -249,7 +249,7 @@
 // // // // // //                                             ref={firstnameInputRef}
 // // // // // //                                         />
 // // // // // //                                     </div>
-// // // // // //                                     <div className="inputBox">
+// // // // // //                                     <div className="input-box">
 // // // // // //                                         <input
 // // // // // //                                             className="input input-glass-container"
 // // // // // //                                             type="text"
@@ -259,7 +259,7 @@
 // // // // // //                                             ref={lastnameInputRef}
 // // // // // //                                         />
 // // // // // //                                     </div>
-// // // // // //                                     <div className="inputBox">
+// // // // // //                                     <div className="input-box">
 // // // // // //                                         <input
 // // // // // //                                             className="input input-glass-container"
 // // // // // //                                             type="email"
@@ -269,7 +269,7 @@
 // // // // // //                                             ref={emailInputRef}
 // // // // // //                                         />
 // // // // // //                                     </div>
-// // // // // //                                     <div className="inputBox">
+// // // // // //                                     <div className="input-box">
 // // // // // //                                         <input
 // // // // // //                                             className="input input-glass-container"
 // // // // // //                                             type="password"
@@ -282,7 +282,7 @@
 // // // // // //                                 </>
 // // // // // //                             )}
 
-// // // // // //                             <div className="inputBox">
+// // // // // //                             <div className="input-box">
 // // // // // //                                 <input
 // // // // // //                                     className="input input-glass-container text-black dark:text-[#4C8EFF] bg-gray-800/40 dark:bg-gray-300/40 max-w-[10.25em] cursor-pointer mb-[1.25em] font-semibold"
 // // // // // //                                     type="submit"
@@ -537,7 +537,7 @@
 
 // // // // // //                             {isLogin ? (
 // // // // // //                                 <>
-// // // // // //                                     <div className="inputBox">
+// // // // // //                                     <div className="input-box">
 // // // // // //                                         <input
 // // // // // //                                             className="input input-glass-container"
 // // // // // //                                             type="email"
@@ -547,7 +547,7 @@
 // // // // // //                                             ref={emailInputRef}
 // // // // // //                                         />
 // // // // // //                                     </div>
-// // // // // //                                     <div className="inputBox">
+// // // // // //                                     <div className="input-box">
 // // // // // //                                         <input
 // // // // // //                                             className="input input-glass-container"
 // // // // // //                                             type="password"
@@ -560,7 +560,7 @@
 // // // // // //                                 </>
 // // // // // //                             ) : (
 // // // // // //                                 <>
-// // // // // //                                     <div className="inputBox">
+// // // // // //                                     <div className="input-box">
 // // // // // //                                         <input
 // // // // // //                                             className="input input-glass-container"
 // // // // // //                                             type="text"
@@ -570,7 +570,7 @@
 // // // // // //                                             ref={usernameInputRef}
 // // // // // //                                         />
 // // // // // //                                     </div>
-// // // // // //                                     <div className="inputBox">
+// // // // // //                                     <div className="input-box">
 // // // // // //                                         <input
 // // // // // //                                             className="input input-glass-container"
 // // // // // //                                             type="text"
@@ -580,7 +580,7 @@
 // // // // // //                                             ref={firstnameInputRef}
 // // // // // //                                         />
 // // // // // //                                     </div>
-// // // // // //                                     <div className="inputBox">
+// // // // // //                                     <div className="input-box">
 // // // // // //                                         <input
 // // // // // //                                             className="input input-glass-container"
 // // // // // //                                             type="text"
@@ -590,7 +590,7 @@
 // // // // // //                                             ref={lastnameInputRef}
 // // // // // //                                         />
 // // // // // //                                     </div>
-// // // // // //                                     <div className="inputBox">
+// // // // // //                                     <div className="input-box">
 // // // // // //                                         <input
 // // // // // //                                             className="input input-glass-container"
 // // // // // //                                             type="email"
@@ -600,7 +600,7 @@
 // // // // // //                                             ref={emailInputRef}
 // // // // // //                                         />
 // // // // // //                                     </div>
-// // // // // //                                     <div className="inputBox">
+// // // // // //                                     <div className="input-box">
 // // // // // //                                         <input
 // // // // // //                                             className="input input-glass-container"
 // // // // // //                                             type="password"
@@ -613,7 +613,7 @@
 // // // // // //                                 </>
 // // // // // //                             )}
 
-// // // // // //                             <div className="inputBox">
+// // // // // //                             <div className="input-box">
 // // // // // //                                 <input
 // // // // // //                                     className="input input-glass-container text-black dark:text-[#4C8EFF] bg-gray-800/40 dark:bg-gray-300/40 max-w-[10.25em] cursor-pointer mb-[1.25em] font-semibold"
 // // // // // //                                     type="submit"
@@ -828,7 +828,7 @@
 
 // // // // //                             {!isLogin && (
 // // // // //                                 <>
-// // // // //                                     <div className="inputBox">
+// // // // //                                     <div className="input-box">
 // // // // //                                         <input
 // // // // //                                             className="input input-glass-container"
 // // // // //                                             type="text"
@@ -838,7 +838,7 @@
 // // // // //                                             ref={usernameInputRef}
 // // // // //                                         />
 // // // // //                                     </div>
-// // // // //                                     <div className="inputBox">
+// // // // //                                     <div className="input-box">
 // // // // //                                         <input
 // // // // //                                             className="input input-glass-container"
 // // // // //                                             type="text"
@@ -848,7 +848,7 @@
 // // // // //                                             ref={firstnameInputRef}
 // // // // //                                         />
 // // // // //                                     </div>
-// // // // //                                     <div className="inputBox">
+// // // // //                                     <div className="input-box">
 // // // // //                                         <input
 // // // // //                                             className="input input-glass-container"
 // // // // //                                             type="text"
@@ -861,7 +861,7 @@
 // // // // //                                 </>
 // // // // //                             )}
 
-// // // // //                             <div className="inputBox">
+// // // // //                             <div className="input-box">
 // // // // //                                 <input
 // // // // //                                     className="input input-glass-container"
 // // // // //                                     type="email"
@@ -871,7 +871,7 @@
 // // // // //                                     ref={emailInputRef}
 // // // // //                                 />
 // // // // //                             </div>
-// // // // //                             <div className="inputBox">
+// // // // //                             <div className="input-box">
 // // // // //                                 <input
 // // // // //                                     className="input input-glass-container"
 // // // // //                                     type="password"
@@ -882,7 +882,7 @@
 // // // // //                                 />
 // // // // //                             </div>
 
-// // // // //                             <div className="inputBox">
+// // // // //                             <div className="input-box">
 // // // // //                                 <input
 // // // // //                                     className="input input-glass-container text-black dark:text-[#4C8EFF] bg-gray-800/40 dark:bg-gray-300/40 max-w-[10.25em] cursor-pointer mb-[1.25em] font-semibold"
 // // // // //                                     type="submit"
@@ -1106,7 +1106,7 @@
 
 // // // //                             {!isLogin && (
 // // // //                                 <>
-// // // //                                     <div className="inputBox">
+// // // //                                     <div className="input-box">
 // // // //                                         <input
 // // // //                                             className="input input-glass-container"
 // // // //                                             type="text"
@@ -1116,7 +1116,7 @@
 // // // //                                             ref={usernameInputRef}
 // // // //                                         />
 // // // //                                     </div>
-// // // //                                     <div className="inputBox">
+// // // //                                     <div className="input-box">
 // // // //                                         <input
 // // // //                                             className="input input-glass-container"
 // // // //                                             type="text"
@@ -1126,7 +1126,7 @@
 // // // //                                             ref={firstnameInputRef}
 // // // //                                         />
 // // // //                                     </div>
-// // // //                                     <div className="inputBox">
+// // // //                                     <div className="input-box">
 // // // //                                         <input
 // // // //                                             className="input input-glass-container"
 // // // //                                             type="text"
@@ -1139,7 +1139,7 @@
 // // // //                                 </>
 // // // //                             )}
 
-// // // //                             <div className="inputBox">
+// // // //                             <div className="input-box">
 // // // //                                 <input
 // // // //                                     className="input input-glass-container"
 // // // //                                     type="email"
@@ -1149,7 +1149,7 @@
 // // // //                                     ref={emailInputRef}
 // // // //                                 />
 // // // //                             </div>
-// // // //                             <div className="inputBox">
+// // // //                             <div className="input-box">
 // // // //                                 <input
 // // // //                                     className="input input-glass-container"
 // // // //                                     type="password"
@@ -1160,7 +1160,7 @@
 // // // //                                 />
 // // // //                             </div>
 
-// // // //                             <div className="inputBox">
+// // // //                             <div className="input-box">
 // // // //                                 <input
 // // // //                                     className="input input-glass-container text-black dark:text-[#4C8EFF] bg-gray-800/40 dark:bg-gray-300/40 max-w-[10.25em] cursor-pointer mb-[1.25em] font-semibold"
 // // // //                                     type="submit"
@@ -1417,7 +1417,7 @@
 
 // // //                             {!isLogin && (
 // // //                                 <>
-// // //                                     <div className="inputBox">
+// // //                                     <div className="input-box">
 // // //                                         <input
 // // //                                             className="input input-glass-container"
 // // //                                             type="text"
@@ -1427,7 +1427,7 @@
 // // //                                             ref={usernameInputRef}
 // // //                                         />
 // // //                                     </div>
-// // //                                     <div className="inputBox">
+// // //                                     <div className="input-box">
 // // //                                         <input
 // // //                                             className="input input-glass-container"
 // // //                                             type="text"
@@ -1437,7 +1437,7 @@
 // // //                                             ref={firstnameInputRef}
 // // //                                         />
 // // //                                     </div>
-// // //                                     <div className="inputBox">
+// // //                                     <div className="input-box">
 // // //                                         <input
 // // //                                             className="input input-glass-container"
 // // //                                             type="text"
@@ -1450,7 +1450,7 @@
 // // //                                 </>
 // // //                             )}
 
-// // //                             <div className="inputBox">
+// // //                             <div className="input-box">
 // // //                                 <input
 // // //                                     className="input input-glass-container"
 // // //                                     type="email"
@@ -1460,7 +1460,7 @@
 // // //                                     ref={emailInputRef}
 // // //                                 />
 // // //                             </div>
-// // //                             <div className="inputBox">
+// // //                             <div className="input-box">
 // // //                                 <input
 // // //                                     className="input input-glass-container"
 // // //                                     type="password"
@@ -1471,7 +1471,7 @@
 // // //                                 />
 // // //                             </div>
 
-// // //                             <div className="inputBox">
+// // //                             <div className="input-box">
 // // //                                 <input
 // // //                                     className="input input-glass-container text-black dark:text-[#4C8EFF] bg-gray-800/40 dark:bg-gray-300/40 max-w-[10.25em] cursor-pointer mb-[1.25em] font-semibold"
 // // //                                     type="submit"
@@ -1592,7 +1592,7 @@
 
 // //                             {!isLogin && (
 // //                                 <>
-// //                                     <div className="inputBox">
+// //                                     <div className="input-box">
 // //                                         <input
 // //                                             className="input input-glass-container"
 // //                                             type="text"
@@ -1602,7 +1602,7 @@
 // //                                             ref={usernameInputRef}
 // //                                         />
 // //                                     </div>
-// //                                     <div className="inputBox">
+// //                                     <div className="input-box">
 // //                                         <input
 // //                                             className="input input-glass-container"
 // //                                             type="text"
@@ -1612,7 +1612,7 @@
 // //                                             ref={firstnameInputRef}
 // //                                         />
 // //                                     </div>
-// //                                     <div className="inputBox">
+// //                                     <div className="input-box">
 // //                                         <input
 // //                                             className="input input-glass-container"
 // //                                             type="text"
@@ -1625,7 +1625,7 @@
 // //                                 </>
 // //                             )}
 
-// //                             <div className="inputBox">
+// //                             <div className="input-box">
 // //                                 <input
 // //                                     className="input input-glass-container"
 // //                                     type="email"
@@ -1635,7 +1635,7 @@
 // //                                     ref={emailInputRef}
 // //                                 />
 // //                             </div>
-// //                             <div className="inputBox">
+// //                             <div className="input-box">
 // //                                 <input
 // //                                     className="input input-glass-container"
 // //                                     type="password"
@@ -1646,7 +1646,7 @@
 // //                                 />
 // //                             </div>
 
-// //                             <div className="inputBox">
+// //                             <div className="input-box">
 // //                                 <input
 // //                                     className="input input-glass-container text-black dark:text-[#4C8EFF] bg-gray-800/40 dark:bg-gray-300/40 max-w-[10.25em] cursor-pointer mb-[1.25em] font-semibold"
 // //                                     type="submit"
@@ -1753,7 +1753,7 @@
 //                         <form onSubmit={submitHandler}>
 //                             <p>{userResponse}</p>
 
-//                             <div className="inputBox">
+//                             <div className="input-box">
 //                                 <input
 //                                     className="input input-glass-container"
 //                                     type="email"
@@ -1763,7 +1763,7 @@
 //                                     ref={emailInputRef}
 //                                 />
 //                             </div>
-//                             <div className="inputBox">
+//                             <div className="input-box">
 //                                 <input
 //                                     className="input input-glass-container"
 //                                     type="password"
@@ -1774,7 +1774,7 @@
 //                                 />
 //                             </div>
 
-//                             <div className="inputBox">
+//                             <div className="input-box">
 //                                 <input
 //                                     className="input input-glass-container text-black dark:text-[#4C8EFF] bg-gray-800/40 dark:bg-gray-300/40 max-w-[10.25em] cursor-pointer mb-[1.25em] font-semibold"
 //                                     type="submit"
@@ -2029,7 +2029,7 @@
 
 //                             {isLogin ? (
 //                                 <>
-//                                     <div className="inputBox">
+//                                     <div className="input-box">
 //                                         <input
 //                                             className="input input-glass-container"
 //                                             type="email"
@@ -2039,7 +2039,7 @@
 //                                             ref={emailInputRef}
 //                                         />
 //                                     </div>
-//                                     <div className="inputBox">
+//                                     <div className="input-box">
 //                                         <input
 //                                             className="input input-glass-container"
 //                                             type="password"
@@ -2052,7 +2052,7 @@
 //                                 </>
 //                             ) : (
 //                                 <>
-//                                     <div className="inputBox">
+//                                     <div className="input-box">
 //                                         <input
 //                                             className="input input-glass-container"
 //                                             type="text"
@@ -2062,7 +2062,7 @@
 //                                             ref={usernameInputRef}
 //                                         />
 //                                     </div>
-//                                     <div className="inputBox">
+//                                     <div className="input-box">
 //                                         <input
 //                                             className="input input-glass-container"
 //                                             type="text"
@@ -2072,7 +2072,7 @@
 //                                             ref={firstnameInputRef}
 //                                         />
 //                                     </div>
-//                                     <div className="inputBox">
+//                                     <div className="input-box">
 //                                         <input
 //                                             className="input input-glass-container"
 //                                             type="text"
@@ -2082,7 +2082,7 @@
 //                                             ref={lastnameInputRef}
 //                                         />
 //                                     </div>
-//                                     <div className="inputBox">
+//                                     <div className="input-box">
 //                                         <input
 //                                             className="input input-glass-container"
 //                                             type="email"
@@ -2092,7 +2092,7 @@
 //                                             ref={emailInputRef}
 //                                         />
 //                                     </div>
-//                                     <div className="inputBox">
+//                                     <div className="input-box">
 //                                         <input
 //                                             className="input input-glass-container"
 //                                             type="password"
@@ -2105,7 +2105,7 @@
 //                                 </>
 //                             )}
 
-//                             <div className="inputBox">
+//                             <div className="input-box">
 //                                 <input
 //                                     className="input input-glass-container text-black dark:text-[#4C8EFF] bg-gray-800/40 dark:bg-gray-300/40 max-w-[10.25em] cursor-pointer mb-[1.25em] font-semibold"
 //                                     type="submit"
@@ -2227,7 +2227,7 @@ const Authorization = ({ closeModal }: AuthorizationProps) => {
 						<form onSubmit={submitHandler}>
 							<p>{userResponse}</p>
 
-							<div className="inputBox">
+							<div className="input-box">
 								<input
 									className="input input-glass-container"
 									type="email"
@@ -2237,7 +2237,7 @@ const Authorization = ({ closeModal }: AuthorizationProps) => {
 									ref={emailInputRef}
 								/>
 							</div>
-							<div className="inputBox">
+							<div className="input-box">
 								<input
 									className="input input-glass-container"
 									type="password"
@@ -2248,7 +2248,7 @@ const Authorization = ({ closeModal }: AuthorizationProps) => {
 								/>
 							</div>
 
-							<div className="inputBox">
+							<div className="input-box">
 								<input
 									className="input input-glass-container text-black dark:text-[#4C8EFF] bg-gray-800/40 dark:bg-gray-300/40 max-w-[10.25em] cursor-pointer mb-[1.25em] font-semibold"
 									type="submit"

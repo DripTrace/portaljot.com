@@ -1,14 +1,14 @@
-import Loader from '@/components/global/loader'
-import React from 'react'
+import Loader from "@/components/direct/global/loader";
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const Loading = (props: Props) => {
-  return (
-    <div className="h-screen flex justify-center items-center">
-      <Loader state>...Loading</Loader>
-    </div>
-  )
-}
+	return (
+		<div className="h-screen flex justify-center items-center">
+			<Loader state>...Loading</Loader>
+		</div>
+	);
+};
 
-export default Loading
+export default Loading;

@@ -1,6 +1,7 @@
 import Link from "next/link";
-import Demo from "exotalk/images/landingPage/this.gif";
 import Image from "next/image";
+
+const Demo = "/exotalk/images/landingPage/this.gif";
 
 export default async function HomePage() {
 	return (

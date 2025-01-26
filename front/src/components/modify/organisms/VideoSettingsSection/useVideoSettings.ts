@@ -1,7 +1,7 @@
 "use client";
 
 import { useContext } from "react";
-import { VideoSettingsContext } from "./VideoSettingsContext";
+import { VideoSettingsContext } from "./VideoSettingsContext.css";
 
 export const useVideoSettings = () => {
 	const context = useContext(VideoSettingsContext);

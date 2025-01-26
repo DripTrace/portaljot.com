@@ -1,6 +1,6 @@
 import React from "react";
 
-interface EmailTemplateProps {
+export interface EmailTemplateProps {
 	name: string;
 	email: string;
 	phone: string;

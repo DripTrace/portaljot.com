@@ -11,9 +11,7 @@ export type TMedia = {
 	postId?: string;
 };
 
-// components/MediaCard.tsx
 import Image from "next/image";
-// import { TMedia } from '@/types/media';
 
 export const MediaCard = ({ item }: { item: TMedia }) => {
 	switch (item.type) {

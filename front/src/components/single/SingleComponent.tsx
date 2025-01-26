@@ -17,7 +17,7 @@ const SingleComponent: React.FC = () => {
         const singleTopbar = document.querySelector(".single-topbar");
         const singleNavigation = document.querySelector(".single-navigation");
         const singleMain = document.querySelector(".single-main");
-        const singleThemeSwitch = document.querySelector(".singleThemeSwitch");
+        const singleThemeSwitch = document.querySelector(".single-theme-switch");
         const singleBody = document.body;
 
         singleToggle?.addEventListener("click", () => {
@@ -296,7 +296,7 @@ const SingleComponent: React.FC = () => {
                         id="single-banner"
                     >
                         <div className="single-content">
-                            <div className="imgBx">
+                            <div className="img-bx">
                                 <Image
                                     src="/single/user.jpeg"
                                     alt="User"
@@ -315,7 +315,7 @@ const SingleComponent: React.FC = () => {
                                 Cover Letter
                             </Link>
 
-                            <ul className="socialMedia">
+                            <ul className="social-media">
                                 <li>
                                     <Link href="https://www.facebook.com/PinoyWakeboarder">
                                         <i
@@ -360,7 +360,7 @@ const SingleComponent: React.FC = () => {
                             <h2>About Me</h2>
                         </div>
                         <div className="single-content">
-                            <div className="textBox">
+                            <div className="text-box">
                                 <p className="p-4">
                                     Hello 👋🏾, my name is Russell Brian Fulache
                                     Dugaduga Jale (pernounced "hall-ee") Palma.
@@ -412,8 +412,8 @@ const SingleComponent: React.FC = () => {
                         </div>
                         <div className="single-content">
                             <Link href="https://rpalm-spotify-clone-next.vercel.app/">
-                                <div className="workBx">
-                                    <div className="imgBx">
+                                <div className="work-bx">
+                                    <div className="img-bx">
                                         <Image
                                             src="https://links.papareact.com/9xl"
                                             alt="Spotify"
@@ -421,14 +421,14 @@ const SingleComponent: React.FC = () => {
                                             height={100}
                                         />
                                     </div>
-                                    <div className="textBx">
+                                    <div className="text-bx">
                                         <h3 className="single-h3">Spotify</h3>
                                     </div>
                                 </div>
                             </Link>
                             <Link href="https://rpalm-netflix-clone--react.web.app/">
-                                <div className="workBx">
-                                    <div className="imgBx">
+                                <div className="work-bx">
+                                    <div className="img-bx">
                                         <Image
                                             src="https://logos-world.net/wp-content/uploads/2020/04/Netflix-Logo-700x394.png"
                                             alt="Netflix"
@@ -436,14 +436,14 @@ const SingleComponent: React.FC = () => {
                                             height={56}
                                         />
                                     </div>
-                                    <div className="textBx">
+                                    <div className="text-bx">
                                         <h3 className="single-h3">Netflix</h3>
                                     </div>
                                 </div>
                             </Link>
                             <Link href="https://amazon-clone-react-kappa.vercel.app/">
-                                <div className="workBx">
-                                    <div className="imgBx">
+                                <div className="work-bx">
+                                    <div className="img-bx">
                                         <Image
                                             // src="http://media.corporate-ir.net/media_files/IROL/17/176060/Oct18/Amazon%20logo.PNG"
                                             src="https://assets.turbologo.com/blog/en/2019/10/19084944/youtube-logo-illustration.jpg"
@@ -452,14 +452,14 @@ const SingleComponent: React.FC = () => {
                                             height={56}
                                         />
                                     </div>
-                                    <div className="textBx">
+                                    <div className="text-bx">
                                         <h3 className="single-h3">Amazon</h3>
                                     </div>
                                 </div>
                             </Link>
                             <Link href="https://rpalm-yt-clone--react.web.app/">
-                                <div className="workBx">
-                                    <div className="imgBx">
+                                <div className="work-bx">
+                                    <div className="img-bx">
                                         <Image
                                             src="https://assets.turbologo.com/blog/en/2019/10/19084944/youtube-logo-illustration.jpg"
                                             alt="YouTube"
@@ -467,7 +467,7 @@ const SingleComponent: React.FC = () => {
                                             height={56}
                                         />
                                     </div>
-                                    <div className="textBx">
+                                    <div className="text-bx">
                                         <h3 className="single-h3">YouTube</h3>
                                     </div>
                                 </div>
@@ -476,8 +476,8 @@ const SingleComponent: React.FC = () => {
                                 href="https://huluclone-react.vercel.app/"
                                 passHref
                             >
-                                <div className="workBx">
-                                    <div className="imgBx">
+                                <div className="work-bx">
+                                    <div className="img-bx">
                                         <Image
                                             className="object-contain"
                                             alt="hulu"
@@ -487,7 +487,7 @@ const SingleComponent: React.FC = () => {
                                         />
                                         HU
                                     </div>
-                                    <div className="textBx">
+                                    <div className="text-bx">
                                         <h3 className="single-h3">Hulu</h3>
                                     </div>
                                 </div>
@@ -496,8 +496,8 @@ const SingleComponent: React.FC = () => {
                                 href="https://whats-app-clone-react.vercel.app/"
                                 passHref
                             >
-                                <div className="workBx">
-                                    <div className="imgBx">
+                                <div className="work-bx">
+                                    <div className="img-bx">
                                         <Image
                                             className="object-contain"
                                             alt="fill"
@@ -507,7 +507,7 @@ const SingleComponent: React.FC = () => {
                                         />
                                         WA
                                     </div>
-                                    <div className="textBx">
+                                    <div className="text-bx">
                                         <h3 className="single-h3">WhatsApp</h3>
                                     </div>
                                 </div>
@@ -516,8 +516,8 @@ const SingleComponent: React.FC = () => {
                                 href="https://russellportfolio.netlify.app"
                                 passHref
                             >
-                                <div className="workBx">
-                                    <div className="imgBx">
+                                <div className="work-bx">
+                                    <div className="img-bx">
                                         <Image
                                             className="object-contain"
                                             alt="sanity"
@@ -527,7 +527,7 @@ const SingleComponent: React.FC = () => {
                                         />
                                         SA
                                     </div>
-                                    <div className="textBx">
+                                    <div className="text-bx">
                                         <h3 className="single-h3">
                                             Sanity Blog CMS
                                         </h3>
@@ -539,8 +539,8 @@ const SingleComponent: React.FC = () => {
                                 href="https://ecstatic-leavitt-a2e426.netlify.app"
                                 passHref
                             >
-                                <div className="workBx">
-                                    <div className="imgBx">
+                                <div className="work-bx">
+                                    <div className="img-bx">
                                         <Image
                                             className="object-contain"
                                             alt="startup"
@@ -550,7 +550,7 @@ const SingleComponent: React.FC = () => {
                                         />
                                         SL
                                     </div>
-                                    <div className="textBx">
+                                    <div className="text-bx">
                                         <h3 className="single-h3">
                                             Startup Landing
                                         </h3>
@@ -558,8 +558,8 @@ const SingleComponent: React.FC = () => {
                                 </div>
                             </Link>
                             <Link href="https://nervous-ramanujan-132263.netlify.app">
-                                <div className="workBx">
-                                    <div className="imgBx">
+                                <div className="work-bx">
+                                    <div className="img-bx">
                                         <Image
                                             className="object-contain"
                                             alt="dolla"
@@ -569,14 +569,14 @@ const SingleComponent: React.FC = () => {
                                         />
                                         DO
                                     </div>
-                                    <div className="textBx">
+                                    <div className="text-bx">
                                         <h3 className="single-h3">Dolla</h3>
                                     </div>
                                 </div>
                             </Link>
                             <Link href="https://fathomless-fjord-48768.herokuapp.com">
-                                <div className="workBx">
-                                    <div className="imgBx">
+                                <div className="work-bx">
+                                    <div className="img-bx">
                                         <Image
                                             className="object-contain"
                                             alt="musiccontroller"
@@ -586,7 +586,7 @@ const SingleComponent: React.FC = () => {
                                         />
                                         MC
                                     </div>
-                                    <div className="textBx">
+                                    <div className="text-bx">
                                         <h3 className="single-h3">
                                             Music Controller
                                         </h3>
@@ -594,8 +594,8 @@ const SingleComponent: React.FC = () => {
                                 </div>
                             </Link>
                             <Link href="https://fathomless-temple-25078.herokuapp.com">
-                                <div className="workBx">
-                                    <div className="imgBx">
+                                <div className="work-bx">
+                                    <div className="img-bx">
                                         <Image
                                             className="object-contain"
                                             alt="rpalmslist"
@@ -605,7 +605,7 @@ const SingleComponent: React.FC = () => {
                                         />
                                         RL
                                     </div>
-                                    <div className="textBx">
+                                    <div className="text-bx">
                                         <h3 className="single-h3">
                                             rPalm's List
                                         </h3>
@@ -613,8 +613,8 @@ const SingleComponent: React.FC = () => {
                                 </div>
                             </Link>
                             <Link href="https://greenspot-hub-productions.vercel.app">
-                                <div className="workBx">
-                                    <div className="imgBx">
+                                <div className="work-bx">
+                                    <div className="img-bx">
                                         <Image
                                             className="object-contain"
                                             alt="greenspothubproductions"
@@ -624,7 +624,7 @@ const SingleComponent: React.FC = () => {
                                         />
                                         GH
                                     </div>
-                                    <div className="textBx">
+                                    <div className="text-bx">
                                         <h3 className="single-h3">
                                             Greenspot Hub Productions
                                         </h3>
@@ -632,8 +632,8 @@ const SingleComponent: React.FC = () => {
                                 </div>
                             </Link>
                             <Link href="https://obinsun.vercel.app">
-                                <div className="workBx">
-                                    <div className="imgBx">
+                                <div className="work-bx">
+                                    <div className="img-bx">
                                         <Image
                                             className="object-contain"
                                             alt="obinsun"
@@ -643,7 +643,7 @@ const SingleComponent: React.FC = () => {
                                         />
                                         OB
                                     </div>
-                                    <div className="textBx">
+                                    <div className="text-bx">
                                         <h3 className="single-h3">Obinsun</h3>
                                     </div>
                                 </div>
@@ -662,7 +662,7 @@ const SingleComponent: React.FC = () => {
                                 and I'll get back to you as soon as I can.
                             </p>
                         </div>
-                        <form className="contactForm" onSubmit={handleSubmit}>
+                        <form className="contact-form" onSubmit={handleSubmit}>
                             <div className="single-row">
                                 <input
                                     type="text"
@@ -947,7 +947,7 @@ export default SingleComponent;
 //                         id="single-banner"
 //                     >
 //                         <div className="single-content">
-//                             <div className="imgBx">
+//                             <div className="img-bx">
 //                                 <Image
 //                                     src="/single/user.jpeg"
 //                                     alt="User"
@@ -966,7 +966,7 @@ export default SingleComponent;
 //                                 Cover Letter
 //                             </Link>
 
-//                             <ul className="socialMedia">
+//                             <ul className="social-media">
 //                                 <li>
 //                                     <Link href="https://www.facebook.com/PinoyWakeboarder">
 //                                         <i
@@ -1011,7 +1011,7 @@ export default SingleComponent;
 //                             <h2>About Me</h2>
 //                         </div>
 //                         <div className="single-content">
-//                             <div className="textBox">
+//                             <div className="text-box">
 //                                 <p className="p-4">
 //                                     Hello 👋🏾, my name is Russell Brian Fulache
 //                                     Dugaduga Jale (pernounced "hall-ee") Palma.
@@ -1063,8 +1063,8 @@ export default SingleComponent;
 //                         </div>
 //                         <div className="single-content">
 //                             <Link href="https://rpalm-spotify-clone-next.vercel.app/">
-//                                 <div className="workBx">
-//                                     <div className="imgBx">
+//                                 <div className="work-bx">
+//                                     <div className="img-bx">
 //                                         <Image
 //                                             src="https://links.papareact.com/9xl"
 //                                             alt="Spotify"
@@ -1072,14 +1072,14 @@ export default SingleComponent;
 //                                             height={100}
 //                                         />
 //                                     </div>
-//                                     <div className="textBx">
+//                                     <div className="text-bx">
 //                                         <h3 className="single-h3">Spotify</h3>
 //                                     </div>
 //                                 </div>
 //                             </Link>
 //                             <Link href="https://rpalm-netflix-clone--react.web.app/">
-//                                 <div className="workBx">
-//                                     <div className="imgBx">
+//                                 <div className="work-bx">
+//                                     <div className="img-bx">
 //                                         <Image
 //                                             src="https://logos-world.net/wp-content/uploads/2020/04/Netflix-Logo-700x394.png"
 //                                             alt="Netflix"
@@ -1087,14 +1087,14 @@ export default SingleComponent;
 //                                             height={56}
 //                                         />
 //                                     </div>
-//                                     <div className="textBx">
+//                                     <div className="text-bx">
 //                                         <h3 className="single-h3">Netflix</h3>
 //                                     </div>
 //                                 </div>
 //                             </Link>
 //                             <Link href="https://amazon-clone-react-kappa.vercel.app/">
-//                                 <div className="workBx">
-//                                     <div className="imgBx">
+//                                 <div className="work-bx">
+//                                     <div className="img-bx">
 //                                         <Image
 //                                             src="https://assets.turbologo.com/blog/en/2019/10/19084944/youtube-logo-illustration.jpg"
 //                                             alt="Amazon"
@@ -1102,14 +1102,14 @@ export default SingleComponent;
 //                                             height={56}
 //                                         />
 //                                     </div>
-//                                     <div className="textBx">
+//                                     <div className="text-bx">
 //                                         <h3 className="single-h3">Amazon</h3>
 //                                     </div>
 //                                 </div>
 //                             </Link>
 //                             <Link href="https://rpalm-yt-clone--react.web.app/">
-//                                 <div className="workBx">
-//                                     <div className="imgBx">
+//                                 <div className="work-bx">
+//                                     <div className="img-bx">
 //                                         <Image
 //                                             src="https://assets.turbologo.com/blog/en/2019/10/19084944/youtube-logo-illustration.jpg"
 //                                             alt="YouTube"
@@ -1117,7 +1117,7 @@ export default SingleComponent;
 //                                             height={56}
 //                                         />
 //                                     </div>
-//                                     <div className="textBx">
+//                                     <div className="text-bx">
 //                                         <h3 className="single-h3">YouTube</h3>
 //                                     </div>
 //                                 </div>
@@ -1126,8 +1126,8 @@ export default SingleComponent;
 //                                 href="https://huluclone-react.vercel.app/"
 //                                 passHref
 //                             >
-//                                 <div className="workBx">
-//                                     <div className="imgBx">
+//                                 <div className="work-bx">
+//                                     <div className="img-bx">
 //                                         <Image
 //                                             className="object-contain"
 //                                             alt="hulu"
@@ -1137,7 +1137,7 @@ export default SingleComponent;
 //                                         />
 //                                         HU
 //                                     </div>
-//                                     <div className="textBx">
+//                                     <div className="text-bx">
 //                                         <h3 className="single-h3">Hulu</h3>
 //                                     </div>
 //                                 </div>
@@ -1146,8 +1146,8 @@ export default SingleComponent;
 //                                 href="https://whats-app-clone-react.vercel.app/"
 //                                 passHref
 //                             >
-//                                 <div className="workBx">
-//                                     <div className="imgBx">
+//                                 <div className="work-bx">
+//                                     <div className="img-bx">
 //                                         <Image
 //                                             className="object-contain"
 //                                             alt="fill"
@@ -1157,7 +1157,7 @@ export default SingleComponent;
 //                                         />
 //                                         WA
 //                                     </div>
-//                                     <div className="textBx">
+//                                     <div className="text-bx">
 //                                         <h3 className="single-h3">WhatsApp</h3>
 //                                     </div>
 //                                 </div>
@@ -1166,8 +1166,8 @@ export default SingleComponent;
 //                                 href="https://russellportfolio.netlify.app"
 //                                 passHref
 //                             >
-//                                 <div className="workBx">
-//                                     <div className="imgBx">
+//                                 <div className="work-bx">
+//                                     <div className="img-bx">
 //                                         <Image
 //                                             className="object-contain"
 //                                             alt="sanity"
@@ -1177,7 +1177,7 @@ export default SingleComponent;
 //                                         />
 //                                         SA
 //                                     </div>
-//                                     <div className="textBx">
+//                                     <div className="text-bx">
 //                                         <h3 className="single-h3">
 //                                             Sanity Blog CMS
 //                                         </h3>
@@ -1189,8 +1189,8 @@ export default SingleComponent;
 //                                 href="https://ecstatic-leavitt-a2e426.netlify.app"
 //                                 passHref
 //                             >
-//                                 <div className="workBx">
-//                                     <div className="imgBx">
+//                                 <div className="work-bx">
+//                                     <div className="img-bx">
 //                                         <Image
 //                                             className="object-contain"
 //                                             alt="startup"
@@ -1200,7 +1200,7 @@ export default SingleComponent;
 //                                         />
 //                                         SL
 //                                     </div>
-//                                     <div className="textBx">
+//                                     <div className="text-bx">
 //                                         <h3 className="single-h3">
 //                                             Startup Landing
 //                                         </h3>
@@ -1208,8 +1208,8 @@ export default SingleComponent;
 //                                 </div>
 //                             </Link>
 //                             <Link href="https://nervous-ramanujan-132263.netlify.app">
-//                                 <div className="workBx">
-//                                     <div className="imgBx">
+//                                 <div className="work-bx">
+//                                     <div className="img-bx">
 //                                         <Image
 //                                             className="object-contain"
 //                                             alt="dolla"
@@ -1219,14 +1219,14 @@ export default SingleComponent;
 //                                         />
 //                                         DO
 //                                     </div>
-//                                     <div className="textBx">
+//                                     <div className="text-bx">
 //                                         <h3 className="single-h3">Dolla</h3>
 //                                     </div>
 //                                 </div>
 //                             </Link>
 //                             <Link href="https://fathomless-fjord-48768.herokuapp.com">
-//                                 <div className="workBx">
-//                                     <div className="imgBx">
+//                                 <div className="work-bx">
+//                                     <div className="img-bx">
 //                                         <Image
 //                                             className="object-contain"
 //                                             alt="musiccontroller"
@@ -1236,7 +1236,7 @@ export default SingleComponent;
 //                                         />
 //                                         MC
 //                                     </div>
-//                                     <div className="textBx">
+//                                     <div className="text-bx">
 //                                         <h3 className="single-h3">
 //                                             Music Controller
 //                                         </h3>
@@ -1244,8 +1244,8 @@ export default SingleComponent;
 //                                 </div>
 //                             </Link>
 //                             <Link href="https://fathomless-temple-25078.herokuapp.com">
-//                                 <div className="workBx">
-//                                     <div className="imgBx">
+//                                 <div className="work-bx">
+//                                     <div className="img-bx">
 //                                         <Image
 //                                             className="object-contain"
 //                                             alt="rpalmslist"
@@ -1255,7 +1255,7 @@ export default SingleComponent;
 //                                         />
 //                                         RL
 //                                     </div>
-//                                     <div className="textBx">
+//                                     <div className="text-bx">
 //                                         <h3 className="single-h3">
 //                                             rPalm's List
 //                                         </h3>
@@ -1263,8 +1263,8 @@ export default SingleComponent;
 //                                 </div>
 //                             </Link>
 //                             <Link href="https://greenspot-hub-productions.vercel.app">
-//                                 <div className="workBx">
-//                                     <div className="imgBx">
+//                                 <div className="work-bx">
+//                                     <div className="img-bx">
 //                                         <Image
 //                                             className="object-contain"
 //                                             alt="greenspothubproductions"
@@ -1274,7 +1274,7 @@ export default SingleComponent;
 //                                         />
 //                                         GH
 //                                     </div>
-//                                     <div className="textBx">
+//                                     <div className="text-bx">
 //                                         <h3 className="single-h3">
 //                                             Greenspot Hub Productions
 //                                         </h3>
@@ -1282,8 +1282,8 @@ export default SingleComponent;
 //                                 </div>
 //                             </Link>
 //                             <Link href="https://obinsun.vercel.app">
-//                                 <div className="workBx">
-//                                     <div className="imgBx">
+//                                 <div className="work-bx">
+//                                     <div className="img-bx">
 //                                         <Image
 //                                             className="object-contain"
 //                                             alt="obinsun"
@@ -1293,7 +1293,7 @@ export default SingleComponent;
 //                                         />
 //                                         OB
 //                                     </div>
-//                                     <div className="textBx">
+//                                     <div className="text-bx">
 //                                         <h3 className="single-h3">Obinsun</h3>
 //                                     </div>
 //                                 </div>

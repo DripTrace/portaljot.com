@@ -3,7 +3,7 @@ import { ISyncVariant } from "@/lib/merchandise/state/slices/variantSlice";
 import axios from "axios";
 import * as admin from "firebase-admin";
 import { ServiceAccount } from "firebase-admin";
-import { serviceAccount } from "@/app/api/merchandise/stripe/webhook/route";
+import { serviceAccount } from "@/config/firebase/serviceAccount";
 import { NextRequest, NextResponse } from "next/server";
 
 export interface ISyncProduct {

@@ -6,7 +6,7 @@ export const typeStyles: Record<
 	{
 		background: string;
 		text: string;
-		rankIcon: JSX.Element;
+		rankIcon: React.ReactNode;
 	}
 > = {
 	grass: {

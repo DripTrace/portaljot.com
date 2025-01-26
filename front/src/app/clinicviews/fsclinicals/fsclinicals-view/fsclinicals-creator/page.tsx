@@ -1,3 +1,5 @@
+"use client";
+
 import FSClinicalsFormCreatorComponent from "@/components/clinicviews/FSClinicals/FSClinicalsComponents/FSClinicalsFormCreator";
 
 import dynamic from "next/dynamic";

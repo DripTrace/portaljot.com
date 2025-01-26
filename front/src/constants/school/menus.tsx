@@ -16,7 +16,7 @@ import {
 export type MenuProps = {
 	id: number;
 	label: string;
-	icon: JSX.Element;
+	icon: React.ReactNode;
 	path: string;
 	section?: boolean;
 	integration?: boolean;
@@ -25,7 +25,7 @@ export type MenuProps = {
 export type GroupMenuProps = {
 	id: number;
 	label: string;
-	icon: JSX.Element;
+	icon: React.ReactNode;
 	path: string;
 };
 

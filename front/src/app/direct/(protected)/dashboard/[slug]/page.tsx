@@ -1,5 +1,5 @@
-import DoubleGradientCard from "@/components/global/double-gradient-card";
-import { DASHBOARD_CARDS } from "@/constants/dashboard";
+import DoubleGradientCard from "@/components/direct/global/double-gradient-card";
+import { DASHBOARD_CARDS } from "@/constants/direct/dashboard";
 import { BarDuoToneBlue } from "@/components/direct/icons";
 import React from "react";
 import Chart from "./_components/metrics";

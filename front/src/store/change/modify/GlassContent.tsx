@@ -16,7 +16,11 @@ const variants = {
 	exit: { opacity: 0, x: 0, y: -100 },
 };
 
-const GlassContent = ({ children, title, description }: Props): JSX.Element => {
+const GlassContent = ({
+	children,
+	title,
+	description,
+}: Props): React.ReactNode => {
 	return (
 		<>
 			<NextSeo

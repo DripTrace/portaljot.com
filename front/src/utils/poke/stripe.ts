@@ -2,7 +2,7 @@
 import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_POKE || "", {
-	apiVersion: "2024-09-30.acacia",
+	apiVersion: "2024-12-18.acacia",
 });
 
 export const createStripeProductAndPrice = async (

@@ -21,7 +21,7 @@ const GlassSheet = ({
       </SheetTrigger>
       <SheetContent
         className={cn(
-          "bg-clip-padding backdrop-filter backdrop--blur__safari backdrop-blur-3xl bgOpacity-20 bg-themeGray border-themeGray",
+          "bg-clip-padding backdrop-filter backdrop-blur-safari backdrop-blur-3xl bgOpacity-20 bg-themeGray border-themeGray",
           className,
         )}
       >

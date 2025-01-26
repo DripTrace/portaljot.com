@@ -6,9 +6,9 @@ import "survey-core/defaultV2.css";
 import { Survey } from "survey-react-ui";
 import { SurveyPDF } from "survey-pdf";
 import { useState, useEffect } from "react";
-import { fsclinicalsTheme } from "@/data/clinicviews/fsclinicals-config";
-import { returningFsclinicalsPatientForm } from "@/data/clinicviews/fsclinicals-cleaned-data";
+import { fsclinicalsTheme } from "@/data/clinicviews/accessable/fsclinicals-config";
 import { useDomainSelector } from "@/store/clinicviews/domainHooks";
+import { returningFsclinicalsPatientForm } from "@/data/clinicviews/accessable/fsclinicals-cleaned-data";
 {
 	useDomainSelector;
 }

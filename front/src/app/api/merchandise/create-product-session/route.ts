@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import * as admin from "firebase-admin";
 import { ServiceAccount } from "firebase-admin";
-import { serviceAccount } from "@/app/api/merchandise/stripe/webhook/route";
+import { serviceAccount } from "@/config/firebase/serviceAccount";
 
 // Initialize Firebase Admin SDK
 if (!admin.apps.length) {

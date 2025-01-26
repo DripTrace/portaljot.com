@@ -14,10 +14,13 @@ export type TranslationLanguages = {
 };
 
 async function TranslatePage() {
-	auth().protect();
+	const authResult = await auth(); // Await the auth() call to get the resolved value
 
-	const { userId } = auth();
-	if (!userId) throw new Error("User not logged in");
+	if (!authResult || !authResult.userId) {
+		throw new Error("User not logged in");
+	}
+
+	const { userId } = authResult;
 
 	const response = await fetch(
 		"https://api.cognitive.microsofttranslator.com/languages?api-version=3.0",

@@ -1,18 +1,7 @@
 "use client";
 
-// import { formatTimeToMinSec } from "@/utils";
 import { observer } from "mobx-react";
 import { MdDelete } from "react-icons/md";
-// import {
-//   Animation,
-//   FadeInAnimation,
-//   FadeOutAnimation,
-//   SlideDirection,
-//   SlideInAnimation,
-//   SlideOutAnimation,
-//   SlideTextType,
-// } from '../../../types'
-// import { StoreContext } from '../../../store'
 import { useContext } from "react";
 import { StoreContext } from "@/store/change";
 import {
@@ -29,7 +18,7 @@ export interface AnimationWithType extends Animation {
 }
 
 const ANIMATION_TYPE_TO_LABEL: Record<string, string> = {
-	fadeIn: "Fade In",
+	fadIn: "Fade In",
 	fadeOut: "Fade Out",
 	slideIn: "Slide In",
 	slideOut: "Slide Out",
@@ -195,7 +184,7 @@ function isFadeAnimation(
 	animation: Animation
 ): animation is Animation & (FadeInAnimation | FadeOutAnimation) {
 	return (
-		(animation as { type?: string }).type === "fadeIn" ||
+		(animation as { type?: string }).type === "fade-in" ||
 		(animation as { type?: string }).type === "fadeOut"
 	);
 }

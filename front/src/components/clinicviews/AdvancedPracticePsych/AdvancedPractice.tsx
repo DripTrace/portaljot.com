@@ -46,13 +46,13 @@ const AdvancedPractice: React.FC = () => {
 
 			let newHTML = "";
 			for (let i = 0; i < totalCells; ++i) {
-				newHTML += `<span class="gtext__box"><span class="gtext__box-inner">${text}</span></span>`;
+				newHTML += `<span class="gtext-box"><span class="gtext-box-inner">${text}</span></span>`;
 			}
 
 			el.innerHTML = newHTML;
 
 			const inner =
-				el.querySelectorAll<HTMLSpanElement>(".gtext__box-inner");
+				el.querySelectorAll<HTMLSpanElement>(".gtext-box-inner");
 			const computedWidth = window.getComputedStyle(inner[0]).width;
 			el.style.setProperty("--text-width", computedWidth);
 			el.style.setProperty("--gsplits", totalCells.toString());
@@ -69,11 +69,11 @@ const AdvancedPractice: React.FC = () => {
 			".gtext[data-effect]"
 		);
 		const images =
-			mainRef.current?.querySelectorAll<HTMLDivElement>(".deco__item");
+			mainRef.current?.querySelectorAll<HTMLDivElement>(".deco-item");
 
 		items?.forEach((item) => {
 			const itemInner =
-				item.querySelectorAll<HTMLSpanElement>(".gtext__box-inner");
+				item.querySelectorAll<HTMLSpanElement>(".gtext-box-inner");
 
 			gsap.fromTo(
 				itemInner,
@@ -123,9 +123,9 @@ const AdvancedPractice: React.FC = () => {
 
 	return (
 		<main ref={mainRef} className="main-container">
-			<header className="frame frame--header">
-				<h1 className="frame__title">Advanced Practice</h1>
-				<nav className="frame__nav">
+			<header className="frame frame-header">
+				<h1 className="frame-title">Advanced Practice</h1>
+				<nav className="frame-nav">
 					<Link href="/clinicviews" className="nav-link">
 						About Us
 					</Link>
@@ -142,7 +142,7 @@ const AdvancedPractice: React.FC = () => {
 				{[...Array(18)].map((_, i) => (
 					<div
 						key={i}
-						className="deco__item"
+						className="deco-item"
 						style={{
 							backgroundImage: `url(/clinicviews/advanced-practice-psych/img/images/${i + 1}.jpg)`,
 						}}
@@ -171,7 +171,7 @@ const AdvancedPractice: React.FC = () => {
 				</h2>
 			</section>
 
-			<section className="content content--full bg-light">
+			<section className="content content-full bg-light">
 				<h3
 					className="gtext size-xxl font-5 shadow-1 spaced"
 					data-text="expertise"
@@ -198,7 +198,7 @@ const AdvancedPractice: React.FC = () => {
 				</h2>
 			</section>
 
-			<section className="content content--full bg-brighter">
+			<section className="content content-full bg-brighter">
 				<h3
 					className="gtext size-xl font-4 shadow-2 color-1 spaced"
 					data-text="education"
@@ -224,7 +224,7 @@ const AdvancedPractice: React.FC = () => {
 				</h2>
 			</section>
 
-			<section className="content content--full">
+			<section className="content content-full">
 				<h3
 					className="gtext size-xl font-7 shadow-1 spaced"
 					data-text="growth"
@@ -253,7 +253,7 @@ const AdvancedPractice: React.FC = () => {
 				</p>
 			</section>
 
-			<section className="content content--full bg-light">
+			<section className="content content-full bg-light">
 				<h3
 					className="gtext size-xl font-2 shadow-2 color-1 blendmode-1 spaced"
 					data-text="innovation"
@@ -290,7 +290,7 @@ const AdvancedPractice: React.FC = () => {
 				</h2>
 			</section>
 
-			<section className="content content--full">
+			<section className="content content-full">
 				<h3
 					className="gtext size-xxl font-6 shadow-1 spaced"
 					data-text="professionalism"
@@ -312,7 +312,7 @@ const AdvancedPractice: React.FC = () => {
 				</p>
 			</section>
 
-			<section className="content content--full">
+			<section className="content content-full">
 				<h3
 					className="gtext size-xl font-3 shadow-1 spaced"
 					data-text="clarity"
@@ -334,7 +334,7 @@ const AdvancedPractice: React.FC = () => {
 				</p>
 			</section>
 
-			<footer className="frame frame--footer">
+			<footer className="frame frame-footer">
 				<span>
 					<Link
 						href="https://www.instagram.com/advancedpractice/"

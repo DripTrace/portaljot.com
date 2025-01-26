@@ -32,11 +32,7 @@
 		"aws-sdk",
 		"protobufjs"
 	],
-	"resolutions": {
-		"eslint": "8.56.0",
-		"@typescript-eslint/eslint-plugin": "^7.16.1",
-		"@typescript-eslint/parser": "^7.16.1"
-	},
+	"resolutions": {},
 	"prisma": {
 		"seed": "ts-node prisma/seed.ts"
 	},
@@ -73,8 +69,11 @@
 	},
 	"engineStrict": true,
 	"scripts": {
+		"lint:css": "stylelint '**/*.{css,scss,less}'",
+		"lint:css:fix": "stylelint '**/*.{css,scss,less}' --fix",
 		"dev": "next dev -p 420",
-		"build": "next build --debug && yarn run change",
+		"build-debug": "cross-env NODE_OPTIONS='--max_old_space_size=8196' START=$(date +%s) && next build --debug && yarn run change && END=$(date +%s) && echo 'Build completed in $((END-START)) seconds at $(date)' || (END=$(date +%s) && echo 'Build failed after $((END-START)) seconds at $(date)')",
+		"build": "cross-env NODE_OPTIONS='--max_old_space_size=8196' next build --debug && yarn run change",
 		"start": "next start",
 		"lint": "ESLINT_TS_PATCH_LOADER=tsx eslint .",
 		"pr-init-pg": "prisma init --output src/schema/prisma-postgres.prisma --datasource-provider postgresql --url postgres://default:0eBZIN4aUJnq@ep-empty-cloud-a60f7twr.us-west-2.aws.neon.tech:5432/verceldb?sslmode=require",
@@ -487,7 +486,7 @@
 		"react-hotkeys-hook": "^4.6.1",
 		"react-icons": "^5.4.0",
 		"react-intersection-observer": "^9.15.0",
-		"react-joyride": "^2.9.3",
+		"react-joyride": "^3.0.0-7",
 		"react-katex": "^3.0.1",
 		"react-markdown": "^9.0.3",
 		"react-parallax-tilt": "^1.7.273",
@@ -846,6 +845,9 @@
 		"style-loader": "^4.0.0",
 		"stylelint": "^16.13.2",
 		"stylelint-config-recommended-scss": "^14.1.0",
+		"stylelint-config-standard": "^37.0.0",
+		"stylelint-config-tailwindcss": "^0.0.7",
+		"stylelint-order": "^6.0.4",
 		"stylelint-scss": "^6.10.1",
 		"supertest": "^7.0.0",
 		"svg-inline-loader": "^0.8.2",

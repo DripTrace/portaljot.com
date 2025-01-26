@@ -83,13 +83,13 @@ export default function PricingComponent() {
 	useEffect(() => {
 		const style = document.createElement("style");
 		style.textContent = `
-      @keyframes flashBorder {
+      @keyframes flash-border {
         0%, 100% { border-color: var(--color-1); }
         33% { border-color: var(--color-2); }
         66% { border-color: var(--color-3); }
       }
       .flash-border {
-        animation: flashBorder 4s linear infinite;
+        animation: flash-border 4s linear infinite;
       }
       .price-transition {
         transition: transform 0.3s ease-out, opacity 0.3s ease-out;

@@ -1,15 +1,20 @@
 "use server";
 
 import { prisma as client } from "@/lib/client/prisma";
-import { currentUser } from "@clerk/nextjs";
 import nodemailer from "nodemailer";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/app/api/modify/auth/route";
 
-export const onGetAllCustomers = async (id: string) => {
+/**
+ * Retrieves all customers for the authenticated user (based on domain ownership).
+ */
+export const onGetAllCustomers = async (userId: string) => {
 	try {
+		if (!userId) return null;
+
+		// Example: find all domains for user, then gather their customers
 		const customers = await client.user.findUnique({
-			where: {
-				clerkId: id,
-			},
+			where: { id: userId },
 			select: {
 				subscription: {
 					select: {
@@ -34,19 +39,21 @@ export const onGetAllCustomers = async (id: string) => {
 				},
 			},
 		});
-
-		if (customers) {
-			return customers;
-		}
-	} catch (error) {}
+		return customers;
+	} catch (error) {
+		console.log(error);
+	}
 };
 
-export const onGetAllCampaigns = async (id: string) => {
+/**
+ * Retrieves all campaigns for the authenticated user.
+ */
+export const onGetAllCampaigns = async (userId: string) => {
 	try {
+		if (!userId) return null;
+
 		const campaigns = await client.user.findUnique({
-			where: {
-				clerkId: id,
-			},
+			where: { id: userId },
 			select: {
 				campaign: {
 					select: {
@@ -58,98 +65,97 @@ export const onGetAllCampaigns = async (id: string) => {
 				},
 			},
 		});
-
-		if (campaigns) {
-			return campaigns;
-		}
+		return campaigns;
 	} catch (error) {
 		console.log(error);
 	}
 };
 
+/**
+ * Creates a new marketing campaign for the authenticated user.
+ */
 export const onCreateMarketingCampaign = async (name: string) => {
 	try {
-		const user = await currentUser();
-		if (!user) return null;
+		const session = await getServerSession(authOptions);
+		if (!session?.user?.id) return null;
 
+		// Assuming `campaign` is a one-to-many on your user
 		const campaign = await client.user.update({
-			where: {
-				clerkId: user.id,
-			},
+			where: { id: session.user.id },
 			data: {
 				campaign: {
-					create: {
-						name,
-					},
+					create: { name },
 				},
 			},
 		});
-
 		if (campaign) {
-			return { status: 200, message: "You campaign was created" };
+			return { status: 200, message: "Your campaign was created" };
 		}
 	} catch (error) {
 		console.log(error);
 	}
 };
 
+/**
+ * Saves an email template on the given campaign.
+ */
 export const onSaveEmailTemplate = async (
 	template: string,
-	campainId: string
+	campaignId: string
 ) => {
 	try {
-		const newTemplate = await client.campaign.update({
-			where: {
-				id: campainId,
-			},
-			data: {
-				template,
-			},
+		await client.campaign.update({
+			where: { id: campaignId },
+			data: { template },
 		});
-
 		return { status: 200, message: "Email template created" };
 	} catch (error) {
 		console.log(error);
 	}
 };
 
+/**
+ * Adds customers to an email campaign.
+ * If `customers` is an array of email strings,
+ * your `campaign.customers` field might be an array of strings in the Prisma schema.
+ */
 export const onAddCustomersToEmail = async (
 	customers: string[],
-	id: string
+	campaignId: string
 ) => {
 	try {
-		console.log(customers, id);
-		const customerAdd = await client.campaign.update({
-			where: {
-				id,
-			},
+		const update = await client.campaign.update({
+			where: { id: campaignId },
 			data: {
-				customers,
+				customers: {
+					set: customers, // if your `customers` is a string[] field
+				},
 			},
 		});
-
-		if (customerAdd) {
-			return { status: 200, message: "Customer added to campaign" };
+		if (update) {
+			return { status: 200, message: "Customers added to campaign" };
 		}
-	} catch (error) {}
+	} catch (error) {
+		console.log(error);
+	}
 };
 
-export const onBulkMailer = async (email: string[], campaignId: string) => {
+/**
+ * Sends bulk emails for a campaign using nodemailer.
+ */
+export const onBulkMailer = async (emails: string[], campaignId: string) => {
 	try {
-		const user = await currentUser();
-		if (!user) return null;
+		const session = await getServerSession(authOptions);
+		if (!session?.user?.id) return null;
 
-		//get the template for this campaign
+		// get the template for this campaign
 		const template = await client.campaign.findUnique({
-			where: {
-				id: campaignId,
-			},
+			where: { id: campaignId },
 			select: {
 				name: true,
 				template: true,
 			},
 		});
-
 		if (template && template.template) {
 			const transporter = nodemailer.createTransport({
 				service: "Gmail",
@@ -163,10 +169,9 @@ export const onBulkMailer = async (email: string[], campaignId: string) => {
 			});
 
 			const mailOptions = {
-				to: email,
-				// to: "its.rpalm@gmail.com",
+				to: emails,
 				subject: template.name,
-				text: JSON.parse(template.template),
+				text: template.template,
 			};
 
 			transporter.sendMail(mailOptions, function (error, info) {
@@ -177,81 +182,69 @@ export const onBulkMailer = async (email: string[], campaignId: string) => {
 				}
 			});
 
-			const creditsUsed = await client.user.update({
-				where: {
-					clerkId: user.id,
-				},
+			// Decrement credits
+			await client.user.update({
+				where: { id: session.user.id },
 				data: {
 					subscription: {
 						update: {
-							credits: { decrement: email.length },
-						},
-					},
-				},
-			});
-			if (creditsUsed) {
-				return { status: 200, message: "Campaign emails sent" };
-			}
-		}
-	} catch (error) {
-		console.log(error);
-	}
-};
-
-export const onGetAllCustomerResponses = async (id: string) => {
-	try {
-		const user = await currentUser();
-		if (!user) return null;
-		const answers = await client.user.findUnique({
-			where: {
-				clerkId: user.id,
-			},
-			select: {
-				domains: {
-					select: {
-						customer: {
-							select: {
-								questions: {
-									where: {
-										customerId: id,
-										answered: {
-											not: null,
-										},
-									},
-									select: {
-										question: true,
-										answered: true,
-									},
-								},
+							credits: {
+								decrement: emails.length,
 							},
 						},
 					},
 				},
-			},
-		});
-
-		if (answers) {
-			return answers.domains;
+			});
+			return { status: 200, message: "Campaign emails sent" };
 		}
 	} catch (error) {
 		console.log(error);
 	}
 };
 
-export const onGetEmailTemplate = async (id: string) => {
+/**
+ * Retrieves all question/answers for a specific customer from your DB.
+ */
+export const onGetAllCustomerResponses = async (customerId: string) => {
+	try {
+		const session = await getServerSession(authOptions);
+		if (!session?.user?.id) return null;
+
+		// For example, find that customer’s answered questions
+		const answers = await client.customer.findUnique({
+			where: { id: customerId },
+			select: {
+				questions: {
+					where: {
+						answered: { not: null },
+					},
+					select: {
+						question: true,
+						answered: true,
+					},
+				},
+			},
+		});
+		if (answers) {
+			return answers.questions;
+		}
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+/**
+ * Retrieves the email template for a campaign by ID.
+ */
+export const onGetEmailTemplate = async (campaignId: string) => {
 	try {
 		const template = await client.campaign.findUnique({
-			where: {
-				id,
-			},
+			where: { id: campaignId },
 			select: {
 				template: true,
 			},
 		});
-
-		if (template) {
-			return template.template;
-		}
+		return template?.template;
 	} catch (error) {
 		console.log(error);
 	}

@@ -15,7 +15,6 @@ const variants = {
 	exit: { opacity: 0, x: -100, y: 0 },
 };
 
-// Define the types for the props and ref
 interface GlassModalProps {
 	children: ReactNode;
 }

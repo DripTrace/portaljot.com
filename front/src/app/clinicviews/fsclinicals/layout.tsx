@@ -1,6 +1,6 @@
 import { FSClinicalsFooter, FSClinicalsHeader } from "@/components/clinicviews";
 import { Inter } from "next/font/google";
-import "@/styles/clinicviews/globals.css";
+import "@/styles//globals.css";
 import FSClinicalsClientRoot from "@/components/clinicviews/FSClinicals/FSClinicalsClientRoot";
 import { Metadata } from "next";
 const inter = Inter({ subsets: ["latin"] });

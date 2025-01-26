@@ -8,7 +8,7 @@ import type {
 	URI,
 	Session,
 } from "sip.js";
-import { RequestPendingError, UserAgent } from "sip.js";
+import { RequestPendingError, SessionState, UserAgent } from "sip.js";
 import type {
 	IncomingRequestMessage,
 	IncomingResponse,
@@ -18,7 +18,7 @@ import type {
 	RequestOptions,
 } from "sip.js/lib/core";
 import { fromBodyLegacy } from "sip.js/lib/core";
-import { SessionState } from "sip.js/lib/api/clinicviews/session-state";
+// import { SessionState } from "sip.js/lib/api/clinicviews/session-state";
 import type {
 	SessionDescriptionHandler,
 	SessionDescriptionHandlerOptions,
@@ -203,7 +203,7 @@ export class CommonSession {
 
 	public userAgent: WebPhoneUserAgent;
 
-	private eventEmitter: EventEmitter;
+	public eventEmitter: EventEmitter;
 
 	constructor(userAgent: WebPhoneUserAgent) {
 		this.userAgent = userAgent;

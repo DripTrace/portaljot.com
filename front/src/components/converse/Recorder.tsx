@@ -3,9 +3,9 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 // import activeAssistantIcon from "converse/img/active.gif";
-const activeAssistantIcon = require("/public/converse/img/active.gif");
+const activeAssistantIcon = "/converse/img/active.gif";
 // import notActiveAssistantIcon from "converse/img/notactive.png";
-const notActiveAssistantIcon = require("/public/converse/img/notactive.png");
+const notActiveAssistantIcon = "/converse/img/notactive.png";
 import { useFormStatus } from "react-dom";
 
 const mimeType = "audio/webm";

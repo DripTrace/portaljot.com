@@ -16,7 +16,7 @@ export const Navbar = async () => {
 	console.log("USER & GROUPS[NAVBAR]: \n", user, "\n", groups);
 
 	return (
-		<div className="flex px-5 py-3 items-center bg-themeBlack border-b-[1px] border-themeDarkGray fixed z-50 w-full bg-clip-padding backdrop--blur__safari backdrop-filter backdrop-blur-2xl bgOpacity-60">
+		<div className="flex px-5 py-3 items-center bg-themeBlack border-b-[1px] border-themeDarkGray fixed z-50 w-full bg-clip-padding backdrop-blur-safari backdrop-filter backdrop-blur-2xl bgOpacity-60">
 			<div className="hidden lg:inline">
 				{user.status === 200 ? (
 					<GroupDropDown members={groups.members} groups={groups} />

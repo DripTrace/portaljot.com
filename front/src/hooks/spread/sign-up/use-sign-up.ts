@@ -1,21 +1,21 @@
 "use client";
+
 import { useToast } from "@/hooks/use-toast";
 import {
 	UserRegistrationProps,
 	UserRegistrationSchema,
 } from "@/schema/spread/auth.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useSignUp } from "@clerk/nextjs";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { onCompleteUserRegistration } from "@/actions/feature/spread/auth";
 
 export const useSignUpForm = () => {
 	const { toast } = useToast();
 	const [loading, setLoading] = useState<boolean>(false);
-	const { signUp, isLoaded, setActive } = useSignUp();
 	const router = useRouter();
+
 	const methods = useForm<UserRegistrationProps>({
 		resolver: zodResolver(UserRegistrationSchema),
 		defaultValues: {
@@ -24,84 +24,75 @@ export const useSignUpForm = () => {
 		mode: "onChange",
 	});
 
-	const onGenerateOTP = async (
-		email: string,
-		password: string,
-		onNext: React.Dispatch<React.SetStateAction<number>>
-	) => {
-		if (!isLoaded) return;
-
-		try {
-			await signUp.create({
-				emailAddress: email,
-				password: password,
-			});
-
-			await signUp.prepareEmailAddressVerification({
-				strategy: "email_code",
-			});
-
-			onNext((prev) => prev + 1);
-		} catch (error: any) {
-			toast({
-				title: "Error",
-				description: error.errors[0].longMessage,
-			});
-		}
-	};
-
 	const onHandleSubmit = methods.handleSubmit(
 		async (values: UserRegistrationProps) => {
-			if (!isLoaded) return;
-
 			try {
 				setLoading(true);
-				const completeSignUp =
-					await signUp.attemptEmailAddressVerification({
-						code: values.otp,
-					});
 
-				if (completeSignUp.status !== "complete") {
-					return { message: "Something went wrong!" };
+				// Call the registration API
+				const response = await fetch("/api/auth/register", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+						fullname: values.fullname,
+						email: values.email,
+						password: values.password,
+						type: values.type,
+					}),
+				});
+
+				const data = await response.json();
+
+				if (!response.ok) {
+					// Registration failed
+					toast({
+						title: "Registration Failed",
+						description: data.message || "Something went wrong.",
+					});
+					setLoading(false);
+					return;
 				}
 
-				if (completeSignUp.status == "complete") {
-					if (!signUp.createdUserId) return;
+				// Optionally, sign in the user immediately after registration
+				const signInResponse = await signIn("credentials", {
+					redirect: false,
+					email: values.email,
+					password: values.password,
+				});
 
-					const registered = await onCompleteUserRegistration(
-						values.fullname,
-						signUp.createdUserId,
-						values.type
-					);
+				if (signInResponse?.error) {
+					toast({
+						title: "Sign In Failed",
+						description: signInResponse.error,
+					});
+					setLoading(false);
+					return;
+				}
 
-					if (registered?.status == 200 && registered.user) {
-						await setActive({
-							session: completeSignUp.createdSessionId,
-						});
-
-						setLoading(false);
-						router.push("/spread/dashboard");
-					}
-
-					if (registered?.status == 400) {
-						toast({
-							title: "Error",
-							description: "Something went wrong!",
-						});
-					}
+				if (signInResponse?.ok) {
+					toast({
+						title: "Success",
+						description: "Registration successful!",
+					});
+					setLoading(false);
+					router.push("/spread/dashboard");
 				}
 			} catch (error: any) {
+				console.error("Registration Error:", error);
 				toast({
 					title: "Error",
-					description: error.errors[0].longMessage,
+					description: error.message || "Something went wrong.",
 				});
+				setLoading(false);
 			}
 		}
 	);
+
 	return {
 		methods,
 		onHandleSubmit,
-		onGenerateOTP,
 		loading,
 	};
 };

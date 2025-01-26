@@ -1,9 +1,16 @@
-import React from "react";
-import { renderToString } from "react-dom/server";
-import NotFound from "@/app/nexusconjure/not-found";
+import NotFound from "@/app/not-found";
+import { createElement } from "react";
+// import { renderToString } from "react-dom/server";
 
-const custom404 = renderToString(React.createElement(NotFound));
+// import { renderToString } from "next/dist/compiled/react-dom/server-rendering-stub";
 
-export default function Custom404() {
-	return custom404;
+export async function GET() {
+	const { renderToString } = (await import("react-dom/server")).default;
+
+	const html = renderToString(createElement(NotFound));
+	return new Response(html, {
+		headers: {
+			"Content-Type": "text/html",
+		},
+	});
 }

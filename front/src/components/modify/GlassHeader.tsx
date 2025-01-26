@@ -2,11 +2,8 @@
 
 import Link from "next/link";
 import { type FC, useEffect, useState } from "react";
-// import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 import GlassDarkModeToggle from "@/store/change/modify/GlassDarkModeToggle";
-// import { selectItems } from "@/lib/modify/state/slices/basketSlice";
-// import { useGlassUserContext } from "@/lib/modify/features/GlassUserContext";
 import { BiBook } from "react-icons/bi";
 import { RiHeartFill } from "react-icons/ri";
 import { CgProfile, CgSearch, CgGitFork } from "react-icons/cg";
@@ -24,7 +21,6 @@ import PortalJotPerryWhite from "../logo/PortalJotPerryWhite";
 
 interface GlassHeaderProps {
 	openGlassModifyModal: () => void;
-	// openSketch: () => void;
 }
 
 const GlassHeader: FC<GlassHeaderProps> = ({ openGlassModifyModal }) => {
@@ -48,13 +44,11 @@ const GlassHeader: FC<GlassHeaderProps> = ({ openGlassModifyModal }) => {
 		if (!session) {
 			openGlassModifyModal();
 		} else {
-			// Clear the session on the server side
 			const response = await fetch("/api/modify/auth/logout", {
 				method: "POST",
 			});
 
 			if (response.ok) {
-				// Clear session state on the client side
 				setSession(null);
 				router.push("/modify");
 			} else {
@@ -62,11 +56,6 @@ const GlassHeader: FC<GlassHeaderProps> = ({ openGlassModifyModal }) => {
 			}
 		}
 	};
-
-	// const quickSketch = (e: React.MouseEvent) => {
-	//     console.log("opening quick sketch...");
-	//     openSketch();
-	// };
 
 	const [glassModifyMenuOpen, setGlassModifyMenuOpen] = useState(false);
 
@@ -97,19 +86,6 @@ const GlassHeader: FC<GlassHeaderProps> = ({ openGlassModifyModal }) => {
 					<div className="relative flex items-center justify-center pb-2 px-3 gap-1">
 						<Link href="/modify" passHref>
 							<span className="flex items-center justify-center">
-								{/* <ZLogo
-                                        id="logo"
-                                        className="relative h-[5em] w-[5em] laptop:h-[6em] laptop:w-[6em] cursor-pointer flex items-center justify-center"
-                                    /> */}
-								{/* PORTALJOT LOGO */}
-								{/* <PortalJotBlack
-									className="h-[10rem] w-[10rem]"
-									id="PortalJot Logo"
-								/> */}
-								{/* <PortalJotWhite
-									className="h-[10rem] w-[10rem]"
-									id="PortalJot Logo"
-								/> */}
 								<PortalJotPerryBlack
 									className="h-[5.75rem] w-[5.75rem]"
 									id="PortalJot Logo"

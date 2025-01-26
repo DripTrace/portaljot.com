@@ -1,0 +1,54 @@
+{
+	"extends": ["stylelint-config-standard", "stylelint-order"],
+	"plugins": ["stylelint-order"],
+	"ignoreFiles": ["node_modules/**/*"],
+	"rules": {
+		"selector-id-pattern": [
+			"^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+			{
+				"ignore": ["__next"],
+				"message": "Expected id selector to be kebab-case"
+			}
+		],
+		"selector-class-pattern": [
+			"^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+			{
+				"ignore": [
+					"^(sjs_sp_canvas|sd-item__decorator|svc-json-editor-tab__content-area|svc-creator__banner|sv-string-viewer--multiline|svd-test-results__text|sa-table__filter|sa-datatables__table|sv-header__background-image|sv-header__content|sv-header__without-background|sv-components-column--expandable|react-datepicker__header|react-datepicker__current-month|react-datepicker__day-name|react-datepicker__day|react-datepicker__time-name|react-datepicker__month-text|react-datepicker__quarter-text|react-datepicker__year-text|react-datepicker__day--selected|react-datepicker__day--keyboard-selected|react-datepicker__time-container|react-datepicker__time|react-datepicker__time-list-item-selected|react-datepicker__input-container)$"
+				],
+				"message": "Expected class selector to be kebab-case"
+			}
+		],
+		"at-rule-no-deprecated": null,
+		"at-rule-no-unknown": [
+			true,
+			{
+				"ignoreAtRules": [
+					"extend",
+					"tailwind",
+					"apply",
+					"variants",
+					"responsive",
+					"screen",
+					"function",
+					"if",
+					"each",
+					"include"
+				]
+			}
+		],
+		"order/properties-alphabetical-order": true,
+		"block-no-empty": true,
+		"color-no-invalid-hex": true,
+		"comment-no-empty": true,
+		"no-duplicate-selectors": true,
+		"selector-max-id": 2,
+		"unit-no-unknown": true,
+		"property-no-unknown": [
+			true,
+			{
+				"ignoreProperties": ["composes"]
+			}
+		]
+	}
+}

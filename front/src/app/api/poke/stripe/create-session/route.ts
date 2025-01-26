@@ -5,7 +5,7 @@
 // import {prisma} from '@/lib/poke/prisma';
 
 // const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_POKE!, {
-//   apiVersion: '2024-09-30.acacia', // Use the latest stable API version
+//   apiVersion: '2024-12-18.acacia', // Use the latest stable API version
 // });
 
 // export async function POST(request: NextRequest) {
@@ -92,7 +92,7 @@ import Stripe from "stripe";
 import { prisma } from "@/lib/client/prisma";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_POKE!, {
-	apiVersion: "2024-09-30.acacia",
+	apiVersion: "2024-12-18.acacia",
 });
 
 export async function POST(request: NextRequest) {

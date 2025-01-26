@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "@/styles/imagine//globals.css";
+import "@/styles/globals.css";
 import Header from "@/components/imagine/Header";
 import { Toaster } from "@/components/ui/sonner";
 

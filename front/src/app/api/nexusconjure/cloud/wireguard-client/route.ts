@@ -1,8 +1,5 @@
+import { bringDownWireGuard, bringUpWireGuard } from "@/utils/wireguardUtils";
 import { NextRequest, NextResponse } from "next/server";
-import {
-	bringDownWireGuard,
-	bringUpWireGuard,
-} from "@/utils/cloud/wireguardUtils";
 
 export async function POST(req: NextRequest) {
 	try {

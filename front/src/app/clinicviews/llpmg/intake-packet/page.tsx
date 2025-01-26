@@ -1,3 +1,5 @@
+"use client";
+
 import dynamic from "next/dynamic";
 const IntakePacket = dynamic(
 	() => import("@/components/clinicviews/LLPMG/IntakePacket"),

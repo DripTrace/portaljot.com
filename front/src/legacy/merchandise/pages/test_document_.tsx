@@ -41,7 +41,7 @@
 // 		}
 // 	}
 
-// 	render(): JSX.Element {
+// 	render(): React.ReactNode {
 // 		return (
 // 			<Html lang="en">
 // 				<Head />

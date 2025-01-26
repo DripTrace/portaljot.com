@@ -1,9 +1,8 @@
 import { EventEmitter } from "events";
-import type { Exception, Logger } from "sip.js/lib/core";
-import type { Transport } from "sip.js/lib/api/clinicviews/transport";
+import type { Exception, Logger, Transport } from "sip.js/lib/core";
 import type { Transport as WebTransport } from "sip.js/lib/platform/web/transport";
 import type { TransportOptions } from "sip.js/lib/platform/web/transport/transport-options";
-import { TransportState } from "sip.js";
+import { Emitter, TransportState } from "sip.js";
 
 import type { TransportServer, WebPhoneOptions } from "./index";
 import { Events } from "./events";
@@ -11,7 +10,7 @@ import { Events } from "./events";
 export interface WebPhoneTransport extends Transport {
 	/** @ignore */
 	configuration?: TransportOptions;
-	/** logger class to log transport related messaged */
+	/** logger class to log transport related messages */
 	logger?: Logger;
 	/**
 	 * Address of the RingCentral main proxy
@@ -59,7 +58,11 @@ export interface WebPhoneTransport extends Transport {
 	/** @ignore */
 	__setServerIsError?: typeof __setServerIsError;
 	/** Register functions to be called when events are fired on the transport object */
-	addListener?: typeof EventEmitter.prototype.addListener;
+	addListener: (
+		eventName: string | symbol,
+		listener: (data: TransportState) => void,
+		options?: { once?: boolean }
+	) => void;
 	/** Trigger events on transport object */
 	emit?: typeof EventEmitter.prototype.emit;
 	/** Get next available server from the list of `transportServers` */
@@ -84,7 +87,7 @@ export interface WebPhoneTransport extends Transport {
 	/** @ignore */
 	onSipErrorCode?: typeof onSipErrorCode;
 	/** Function to try reconnecting to the transport. Is automatically triggered when transport connection is dropped or `sipErrorCode` is returned from backend server */
-	reconnect: typeof WebTransport.prototype.connect;
+	reconnect: typeof reconnect;
 	/**
 	 * Unregister functions to be called when events are fired on the transport object
 	 */
@@ -93,6 +96,19 @@ export interface WebPhoneTransport extends Transport {
 	 * Unregister all functions to be called when events are fired on the transport object
 	 */
 	removeAllListeners?: typeof EventEmitter.prototype.removeAllListeners;
+	/** Event emitter for transport state changes */
+	stateChange: Emitter<TransportState>;
+	/** Method to disconnect the transport */
+	disconnect: () => Promise<void>;
+	/** Method to check if the transport is connected */
+	isConnected: () => boolean;
+	state: any;
+	onConnect: () => void;
+	onDisconnect: () => void;
+	onMessage: (message: any) => void;
+	/** Add the missing methods */
+	connect: () => Promise<void>;
+	dispose: () => Promise<void>;
 }
 
 export function createWebPhoneTransport(
@@ -106,7 +122,17 @@ export function createWebPhoneTransport(
 	transport.on = eventEmitter.on.bind(eventEmitter);
 	transport.off = eventEmitter.off.bind(eventEmitter);
 	transport.once = eventEmitter.once.bind(eventEmitter);
-	transport.addListener = eventEmitter.addListener.bind(eventEmitter);
+	transport.addListener = function (
+		eventName: string | symbol,
+		listener: (data: TransportState) => void,
+		options?: { once?: boolean }
+	): void {
+		if (options?.once) {
+			eventEmitter.once(eventName, listener);
+		} else {
+			eventEmitter.addListener(eventName, listener);
+		}
+	};
 	transport.removeListener = eventEmitter.removeListener.bind(eventEmitter);
 	transport.removeAllListeners =
 		eventEmitter.removeAllListeners.bind(eventEmitter);
@@ -119,7 +145,7 @@ export function createWebPhoneTransport(
 	transport.__clearSwitchBackToMainProxyTimer =
 		__clearSwitchBackToMainProxyTimer.bind(transport);
 	transport.__computeRandomTimeout = __computeRandomTimeout.bind(transport);
-	transport.__connect = transport.connect;
+	transport.__connect = __connect.bind(transport);
 	transport.__isCurrentMainProxy = __isCurrentMainProxy.bind(transport);
 	transport.__onConnectedToBackup = __onConnectedToBackup.bind(transport);
 	transport.__onConnectedToMain = __onConnectedToMain.bind(transport);
@@ -128,33 +154,34 @@ export function createWebPhoneTransport(
 	transport.__scheduleSwitchBackToMainProxy =
 		__scheduleSwitchBackToMainProxy.bind(transport);
 	transport.__setServerIsError = __setServerIsError.bind(transport);
-	transport.connect = __connect.bind(transport);
 	transport.getNextWsServer = getNextWsServer.bind(transport);
 	transport.isSipErrorCode = isSipErrorCode.bind(transport);
 	transport.noAvailableServers = noAvailableServers.bind(transport);
 	transport.onSipErrorCode = onSipErrorCode.bind(transport);
 	transport.reconnect = reconnect.bind(transport);
-	transport.stateChange.addListener((newState) => {
-		switch (newState) {
-			case TransportState.Connecting: {
-				transport.emit!(Events.Transport.Connecting);
-				break;
+	if (transport.stateChange) {
+		transport.stateChange.addListener((newState: TransportState) => {
+			switch (newState) {
+				case TransportState.Connecting: {
+					transport.emit!(Events.Transport.Connecting);
+					break;
+				}
+				case TransportState.Connected: {
+					transport.emit!(Events.Transport.Connected);
+					transport.__afterWSConnected!();
+					break;
+				}
+				case TransportState.Disconnecting: {
+					transport.emit!(Events.Transport.Disconnecting);
+					break;
+				}
+				case TransportState.Disconnected: {
+					transport.emit!(Events.Transport.Disconnected);
+					break;
+				}
 			}
-			case TransportState.Connected: {
-				transport.emit!(Events.Transport.Connected);
-				transport.__afterWSConnected!();
-				break;
-			}
-			case TransportState.Disconnecting: {
-				transport.emit!(Events.Transport.Disconnecting);
-				break;
-			}
-			case TransportState.Disconnected: {
-				transport.emit!(Events.Transport.Disconnected);
-				break;
-			}
-		}
-	});
+		});
+	}
 	return transport;
 }
 
@@ -163,12 +190,13 @@ function __connect(this: WebPhoneTransport): Promise<void> {
 		this.logger!.error(
 			`unable to establish connection to server ${this.server} - ${e.message}`
 		);
-		this.emit!(Events.Transport.ConnectionAttemptFailure, e); // Can we move to onTransportDisconnect?
+		this.emit!(Events.Transport.ConnectionAttemptFailure, e);
 		await this.reconnect!();
 	});
 }
 
 function __computeRandomTimeout(
+	this: WebPhoneTransport,
 	reconnectionAttempts = 1,
 	randomMinInterval = 0,
 	randomMaxInterval = 0
@@ -284,9 +312,11 @@ async function reconnect(
 	if (forceReconnectToMain) {
 		this.logger!.warn("forcing connect to main WS server");
 		await this.disconnect();
-		this.server = this.getNextWsServer!(true)!.uri;
+		this.server = this.getNextWsServer!(true)?.uri;
 		this.reconnectionAttempts = 0;
-		await this.connect();
+		if (this.__connect) {
+			await this.__connect();
+		}
 		return;
 	}
 
@@ -303,7 +333,7 @@ async function reconnect(
 		this.logger!.warn("no available WebSocket servers left");
 		this.emit!(Events.Transport.Closed);
 		this.__resetServersErrorStatus!();
-		this.server = this.getNextWsServer!(true)!.uri;
+		this.server = this.getNextWsServer!(true)?.uri;
 		this.__clearSwitchBackToMainProxyTimer!();
 		return;
 	}
@@ -325,7 +355,9 @@ async function reconnect(
 		}
 		this.configuration!.server = nextServer.uri;
 		this.reconnectionAttempts = 0;
-		await this.connect();
+		if (this.__connect) {
+			await this.__connect();
+		}
 	} else {
 		const randomMinInterval = (this.reconnectionTimeout! - 2) * 1000;
 		const randomMaxInterval = (this.reconnectionTimeout! + 2) * 1000;
@@ -339,9 +371,11 @@ async function reconnect(
 		);
 		this.reconnectTimer = setTimeout(() => {
 			this.reconnectTimer = undefined;
-			this.connect().then(() => {
-				this.reconnectionAttempts = 0;
-			});
+			if (this.__connect) {
+				this.__connect().then(() => {
+					this.reconnectionAttempts = 0;
+				});
+			}
 		}, this.nextReconnectInterval);
 		this.logger!.warn(
 			`next reconnection attempt in: ${Math.round(this.nextReconnectInterval / 1000)} seconds.`

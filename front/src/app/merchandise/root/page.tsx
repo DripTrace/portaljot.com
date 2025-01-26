@@ -1,7 +1,7 @@
-import RootServerComponent from "@/components/merchandise/root/RootServerComponent";
 import RootClientComponent from "@/components/merchandise/root/RootClientComponent";
+import RootServerComponent from "@/components/merchandise/root/RootServerComponent";
 
-export default const RootPage = () => {
+const RootPage = () => {
 	return (
 		<main>
 			<h1>Styled Components SSR with App Router</h1>
@@ -9,4 +9,6 @@ export default const RootPage = () => {
 			<RootClientComponent />
 		</main>
 	);
-}
+};
+
+export default RootPage;

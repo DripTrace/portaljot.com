@@ -367,8 +367,8 @@
 // 									className="pricing-card"
 // 									style={{
 // 										animation: isHovered
-// 											? "flashBorder 0.5s linear infinite"
-// 											: "flashBorder 4s linear infinite",
+// 											? "flash-border 0.5s linear infinite"
+// 											: "flash-border 4s linear infinite",
 // 									}}
 // 								>
 // 									<div className="pricing-card-content">
@@ -923,8 +923,8 @@ export default function LandingComponent() {
                                         className="pricing-card"
                                         style={{
                                             animation: isHovered
-                                                ? "flashBorder 0.5s linear infinite"
-                                                : "flashBorder 4s linear infinite",
+                                                ? "flash-border 0.5s linear infinite"
+                                                : "flash-border 4s linear infinite",
                                         }}
                                     >
                                         <div className="pricing-card-content">

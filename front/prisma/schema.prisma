@@ -423,6 +423,9 @@ model Subscription {
   plan       SUBSCRIPTION_PLAN @default(FREE)
   updatedAt  DateTime          @default(now())
   customerId String?           @unique
+
+  credits    Int               @default(0) // Add credits field
+  clients    Int               @default(0) // Add clients field
 //   exotalk
   /**
    * Using Json for metadata (key/value) and items (array of Stripe items).
@@ -489,6 +492,7 @@ model Subscription {
 enum SUBSCRIPTION_PLAN {
   PRO
   FREE
+  ULTIMATE
 }
 
 enum SubscriptionStatus {
@@ -1338,4 +1342,5 @@ enum Plans {
   STANDARD
   PRO
   ULTIMATE
+  FREE
 }

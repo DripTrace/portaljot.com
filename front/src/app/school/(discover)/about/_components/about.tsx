@@ -48,7 +48,7 @@ const AboutGroup = ({ groupid, userid }: Props) => {
 			</div>
 			{group.gallery.length > 0 && (
 				<div className="relative rounded-xl">
-					<div className="img--overlay absolute h-2/6 bottom-0 w-full z-50" />
+					<div className="img-overlay absolute h-2/6 bottom-0 w-full z-50" />
 					{activeMedia?.type === "IMAGE" ? (
 						<img
 							src={`https://ucarecdn.com/${activeMedia.url}/`}

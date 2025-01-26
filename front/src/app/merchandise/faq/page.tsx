@@ -1,9 +1,11 @@
-import FAQ from "@/components/FAQ"
+import FAQ from "@/components/merchandise/FAQ";
 
 const FAQPage = () => {
-  return (
-    <><FAQ/></>
-  )
-}
+	return (
+		<>
+			<FAQ />
+		</>
+	);
+};
 
-export default FAQPage
+export default FAQPage;

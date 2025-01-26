@@ -1,10 +1,10 @@
-import { getAutomationInfo } from "@/actions/automations";
-import PostNode from "@/components/global/automations/post/node";
-import ThenNode from "@/components/global/automations/then/node";
-import Trigger from "@/components/global/automations/trigger";
-import AutomationsBreadCrumb from "@/components/global/bread-crumbs/automations";
+import { getAutomationInfo } from "@/actions/feature/direct/automations";
+import PostNode from "@/components/direct/global/automations/post/node";
+import ThenNode from "@/components/direct/global/automations/then/node";
+import Trigger from "@/components/direct/global/automations/trigger";
+import AutomationsBreadCrumb from "@/components/direct/global/bread-crumbs/automations";
 import { Warning } from "@/components/direct/icons";
-import { PrefetchUserAutomation } from "@/react-query/prefetch";
+import { PrefetchUserAutomation } from "@/providers/direct/react-query/prefetch";
 
 import {
 	dehydrate,

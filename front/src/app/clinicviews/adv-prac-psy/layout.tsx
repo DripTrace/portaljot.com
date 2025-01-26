@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "@/styles/clinicviews/advancedpracticepsych/advpracpsy.css";
+import "@/styles/globals.css";
 import Head from "next/head";
 import AdvancedPracticePsychLogo from "@/components/clinicviews/AdvancedPracticePsych/AdvancedPracticePsychLogo";
 import Script from "next/script";

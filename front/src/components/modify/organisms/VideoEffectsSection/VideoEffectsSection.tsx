@@ -1,12 +1,11 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
-import { Slider, Button } from "@/components/modify/atoms";
+import { Slider } from "@/components/modify/atoms";
 import { eventsBus } from "@/lib/modify/EventsBus";
 import { throttle } from "@/lib/modify/helpers";
 import { useActiveVideoBox } from "@/components/modify/molecules";
 import type { VideoBox, VideoBoxEffects } from "@/lib/modify/VideoBox";
-
 import {
 	sectionBoxStyles,
 	titleStyles,
@@ -16,6 +15,7 @@ import {
 	contentLabelStyles,
 	boxBorderStyles,
 } from "./VideoEffectsSection.css";
+import { Button } from "../../atoms";
 
 export const VideoEffectsSection = () => {
 	const { activeVideoBox } = useActiveVideoBox();

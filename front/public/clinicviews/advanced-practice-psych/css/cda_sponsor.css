@@ -8,6 +8,6 @@ body #cdawrap .cda-sponsor-link {
 	white-space: normal !important;
 }
 
-body .frame #cdawrap a:not(.frame__title-back):not(.demos__item)::before {
+body .frame #cdawrap a:not(.frame-title-back, .demos__item)::before {
 	display: none;
 }

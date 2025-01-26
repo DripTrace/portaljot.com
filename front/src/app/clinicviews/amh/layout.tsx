@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "@/styles/clinicviews/access-mentalhealth/access-mentalhealth.css";
+import "@/styles/globals.css";
 import { AMHProviderWrapper } from "@/wrappers/clinicviews/access-mentalhealth/Access-MentalHealthProvider";
 
 const geistSans = localFont({

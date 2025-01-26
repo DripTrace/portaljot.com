@@ -1,10 +1,11 @@
 import { Levels as LogLevels } from "sip.js/lib/core/log/levels";
-import type { LogLevel } from "sip.js/lib/api/clinicviews/user-agent-options";
+// import type { LogLevel } from "sip.js/lib/api/clinicviews/user-agent-options";
 import type {
 	SessionDescriptionHandlerModifier,
 	UserAgentOptions,
 	LogConnector,
 	SessionDescriptionHandlerFactory,
+	LogLevel,
 } from "sip.js";
 import { UserAgent, Web } from "sip.js";
 
@@ -24,7 +25,7 @@ import type { WebPhoneSessionDescriptionHandlerFactoryOptions } from "./sessionD
 import { defaultSessionDescriptionFactory } from "./sessionDescriptionHandler";
 import type { AudioHelperOptions } from "./audioHelper";
 
-import pkg from "../../../../package.json";
+import pkg from "../../../../../../package.json";
 
 const version = pkg.version;
 

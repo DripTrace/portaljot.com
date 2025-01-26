@@ -118,7 +118,7 @@ const PortalJotPerryBlack = ({ className, id }: PortalJotProps) => {
 					/>
 
 					<linearGradient id="d2" x1="0%" y1="0%" x2="100%" y2="0%">
-						<stop offset="0%" stopColor="#ffffff" />
+						<stop offset="0%" stopColor="#fff" />
 						<stop offset="100%" stopColor="#00ffd5" />
 					</linearGradient>
 
@@ -319,7 +319,7 @@ export default PortalJotPerryBlack;
 // 					/>
 
 // 					<linearGradient id="d2" x1="0%" y1="0%" x2="100%" y2="0%">
-// 						<stop offset="0%" stopColor="#ffffff" />
+// 						<stop offset="0%" stopColor="#fff" />
 // 						<stop offset="100%" stopColor="#00ffd5" />
 // 					</linearGradient>
 

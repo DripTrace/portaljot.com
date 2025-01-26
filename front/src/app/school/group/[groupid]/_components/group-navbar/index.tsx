@@ -15,7 +15,7 @@ const Menu = ({ orientation }: MenuProps) => {
 	switch (orientation) {
 		case "desktop":
 			return (
-				<Card className="bg-themeGray border-themeGray bg-clip-padding backdrop--blur__safari backdrop-filter backdrop-blur-2xl bgOpacity-60 p-1 lg:flex  md:rounded-xl flex items-center justify-center w-fit">
+				<Card className="bg-themeGray border-themeGray bg-clip-padding backdrop-blur-safari backdrop-filter backdrop-blur-2xl bgOpacity-60 p-1 lg:flex  md:rounded-xl flex items-center justify-center w-fit">
 					<CardContent className="p-0 flex gap-2">
 						{ADVANCED_PRACTICE_CONSTANTS.groupPageMenu.map(
 							(menuItem) => (

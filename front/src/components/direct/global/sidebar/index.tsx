@@ -45,7 +45,7 @@ const Sidebar = ({ slug }: Props) => {
        bg-opacity-90 
        bg-clip-padding 
        backdrop-filter 
-       backdrop--blur__safari 
+       backdrop-blur-safari 
        backdrop-blur-3xl"
 			>
 				<div className="flex gap-x-2 items-center p-5 justify-center">

@@ -2,7 +2,7 @@
 
 import { type FC, useEffect } from "react";
 import { gsap } from "gsap";
-import "@/styles/poke/pokeball.css"; // Ensure this file exists in your styles or import global.css
+import "@/styles/globals.css"; // Ensure this file exists in your styles or import global.css
 
 const Pokeball: FC = () => {
 	useEffect(() => {
@@ -411,7 +411,7 @@ export default Pokeball;
 
 // import { useState, useEffect, useRef } from "react";
 // import { gsap } from "gsap";
-// import "@/styles/poke/pokeball.css";
+// import "@/styles/globals.css";
 // import Image from "next/image";
 
 // const PokemonReveal: React.FC = () => {

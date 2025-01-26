@@ -30,7 +30,7 @@ const Search = ({
 				"border-2 flex gap-2 items-center",
 				className,
 				glass &&
-					"bg-clip-padding backdrop--blur__safari backdrop-filter backdrop-blur-2xl bgOpacity-20"
+					"bg-clip-padding backdrop-blur-safari backdrop-filter backdrop-blur-2xl bgOpacity-20"
 			)}
 		>
 			<SearchIcon className={cn(iconStyle || "text-themeTextGray")} />

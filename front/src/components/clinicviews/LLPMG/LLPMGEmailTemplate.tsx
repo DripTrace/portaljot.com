@@ -50,7 +50,7 @@ const LLPMGEmailTemplate: FC<LLPMGEmailTemplateProps> = ({
 
 	const headerStyle = {
 		backgroundColor: isDoctor ? "#0C3C60" : "#6EA4CE",
-		color: "#ffffff",
+		color: "#fff",
 		padding: "10px 0",
 		borderRadius: "8px 8px 0 0",
 	};

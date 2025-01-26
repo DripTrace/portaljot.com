@@ -21,12 +21,10 @@ import {
 	RATIOS,
 	type RatioKey,
 } from "@/constants/modify/video-size";
-// import { RATIO_RESOLUTIONS, RATIOS, type RatioKey } from "@/constants/modify";
 
 interface Settings {
 	ratio: RatioKey;
 	resolution: string;
-	// Add other properties as needed
 }
 
 interface VideoSettingsSectionProps {

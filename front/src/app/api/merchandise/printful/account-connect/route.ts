@@ -1,6 +1,6 @@
 import * as admin from "firebase-admin";
 import axios, { AxiosResponse } from "axios";
-import { serviceAccount } from "@/app/api/merchandise/stripe/webhook/route";
+import { serviceAccount } from "@/config/firebase/serviceAccount";
 import { NextRequest, NextResponse } from "next/server";
 
 // Environment Variables

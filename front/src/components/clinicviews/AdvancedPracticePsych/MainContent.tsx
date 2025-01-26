@@ -60,7 +60,7 @@ const MainContent: React.FC = () => {
 			{/* Main Content Section */}
 			<main className="content-container">
 				<header className="content-header">
-					<h1 className="frame__title">Advanced Practice</h1>
+					<h1 className="frame-title">Advanced Practice</h1>
 					<div className="links">
 						<Link href="/clinicviews" className="link">
 							About Us
@@ -186,7 +186,7 @@ const MainContent: React.FC = () => {
 					</motion.div>
 				</AnimatePresence>
 
-				<footer className="frame frame--footer">
+				<footer className="frame frame-footer">
 					<span>
 						<Link
 							href="https://www.instagram.com/advancedpractice/"

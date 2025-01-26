@@ -21,8 +21,8 @@ const DoubleGradientCard = ({ description, label, subLabel }: Props) => {
           <ArrowRight color="white" />
         </Button>
       </div>
-      <div className="w-6/12 h-full absolute radial--double--gradient--cards--top top-0 left-0 z-10" />
-      <div className="w-6/12 h-full absolute radial--double--gradient--cards--bottom top-0 left-1/2 right-0 z-0" />
+      <div className="w-6/12 h-full absolute radial-double-gradient--cards-top top-0 left-0 z-10" />
+      <div className="w-6/12 h-full absolute radial-double-gradient--cards-bottom top-0 left-1/2 right-0 z-0" />
     </div>
   )
 }

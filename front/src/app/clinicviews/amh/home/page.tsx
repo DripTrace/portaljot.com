@@ -3,19 +3,19 @@ import Image from "next/image";
 const AMHHomePage = () => {
 	return (
 		<>
-			<div className="content content--left">
+			<div className="content content-left">
 				<h3 className="meta">Service 1</h3>
 				<h2 className="type" data-expand-1>
 					We believe in
 					<br />
 					breaking barriers <br />
 					to{" "}
-					<span className="type__expand type__expand--inline type__expand--reveal">
-						<span className="type__expand-img">
+					<span className="type-expand type-expand-inline type-expand-reveal">
+						<span className="type-expand-img">
 							<Image
 								src="/clinicviews/access-mentalhealth/images/img0.jpg"
 								alt=""
-								className="type__expand-img-inner"
+								className="type-expand-img-inner"
 								height={720}
 								width={1080}
 							/>
@@ -31,20 +31,20 @@ const AMHHomePage = () => {
 					are.
 				</p>
 			</div>
-			<div className="content content--center">
+			<div className="content content-center">
 				<h3 className="meta">Service 2</h3>
 				<h2 className="type" data-expand-2>
 					Your journey to
 					<br />
 					wellness starts
 					<br />
-					<span className="type__expand type__expand--reveal type__expand--center">
+					<span className="type-expand type-expand-reveal type-expand-center">
 						<span className="aright">here </span>
-						<span className="type__expand-img">
+						<span className="type-expand-img">
 							<Image
 								src="/clinicviews/access-mentalhealth/images/img1.jpg"
 								alt=""
-								className="type__expand-img-inner"
+								className="type-expand-img-inner"
 								height={720}
 								width={1080}
 							/>
@@ -61,19 +61,19 @@ const AMHHomePage = () => {
 					achievable than ever before.
 				</p>
 			</div>
-			<div className="content content--right">
+			<div className="content content-right">
 				<h3 className="meta">Service 3</h3>
 				<h2 className="type" data-expand-3>
 					Connect with
 					<br />
 					professionals who
 					<br />
-					<span className="type__expand type__expand--full">
-						<span className="type__expand-img">
+					<span className="type-expand type-expand-full">
+						<span className="type-expand-img">
 							<Image
 								src="/clinicviews/access-mentalhealth/images/img2.jpg"
 								alt=""
-								className="type__expand-img-inner"
+								className="type-expand-img-inner"
 								height={720}
 								width={1080}
 							/>{" "}
@@ -90,32 +90,32 @@ const AMHHomePage = () => {
 					towards healing.
 				</p>
 			</div>
-			<div className="content content--justify lg:relative lg:top-[15rem]">
+			<div className="content content-justify lg:relative lg:top-[15rem]">
 				<h3 className="meta">Service 4</h3>
 				<h2 className="type" data-expand-4>
 					Discover tools
 					<br />
 					to manage
-					<span className="type__expand type__expand--stack">
+					<span className="type-expand type-expand-stack">
 						<span className="anim">stress</span>
-						<span className="type__expand-img type__expand-img--small">
+						<span className="type-expand-img type-expand-img-small">
 							<Image
 								src="/clinicviews/access-mentalhealth/images/img3.jpg"
 								alt=""
-								className="type__expand-img-inner"
+								className="type-expand-img-inner"
 								height={720}
 								width={1080}
 							/>{" "}
 						</span>
 					</span>
 					and
-					<span className="type__expand type__expand--stack">
+					<span className="type-expand type-expand-stack">
 						<span className="anim">anxiety</span>
-						<span className="type__expand-img type__expand-img--small">
+						<span className="type-expand-img type-expand-img-small">
 							<Image
 								src="/clinicviews/access-mentalhealth/images/img4.jpg"
 								alt=""
-								className="type__expand-img-inner"
+								className="type-expand-img-inner"
 								height={720}
 								width={1080}
 							/>{" "}
@@ -125,12 +125,12 @@ const AMHHomePage = () => {
 					through our interactive
 					<br />
 					resources and support.
-					<span className="type__expand type__expand--stack md:relative md:left-[60rem] lg:bottom-[30rem]">
-						<span className="type__expand-img type__expand-img--small">
+					<span className="type-expand type-expand-stack md:relative md:left-[60rem] lg:bottom-[30rem]">
+						<span className="type-expand-img type-expand-img-small">
 							<Image
 								src="/clinicviews/access-mentalhealth/images/img5.jpg"
 								alt=""
-								className="type__expand-img-inner"
+								className="type-expand-img-inner"
 								height={720}
 								width={1080}
 							/>{" "}
@@ -145,18 +145,18 @@ const AMHHomePage = () => {
 					more balanced and fulfilling life.
 				</p>
 			</div>
-			<div className="content content--line">
+			<div className="content content-line">
 				<h3 className="meta">Service 5</h3>
 				<h2 className="type" data-expand-5>
 					Join our community
 					<br />
 					and
-					<span className="type__expand type__expand--mini">
-						<span className="type__expand-img type__expand-img--tiny">
+					<span className="type-expand type-expand-mini">
+						<span className="type-expand-img type-expand-img-tiny">
 							<Image
 								src="/clinicviews/access-mentalhealth/images/img6.jpg"
 								alt=""
-								className="type__expand-img-inner"
+								className="type-expand-img-inner"
 								height={720}
 								width={1080}
 							/>{" "}
@@ -168,24 +168,24 @@ const AMHHomePage = () => {
 					<br />
 					can make mental health
 					<br />
-					<span className="type__expand type__expand--mini">
-						<span className="type__expand-img type__expand-img--tiny">
+					<span className="type-expand type-expand-mini">
+						<span className="type-expand-img type-expand-img-tiny">
 							<Image
 								src="/clinicviews/access-mentalhealth/images/img7.jpg"
 								alt=""
-								className="type__expand-img-inner"
+								className="type-expand-img-inner"
 								height={720}
 								width={1080}
 							/>{" "}
 						</span>
 					</span>
 					care accessible
-					<span className="type__expand type__expand--mini">
-						<span className="type__expand-img type__expand-img--tiny">
+					<span className="type-expand type-expand-mini">
+						<span className="type-expand-img type-expand-img-tiny">
 							<Image
 								src="/clinicviews/access-mentalhealth/images/img8.jpg"
 								alt=""
-								className="type__expand-img-inner"
+								className="type-expand-img-inner"
 								height={720}
 								width={1080}
 							/>{" "}
@@ -193,12 +193,12 @@ const AMHHomePage = () => {
 					</span>
 					<br />
 					to all.
-					<span className="type__expand type__expand--mini">
-						<span className="type__expand-img type__expand-img--tiny">
+					<span className="type-expand type-expand-mini">
+						<span className="type-expand-img type-expand-img-tiny">
 							<Image
 								src="/clinicviews/access-mentalhealth/images/img9.jpg"
 								alt=""
-								className="type__expand-img-inner"
+								className="type-expand-img-inner"
 								height={720}
 								width={1080}
 							/>{" "}

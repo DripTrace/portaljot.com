@@ -1044,7 +1044,7 @@
 // 							objectCaching: false,
 // 							selectable: true,
 // 							lockUniScaling: true,
-// 							fill: "#ffffff",
+// 							fill: "#fff",
 // 						}
 // 					);
 // 					element.fabricObject = textObject;
@@ -2177,7 +2177,7 @@
 // // 							objectCaching: false,
 // // 							selectable: true,
 // // 							lockUniScaling: true,
-// // 							fill: "#ffffff",
+// // 							fill: "#fff",
 // // 						}
 // // 					);
 // // 					element.fabricObject = textObject;
@@ -3288,7 +3288,7 @@ export class Store {
 							objectCaching: false,
 							selectable: true,
 							lockUniScaling: true,
-							fill: "#ffffff",
+							fill: "#fff",
 						}
 					);
 					element.fabricObject = textObject;
@@ -4489,7 +4489,7 @@ function getTextObjectsPartitionedByCharacters(
 // 			objectCaching: false,
 // 			selectable: true,
 // 			lockUniScaling: true,
-// 			fill: "#ffffff",
+// 			fill: "#fff",
 // 		});
 
 // 		element.fabricObject = textObject;

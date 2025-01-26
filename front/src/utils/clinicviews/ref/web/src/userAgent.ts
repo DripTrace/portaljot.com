@@ -4,6 +4,7 @@ import type {
 	InviterOptions,
 	SessionDescriptionHandlerModifier,
 	RegistererOptions,
+	Invitation,
 } from "sip.js";
 import {
 	UserAgent,
@@ -39,6 +40,7 @@ export interface ActiveCallInfo {
 		fromTag: string;
 	};
 }
+
 /**
  * WebPhoneUserAgent that makes SIP calls on behalf of the user
  */
@@ -55,12 +57,12 @@ export interface WebPhoneUserAgent extends UserAgent {
 	/**
 	 * If `true`, the first answer to the local offer is immediately utilized for media.
 	 * Requires that the INVITE request MUST NOT fork.
-	 * Has no effect if `inviteWithoutSdp` is true.
+	 * Has no effect if the INVITE request is sent without SDP.
 	 */
 	earlyMedia?: boolean;
-	/** If `true`, logs media stats when an connection is established */
+	/** If `true`, logs media stats when a connection is established */
 	enableMediaReportLogging?: boolean;
-	/** If `true`, Qality of service of the call is generated and published to RingCentral server once the call ends */
+	/** If `true`, Quality of Service of the call is generated and published to RingCentral server once the call ends */
 	enableQos?: boolean;
 	/** instanceId used while registering to the backend SIP server */
 	instanceId: string;
@@ -68,7 +70,7 @@ export interface WebPhoneUserAgent extends UserAgent {
 	media?: { local?: HTMLMediaElement; remote?: HTMLMediaElement };
 	/** SDP modifiers to be used when generating local offer or creating answer */
 	modifiers?: SessionDescriptionHandlerModifier[];
-	/** Time interval in ms on how often should the quality of service data be collected */
+	/** Time interval in ms on how often quality of service data should be collected */
 	qosCollectInterval?: number;
 	/** regId used while registering to the backend SIP server */
 	regId?: number;
@@ -88,7 +90,7 @@ export interface WebPhoneUserAgent extends UserAgent {
 	 * Helper function to create RingCentral message
 	 */
 	createRcMessage?: (options: RCHeaders) => string;
-	/** Emit event along with data which will trigger all listerenes attached to that event */
+	/** Emit event along with data which will trigger all listeners attached to that event */
 	emit: typeof EventEmitter.prototype.emit;
 	/** Send call invitation */
 	invite: (number: string, options: InviteOptions) => WebPhoneSession;
@@ -107,7 +109,7 @@ export interface WebPhoneUserAgent extends UserAgent {
 	register?: () => Promise<void>;
 	/** Remove event listener from list of listeners for that event */
 	removeListener?: typeof EventEmitter.prototype.removeListener;
-	/** Remove all event listener from list of listeners for that event */
+	/** Remove all event listeners from list of listeners for that event */
 	removeAllListeners?: typeof EventEmitter.prototype.removeAllListeners;
 	/**
 	 * @internal
@@ -143,19 +145,27 @@ export function createWebPhoneUserAgent(
 ): WebPhoneUserAgent {
 	const extraConfiguration: UserAgentOptions = {
 		delegate: {
-			onConnect: (): Promise<void> => userAgent.register!(),
-			onInvite: (invitation: WebPhoneInvitation): void => {
-				userAgent.audioHelper!.playIncoming(true);
-				invitation.delegate = {};
-				invitation.delegate.onSessionDescriptionHandler = () =>
-					onSessionDescriptionHandlerCreated(invitation);
-				patchWebphoneSession(invitation);
-				patchIncomingWebphoneSession(invitation);
-				(invitation as any).logger.log(
-					"UA received incoming call invite"
-				);
-				invitation.sendReceiveConfirm!();
-				userAgent.emit!(Events.UserAgent.Invite, invitation);
+			onConnect: async (): Promise<void> => {
+				await userAgent.register!();
+			},
+			onInvite: (invitation: Invitation): void => {
+				if (isWebPhoneInvitation(invitation)) {
+					userAgent.audioHelper!.playIncoming(true);
+					invitation.delegate = {};
+					invitation.delegate.onSessionDescriptionHandler = () =>
+						onSessionDescriptionHandlerCreated(invitation);
+					patchWebphoneSession(invitation);
+					patchIncomingWebphoneSession(invitation);
+					(invitation as any).logger.log(
+						"UA received incoming call invite"
+					);
+					invitation.sendReceiveConfirm!();
+					userAgent.emit!(Events.UserAgent.Invite, invitation);
+				} else {
+					console.warn(
+						"Received an invitation that is not a WebPhoneInvitation"
+					);
+				}
 			},
 			onNotify: (notification): void => {
 				const event = notification.request.getHeader("Event");
@@ -167,13 +177,13 @@ export function createWebPhoneUserAgent(
 			},
 		},
 	};
-	const extendedConfiguration = {
+	const extendedConfiguration: UserAgentOptions = {
 		...extraConfiguration,
 		...configuration,
 	};
 	const userAgent: WebPhoneUserAgent = new UserAgent(
 		extendedConfiguration
-	) as WebPhoneUserAgent;
+	) as unknown as WebPhoneUserAgent;
 	const eventEmitter = new EventEmitter();
 	userAgent.on = eventEmitter.on.bind(eventEmitter);
 	userAgent.off = eventEmitter.off.bind(eventEmitter);
@@ -182,6 +192,7 @@ export function createWebPhoneUserAgent(
 	userAgent.removeListener = eventEmitter.removeListener.bind(eventEmitter);
 	userAgent.removeAllListeners =
 		eventEmitter.removeAllListeners.bind(eventEmitter);
+	userAgent.emit = eventEmitter.emit.bind(eventEmitter);
 	userAgent.defaultHeaders = [`P-rc-endpoint-id: ${id}`];
 	if (options.defaultHeaders) {
 		userAgent.defaultHeaders.push(...options.defaultHeaders);
@@ -235,7 +246,8 @@ export function createWebPhoneUserAgent(
 	userAgent.switchFrom = switchFrom.bind(userAgent);
 	patchUserAgentCore(userAgent);
 	userAgent.start();
-	userAgent.stateChange.addListener((newState) => {
+
+	userAgent.stateChange.addListener((newState: UserAgentState) => {
 		switch (newState) {
 			case UserAgentState.Started: {
 				userAgent.emit!(Events.UserAgent.Started);
@@ -247,18 +259,21 @@ export function createWebPhoneUserAgent(
 			}
 		}
 	});
-	userAgent.registerer.stateChange.addListener((newState) => {
-		switch (newState) {
-			case RegistererState.Registered: {
-				userAgent.emit!(Events.UserAgent.Registered);
-				break;
-			}
-			case RegistererState.Unregistered: {
-				userAgent.emit!(Events.UserAgent.Unregistered);
-				break;
+
+	userAgent.registerer.stateChange.addListener(
+		(newState: RegistererState) => {
+			switch (newState) {
+				case RegistererState.Registered: {
+					userAgent.emit!(Events.UserAgent.Registered);
+					break;
+				}
+				case RegistererState.Unregistered: {
+					userAgent.emit!(Events.UserAgent.Unregistered);
+					break;
+				}
 			}
 		}
-	});
+	);
 
 	return userAgent;
 }
@@ -313,9 +328,15 @@ function sendMessage(
 	to = to.startsWith("#") ? `sip:${to.substring(1)}` : `sip:${to}`;
 	const uri = UserAgent.makeURI(to)!;
 	uri.user = user;
-	const messager = new Messager(this, uri, messageData, "x-rc/agent", {
-		extraHeaders,
-	});
+	const messager = new Messager(
+		this as UserAgent,
+		uri,
+		messageData,
+		"x-rc/agent",
+		{
+			extraHeaders,
+		}
+	);
 
 	console.log("MESSAGE DATA: >>>", messageData);
 
@@ -403,9 +424,15 @@ function invite(
 
 	const inviter: WebPhoneSession = new Inviter(
 		this,
-		uri,
-		inviterOptions
-	) as WebPhoneSession;
+		uri
+	) as unknown as WebPhoneSession;
+
+	// Define a new EventEmitter for the inviter
+	const inviterEventEmitter = new EventEmitter();
+	inviter.on = inviterEventEmitter.on.bind(inviterEventEmitter);
+	inviter.off = inviterEventEmitter.off.bind(inviterEventEmitter);
+	inviter.once = inviterEventEmitter.once.bind(inviterEventEmitter);
+	inviter.eventEmitter = inviterEventEmitter;
 
 	inviter
 		.invite({
@@ -438,11 +465,10 @@ function invite(
 }
 
 /**
- * Support to switch call from other device to current web phone device
- * need active call information from details presence API for switching
+ * Support to switch call from another device to the current web phone device
+ * Requires active call information from the details presence API for switching
  * https://developers.ringcentral.com/api-reference/Detailed-Extension-Presence-with-SIP-Event
  */
-
 function switchFrom(
 	this: WebPhoneUserAgent,
 	activeCall: ActiveCallInfo,
@@ -466,3 +492,28 @@ function switchFrom(
 	};
 	return this.invite!(toNumber, inviterOptions);
 }
+
+function isWebPhoneInvitation(
+	invitation: Invitation
+): invitation is WebPhoneInvitation {
+	return (invitation as WebPhoneInvitation).eventEmitter !== undefined;
+}
+
+// /**
+//  * Handle transport disconnection by managing reconnection through WebPhoneTransport
+//  */
+// async function onTransportDisconnect(
+//   this: WebPhoneUserAgent,
+//   error?: Error
+// ): Promise<void> {
+//   // Patch it so that reconnection is managed by WebPhoneTransport
+//   if (this.state === UserAgentState.Stopped) {
+//     return;
+//   }
+//   if (this.delegate?.onDisconnect) {
+//     this.delegate.onDisconnect(error);
+//   }
+//   if (error) {
+//     await this.transport.reconnect!();
+//   }
+// }

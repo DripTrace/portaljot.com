@@ -16,7 +16,7 @@ export const AnimationsPanel = observer(() => {
 		return animation.targetId === selectedElement?.id;
 	});
 	const hasFadeInAnimation = selectedElementAnimations.some((animation) => {
-		return animation.type === "fadeIn";
+		return animation.type === "fade-in";
 	});
 	const hasFadeOutAnimation = selectedElementAnimations.some((animation) => {
 		return animation.type === "fadeOut";
@@ -44,7 +44,7 @@ export const AnimationsPanel = observer(() => {
 					onClick={() => {
 						store.addAnimation({
 							id: getUid(),
-							type: "fadeIn",
+							type: "fade-in",
 							targetId: selectedElement?.id ?? "",
 							duration: 1000,
 							properties: {},

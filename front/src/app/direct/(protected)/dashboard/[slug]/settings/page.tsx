@@ -1,10 +1,10 @@
-import Billing from '@/components/global/billing'
-import React from 'react'
+import Billing from "@/components/direct/global/billing";
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const Page = (props: Props) => {
-  return <Billing />
-}
+	return <Billing />;
+};
 
-export default Page
+export default Page;

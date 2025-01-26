@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import "@/styles/clinicviews/effects/horizontal-svg-page.css";
+import "@/styles/globals.css";
 import Script from "next/script";
 import Head from "next/head";
 
@@ -50,10 +50,10 @@ export default function HSPRootLayout({
 			<body>
 				<main>
 					<div className="frame">
-						<h1 className="frame__title">
+						<h1 className="frame-title">
 							Sketch 021: SVG Path Page Transition (Vertical)
 						</h1>
-						<nav className="frame__links">
+						<nav className="frame-links">
 							<a href="https://github.com/codrops/codrops-sketches/tree/main/021-svg-path-page-transition-vertical">
 								GitHub
 							</a>
@@ -62,15 +62,15 @@ export default function HSPRootLayout({
 							</a>
 						</nav>
 					</div>
-					<div className="view view--1">
+					<div className="view view-1">
 						<button
-							className="unbutton button button--open"
+							className="unbutton button button-open"
 							aria-label="Open other view"
 						>
 							Open
 						</button>
 					</div>
-					<div className="view view--2">
+					<div className="view view-2">
 						<button
 							className="unbutton button button--close"
 							aria-label="Close current view"

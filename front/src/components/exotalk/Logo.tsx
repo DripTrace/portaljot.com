@@ -1,10 +1,10 @@
-import LogoImage from "@logos/favicon.svg";
+const LogoImage = require("/public/exotalk/images/logo/favicon.svg");
 import Link from "next/link";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Image from "next/image";
 function Logo() {
 	return (
-		<Link href="/" prefetch={false} className="overflow-hidden pb-2">
+		<Link href="/exotalk" prefetch={false} className="overflow-hidden pb-2">
 			<div className="flex items-center">
 				<div className="flex items-center w-14 h-14">
 					<AspectRatio

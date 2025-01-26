@@ -1,8 +1,6 @@
-import * as Icons from "./react-icons";
-
-import { tokens, type ColorName } from "@/styles/modify/ui-tokens";
-
 import { iconBoxStyles } from "./Icon.css";
+import * as Icons from "./react-icons";
+import { tokens, type ColorName } from "@/styles/modify/ui-tokens";
 
 export type IconName = keyof typeof Icons;
 

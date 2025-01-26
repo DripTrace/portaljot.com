@@ -1,7 +1,7 @@
 "use server";
 
 // This component is rendered on the server.
-export default function RootServerComponent() {
+const RootServerComponent = async () => {
 	const serverTimestamp = new Date().toLocaleString();
 
 	return (
@@ -10,4 +10,6 @@ export default function RootServerComponent() {
 			<p>Server Rendered at: {serverTimestamp}</p>
 		</div>
 	);
-}
+};
+
+export default RootServerComponent;

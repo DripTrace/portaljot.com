@@ -70,6 +70,8 @@
 
 	//   // "editorOverviewRuler.bracketMatchForeground": "#ff0000"
 	// }
+	// "css.validate": false,
+	// "scss.validate": false,
 	"css.customData": [".vscode/tailwind.json"],
 	"shellcheck.exclude": ["SC2148", "SC2034"],
 	"[dotenv]": {
@@ -90,6 +92,7 @@
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
 		"editor.formatOnSave": true
 	},
-	"typescript.tsdk": "node_modules/typescript/lib"
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"stylelint.enable": true
 	// "typescript.tsserver.experimental.enableProjectDiagnostics": true
 }

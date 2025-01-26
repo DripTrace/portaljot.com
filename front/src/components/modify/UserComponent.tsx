@@ -4,7 +4,6 @@ import { useEffect, useState, ChangeEvent, FormEvent, type FC } from "react";
 import { useSession } from "next-auth/react";
 import UserProfileForm from "./UserProfileForm";
 import countries from "@/lib/modify/constants";
-// import countries from "./supported-countries";
 
 const UserComponent: FC = () => {
 	const { data: session, status } = useSession();

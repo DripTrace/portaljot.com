@@ -5,12 +5,12 @@ import React from "react";
 const CoverLetter: React.FC = () => {
 	return (
 		<div className="bg-gradient-to-r from-blue-900 to-purple-800 text-white py-8 px-4 font-roboto">
-			<h1 className="text-5xl text-center text-pink-500 mb-6 animate-fadeIn">
+			<h1 className="text-5xl text-center text-pink-500 mb-6 animate-fade-in">
 				Russell Palma: My Tech Journey
 			</h1>
 
 			<section>
-				<h2 className="text-4xl text-center text-purple-500 mb-2 animate-fadeIn">
+				<h2 className="text-4xl text-center text-purple-500 mb-2 animate-fade-in">
 					# A Passion for Building & Innovating
 				</h2>
 				<div className="bg-white bg-opacity-10 py-4 px-6 rounded-lg mb-4 backdrop-blur-lg border border-white border-opacity-20 max-w-screen-md mx-auto">
@@ -26,7 +26,7 @@ const CoverLetter: React.FC = () => {
 			</section>
 
 			<section>
-				<h2 className="text-4xl text-center text-purple-500 mb-2 animate-fadeIn">
+				<h2 className="text-4xl text-center text-purple-500 mb-2 animate-fade-in">
 					# The Foundation: My Infrastructure Obsession
 				</h2>
 				<div className="bg-white bg-opacity-10 py-4 px-6 rounded-lg mb-4 backdrop-blur-lg border border-white border-opacity-20 max-w-screen-md mx-auto">
@@ -44,7 +44,7 @@ const CoverLetter: React.FC = () => {
 			</section>
 
 			<section>
-				<h2 className="text-4xl text-center text-purple-500 mb-2 animate-fadeIn">
+				<h2 className="text-4xl text-center text-purple-500 mb-2 animate-fade-in">
 					# Projects that Get Me Fired Up
 				</h2>
 				<div className="bg-white bg-opacity-10 py-4 px-6 rounded-lg mb-4 backdrop-blur-lg border border-white border-opacity-20 max-w-screen-md mx-auto">
@@ -63,7 +63,7 @@ const CoverLetter: React.FC = () => {
 			</section>
 
 			<section>
-				<h2 className="text-4xl text-center text-purple-500 mb-2 animate-fadeIn">
+				<h2 className="text-4xl text-center text-purple-500 mb-2 animate-fade-in">
 					# Living on the Bleeding Edge
 				</h2>
 				<div className="bg-white bg-opacity-10 py-4 px-6 rounded-lg mb-4 backdrop-blur-lg border border-white border-opacity-20 max-w-screen-md mx-auto">
@@ -80,7 +80,7 @@ const CoverLetter: React.FC = () => {
 			</section>
 
 			<section>
-				<h2 className="text-4xl text-center text-purple-500 mb-2 animate-fadeIn">
+				<h2 className="text-4xl text-center text-purple-500 mb-2 animate-fade-in">
 					# Why I Do What I Do
 				</h2>
 				<div className="bg-white bg-opacity-10 py-4 px-6 rounded-lg mb-4 backdrop-blur-lg border border-white border-opacity-20 max-w-screen-md mx-auto">
@@ -96,7 +96,7 @@ const CoverLetter: React.FC = () => {
 			</section>
 
 			<section>
-				<h2 className="text-4xl text-center text-purple-500 mb-2 animate-fadeIn">
+				<h2 className="text-4xl text-center text-purple-500 mb-2 animate-fade-in">
 					# Ready to Build the Future?
 				</h2>
 				<div className="bg-white bg-opacity-10 py-4 px-6 rounded-lg mb-4 backdrop-blur-lg border border-white border-opacity-20 max-w-screen-md mx-auto">
@@ -111,7 +111,7 @@ const CoverLetter: React.FC = () => {
 			</section>
 
 			<section>
-				<h2 className="text-4xl text-center text-purple-500 mb-2 animate-fadeIn">
+				<h2 className="text-4xl text-center text-purple-500 mb-2 animate-fade-in">
 					# Contact Information
 				</h2>
 				<div className="bg-white bg-opacity-10 py-4 px-6 rounded-lg mb-4 backdrop-blur-lg border border-white border-opacity-20 max-w-screen-md mx-auto">
@@ -174,7 +174,7 @@ const CoverLetter: React.FC = () => {
 					color: #ff69b4;
 					text-align: center;
 					margin-bottom: 20px;
-					animation: fadeIn 2s ease-in-out;
+					animation: fade-in 2s ease-in-out;
 				}
 
 				h2 {
@@ -182,14 +182,14 @@ const CoverLetter: React.FC = () => {
 					color: #9c27b0;
 					text-align: center;
 					margin-bottom: 8px;
-					animation: fadeIn 2s ease-in-out;
+					animation: fade-in 2s ease-in-out;
 				}
 
 				p {
 					font-size: 1.25rem;
 					line-height: 1.6;
 					margin: 8px auto;
-					animation: fadeIn 2s ease-in-out;
+					animation: fade-in 2s ease-in-out;
 				}
 
 				.box {
@@ -221,7 +221,7 @@ const CoverLetter: React.FC = () => {
 					margin: 0 10px;
 				}
 
-				@keyframes fadeIn {
+				@keyframes fade-in {
 					from {
 						opacity: 0;
 						transform: translateY(20px);
@@ -284,7 +284,7 @@ const CoverLetter: React.FC = () => {
 					color: #ff69b4;
 					text-align: center;
 					margin-bottom: 20px;
-					animation: fadeIn 2s ease-in-out;
+					animation: fade-in 2s ease-in-out;
 				}
 
 				h2 {
@@ -292,7 +292,7 @@ const CoverLetter: React.FC = () => {
 					color: #9c27b0;
 					text-align: center;
 					margin-bottom: 10px;
-					animation: fadeIn 2s ease-in-out;
+					animation: fade-in 2s ease-in-out;
 				}
 
 				p {
@@ -300,7 +300,7 @@ const CoverLetter: React.FC = () => {
 					line-height: 1.6;
 					max-width: 800px;
 					margin: 15px auto;
-					animation: fadeIn 2s ease-in-out;
+					animation: fade-in 2s ease-in-out;
 				}
 
 				.box {
@@ -329,7 +329,7 @@ const CoverLetter: React.FC = () => {
 					margin: 0 10px;
 				}
 
-				@keyframes fadeIn {
+				@keyframes fade-in {
 					from {
 						opacity: 0;
 						transform: translateY(20px);

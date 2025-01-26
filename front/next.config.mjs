@@ -14,9 +14,6 @@ const withVanillaExtract = createVanillaExtractPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	// onError: (error, errorInfo) => {
-	// 	console.error("Global error occurred:", error, errorInfo);
-	// },
 	reactStrictMode: false,
 	i18n: {
 		locales: ["en", "ja"],
@@ -26,17 +23,15 @@ const nextConfig = {
 	compiler: {
 		styledComponents: true,
 	},
-	// eslint: {
-	//     ignoreDuringBuilds: true
-	// },
 	env: {
 		stripe_public_key: process.env.STRIPE_PUBLIC_KEY,
 		printful_client_id: process.env.PRINTFUL_CLIENT_ID,
 		NEXTAUTH_URL: process.env.NEXTAUTH_URL,
 		NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
-		// runwayml_api_key: process.env.RUNWAY_API_KEY
+		runwayml_api_key: process.env.RUNWAY_API_KEY,
 	},
 	images: {
+		// unoptimized: true,
 		remotePatterns: [
 			{
 				protocol: "https",
@@ -311,21 +306,11 @@ const nextConfig = {
 			},
 		];
 	},
-	// swcMinify: true,
-	// api: {
-	// 	bodyParser: {
-	// 		sizeLimit: "4.5mb",
-	// 	},
-	// },
-	distDir: "out",
-	output: "export",
-	// basePath: "/clinicviews_com",
-	// assetPrefix: "/clinicviews_com/",
+	productionBrowserSourceMaps: true,
+	// distDir: "out",
+	// output: "export",
 	basePath: "",
 	assetPrefix: "/",
-	images: {
-		unoptimized: true,
-	},
 	webpack: (config, { isServer }) => {
 		config.module.rules.push({
 			test: /\.svg$/,
@@ -341,23 +326,7 @@ const nextConfig = {
 		});
 
 		config.module.rules.push({
-			test: /\.(mp3|ogg|wav|flac|mpe?g)$/,
-			use: [
-				{
-					loader: "url-loader",
-					options: {
-						limit: 8192,
-						fallback: "file-loader",
-						publicPath: `/_next/static/media/`,
-						outputPath: `${isServer ? "../" : ""}static/media/`,
-						name: "[name].[hash].[ext]",
-					},
-				},
-			],
-		});
-
-		config.module.rules.push({
-			test: /\.(ogg|mp3|wav|mpe?g)$/i,
+			test: /\.(ogg|mp3|wav|flac|mpe?g)$/i,
 			exclude: config.exclude,
 			use: [
 				{
@@ -386,10 +355,13 @@ const nextConfig = {
 					...config.resolve.fallback,
 					fs: false,
 					path: false,
-					// child_process: false
 					tls: false,
 					events: "events",
 					net: false,
+					https: path.resolve("https-browserify"),
+					http: path.resolve("stream-http"),
+					buffer: path.resolve("buffer/"),
+					canvas: false,
 				},
 			};
 		}
@@ -403,12 +375,16 @@ const nextConfig = {
 };
 
 const withSerwist = withSerwistInit({
-	swSrc: "src/app/sw.ts",
-	swDest: "public/sw.js",
+	swSrc: "src/app/clinicviews/sw.ts",
+	swDest: "public/clinicviews/sw.js",
 	// disable: process.env.NODE_ENV === "development",
 });
 
-export default withPlugins(
-	[[withVanillaExtract], [withVideos], [withImages], [withSerwist]],
-	nextConfig
+// export default withPlugins(
+// 	[[withVanillaExtract], [withVideos], [withImages], [withSerwist]],
+// 	nextConfig
+// );
+
+export default withVanillaExtract(
+	withVideos(withImages(withSerwist(nextConfig)))
 );

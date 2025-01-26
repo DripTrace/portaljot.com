@@ -6,12 +6,13 @@ import "survey-core/defaultV2.css";
 import { Survey } from "survey-react-ui";
 import { SurveyPDF } from "survey-pdf";
 import { useState, useEffect } from "react";
-import {
-	fsclinicalsForm,
-	fsclinicalsTheme,
-} from "@/data/clinicviews/fsclinicals-config";
-import { fsclinicalsPatientForm } from "@/data/clinicviews/fsclinicals-cleaned-data";
+// import {
+// 	fsclinicalsForm,
+// 	fsclinicalsTheme,
+// } from "@/data/clinicviews/fsclinicals-config";
 import { useDomainSelector } from "@/store/clinicviews/domainHooks";
+import { fsclinicalsPatientForm } from "@/data/clinicviews/accessable/fsclinicals-cleaned-data";
+import { fsclinicalsTheme } from "@/data/clinicviews/accessable/fsclinicals-config";
 {
 	useDomainSelector;
 }

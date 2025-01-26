@@ -6,40 +6,39 @@ import {
 	extractURLfromString,
 } from "@/lib/spread/utils";
 import { onRealTimeChat } from "../conversation";
-import { clerkClient } from "@clerk/nextjs";
 import { onMailer } from "../mailer";
 import OpenAi from "openai";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/app/api/modify/auth/route";
 
 const openai = new OpenAi({
 	apiKey: process.env.OPENAI_API_KEY,
 });
 
+/**
+ * Stores a new conversation message in a given chatRoom.
+ */
 export const onStoreConversations = async (
-	id: string,
+	chatRoomId: string,
 	message: string,
 	role: "assistant" | "user"
 ) => {
-	await client.chatRoom.update({
-		where: {
-			id,
-		},
+	await client.chatMessage.create({
 		data: {
-			message: {
-				create: {
-					message,
-					role,
-				},
-			},
+			message,
+			role,
+			chatRoomId,
 		},
 	});
 };
 
-export const onGetCurrentChatBot = async (id: string) => {
+/**
+ * Fetches chatbot details for a domain by its ID.
+ */
+export const onGetCurrentChatBot = async (domainId: string) => {
 	try {
 		const chatbot = await client.domain.findUnique({
-			where: {
-				id,
-			},
+			where: { id: domainId },
 			select: {
 				helpdesk: true,
 				name: true,
@@ -55,330 +54,266 @@ export const onGetCurrentChatBot = async (id: string) => {
 				},
 			},
 		});
-
-		if (chatbot) {
-			return chatbot;
-		}
+		return chatbot;
 	} catch (error) {
 		console.log(error);
+		return null;
 	}
 };
 
+/**
+ * Keeps track of the current customer's email in memory.
+ */
 let customerEmail: string | undefined;
 
+/**
+ * Main AI ChatBot Assistant logic.
+ */
 export const onAiChatBotAssistant = async (
-	id: string,
+	domainId: string,
 	chat: { role: "assistant" | "user"; content: string }[],
 	author: "user",
 	message: string
 ) => {
 	try {
+		const session = await getServerSession(authOptions);
+		if (!session?.user?.id) {
+			console.log("No authenticated user.");
+			return;
+		}
+
+		// 1) Get domain & filter questions
 		const chatBotDomain = await client.domain.findUnique({
-			where: {
-				id,
-			},
+			where: { id: domainId },
 			select: {
 				name: true,
 				filterQuestions: {
-					where: {
-						answered: null,
-					},
-					select: {
-						question: true,
-					},
+					where: { answered: null },
+					select: { question: true },
 				},
 			},
 		});
-		if (chatBotDomain) {
-			const extractedEmail = extractEmailsFromString(message);
-			if (extractedEmail) {
-				customerEmail = extractedEmail[0];
-			}
+		if (!chatBotDomain) {
+			console.log("Domain not found.");
+			return;
+		}
 
-			if (customerEmail) {
-				const checkCustomer = await client.domain.findUnique({
-					where: {
-						id,
+		// 2) Attempt to extract an email
+		const extractedEmail = extractEmailsFromString(message);
+		if (extractedEmail) {
+			customerEmail = extractedEmail[0];
+		}
+
+		// 3) If email found, check if a Customer with that domain+email exists
+		if (customerEmail) {
+			const checkCustomer = await client.customer.findFirst({
+				where: {
+					email: customerEmail,
+					domainId,
+				},
+				select: {
+					id: true,
+					email: true,
+					stripeId: true,
+					userId: true,
+					stripeLink: true,
+					domainId: true,
+					questions: true,
+					chatRoom: {
+						select: {
+							id: true,
+							live: true,
+							mailed: true,
+						},
+					},
+				},
+			});
+
+			// 3a) If no existing customer, create them
+			if (!checkCustomer) {
+				const newCustomer = await client.customer.create({
+					data: {
+						email: customerEmail,
+						domainId,
+						userId: session.user.id,
+						stripeId: "", // Provide default or handle accordingly
+						stripeLink: "", // Provide default or handle accordingly
+						questions: {
+							create: chatBotDomain.filterQuestions.map((q) => ({
+								question: q.question,
+							})),
+						},
+						chatRoom: {
+							create: [
+								{
+									live: false,
+									mailed: false,
+								},
+							],
+						},
 					},
 					select: {
-						User: {
-							select: {
-								clerkId: true,
-							},
-						},
-						name: true,
-						customer: {
-							where: {
-								email: {
-									startsWith: customerEmail,
-								},
-							},
-							select: {
-								id: true,
-								email: true,
-								questions: true,
-								chatRoom: {
-									select: {
-										id: true,
-										live: true,
-										mailed: true,
-									},
-								},
-							},
-						},
+						id: true,
+						email: true,
 					},
 				});
-				if (checkCustomer && !checkCustomer.customer.length) {
-					const newCustomer = await client.domain.update({
-						where: {
-							id,
-						},
-						data: {
-							customer: {
-								create: {
-									email: customerEmail,
-									questions: {
-										create: chatBotDomain.filterQuestions,
-									},
-									chatRoom: {
-										create: {},
-									},
-								},
-							},
-						},
-					});
-					if (newCustomer) {
-						console.log("new customer made");
-						const response = {
-							role: "assistant",
-							content: `Welcome aboard ${
-								customerEmail.split("@")[0]
-							}! I'm glad to connect with you. Is there anything you need help with?`,
-						};
-						return { response };
-					}
+
+				if (newCustomer) {
+					console.log("New customer created.");
+					const response = {
+						role: "assistant" as const,
+						content: `Welcome aboard ${
+							customerEmail.split("@")[0]
+						}! I'm glad to connect with you. Is there anything you need help with?`,
+					};
+					return { response };
 				}
-				if (
-					checkCustomer &&
-					checkCustomer.customer[0].chatRoom[0].live
-				) {
+			}
+
+			// If the customer exists, see if there's an existing chatRoom that is live
+			if (checkCustomer?.chatRoom?.length) {
+				const existingRoom = checkCustomer.chatRoom[0];
+				if (existingRoom.live) {
+					// Store user message
 					await onStoreConversations(
-						checkCustomer?.customer[0].chatRoom[0].id!,
+						existingRoom.id,
 						message,
 						author
 					);
 
-					onRealTimeChat(
-						checkCustomer.customer[0].chatRoom[0].id,
-						message,
-						"user",
-						author
-					);
+					// Real-time chat update
+					onRealTimeChat(existingRoom.id, message, "user", author);
 
-					if (!checkCustomer.customer[0].chatRoom[0].mailed) {
-						const user = await clerkClient.users.getUser(
-							checkCustomer.User?.clerkId!
-						);
-
-						onMailer(user.emailAddresses[0].emailAddress);
-
-						//update mail status to prevent spamming
+					// If not mailed yet, attempt to find a domain user email
+					if (!existingRoom.mailed) {
+						const domainUserEmail = session.user.email;
+						if (domainUserEmail) {
+							console.log(
+								"Sending mail to domain user:",
+								domainUserEmail
+							);
+							await onMailer(domainUserEmail);
+						}
+						// Mark as mailed
 						const mailed = await client.chatRoom.update({
-							where: {
-								id: checkCustomer.customer[0].chatRoom[0].id,
-							},
-							data: {
-								mailed: true,
-							},
+							where: { id: existingRoom.id },
+							data: { mailed: true },
 						});
-
 						if (mailed) {
-							return {
-								live: true,
-								chatRoom:
-									checkCustomer.customer[0].chatRoom[0].id,
-							};
+							return { live: true, chatRoom: existingRoom.id };
 						}
 					}
-					return {
-						live: true,
-						chatRoom: checkCustomer.customer[0].chatRoom[0].id,
-					};
+					return { live: true, chatRoom: existingRoom.id };
 				}
+			}
 
-				await onStoreConversations(
-					checkCustomer?.customer[0].chatRoom[0].id!,
-					message,
-					author
-				);
+			// 3b) If chatRoom isn't live or doesn't exist, store conversation & pass to AI
+			if (checkCustomer?.chatRoom?.length) {
+				const existingRoom = checkCustomer.chatRoom[0];
+				await onStoreConversations(existingRoom.id, message, author);
 
 				const chatCompletion = await openai.chat.completions.create({
 					messages: [
 						{
 							role: "assistant",
 							content: `
-              You will get an array of questions that you must ask the customer. 
-              
-              Progress the conversation using those questions. 
-              
-              Whenever you ask a question from the array i need you to add a keyword at the end of the question (complete) this keyword is extremely important. 
-              
-              Do not forget it.
-
-              only add this keyword when your asking a question from the array of questions. No other question satisfies this condition
-
-              Always maintain character and stay respectfull.
-
-              The array of questions : [${chatBotDomain.filterQuestions
-					.map((questions) => questions.question)
+                You have an array of questions to ask. For each official question, end with (complete).
+                If user says something beyond scope, respond with (realtime).
+                If they want to book an appointment, link:
+                ${process.env.DOMAIN_URL}/portal/${domainId}/appointment/${checkCustomer.id}
+                If they want to buy a product, link:
+                ${process.env.DOMAIN_URL}/portal/${domainId}/payment/${checkCustomer.id}
+                The array of questions: [${chatBotDomain.filterQuestions
+					.map((q) => q.question)
 					.join(", ")}]
-
-              if the customer says something out of context or inapporpriate. Simply say this is beyond you and you will get a real user to continue the conversation. And add a keyword (realtime) at the end.
-
-              if the customer agrees to book an appointment send them this link ${
-					process.env.DOMAIN_URL
-				}/portal/${id}/appointment/${checkCustomer?.customer[0].id}
-
-              if the customer wants to buy a product redirect them to the payment page ${
-					process.env.DOMAIN_URL
-				}/portal/${id}/payment/${checkCustomer?.customer[0].id}
-          `,
+              `,
 						},
 						...chat,
-						{
-							role: "user",
-							content: message,
-						},
+						{ role: "user", content: message },
 					],
 					model: "gpt-3.5-turbo",
 				});
+				const aiContent =
+					chatCompletion.choices[0]?.message?.content || "";
 
-				if (
-					chatCompletion.choices[0].message.content?.includes(
-						"(realtime)"
-					)
-				) {
-					const realtime = await client.chatRoom.update({
-						where: {
-							id: checkCustomer?.customer[0].chatRoom[0].id,
-						},
-						data: {
-							live: true,
-						},
+				// If AI triggers real-time escalation
+				if (aiContent.includes("(realtime)")) {
+					const updatedRoom = await client.chatRoom.update({
+						where: { id: existingRoom.id },
+						data: { live: true },
 					});
-
-					if (realtime) {
+					if (updatedRoom) {
 						const response = {
-							role: "assistant",
-							content:
-								chatCompletion.choices[0].message.content.replace(
-									"(realtime)",
-									""
-								),
+							role: "assistant" as const,
+							content: aiContent.replace("(realtime)", ""),
 						};
-
 						await onStoreConversations(
-							checkCustomer?.customer[0].chatRoom[0].id!,
+							existingRoom.id,
 							response.content,
 							"assistant"
 						);
-
 						return { response };
 					}
 				}
-				if (chat[chat.length - 1].content.includes("(complete)")) {
-					const firstUnansweredQuestion =
-						await client.customerResponses.findFirst({
-							where: {
-								customerId: checkCustomer?.customer[0].id,
-								answered: null,
-							},
-							select: {
-								id: true,
-							},
-							orderBy: {
-								question: "asc",
-							},
-						});
-					if (firstUnansweredQuestion) {
-						await client.customerResponses.update({
-							where: {
-								id: firstUnansweredQuestion.id,
-							},
-							data: {
-								answered: message,
-							},
-						});
-					}
-				}
 
+				// If chatCompletion exists, handle link or respond with AI text
 				if (chatCompletion) {
-					const generatedLink = extractURLfromString(
-						chatCompletion.choices[0].message.content as string
-					);
-
+					const generatedLink = extractURLfromString(aiContent);
 					if (generatedLink) {
 						const link = generatedLink[0];
 						const response = {
-							role: "assistant",
-							content: `Great! you can follow the link to proceed`,
+							role: "assistant" as const,
+							content:
+								"Great! you can follow the link to proceed",
 							link: link.slice(0, -1),
 						};
-
 						await onStoreConversations(
-							checkCustomer?.customer[0].chatRoom[0].id!,
+							existingRoom.id,
 							`${response.content} ${response.link}`,
 							"assistant"
 						);
-
 						return { response };
 					}
-
 					const response = {
-						role: "assistant",
-						content: chatCompletion.choices[0].message.content,
+						role: "assistant" as const,
+						content: aiContent,
 					};
-
 					await onStoreConversations(
-						checkCustomer?.customer[0].chatRoom[0].id!,
-						`${response.content}`,
+						existingRoom.id,
+						response.content,
 						"assistant"
 					);
-
 					return { response };
 				}
 			}
-			console.log("No customer");
-			const chatCompletion = await openai.chat.completions.create({
-				messages: [
-					{
-						role: "assistant",
-						content: `
-            You are a highly knowledgeable and experienced sales representative for a ${chatBotDomain.name} that offers a valuable product or service. Your goal is to have a natural, human-like conversation with the customer in order to understand their needs, provide relevant information, and ultimately guide them towards making a purchase or redirect them to a link if they havent provided all relevant information.
-            Right now you are talking to a customer for the first time. Start by giving them a warm welcome on behalf of ${chatBotDomain.name} and make them feel welcomed.
+		}
 
-            Your next task is lead the conversation naturally to get the customers email address. Be respectful and never break character.
-          `,
-					},
-					...chat,
-					{
-						role: "user",
-						content: message,
-					},
-				],
-				model: "gpt-3.5-turbo",
-			});
+		// 4) If no email found or no existing customer matched, fallback
+		console.log("No customer found or no email extracted.");
 
-			if (chatCompletion) {
-				const response = {
+		const fallback = await openai.chat.completions.create({
+			messages: [
+				{
 					role: "assistant",
-					content: chatCompletion.choices[0].message.content,
-				};
-
-				return { response };
-			}
+					content: `
+            You are a helpful sales rep for ${chatBotDomain.name}.
+            Greet the new user warmly, then try to get their email to proceed.
+            Remain in character.
+          `,
+				},
+				...chat,
+				{ role: "user", content: message },
+			],
+			model: "gpt-3.5-turbo",
+		});
+		if (fallback) {
+			const response = {
+				role: "assistant" as const,
+				content: fallback.choices[0]?.message?.content ?? "",
+			};
+			return { response };
 		}
 	} catch (error) {
-		console.log(error);
+		console.log("Error in onAiChatBotAssistant:", error);
 	}
 };

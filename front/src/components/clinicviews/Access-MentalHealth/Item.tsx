@@ -32,11 +32,11 @@ class Item {
 		const text = this.DOM.el.dataset.text || "";
 		let newHTML = "";
 		for (let i = 0; i < this.totalCells; ++i) {
-			newHTML += `<div class="gtext__box"><div class="gtext__box-inner">${text}</div></div>`;
+			newHTML += `<div class="gtext-box"><div class="gtext-box-inner">${text}</div></div>`;
 		}
 		this.DOM.el.innerHTML = newHTML;
-		this.DOM.innerWrap = this.DOM.el.querySelectorAll(".gtext__box");
-		this.DOM.inner = this.DOM.el.querySelectorAll(".gtext__box-inner");
+		this.DOM.innerWrap = this.DOM.el.querySelectorAll(".gtext-box");
+		this.DOM.inner = this.DOM.el.querySelectorAll(".gtext-box-inner");
 	}
 
 	setCSSValues() {

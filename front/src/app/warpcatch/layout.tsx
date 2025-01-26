@@ -7,7 +7,7 @@ import {
 	SignedOut,
 	UserButton,
 } from "@clerk/nextjs";
-import "./globals.css";
+import "@/styles/globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {

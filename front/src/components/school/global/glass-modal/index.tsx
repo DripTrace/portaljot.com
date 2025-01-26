@@ -25,7 +25,7 @@ export const GlassModal = ({
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent
         aria-describedby="dialog-description"
-        className="bg-clip-padding backdrop-filter backdrop--blur__safari backdrop-blur-3xl bgOpacity-20 bg-themeGray border-themeGray z-40"
+        className="bg-clip-padding backdrop-filter backdrop-blur-safari backdrop-blur-3xl bgOpacity-20 bg-themeGray border-themeGray z-40"
       >
         <DialogHeader className="z-40">
           <DialogTitle className="z-40">{title}</DialogTitle>

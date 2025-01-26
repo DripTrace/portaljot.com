@@ -10,7 +10,7 @@ import {
 	processAndUploadImage,
 	uploadToPrintful,
 	waitForFile,
-} from "@/utils/printful";
+} from "@/utils/poke/printful";
 import { getPrintfulClient } from "@/lib/poke/printful/printful-auth";
 
 const STRIPE_SECRET_KEY_POKE = process.env.STRIPE_SECRET_KEY_POKE;
@@ -20,7 +20,7 @@ if (!STRIPE_SECRET_KEY_POKE) {
 }
 
 const stripe = new Stripe(STRIPE_SECRET_KEY_POKE, {
-	apiVersion: "2024-09-30.acacia",
+	apiVersion: "2024-12-18.acacia",
 });
 
 axiosRetry(axios, {

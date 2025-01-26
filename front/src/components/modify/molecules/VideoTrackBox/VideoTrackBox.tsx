@@ -12,19 +12,17 @@ import { type VideoBox } from "@/lib/modify/VideoBox";
 import { VideoTrackController } from "@/lib/modify/VideoTrackController";
 import { SliderControlType } from "@/types/modify";
 import { eventsBus } from "@/lib/modify/EventsBus";
-
 import { useActiveVideoBox } from "../ActiveVideoBoxProvider";
 import { Z_INDEXES } from "@/constants/modify/ui";
 import { OverlayButton } from "@/components/modify/atoms";
-
 import {
 	trackBoxStyles,
 	frameBoxStyles,
 	trimMovingThumbBoxStyles,
 	trimMovingThumbStyles,
 } from "./VideoTrackBox.css";
-import scissorsUrl from "./icons/scissors.svg";
-import trashUrl from "./icons/trash.svg";
+const scissorUrl = "./icons/scissors.svg";
+const trashUrl = "./icons/trash.svg";
 
 const PREVIEW_HEIGHT = 50;
 const PREVIEW_DIMENSIONS = {
@@ -68,7 +66,7 @@ const findPreviewFrames = (
 
 const CONTROL_CURSOR: Record<SliderControlType, CSSProperties["cursor"]> = {
 	default: "pointer",
-	trim: `url("${scissorsUrl}"), col-resize`,
+	trim: `url("${scissorUrl}"), col-resize`,
 	delete: `url("${trashUrl}"), not-allowed`,
 };
 

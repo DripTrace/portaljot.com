@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import "@/styles/clinicviews/globals.css";
+import "@/styles//globals.css";
 import ClientLayout from "@/components/clinicviews/LLPMG/ClientLayout";
 
 export const metadata: Metadata = {

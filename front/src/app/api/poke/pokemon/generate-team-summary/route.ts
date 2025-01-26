@@ -1,4 +1,4 @@
-import { generateTeamSummary } from "@/actions/feature/pokegenerateTeamSummary";
+import { generateTeamSummary } from "@/actions/feature/poke/generateTeamSummary";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {

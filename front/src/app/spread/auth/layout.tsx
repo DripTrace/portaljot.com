@@ -1,4 +1,7 @@
-import { currentUser } from "@clerk/nextjs";
+"use client";
+
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/app/api/modify/auth/route";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import React from "react";
@@ -8,13 +11,13 @@ type Props = {
 };
 
 const Layout = async ({ children }: Props) => {
-	const user = await currentUser();
+	const session = await getServerSession(authOptions);
 
-	if (user) redirect("/spread/");
+	if (session?.user) redirect("/spread/");
 
 	return (
 		<div className="h-screen flex w-full justify-center">
-			<div className="w-[600px] ld:w-full flex flex-col items-start p-6">
+			<div className="w-[600px] lg:w-full flex flex-col items-start p-6">
 				<Image
 					src="/spread/images/logo.png"
 					alt="LOGO"
@@ -23,28 +26,29 @@ const Layout = async ({ children }: Props) => {
 						width: "20%",
 						height: "auto",
 					}}
-					width={0}
-					height={0}
+					width={200} // Provide actual width
+					height={50} // Provide actual height
 				/>
 				{children}
 			</div>
-			<div className="hidden lg:flex flex-1 w-full max-h-full max-w-4000px overflow-hidden relative bg-cream  flex-col pt-10 pl-24 gap-3">
+			<div className="hidden lg:flex flex-1 w-full max-h-full max-w-4xl overflow-hidden relative bg-cream flex-col pt-10 pl-24 gap-3">
 				<h2 className="text-gravel md:text-4xl font-bold">
 					Hi, I’m your AI powered sales assistant, Spread!
 				</h2>
 				<p className="text-iridium md:text-sm mb-10">
 					Spread is capable of capturing lead information without a
-					form... <br />
+					form...
+					<br />
 					something never done before 😉
 				</p>
 				<Image
 					src="/spread/images/app-ui.png"
 					alt="app image"
 					loading="lazy"
-					sizes="30"
-					className="absolute shrink-0 !w-[1600px] top-48"
-					width={0}
-					height={0}
+					sizes="30vw"
+					className="absolute shrink-0 w-[1600px] top-48"
+					width={1600} // Provide actual width
+					height={900} // Provide actual height
 				/>
 			</div>
 		</div>

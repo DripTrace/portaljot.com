@@ -94,7 +94,7 @@
 //                             {isLogin ? "Login" : "Register"} Form
 //                         </h2>
 //                         <form onSubmit={submitHandler}>
-//                             <div className="inputBox">
+//                             <div className="input-box">
 //                                 <input
 //                                     name="csrfToken"
 //                                     type="hidden"
@@ -109,7 +109,7 @@
 //                                     ref={emailInputRef}
 //                                 />
 //                             </div>
-//                             <div className="inputBox">
+//                             <div className="input-box">
 //                                 <input
 //                                     className="input border-bottom-right-glass"
 //                                     type="password"
@@ -121,7 +121,7 @@
 //                             </div>
 
 //                             {!isLogin && (
-//                                 <div className="inputBox">
+//                                 <div className="input-box">
 //                                     <input
 //                                         className="input border-bottom-right-glass"
 //                                         type="text"
@@ -133,7 +133,7 @@
 //                                 </div>
 //                             )}
 
-//                             <div className="inputBox">
+//                             <div className="input-box">
 //                                 <input
 //                                     className="input border-bottom-right-glass text-[#666] bg-white max-w-[100px] cursor-pointer mb-[20px] font-semibold"
 //                                     type="submit"
@@ -255,7 +255,7 @@ function Authentication({ csrfToken }: any) {
 							{isLogin ? "Login" : "Register"} Form
 						</h2>
 						<form onSubmit={submitHandler}>
-							<div className="inputBox">
+							<div className="input-box">
 								<input
 									name="csrfToken"
 									type="hidden"
@@ -270,7 +270,7 @@ function Authentication({ csrfToken }: any) {
 									ref={emailInputRef}
 								/>
 							</div>
-							<div className="inputBox">
+							<div className="input-box">
 								<input
 									className="input border-bottom-right-glass"
 									type="password"
@@ -282,7 +282,7 @@ function Authentication({ csrfToken }: any) {
 							</div>
 
 							{!isLogin && (
-								<div className="inputBox">
+								<div className="input-box">
 									<input
 										className="input border-bottom-right-glass"
 										type="text"
@@ -294,7 +294,7 @@ function Authentication({ csrfToken }: any) {
 								</div>
 							)}
 
-							<div className="inputBox">
+							<div className="input-box">
 								<input
 									className="input border-bottom-right-glass text-[#666] bg-white max-w-[100px] cursor-pointer mb-[20px] font-semibold"
 									type="submit"

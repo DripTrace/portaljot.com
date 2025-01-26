@@ -1,6 +1,6 @@
 import { buffer } from "micro";
 import * as admin from "firebase-admin";
-import { serviceAccount } from "@/app/api/merchandise/stripe/webhook/route";
+import { serviceAccount } from "@/config/firebase/serviceAccount";
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 

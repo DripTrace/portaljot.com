@@ -535,7 +535,7 @@ export class TextLayer extends MoveableLayer {
 	constructor(text: string) {
 		super({ name: text, uri: "" });
 		this.name = text;
-		this.color = "#ffffff";
+		this.color = "#fff";
 		this.shadow = true;
 		this.ready = true;
 	}

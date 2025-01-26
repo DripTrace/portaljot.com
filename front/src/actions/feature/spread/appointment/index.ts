@@ -1,14 +1,16 @@
 "use server";
 
 import { prisma as client } from "@/lib/client/prisma";
-import { currentUser } from "@clerk/nextjs";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/app/api/modify/auth/route";
 
+/**
+ * Retrieves a customer's questions/answers by customer ID.
+ */
 export const onDomainCustomerResponses = async (customerId: string) => {
 	try {
 		const customerQuestions = await client.customer.findUnique({
-			where: {
-				id: customerId,
-			},
+			where: { id: customerId },
 			select: {
 				email: true,
 				questions: {
@@ -20,7 +22,6 @@ export const onDomainCustomerResponses = async (customerId: string) => {
 				},
 			},
 		});
-
 		if (customerQuestions) {
 			return customerQuestions;
 		}
@@ -29,18 +30,18 @@ export const onDomainCustomerResponses = async (customerId: string) => {
 	}
 };
 
+/**
+ * Retrieves all bookings for a specific domain.
+ */
 export const onGetAllDomainBookings = async (domainId: string) => {
 	try {
 		const bookings = await client.bookings.findMany({
-			where: {
-				domainId,
-			},
+			where: { domainId },
 			select: {
 				slot: true,
 				date: true,
 			},
 		});
-
 		if (bookings) {
 			return bookings;
 		}
@@ -49,6 +50,9 @@ export const onGetAllDomainBookings = async (domainId: string) => {
 	}
 };
 
+/**
+ * Books a new appointment for a customer (by domain and customer IDs).
+ */
 export const onBookNewAppointment = async (
 	domainId: string,
 	customerId: string,
@@ -58,9 +62,7 @@ export const onBookNewAppointment = async (
 ) => {
 	try {
 		const booking = await client.customer.update({
-			where: {
-				id: customerId,
-			},
+			where: { id: customerId },
 			data: {
 				booking: {
 					create: {
@@ -72,7 +74,6 @@ export const onBookNewAppointment = async (
 				},
 			},
 		});
-
 		if (booking) {
 			return { status: 200, message: "Booking created" };
 		}
@@ -81,46 +82,48 @@ export const onBookNewAppointment = async (
 	}
 };
 
+/**
+ * Saves answers for the specified customer’s questions.
+ * Expects `questions` to be an object: { questionId: answer }
+ */
 export const saveAnswers = async (
-	questions: [question: string],
+	questions: Record<string, string>,
 	customerId: string
 ) => {
 	try {
-		for (const question in questions) {
+		for (const questionId in questions) {
 			await client.customer.update({
 				where: { id: customerId },
 				data: {
 					questions: {
 						update: {
-							where: {
-								id: question,
-							},
-							data: {
-								answered: questions[question],
-							},
+							where: { id: questionId },
+							data: { answered: questions[questionId] },
 						},
 					},
 				},
 			});
 		}
-		return {
-			status: 200,
-			messege: "Updated Responses",
-		};
+		return { status: 200, message: "Updated Responses" };
 	} catch (error) {
 		console.log(error);
 	}
 };
 
-export const onGetAllBookingsForCurrentUser = async (clerkId: string) => {
+/**
+ * Retrieves all bookings for the authenticated user, based on domain ownership.
+ */
+export const onGetAllBookingsForCurrentUser = async () => {
 	try {
+		const session = await getServerSession(authOptions);
+		if (!session?.user?.id) return null;
+
+		// Find all bookings where the Customer's Domain belongs to the current user
 		const bookings = await client.bookings.findMany({
 			where: {
 				Customer: {
 					Domain: {
-						User: {
-							clerkId,
-						},
+						userId: session.user.id, // checking Domain user ownership
 					},
 				},
 			},
@@ -144,35 +147,31 @@ export const onGetAllBookingsForCurrentUser = async (clerkId: string) => {
 		});
 
 		if (bookings) {
-			return {
-				bookings,
-			};
+			return { bookings };
 		}
 	} catch (error) {
 		console.log(error);
 	}
 };
 
+/**
+ * Retrieves a count of all appointments for the authenticated user.
+ */
 export const getUserAppointments = async () => {
 	try {
-		const user = await currentUser();
-		if (user) {
-			const bookings = await client.bookings.count({
-				where: {
-					Customer: {
-						Domain: {
-							User: {
-								clerkId: user.id,
-							},
-						},
+		const session = await getServerSession(authOptions);
+		if (!session?.user?.id) return null;
+
+		const bookingsCount = await client.bookings.count({
+			where: {
+				Customer: {
+					Domain: {
+						userId: session.user.id,
 					},
 				},
-			});
-
-			if (bookings) {
-				return bookings;
-			}
-		}
+			},
+		});
+		return bookingsCount;
 	} catch (error) {
 		console.log(error);
 	}

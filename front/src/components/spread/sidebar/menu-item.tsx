@@ -5,7 +5,7 @@ import React from "react";
 type Props = {
 	size: "max" | "min";
 	label: string;
-	icon: JSX.Element;
+	icon: React.ReactNode;
 	path?: string;
 	current?: string;
 	onSignOut?(): void;

@@ -35,6 +35,6 @@
        stroke="none"
        fill="#000000"
        fill-rule="evenodd"
-       style="fill:#ffffff;fill-opacity:1;stroke:url(#linearGradient1);stroke-width:0.148441;stroke-dasharray:none" />
+       style="fill:#fff;fill-opacity:1;stroke:url(#linearGradient1);stroke-width:0.148441;stroke-dasharray:none" />
   </g>
 </svg>

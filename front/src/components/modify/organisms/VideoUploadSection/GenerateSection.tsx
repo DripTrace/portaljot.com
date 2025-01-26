@@ -4,9 +4,9 @@ import { useState, useRef, type FC } from "react";
 import { Wand2, Upload, X } from "lucide-react";
 import { nanoid } from "nanoid";
 import { useVideoBoxes } from "./useVideoBoxes";
-import { Button } from "../../atoms";
 import { storage } from "@/lib/modify/Storage";
 import { VideoBoxDemuxer } from "@/lib/modify/VideoBoxDemuxer";
+import { Button } from "../../atoms/Button/Button";
 
 const CAMERA_MOTIONS = [
 	"Static",

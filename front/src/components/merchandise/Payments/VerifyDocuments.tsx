@@ -48,7 +48,7 @@ function VerifyDocuments() {
     }, [selectedImg]);
 
     return (
-        <div className="App">
+        <div className="app">
             <Title />
             <UploadForm />
             <ImageGrid setSelectedImg={setSelectedImg} />

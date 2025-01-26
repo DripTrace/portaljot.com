@@ -40,13 +40,11 @@ const Chat = ({ id }: { id: string }) => {
 
 	useEffect(() => {
 		bottomOfChatRef.current?.scrollIntoView({ behavior: "smooth" });
-	});
+	}, [messages]);
 
 	useEffect(() => {
 		if (!snapshot) return;
-		console.log("CURRENT MESSAGES:", messages);
 		const lastMessage = messages.pop();
-		console.log("LAST MESSAGE: ", lastMessage);
 
 		if (
 			lastMessage?.role === "ai" &&
@@ -57,8 +55,6 @@ const Chat = ({ id }: { id: string }) => {
 
 		const newMessages = snapshot.docs.map((doc) => {
 			const { role, message, createdAt } = doc.data();
-			// console.log("messages", message);
-
 			return {
 				id: doc.id,
 				role,
@@ -66,16 +62,11 @@ const Chat = ({ id }: { id: string }) => {
 				createdAt: createdAt.toDate(),
 			};
 		});
-		console.log("THE NEW MESSAGES BEFORE SETTING: ", newMessages);
 		setMessages(newMessages);
-		console.log("NEW MESSAGES AFTER SETTING: ", newMessages);
-
-		console.log("Updated snapshot", snapshot.docs);
 	}, [snapshot]);
 
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
-		// try {
 		const q = input;
 
 		setInput("");
@@ -93,11 +84,9 @@ const Chat = ({ id }: { id: string }) => {
 				createdAt: new Date(),
 			},
 		]);
-		console.log("MESSAGE BEFORE TRANSITION: ", messages);
 
 		startTransition(async () => {
 			const { success, message } = await askQuestion(id, q);
-			console.log("MESSAGES AFTER TRANSITION: ", q);
 
 			if (!success) {
 				toast({
@@ -117,8 +106,7 @@ const Chat = ({ id }: { id: string }) => {
 				);
 			}
 		});
-
-		console.log("MESSAGES AFTER SET: ");
+	};
 
 	return (
 		<div className="flex flex-col h-full overflow-scroll">

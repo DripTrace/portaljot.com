@@ -55,12 +55,12 @@ const Player = () => {
 				multiple
 				accept="video/mp4,video/x-m4v,video/*,image/*,audio/*"
 			/>
-			<div id="cursor_preview" className={styles.cursorPreview}>
+			<div id="cursor-preview" className={styles.cursorPreview}>
 				<div></div>
 				<canvas></canvas>
 			</div>
 			<div id="canvas" ref={canvasRef} className={styles.canvas}></div>
-			<div id="layer_holder" className={styles.layerHolder}>
+			<div id="layer-holder" className={styles.layerHolder}>
 				<div id="header" className={styles.header}>
 					<div onClick={handleAddMedia}>+ media</div>
 					<div>+ text</div>

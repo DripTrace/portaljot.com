@@ -1,4 +1,4 @@
-import { findAutomation } from "@/actions/automations/queries";
+import { findAutomation } from "@/actions/feature/direct/automations/queries";
 import {
 	createChatHistory,
 	getChatHistory,
@@ -6,10 +6,10 @@ import {
 	getKeywordPost,
 	matchKeyword,
 	trackResponses,
-} from "@/actions/webhook/queries";
-import { sendDM, sendPrivateMessage } from "@/lib/fetch";
-import { openai } from "@/lib/openai";
+} from "@/actions/feature/direct/webhook/queries";
 import { prisma as client } from "@/lib/client/prisma";
+import { sendDM, sendPrivateMessage } from "@/lib/direct/fetch";
+import { openai } from "@/lib/direct/openai";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {

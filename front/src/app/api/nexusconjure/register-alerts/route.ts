@@ -5,19 +5,28 @@ import fs from "fs/promises";
 import { createWriteStream } from "fs";
 import archiver from "archiver";
 import path from "path";
-import { renderToString } from "react-dom/server";
-import EmailTemplate, {
-	EmailTemplateProps,
-} from "@/components/nexusconjure/templates/EmailTemplate";
+// import { renderToString } from "react-dom/server";
+// import EmailTemplate, {
+// 	EmailTemplateProps,
+// } from "@/components/nexusconjure/templates/EmailTemplate";
 import ical, { ICalAttendeeStatus, ICalAttendeeRole } from "ical-generator";
 import twilio from "twilio";
 import React from "react";
+import EmailTemplate, {
+	EmailTemplateProps,
+} from "@/components/templates/EmailTemplate";
 
 export const config = {
 	api: {
 		bodyParser: false,
 	},
 };
+
+interface CustomNextRequest extends NextRequest {
+	socket: {
+		server: any;
+	};
+}
 
 const local = process.env;
 const devMode = local.NODE_ENV === "development";
@@ -91,13 +100,14 @@ async function sendEmailWithCalendar(
 	console.log(`Email sent successfully to ${to}`);
 }
 
-export async function POST(req: NextRequest) {
+export async function POST(req: CustomNextRequest) {
+	const { renderToString } = await import("react-dom/server");
 	const form = new IncomingForm();
 
 	try {
 		const [fields, files] = await new Promise<[any, any]>(
 			(resolve, reject) => {
-				form.parse(req, (err, fields, files) => {
+				form.parse(req as any, (err, fields, files) => {
 					if (err) reject(err);
 					resolve([fields, files]);
 				});

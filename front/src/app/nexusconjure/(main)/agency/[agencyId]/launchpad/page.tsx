@@ -7,12 +7,12 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import { db } from "@/utils/nexusconjure/db";
-import { getStripeOAuthLink } from "@/lib/nexusconjure/utils";
 import { CheckCircleIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { stripe } from "@/lib/nexusconjure/stripe";
+import { getStripeOAuthLink } from "@/lib/utils";
 
 type Props = {
 	params: {

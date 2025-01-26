@@ -1,428 +1,435 @@
-// "use server";
+// app/api/register/route.ts
 
-// // app/api/register/route.ts
-
-// import { NextRequest, NextResponse } from "next/server";
-// import { IncomingForm, File } from "formidable";
-// import nodemailer from "nodemailer";
-// import { renderToString } from "react-dom/server";
-// // import { renderToString } from "next/dist/compiled/react-dom/server-rendering-stub";
-// import LLPMGEmailTemplate from "@/components/clinicviews/LLPMG/LLPMGEmailTemplate";
-// import ical, { ICalAttendeeRole, ICalAttendeeStatus } from "ical-generator";
-// import fs from "fs/promises";
-// import { createWriteStream } from "fs";
-// import archiver from "archiver";
-// import path from "path";
-// import { ringCentralClient } from "@/lib/clinicviews/ringcentralClient";
+import { NextRequest, NextResponse } from "next/server";
+import { IncomingForm, File } from "formidable";
+import nodemailer from "nodemailer";
+import { renderToString } from "react-dom/server";
+// import { renderToString } from "next/dist/compiled/react-dom/server-rendering-stub";
+import LLPMGEmailTemplate from "@/components/clinicviews/LLPMG/LLPMGEmailTemplate";
+import ical, { ICalAttendeeRole, ICalAttendeeStatus } from "ical-generator";
+import fs from "fs/promises";
+import { createWriteStream } from "fs";
+import archiver from "archiver";
+import path from "path";
+import { ringCentralClient } from "@/lib/clinicviews/ringcentralClient";
 // import { createOrUpdateConversation } from "@/app/api/clinicviews/llpmg/ringcentral/sms";
-// import { createElement } from "react";
+import { createElement } from "react";
+import { IncomingMessage } from "http";
+import { createOrUpdateConversation } from "../ringcentral/sms/route";
 
-// interface TeamResponse {
-// 	id: string;
-// 	name: string;
-// 	description: string;
-// 	creationTime: string;
-// 	lastModifiedTime: string;
-// }
+interface CustomNextRequest extends NextRequest {
+	socket: {
+		server: any;
+	};
+}
 
-// const conversations: {
-// 	[key: string]: { patientNumber: string; doctorNumber: string };
-// } = {};
+interface TeamResponse {
+	id: string;
+	name: string;
+	description: string;
+	creationTime: string;
+	lastModifiedTime: string;
+}
 
-// async function createTeam(
-// 	patientName: string,
-// 	doctorName: string,
-// 	patientExtensionId: string,
-// 	doctorExtensionId: string
-// ): Promise<TeamResponse> {
-// 	console.log(
-// 		`Creating team for patient ${patientName} and doctor ${doctorName}`
-// 	);
-// 	try {
-// 		await ringCentralClient.login({ jwt: process.env.RC_JWT });
-// 		const response = await ringCentralClient.post(
-// 			"/team-messaging/v1/teams",
-// 			{
-// 				public: false,
-// 				name: `${patientName} - ${doctorName} Consultation`,
-// 				description: `Private team for consultation between ${patientName} and ${doctorName}`,
-// 				members: [
-// 					{ id: patientExtensionId },
-// 					{ id: doctorExtensionId },
-// 				],
-// 			}
-// 		);
-// 		const data = await response.json();
-// 		console.log(`Team created:`, JSON.stringify(data, null, 2));
-// 		return data;
-// 	} catch (error) {
-// 		console.error(`Error creating team:`, error);
-// 		throw error;
-// 	}
-// }
+const conversations: {
+	[key: string]: { patientNumber: string; doctorNumber: string };
+} = {};
 
-// async function sendTeamMessage(teamId: string, text: string): Promise<void> {
-// 	console.log(`Sending message to team ${teamId}:`, text);
-// 	try {
-// 		await ringCentralClient.login({ jwt: process.env.RC_JWT });
-// 		await ringCentralClient.post(
-// 			`/team-messaging/v1/chats/${teamId}/posts`,
-// 			{
-// 				text: text,
-// 			}
-// 		);
-// 		console.log(`Message sent to team`);
-// 	} catch (error) {
-// 		console.error(`Error sending team message:`, error);
-// 		throw error;
-// 	}
-// }
+async function createTeam(
+	patientName: string,
+	doctorName: string,
+	patientExtensionId: string,
+	doctorExtensionId: string
+): Promise<TeamResponse> {
+	console.log(
+		`Creating team for patient ${patientName} and doctor ${doctorName}`
+	);
+	try {
+		await ringCentralClient.login({ jwt: process.env.RC_JWT });
+		const response = await ringCentralClient.post(
+			"/team-messaging/v1/teams",
+			{
+				public: false,
+				name: `${patientName} - ${doctorName} Consultation`,
+				description: `Private team for consultation between ${patientName} and ${doctorName}`,
+				members: [
+					{ id: patientExtensionId },
+					{ id: doctorExtensionId },
+				],
+			}
+		);
+		const data = await response.json();
+		console.log(`Team created:`, JSON.stringify(data, null, 2));
+		return data;
+	} catch (error) {
+		console.error(`Error creating team:`, error);
+		throw error;
+	}
+}
 
-// async function getExtensionIdFromPhoneNumber(
-// 	phoneNumber: string
-// ): Promise<string | null> {
-// 	console.log(`Getting extension ID for phone number: ${phoneNumber}`);
-// 	try {
-// 		await ringCentralClient.login({ jwt: process.env.RC_JWT });
-// 		const response = await ringCentralClient.get(
-// 			"/restapi/v1.0/account/~/extension",
-// 			{
-// 				phoneNumber: phoneNumber,
-// 			}
-// 		);
-// 		const data = await response.json();
-// 		if (data.records && data.records.length > 0) {
-// 			console.log(`Extension ID found:`, data.records[0].id);
-// 			return data.records[0].id;
-// 		}
-// 		console.log(`No extension found for phone number: ${phoneNumber}`);
-// 		return null;
-// 	} catch (error) {
-// 		console.error(`Error getting extension ID:`, error);
-// 		throw error;
-// 	}
-// }
+async function sendTeamMessage(teamId: string, text: string): Promise<void> {
+	console.log(`Sending message to team ${teamId}:`, text);
+	try {
+		await ringCentralClient.login({ jwt: process.env.RC_JWT });
+		await ringCentralClient.post(
+			`/team-messaging/v1/chats/${teamId}/posts`,
+			{
+				text: text,
+			}
+		);
+		console.log(`Message sent to team`);
+	} catch (error) {
+		console.error(`Error sending team message:`, error);
+		throw error;
+	}
+}
 
-// async function createSubscription() {
-// 	try {
-// 		await ringCentralClient.login({ jwt: process.env.RC_JWT });
+async function getExtensionIdFromPhoneNumber(
+	phoneNumber: string
+): Promise<string | null> {
+	console.log(`Getting extension ID for phone number: ${phoneNumber}`);
+	try {
+		await ringCentralClient.login({ jwt: process.env.RC_JWT });
+		const response = await ringCentralClient.get(
+			"/restapi/v1.0/account/~/extension",
+			{
+				phoneNumber: phoneNumber,
+			}
+		);
+		const data = await response.json();
+		if (data.records && data.records.length > 0) {
+			console.log(`Extension ID found:`, data.records[0].id);
+			return data.records[0].id;
+		}
+		console.log(`No extension found for phone number: ${phoneNumber}`);
+		return null;
+	} catch (error) {
+		console.error(`Error getting extension ID:`, error);
+		throw error;
+	}
+}
 
-// 		const response = await ringCentralClient.post(
-// 			"/restapi/v1.0/subscription",
-// 			{
-// 				eventFilters: [
-// 					"/restapi/v1.0/account/~/extension/~/message-store",
-// 				],
-// 				deliveryMode: {
-// 					transportType: "WebHook",
-// 					address: `${process.env.WEBHOOK_URL}/api/clinicviews/llpmg/ringcentral/sms`,
-// 				},
-// 				expiresIn: 3600,
-// 			}
-// 		);
+async function createSubscription() {
+	try {
+		await ringCentralClient.login({ jwt: process.env.RC_JWT });
 
-// 		return response.json();
-// 	} catch (error) {
-// 		console.error("Error creating subscription:", error);
-// 		throw error;
-// 	}
-// }
+		const response = await ringCentralClient.post(
+			"/restapi/v1.0/subscription",
+			{
+				eventFilters: [
+					"/restapi/v1.0/account/~/extension/~/message-store",
+				],
+				deliveryMode: {
+					transportType: "WebHook",
+					address: `${process.env.WEBHOOK_URL}/api/clinicviews/llpmg/ringcentral/sms`,
+				},
+				expiresIn: 3600,
+			}
+		);
 
-// async function syncMessages(syncToken: string | null = null) {
-// 	try {
-// 		await ringCentralClient.login({ jwt: process.env.RC_JWT });
+		return response.json();
+	} catch (error) {
+		console.error("Error creating subscription:", error);
+		throw error;
+	}
+}
 
-// 		const queryParams: any = { syncType: syncToken ? "ISync" : "FSync" };
-// 		if (syncToken) queryParams.syncToken = syncToken;
+async function syncMessages(syncToken: string | null = null) {
+	try {
+		await ringCentralClient.login({ jwt: process.env.RC_JWT });
 
-// 		const response = await ringCentralClient.get(
-// 			"/restapi/v1.0/account/~/extension/~/message-sync",
-// 			queryParams
-// 		);
-// 		return response.json();
-// 	} catch (error) {
-// 		console.error("Error syncing messages:", error);
-// 		throw error;
-// 	}
-// }
+		const queryParams: any = { syncType: syncToken ? "ISync" : "FSync" };
+		if (syncToken) queryParams.syncToken = syncToken;
 
-// async function sendSMS(to: string | number, message: string) {
-// 	try {
-// 		await ringCentralClient.login({ jwt: process.env.RC_JWT });
+		const response = await ringCentralClient.get(
+			"/restapi/v1.0/account/~/extension/~/message-sync",
+			queryParams
+		);
+		return response.json();
+	} catch (error) {
+		console.error("Error syncing messages:", error);
+		throw error;
+	}
+}
 
-// 		const phoneString = String(to);
-// 		const formattedPhoneNumber = phoneString.startsWith("+1")
-// 			? phoneString
-// 			: `+1${phoneString.replace(/\D/g, "")}`;
+async function sendSMS(to: string | number, message: string) {
+	try {
+		await ringCentralClient.login({ jwt: process.env.RC_JWT });
 
-// 		if (!/^\+1\d{10}$/.test(formattedPhoneNumber)) {
-// 			throw new Error(
-// 				`Invalid phone number format: ${formattedPhoneNumber}`
-// 			);
-// 		}
+		const phoneString = String(to);
+		const formattedPhoneNumber = phoneString.startsWith("+1")
+			? phoneString
+			: `+1${phoneString.replace(/\D/g, "")}`;
 
-// 		await ringCentralClient.post(
-// 			"/restapi/v1.0/account/~/extension/~/sms",
-// 			{
-// 				from: { phoneNumber: process.env.RC_PHONE_NUMBER },
-// 				to: [{ phoneNumber: formattedPhoneNumber }],
-// 				text: message,
-// 			}
-// 		);
+		if (!/^\+1\d{10}$/.test(formattedPhoneNumber)) {
+			throw new Error(
+				`Invalid phone number format: ${formattedPhoneNumber}`
+			);
+		}
 
-// 		return;
-// 	} catch (error) {
-// 		console.error("Error sending SMS:", error);
-// 		throw error;
-// 	}
-// }
+		await ringCentralClient.post(
+			"/restapi/v1.0/account/~/extension/~/sms",
+			{
+				from: { phoneNumber: process.env.RC_PHONE_NUMBER },
+				to: [{ phoneNumber: formattedPhoneNumber }],
+				text: message,
+			}
+		);
 
-// async function compressFile(file: File): Promise<string> {
-// 	const zipFilePath = path.join("/tmp", `${file.originalFilename}.zip`);
-// 	const output = createWriteStream(zipFilePath);
-// 	const archive = archiver("zip", { zlib: { level: 9 } });
+		return;
+	} catch (error) {
+		console.error("Error sending SMS:", error);
+		throw error;
+	}
+}
 
-// 	return new Promise((resolve, reject) => {
-// 		output.on("close", () => resolve(zipFilePath));
-// 		archive.on("error", reject);
-// 		archive.pipe(output);
-// 		archive.file(file.filepath, { name: file.originalFilename ?? "file" });
-// 		archive.finalize();
-// 	});
-// }
+async function compressFile(file: File): Promise<string> {
+	const zipFilePath = path.join("/tmp", `${file.originalFilename}.zip`);
+	const output = createWriteStream(zipFilePath);
+	const archive = archiver("zip", { zlib: { level: 9 } });
 
-// async function sendEmailWithCalendar(
-// 	transporter: nodemailer.Transporter,
-// 	to: string,
-// 	subject: string,
-// 	content: string,
-// 	attachments?: nodemailer.SendMailOptions["attachments"]
-// ) {
-// 	const mailOptions: nodemailer.SendMailOptions = {
-// 		from: `"${process.env.PROTONMAIL_NAME}" <${process.env.PROTONMAIL_0TH_SENDER}>`,
-// 		to,
-// 		subject,
-// 		html: content,
-// 		attachments: [...(attachments || [])],
-// 	};
+	return new Promise((resolve, reject) => {
+		output.on("close", () => resolve(zipFilePath));
+		archive.on("error", reject);
+		archive.pipe(output);
+		archive.file(file.filepath, { name: file.originalFilename ?? "file" });
+		archive.finalize();
+	});
+}
 
-// 	const mailOptionsColton: nodemailer.SendMailOptions = {
-// 		from: `"${process.env.PROTONMAIL_NAME}" <${process.env.PROTONMAIL_SENDER}>`,
-// 		to,
-// 		subject,
-// 		html: content,
-// 		attachments: [...(attachments || [])],
-// 	};
+async function sendEmailWithCalendar(
+	transporter: nodemailer.Transporter,
+	to: string,
+	subject: string,
+	content: string,
+	attachments?: nodemailer.SendMailOptions["attachments"]
+) {
+	const mailOptions: nodemailer.SendMailOptions = {
+		from: `"${process.env.PROTONMAIL_NAME}" <${process.env.PROTONMAIL_0TH_SENDER}>`,
+		to,
+		subject,
+		html: content,
+		attachments: [...(attachments || [])],
+	};
 
-// 	try {
-// 		await transporter.sendMail(mailOptions);
-// 		await transporter.sendMail(mailOptionsColton);
-// 	} catch (error) {
-// 		console.error("Error sending email:", error);
-// 		throw error;
-// 	}
-// }
+	const mailOptionsColton: nodemailer.SendMailOptions = {
+		from: `"${process.env.PROTONMAIL_NAME}" <${process.env.PROTONMAIL_SENDER}>`,
+		to,
+		subject,
+		html: content,
+		attachments: [...(attachments || [])],
+	};
 
-// export async function POST(req: NextRequest) {
-// 	try {
-// 		const form = new IncomingForm();
-// 		const [fields, files] = await new Promise<[any, any]>(
-// 			(resolve, reject) => {
-// 				form.parse(req, (err, fields, files) => {
-// 					if (err) reject(err);
-// 					resolve([fields, files]);
-// 				});
-// 			}
-// 		);
+	try {
+		await transporter.sendMail(mailOptions);
+		await transporter.sendMail(mailOptionsColton);
+	} catch (error) {
+		console.error("Error sending email:", error);
+		throw error;
+	}
+}
 
-// 		console.log("Parsed fields:", fields);
-// 		console.log("Parsed files:", files);
+export async function POST(req: CustomNextRequest) {
+	const { renderToString } = await import("react-dom/server");
 
-// 		const {
-// 			firstName,
-// 			lastName,
-// 			email,
-// 			phone,
-// 			birthday,
-// 			insurance,
-// 			address,
-// 			city,
-// 			state,
-// 			zipCode,
-// 			reason,
-// 			providerPhone,
-// 			providerEmail,
-// 		} = fields;
+	try {
+		const form = new IncomingForm();
+		const [fields, files] = await new Promise<[any, any]>(
+			(resolve, reject) => {
+				const nodeReq = req.socket as unknown as IncomingMessage;
+				form.parse(nodeReq, (err, fields, files) => {
+					if (err) reject(err);
+					resolve([fields, files]);
+				});
+			}
+		);
 
-// 		if (!phone || !providerPhone) {
-// 			throw new Error(
-// 				`Missing required phone numbers. Phone: ${phone}, Provider Phone: ${providerPhone}`
-// 			);
-// 		}
+		console.log("Parsed fields:", fields);
+		console.log("Parsed files:", files);
 
-// 		const patientName =
-// 			`${Array.isArray(firstName) ? firstName[0] : firstName} ${Array.isArray(lastName) ? lastName[0] : lastName}`.toUpperCase();
-// 		const fullAddress = `${address}, ${city}, ${state} ${zipCode}`;
-// 		const file = files.pdf
-// 			? Array.isArray(files.pdf)
-// 				? files.pdf[0]
-// 				: files.pdf
-// 			: null;
+		const {
+			firstName,
+			lastName,
+			email,
+			phone,
+			birthday,
+			insurance,
+			address,
+			city,
+			state,
+			zipCode,
+			reason,
+			providerPhone,
+			providerEmail,
+		} = fields;
 
-// 		let emailTransporter = nodemailer.createTransport({
-// 			host: process.env.PROTONMAIL_HOST,
-// 			port: Number(process.env.PROTONMAIL_PORT),
-// 			secure: false,
-// 			auth: {
-// 				user: process.env.PROTONMAIL_SENDER!,
-// 				pass: process.env.PROTONMAIL_PASSWORD!,
-// 			},
-// 			tls: {
-// 				rejectUnauthorized: false,
-// 			},
-// 		});
+		if (!phone || !providerPhone) {
+			throw new Error(
+				`Missing required phone numbers. Phone: ${phone}, Provider Phone: ${providerPhone}`
+			);
+		}
 
-// 		try {
-// 			await emailTransporter.verify();
-// 			console.log("SMTP connection verified successfully");
-// 		} catch (error) {
-// 			console.error("SMTP connection verification failed:", error);
-// 			throw new Error("Failed to establish SMTP connection");
-// 		}
+		const patientName =
+			`${Array.isArray(firstName) ? firstName[0] : firstName} ${Array.isArray(lastName) ? lastName[0] : lastName}`.toUpperCase();
+		const fullAddress = `${address}, ${city}, ${state} ${zipCode}`;
+		const file = files.pdf
+			? Array.isArray(files.pdf)
+				? files.pdf[0]
+				: files.pdf
+			: null;
 
-// 		const patientEmailHtml = renderToString(
-// 			createElement(LLPMGEmailTemplate, {
-// 				name: patientName,
-// 				email: email as string,
-// 				phone: phone as string,
-// 				birthday: birthday as string,
-// 				insurance: insurance as string,
-// 				address: fullAddress,
-// 				reason: reason as string,
-// 				isDoctor: false,
-// 				providerPhone: providerPhone as string,
-// 				providerEmail: providerEmail as string,
-// 			})
-// 		);
+		let emailTransporter = nodemailer.createTransport({
+			host: process.env.PROTONMAIL_HOST,
+			port: Number(process.env.PROTONMAIL_PORT),
+			secure: false,
+			auth: {
+				user: process.env.PROTONMAIL_SENDER!,
+				pass: process.env.PROTONMAIL_PASSWORD!,
+			},
+			tls: {
+				rejectUnauthorized: false,
+			},
+		});
 
-// 		const doctorEmailHtml = renderToString(
-// 			createElement(LLPMGEmailTemplate, {
-// 				name: patientName,
-// 				email: email as string,
-// 				phone: phone as string,
-// 				birthday: birthday as string,
-// 				insurance: insurance as string,
-// 				address: fullAddress,
-// 				reason: reason as string,
-// 				isDoctor: true,
-// 				providerPhone: providerPhone as string,
-// 				providerEmail: providerEmail as string,
-// 			})
-// 		);
+		try {
+			await emailTransporter.verify();
+			console.log("SMTP connection verified successfully");
+		} catch (error) {
+			console.error("SMTP connection verification failed:", error);
+			throw new Error("Failed to establish SMTP connection");
+		}
 
-// 		let fileContent: Buffer | undefined, fileSize: number | undefined;
-// 		if (file) {
-// 			const zipFilePath = await compressFile(file);
-// 			fileContent = await fs.readFile(zipFilePath);
-// 			fileSize = fileContent.length;
+		const patientEmailHtml = renderToString(
+			createElement(LLPMGEmailTemplate, {
+				name: patientName,
+				email: email as string,
+				phone: phone as string,
+				birthday: birthday as string,
+				insurance: insurance as string,
+				address: fullAddress,
+				reason: reason as string,
+				isDoctor: false,
+				providerPhone: providerPhone as string,
+				providerEmail: providerEmail as string,
+			})
+		);
 
-// 			console.log("Compressed file details:", {
-// 				name: `${file.originalFilename}.zip`,
-// 				size: fileSize,
-// 			});
-// 		}
+		const doctorEmailHtml = renderToString(
+			createElement(LLPMGEmailTemplate, {
+				name: patientName,
+				email: email as string,
+				phone: phone as string,
+				birthday: birthday as string,
+				insurance: insurance as string,
+				address: fullAddress,
+				reason: reason as string,
+				isDoctor: true,
+				providerPhone: providerPhone as string,
+				providerEmail: providerEmail as string,
+			})
+		);
 
-// 		await sendEmailWithCalendar(
-// 			emailTransporter,
-// 			email as string,
-// 			`Registration Confirmation - ${firstName} ${lastName}`,
-// 			patientEmailHtml
-// 		);
+		let fileContent: Buffer | undefined, fileSize: number | undefined;
+		if (file) {
+			const zipFilePath = await compressFile(file);
+			fileContent = await fs.readFile(zipFilePath);
+			fileSize = fileContent.length;
 
-// 		await sendEmailWithCalendar(
-// 			emailTransporter,
-// 			process.env.PROTONMAIL_RECIPIENT!,
-// 			`New Patient Registration Details - ${firstName} ${lastName}`,
-// 			doctorEmailHtml,
-// 			file
-// 				? [
-// 						{
-// 							filename: `${file.originalFilename}.zip`,
-// 							content: fileContent!,
-// 						},
-// 					]
-// 				: undefined
-// 		);
+			console.log("Compressed file details:", {
+				name: `${file.originalFilename}.zip`,
+				size: fileSize,
+			});
+		}
 
-// 		await sendEmailWithCalendar(
-// 			emailTransporter,
-// 			process.env.PROTONMAIL_0TH_RECIPIENT!,
-// 			`New Patient Registration Details - ${firstName} ${lastName}`,
-// 			doctorEmailHtml,
-// 			file
-// 				? [
-// 						{
-// 							filename: `${file.originalFilename}.zip`,
-// 							content: fileContent!,
-// 						},
-// 					]
-// 				: undefined
-// 		);
+		await sendEmailWithCalendar(
+			emailTransporter,
+			email as string,
+			`Registration Confirmation - ${firstName} ${lastName}`,
+			patientEmailHtml
+		);
 
-// 		if (!/^\+1\d{10}$/.test(phone as string)) {
-// 			throw new Error(`Invalid phone number format: ${phone}`);
-// 		}
+		await sendEmailWithCalendar(
+			emailTransporter,
+			process.env.PROTONMAIL_RECIPIENT!,
+			`New Patient Registration Details - ${firstName} ${lastName}`,
+			doctorEmailHtml,
+			file
+				? [
+						{
+							filename: `${file.originalFilename}.zip`,
+							content: fileContent!,
+						},
+					]
+				: undefined
+		);
 
-// 		if (!/^\+1\d{10}$/.test(providerPhone as string)) {
-// 			throw new Error(`Invalid phone number format: ${providerPhone}`);
-// 		}
+		await sendEmailWithCalendar(
+			emailTransporter,
+			process.env.PROTONMAIL_0TH_RECIPIENT!,
+			`New Patient Registration Details - ${firstName} ${lastName}`,
+			doctorEmailHtml,
+			file
+				? [
+						{
+							filename: `${file.originalFilename}.zip`,
+							content: fileContent!,
+						},
+					]
+				: undefined
+		);
 
-// 		const patientFirstName = Array.isArray(firstName)
-// 			? firstName[0]
-// 			: firstName;
-// 		const patientLastName = Array.isArray(lastName)
-// 			? lastName[0]
-// 			: lastName;
-// 		const patientFullName = `${patientFirstName} ${patientLastName}`;
+		if (!/^\+1\d{10}$/.test(phone as string)) {
+			throw new Error(`Invalid phone number format: ${phone}`);
+		}
 
-// 		await createSubscription();
-// 		await syncMessages();
+		if (!/^\+1\d{10}$/.test(providerPhone as string)) {
+			throw new Error(`Invalid phone number format: ${providerPhone}`);
+		}
 
-// 		console.log(
-// 			`Registering patient: ${firstName} ${lastName}, phone: ${phone}`
-// 		);
+		const patientFirstName = Array.isArray(firstName)
+			? firstName[0]
+			: firstName;
+		const patientLastName = Array.isArray(lastName)
+			? lastName[0]
+			: lastName;
+		const patientFullName = `${patientFirstName} ${patientLastName}`;
 
-// 		const conversationId = await createOrUpdateConversation(
-// 			phone,
-// 			providerPhone
-// 		);
-// 		console.log(`Created conversation with ID: ${conversationId}`);
+		await createSubscription();
+		await syncMessages();
 
-// 		const patientMessage = `Hello ${firstName}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment suggestion has been received. We will contact you soon to confirm. (Conversation ID: ${conversationId})`;
-// 		const providerMessage = `Hello, you have a new patient appointment suggestion from ${patientFullName}. Please review the details in your email and contact the patient to confirm. (Conversation ID: ${conversationId})`;
+		console.log(
+			`Registering patient: ${firstName} ${lastName}, phone: ${phone}`
+		);
 
-// 		console.log(`Sending SMS to patient: ${phone}`);
-// 		await sendSMS(phone, patientMessage);
-// 		console.log(`Sending SMS to provider: ${providerPhone}`);
-// 		await sendSMS(providerPhone, providerMessage);
+		const conversationId = await createOrUpdateConversation(
+			phone,
+			providerPhone
+		);
+		console.log(`Created conversation with ID: ${conversationId}`);
 
-// 		return NextResponse.json(
-// 			{
-// 				message: "Registration successful",
-// 				conversationId,
-// 			},
-// 			{ status: 200 }
-// 		);
-// 	} catch (error: any) {
-// 		console.error("Error in API route:", error);
-// 		return NextResponse.json(
-// 			{
-// 				error: "An unknown error occurred",
-// 				details: error.message,
-// 			},
-// 			{ status: 500 }
-// 		);
-// 	}
-// }
+		const patientMessage = `Hello ${firstName}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment suggestion has been received. We will contact you soon to confirm. (Conversation ID: ${conversationId})`;
+		const providerMessage = `Hello, you have a new patient appointment suggestion from ${patientFullName}. Please review the details in your email and contact the patient to confirm. (Conversation ID: ${conversationId})`;
 
-export {};
+		console.log(`Sending SMS to patient: ${phone}`);
+		await sendSMS(phone, patientMessage);
+		console.log(`Sending SMS to provider: ${providerPhone}`);
+		await sendSMS(providerPhone, providerMessage);
+
+		return NextResponse.json(
+			{
+				message: "Registration successful",
+				conversationId,
+			},
+			{ status: 200 }
+		);
+	} catch (error: any) {
+		console.error("Error in API route:", error);
+		return NextResponse.json(
+			{
+				error: "An unknown error occurred",
+				details: error.message,
+			},
+			{ status: 500 }
+		);
+	}
+}

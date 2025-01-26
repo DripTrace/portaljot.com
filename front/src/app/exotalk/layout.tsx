@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "@/styles/exotalk/globals.css";
+import "@/styles/globals.css";
 import Header from "@/components/exotalk/Header";
 import { ThemeProvider } from "@/components/exotalk/ThemeProvider";
 import ClientProviders from "@/components/exotalk/ClientProviders";

@@ -52,7 +52,7 @@ const FileUploader = () => {
 	);
 
 	const statusIcons: {
-		[key in StatusText]: JSX.Element;
+		[key in StatusText]: React.ReactNode;
 	} = {
 		[StatusText.UPLOADING]: (
 			<RocketIcon className="h-20 w-20 text-indigo-600" />

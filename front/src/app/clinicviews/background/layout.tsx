@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "@/styles/clinicviews/background/base.css";
+import "@/styles/globals.css";
 import Script from "next/script";
 
 const geistSans = localFont({

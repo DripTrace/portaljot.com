@@ -3,7 +3,7 @@ import * as admin from "firebase-admin";
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import util from "util";
-import { serviceAccount } from "../../stripe/webhook";
+import { serviceAccount } from "@/config/firebase/serviceAccount";
 
 // Initialize Firebase Admin SDK
 const firebaseAdmin = !admin.apps.length
@@ -125,7 +125,22 @@ const fulfillCustomerUpdate = async (customerUpdate: Stripe.Customer) => {
 };
 
 export async function POST(req: NextRequest) {
-	const requestBuffer = await buffer(req.body);
+	if (!req.body) {
+		return NextResponse.json(
+			{ error: "Request body is missing" },
+			{ status: 400 }
+		);
+	}
+
+	const reader = req.body.getReader();
+	const chunks: Uint8Array[] = [];
+	let done, value;
+
+	while ((({ done, value } = await reader.read()), !done)) {
+		chunks.push(value);
+	}
+
+	const requestBuffer = Buffer.concat(chunks);
 	const payload = requestBuffer.toString();
 	const sig = req.headers.get("stripe-signature");
 

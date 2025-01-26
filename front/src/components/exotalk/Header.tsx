@@ -3,12 +3,13 @@ import Logo from "./Logo";
 import { DarkModeToggle } from "./DarkModeToggle";
 import UserButton from "./UserButton";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/api/modify/auth/route";
+import { authOptions } from "@/app/api/modify/auth/route";
 import Link from "next/link";
 import { MessagesSquareIcon } from "lucide-react";
 import CreateChatButton from "./CreateChatButton";
 import UpgradeBanner from "./UpgradeBanner";
-import LanguageSelect from "./LanguageSelect";
+import LanguageSelect from "../say/LanguageSelect";
+// import LanguageSelect from "./LanguageSelect";
 
 async function Header() {
 	const session = await getServerSession(authOptions);
@@ -26,7 +27,7 @@ async function Header() {
 				<Logo />
 
 				<div className="flex-1 flex items-center justify-end space-x-4">
-					<LanguageSelect />
+					<LanguageSelect name="language" defaultValue="en" />
 
 					{session ? (
 						<>

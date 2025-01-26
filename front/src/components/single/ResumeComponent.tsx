@@ -4,15 +4,15 @@ const ResumeComponent = () => {
     return (
         <>
             <div className="single-body">
-                <Link className="mainWebsite" href="/single" passHref>
+                <Link className="main-website" href="/single" passHref>
                     <i className="fa fa-arrow-left" aria-hidden="true"></i> Back
                     to main website
                 </Link>
 
                 <div className="container0">
-                    <div className="left_Side">
-                        <div className="profileText">
-                            <div className="imgBx0">
+                    <div className="left-side">
+                        <div className="profile-text">
+                            <div className="img-bx-0">
                                 <img src="single/me.jpg" />
                             </div>
                             <h2>
@@ -22,7 +22,7 @@ const ResumeComponent = () => {
                             </h2>
                         </div>
 
-                        <div className="contactInfo">
+                        <div className="contact-info">
                             <h3 className="title0">Contact Info</h3>
                             <ul>
                                 <li>
@@ -83,7 +83,7 @@ const ResumeComponent = () => {
                             </ul>
                         </div>
 
-                        <div className="contactInfo single-education">
+                        <div className="contact-info single-education">
                             <h3 className="title0">Education</h3>
                             <ul>
                                 <li>
@@ -97,7 +97,7 @@ const ResumeComponent = () => {
                             </ul>
                         </div>
 
-                        <div className="contactInfo single-language">
+                        <div className="contact-info single-language">
                             <h3 className="title0">Languages</h3>
                             <ul>
                                 <li>
@@ -116,7 +116,7 @@ const ResumeComponent = () => {
                         </div>
                     </div>
 
-                    <div className="right_Side">
+                    <div className="right-side">
                         <div className="single-about0">
                             <h2 className="title2">Profile</h2>
                             <p className="p">
@@ -136,7 +136,7 @@ const ResumeComponent = () => {
                         <div className="single-about0">
                             <h2 className="title2">Experience</h2>
                             <div className="single-box">
-                                <div className="year_company">
+                                <div className="year-company">
                                     <h5>2020 - 2021</h5>
                                     <h5>
                                         Loma Linda Psychiatric Medical Group
@@ -154,7 +154,7 @@ const ResumeComponent = () => {
                                 </div>
                             </div>
                             <div className="single-box">
-                                <div className="year_company">
+                                <div className="year-company">
                                     <h5>2021 - 2021</h5>
                                     <h5>Greenspot Hub Productions</h5>
                                 </div>
@@ -169,7 +169,7 @@ const ResumeComponent = () => {
                                 </div>
                             </div>
                             <div className="single-box">
-                                <div className="year_company">
+                                <div className="year-company">
                                     <h5>2021 - Present</h5>
                                     <h5>PalmaView</h5>
                                 </div>

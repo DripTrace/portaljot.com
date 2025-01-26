@@ -12,7 +12,7 @@ export default function BackgroundHome() {
 
 	return (
 		<div
-			className={`min-h-screen bg-canvas text-canvasText theme-transition ${theme}`}
+			className={`min-h-screen bg-canvas text-canvas-text theme-transition ${theme}`}
 		>
 			<Head>
 				<title>Loma Linda Psychiatric Medical Group</title>

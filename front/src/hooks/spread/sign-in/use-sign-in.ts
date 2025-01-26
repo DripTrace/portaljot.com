@@ -1,48 +1,58 @@
+"use client";
 import { useToast } from "@/hooks/use-toast";
 import { UserLoginProps, UserLoginSchema } from "@/schema/spread/auth.schema";
-import { useSignIn } from "@clerk/nextjs";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 export const useSignInForm = () => {
-	const { isLoaded, setActive, signIn } = useSignIn();
+	const { toast } = useToast();
 	const [loading, setLoading] = useState<boolean>(false);
 	const router = useRouter();
-	const { toast } = useToast();
+
 	const methods = useForm<UserLoginProps>({
 		resolver: zodResolver(UserLoginSchema),
 		mode: "onChange",
 	});
+
 	const onHandleSubmit = methods.handleSubmit(
 		async (values: UserLoginProps) => {
-			if (!isLoaded) return;
-
 			try {
 				setLoading(true);
-				const authenticated = await signIn.create({
-					identifier: values.email,
+
+				// Call NextAuth's signIn function with credentials
+				const result = await signIn("credentials", {
+					redirect: false,
+					email: values.email,
 					password: values.password,
 				});
 
-				if (authenticated.status === "complete") {
-					await setActive({
-						session: authenticated.createdSessionId,
+				if (result?.error) {
+					// Handle sign-in errors
+					toast({
+						title: "Authentication Failed",
+						description: result.error,
 					});
+					setLoading(false);
+				} else if (result?.ok) {
+					// Sign-in successful
 					toast({
 						title: "Success",
 						description: "Welcome back!",
 					});
+					setLoading(false);
 					router.push("/spread/dashboard");
 				}
 			} catch (error: any) {
+				console.error("SignIn Error:", error);
+				toast({
+					title: "Error",
+					description:
+						"An unexpected error occurred. Please try again.",
+				});
 				setLoading(false);
-				if (error.errors[0].code === "form_password_incorrect")
-					toast({
-						title: "Error",
-						description: "email/password is incorrect try again",
-					});
 			}
 		}
 	);

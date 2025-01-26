@@ -12,7 +12,7 @@ const isGlassDark = (): boolean =>
 const getThemeString = (isGlassDark: boolean): string =>
 	isGlassDark ? "dark" : "light";
 
-const GlassDarkModeToggle = (): JSX.Element => {
+const GlassDarkModeToggle = (): React.ReactNode => {
 	const [isGlassDarkMode, setGlassDarkMode] = useState(false);
 
 	const toggleMode = (): void => {

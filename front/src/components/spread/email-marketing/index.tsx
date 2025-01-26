@@ -1,10 +1,12 @@
+// src/components/spread/email-marketing/index.tsx
+
 "use client";
 import { useEmailMarketing } from "@/hooks/spread/email-marketing/use-marketing";
 import React from "react";
 import { CustomerTable } from "./customer-table";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
-import Modal from "../mondal";
+import Modal from "../modal";
 import {
 	Card,
 	CardContent,
@@ -18,6 +20,7 @@ import { cn } from "@/lib/utils";
 import CalIcon from "@/components/spread/icons/cal-icon";
 import PersonIcon from "@/components/spread/icons/person-icon";
 import { EditEmail } from "./edit-email";
+import { SubscriptionPlan } from "@/types/spread/subscription"; // Ensure correct import
 
 type Props = {
 	domains: {
@@ -36,7 +39,7 @@ type Props = {
 		createdAt: Date;
 	}[];
 	subscription: {
-		plan: "STANDARD" | "PRO" | "ULTIMATE";
+		plan: SubscriptionPlan; // Use the SubscriptionPlan enum
 		credits: number;
 	} | null;
 };
@@ -74,7 +77,7 @@ const EmailMarketing = ({ campaign, domains, subscription }: Props) => {
 			<div>
 				<div className="flex gap-3 justify-end">
 					<Button
-						disabled={isSelected.length == 0}
+						disabled={isSelected.length === 0}
 						onClick={onAddCustomersToCampaign}
 					>
 						<Plus /> Add to campaign
@@ -126,7 +129,7 @@ const EmailMarketing = ({ campaign, domains, subscription }: Props) => {
 								key={camp.id}
 								className={cn(
 									"p-5 min-w-[600px] cursor-pointer",
-									campaignId == camp.id ? "bg-gray-50" : ""
+									campaignId === camp.id ? "bg-gray-50" : ""
 								)}
 								onClick={() => onSelectCampaign(camp.id)}
 							>
@@ -180,9 +183,7 @@ const EmailMarketing = ({ campaign, domains, subscription }: Props) => {
 													className="rounded-lg"
 													onClick={() =>
 														onBulkEmail(
-															campaign[
-																i
-															].customers.map(
+															camp.customers.map(
 																(c) => c
 															),
 															camp.id

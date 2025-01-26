@@ -2,7 +2,7 @@ import { onAuthenticatedUser } from "@/actions/feature/school/auth";
 import { onGetChannelInfo } from "@/actions/feature/school/channels";
 import { onGetGroupInfo } from "@/actions/feature/school/groups";
 
-import { LeaderBoardCard } from "@/app/group/_components/leaderboard";
+import { LeaderBoardCard } from "@/app/school/group/_components/leaderboard";
 import GroupSideWidget from "@/components/school/global/group-side-widget";
 import { currentUser } from "@clerk/nextjs/server";
 import {

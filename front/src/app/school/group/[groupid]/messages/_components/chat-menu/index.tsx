@@ -61,7 +61,7 @@ import { useGroupChat } from "@/hooks/school/groups"; // Imported hook
 import { useAppSelector } from "@/providers/school/redux/store";
 import { User as LucideUser } from "lucide-react";
 import Link from "next/link";
-// import { onGetAllGroupMembers } from "@/api/groups";  // Ensure this is imported
+// import { onGetAllGroupMembers } from "@/app/api/groups";  // Ensure this is imported
 
 // Define types for GroupChat data
 type User = {

@@ -1,3 +1,7 @@
+// src/hooks/spread/email-marketing/use-marketing.ts
+
+"use client";
+
 import {
 	onAddCustomersToEmail,
 	onBulkMailer,
@@ -15,6 +19,25 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+
+type Question = {
+	question: string;
+	answered: string | null;
+};
+
+type CustomerResponse = {
+	customerId: string;
+	questions: Question[];
+};
+
+type CustomerAnswer = {
+	customer: {
+		id: string;
+		questions: Question[];
+	};
+};
+
+type CustomerQuestions = CustomerAnswer[];
 
 export const useEmailMarketing = () => {
 	const [isSelected, setIsSelected] = useState<string[]>([]);
@@ -60,6 +83,7 @@ export const useEmailMarketing = () => {
 			}
 		} catch (error) {
 			console.log(error);
+			setLoading(false);
 		}
 	});
 
@@ -82,6 +106,7 @@ export const useEmailMarketing = () => {
 			}
 		} catch (error) {
 			console.log(error);
+			setEditing(false);
 		}
 	});
 
@@ -105,14 +130,15 @@ export const useEmailMarketing = () => {
 			}
 		} catch (error) {
 			console.log(error);
+			setProcessing(false);
 		}
 	};
 
 	const onSelectedEmails = (email: string) => {
 		console.log("THE EMAILS IN THE CAMPAIGN[USE-MARKETING]: ", email);
 
-		//add or remove
-		const duplicate = isSelected.find((e) => e == email);
+		// Add or remove
+		const duplicate = isSelected.find((e) => e === email);
 		if (duplicate) {
 			setIsSelected(isSelected.filter((e) => e !== email));
 		} else {
@@ -162,31 +188,39 @@ export const useEmailMarketing = () => {
 };
 
 export const useAnswers = (id: string) => {
-	const [answers, setAnswers] = useState<
-		{
-			customer: {
-				questions: { question: string; answered: string | null }[];
-			}[];
-		}[]
-	>([]);
+	const [answers, setAnswers] = useState<CustomerQuestions>([]);
 	const [loading, setLoading] = useState<boolean>(false);
 
 	const onGetCustomerAnswers = async () => {
 		try {
 			setLoading(true);
-			const answer = await onGetAllCustomerResponses(id);
+			const response: CustomerResponse[] | null =
+				await onGetAllCustomerResponses(id);
 			setLoading(false);
-			if (answer) {
-				setAnswers(answer);
+			if (response && response.length > 0) {
+				const formattedAnswers: CustomerQuestions = response.map(
+					(item) => ({
+						customer: {
+							id: item.customerId,
+							questions: item.questions,
+						},
+					})
+				);
+				setAnswers(formattedAnswers);
+			} else {
+				setAnswers([]); // Default to empty array if no responses
 			}
 		} catch (error) {
-			console.log(error);
+			console.error("Error fetching customer answers:", error);
+			setLoading(false);
 		}
 	};
 
 	useEffect(() => {
-		onGetCustomerAnswers();
-	}, []);
+		if (id) {
+			onGetCustomerAnswers();
+		}
+	}, [id]);
 
 	return { answers, loading };
 };
@@ -205,12 +239,13 @@ export const useEditEmail = (id: string) => {
 			setLoading(false);
 		} catch (error) {
 			console.log(error);
+			setLoading(false);
 		}
 	};
 
 	useEffect(() => {
 		onGetTemplate(id);
-	}, []);
+	}, [id]);
 
 	return { loading, template };
 };

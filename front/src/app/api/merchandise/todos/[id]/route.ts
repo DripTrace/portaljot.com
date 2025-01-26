@@ -1,42 +1,54 @@
 import { NextRequest, NextResponse } from "next/server";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
-import { retrieveTodosDB } from ".";
 import { db } from "@/lib/merchandise/database/firebaseStorage";
+import { retrieveTodosDB } from "../index/route";
 
-export async function handler(req: NextRequest, res: NextResponse) {
+export async function handler(req: NextRequest) {
 	const todosDB = await retrieveTodosDB();
 	const todoData = await req.json();
 	const { id, text, active, done } = todoData || {};
 
 	if (req.method === "POST") {
-		return res.status(405).text("Method Not Implemented");
+		return NextResponse.json(
+			{ error: "Method Not Implemented" },
+			{ status: 405 }
+		);
 	}
 
 	if (req.method === "GET") {
 		if (!id) {
-			return res.status(400).json({ error: "Missing 'id' parameter" });
+			return NextResponse.json(
+				{ error: "Missing 'id' parameter" },
+				{ status: 400 }
+			);
 		}
-		const todo = todosDB.find((todo) => todo.id === parseInt(id, 10));
+
+		const todo = todosDB.find((todo) => todo.id === Number(id));
 		if (!todo) {
-			return res.status(404).json({ error: "Todo not found" });
+			return NextResponse.json(
+				{ error: "Todo not found" },
+				{ status: 404 }
+			);
 		}
-		return res.status(200).json(todo);
+
+		return NextResponse.json(todo, { status: 200 });
 	}
 
 	if (req.method === "PUT") {
 		if (!id || !text || active === undefined || done === undefined) {
-			return res
-				.status(400)
-				.json({ error: "Missing required fields in request body" });
+			return NextResponse.json(
+				{ error: "Missing required fields in request body" },
+				{ status: 400 }
+			);
 		}
 
 		const todoUpdate = { id, text, active, done };
-		const todoRef = doc(db, "todos", id);
+		const todoRef = doc(db, "todos", String(id));
 
 		await updateDoc(todoRef, todoUpdate);
 
 		const updatedTodos = todosDB.map((todo) =>
-			todo.id === parseInt(id, 10)
+			todo.id === Number(id)
 				? {
 						...todo,
 						...todoUpdate,
@@ -44,28 +56,36 @@ export async function handler(req: NextRequest, res: NextResponse) {
 				: todo
 		);
 
-		return res.status(200).json({
-			message: "Todo updated successfully",
-			updatedTodo: todoUpdate,
-			todos: updatedTodos,
-		});
+		return NextResponse.json(
+			{
+				message: "Todo updated successfully",
+				updatedTodo: todoUpdate,
+				todos: updatedTodos,
+			},
+			{ status: 200 }
+		);
 	}
 
 	if (req.method === "DELETE") {
 		if (!id || !text) {
-			return res
-				.status(400)
-				.json({ error: "Missing 'id' or 'text' parameter" });
+			return NextResponse.json(
+				{ error: "Missing 'id' or 'text' parameter" },
+				{ status: 400 }
+			);
 		}
 
-		await deleteDoc(doc(db, "todos", id));
+		await deleteDoc(doc(db, "todos", String(id)));
 
-		return res
-			.status(200)
-			.json({ message: `Todo with id '${id}' successfully deleted` });
+		return NextResponse.json(
+			{ message: `Todo with id '${id}' successfully deleted` },
+			{ status: 200 }
+		);
 	}
 
-	return res.status(405).json({ error: `Method ${req.method} Not Allowed` });
+	return NextResponse.json(
+		{ error: `Method ${req.method} Not Allowed` },
+		{ status: 405 }
+	);
 }
 
 export const config = {
