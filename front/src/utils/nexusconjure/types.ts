@@ -19,23 +19,29 @@ import {
 } from "./queries";
 import { db } from "./db";
 import { z } from "zod";
-
 import Stripe from "stripe";
 
-export type NotificationWithUser =
-	| ({
-			User: {
-				id: string;
-				name: string;
-				avatarUrl: string;
-				email: string;
-				createdAt: Date;
-				updatedAt: Date;
-				role: Role;
-				agencyId: string | null;
-			};
-	  } & Notification)[]
-	| undefined;
+export type UserMetadata = {
+	userId: string;
+	email: string | null;
+	role: Role;
+	subAccountId: string | null;
+	agencyId: string | null;
+};
+
+export type NotificationWithUser = Notification & {
+	User: Pick<
+		User,
+		| "id"
+		| "name"
+		| "avatarUrl"
+		| "email"
+		| "createdAt"
+		| "updatedAt"
+		| "role"
+		| "agencyId"
+	>;
+};
 
 export type UserWithPermissionsAndSubAccounts = Prisma.PromiseReturnType<
 	typeof getUserPermissions
@@ -52,7 +58,7 @@ const __getUsersWithAgencySubAccountPermissionsSidebarOptions = async (
 	return await db.user.findFirst({
 		where: { Agency: { id: agencyId } },
 		include: {
-			Agency: { include: { SubAccount: true } },
+			Agency: { include: { subAccounts: true } },
 			Permissions: { include: { SubAccount: true } },
 		},
 	});
@@ -68,7 +74,14 @@ export type UsersWithAgencySubAccountPermissionsSidebarOptions =
 
 export type GetMediaFiles = Prisma.PromiseReturnType<typeof getMedia>;
 
-export type CreateMediaType = Prisma.MediaCreateWithoutSubaccountInput;
+// Corrected CreateMediaType to include 'url', 'name', 'userId', etc.
+export type CreateMediaType = {
+	url: string;
+	name: string;
+	userId: string;
+	agencyId: string;
+	subAccountId?: string;
+};
 
 export type TicketAndTags = Ticket & {
 	Tags: Tag[];

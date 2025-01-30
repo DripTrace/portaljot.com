@@ -49,9 +49,9 @@ const Preview = () => {
 	};
 
 	const sendPost = () => {
-		if (!session?.user?.obinsunId) return;
+		if (!session?.user?.nexusconjureId) return;
 
-		const capturedImage = `users/${session.user.obinsunId}/documents/`;
+		const capturedImage = `users/${session.user.nexusconjureId}/documents/`;
 		const imageRef = ref(projectStorage, `${capturedImage}${id}.png`);
 
 		const capturedImageRef = collection(db, capturedImage);

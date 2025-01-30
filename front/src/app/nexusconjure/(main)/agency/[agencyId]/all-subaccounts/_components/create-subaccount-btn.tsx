@@ -14,7 +14,7 @@ type Props = {
 			| (
 					| Agency
 					| (null & {
-							SubAccount: SubAccount[];
+							subAccounts: SubAccount[];
 							SideBarOption: AgencySidebarOption[];
 					  })
 			  )

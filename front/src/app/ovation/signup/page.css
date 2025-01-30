@@ -1,0 +1,16 @@
+ /* .normal {
+    border: 1px solid #ccc;
+}  */
+.error {
+    border: 1px solid red;
+}
+
+.tooltip {
+    position: absolute;
+    width: 15vw;
+    background-color: #161616;
+    border: 1px solid red;
+    border-radius: 15px;
+    padding: 5px;
+    z-index: 1;
+}

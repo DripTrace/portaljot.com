@@ -13,7 +13,7 @@ export const subscriptionCreated = async (
 				customerId,
 			},
 			include: {
-				SubAccount: true,
+				subAccounts: true,
 			},
 		});
 		if (!agency) {

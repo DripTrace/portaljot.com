@@ -1,4 +1,4 @@
-// components/nexusconjure/global/infobar.tsx
+// src/components/nexusconjure/global/infobar.tsx
 
 "use client";
 
@@ -20,9 +20,10 @@ import { Switch } from "@/components/ui/switch";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ModeToggle } from "./mode-toggle";
 import { useSession, signOut } from "next-auth/react";
+import Link from "next/link";
 
 type Props = {
-	notifications: NotificationWithUser[] | [];
+	notifications: NotificationWithUser[];
 	role?: Role;
 	className?: string;
 	subAccountId?: string;
@@ -30,19 +31,22 @@ type Props = {
 
 const InfoBar = ({ notifications, subAccountId, className, role }: Props) => {
 	const { data: session, status } = useSession();
-	const [allNotifications, setAllNotifications] = useState(notifications);
+	const [allNotifications, setAllNotifications] =
+		useState<NotificationWithUser[]>(notifications);
 	const [showAll, setShowAll] = useState(true);
 
 	const handleToggle = () => {
 		if (!showAll) {
 			setAllNotifications(notifications);
 		} else {
-			if (notifications?.length !== 0) {
+			if (notifications.length !== 0 && subAccountId) {
 				setAllNotifications(
-					notifications?.filter(
+					notifications.filter(
 						(item) => item.subAccountId === subAccountId
-					) ?? []
+					)
 				);
+			} else {
+				setAllNotifications([]);
 			}
 		}
 		setShowAll((prev) => !prev);
@@ -145,7 +149,7 @@ const InfoBar = ({ notifications, subAccountId, className, role }: Props) => {
 									</SheetDescription>
 								)}
 							</SheetHeader>
-							{allNotifications?.length > 0 ? (
+							{allNotifications.length > 0 ? (
 								allNotifications.map((notification) => (
 									<div
 										key={notification.id}

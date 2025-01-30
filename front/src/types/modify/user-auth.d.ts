@@ -2,7 +2,7 @@ import { Session, User } from "next-auth";
 
 declare module "next-auth" {
 	interface Session {
-		firebaseToken?: string;
+		nexusconjureToken?: string;
 		user: {
 			permissions?: { admin: any[] };
 			refreshToken?: {

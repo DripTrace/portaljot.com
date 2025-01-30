@@ -70,8 +70,8 @@ const SubaccountLayout = async ({ children, params }: Props) => {
 			},
 		},
 		include: {
-			Agency: { include: { SubAccount: true } },
-			Permissions: { include: { SubAccount: true } },
+			Agency: { include: { subAccounts: true } },
+			Permissions: { include: { subAccounts: true } },
 		},
 	});
 

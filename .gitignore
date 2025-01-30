@@ -2,6 +2,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,macos,django,nextjs,node,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,macos,django,nextjs,node,python
 
+front/src/lib/ovation/db/all-databases-mariadb-backup_6-10-24.sql
+front/src/lib/ovation/db/ovation.sql
+front/public/ovation/ovationnetwork.mp4
+
 ### Django ###
 *.log
 *.pot

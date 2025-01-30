@@ -71,8 +71,8 @@ const TeamPage = async ({ params }: Props) => {
 			},
 		},
 		include: {
-			Agency: { include: { SubAccount: true } },
-			Permissions: { include: { SubAccount: true } },
+			Agency: { include: { subAccounts: true } },
+			Permissions: { include: { subAccounts: true } },
 		},
 	});
 
@@ -82,7 +82,7 @@ const TeamPage = async ({ params }: Props) => {
 			id: params.agencyId,
 		},
 		include: {
-			SubAccount: true,
+			subAccounts: true,
 		},
 	});
 

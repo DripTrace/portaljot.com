@@ -1,0 +1,6 @@
+@import "./example-variables.scss";
+
+// ExampleButtonLeverage.module.scss
+.examplebutton {
+    @include example-button-styles($example-button-bg-color);
+}

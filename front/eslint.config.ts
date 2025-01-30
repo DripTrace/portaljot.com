@@ -45,3 +45,33 @@ export default [
 		ignores: [".next/*", "node_modules/*"],
 	},
 ] as const;
+
+// ovation
+// {
+//     "extends": [
+//         "plugin:storybook/recommended",
+//         "next",
+//         "next/core-web-vitals",
+//         "eslint:recommended"
+//     ],
+//     "globals": {
+//         "React": "readonly"
+//     },
+//     "overrides": [
+//         {
+//             "files": ["*.stories.@(ts|tsx|js|jsx|mjs|cjs)"],
+//             "rules": {
+//                 // example of overriding a rule
+//                 "storybook/hierarchy-separator": "error"
+//             }
+//         }
+//     ],
+//     "rules": {
+//         "no-unused-vars": [
+//             1,
+//             { "args": "after-used", "argsIgnorePattern": "^_" }
+//         ],
+//         "@next/next/no-img-element": "off",
+//         "react/no-unescaped-entities": "off"
+//     }
+// }

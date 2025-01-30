@@ -1,0 +1,18 @@
+// example-variables.scss
+$example-primary-color: blue;
+// $example-button-bg-color: green;
+
+.example-button-tw {
+    @apply bg-blue-500 p-4 rounded text-white;
+}
+
+$example-button-bg-color: #007bff;
+
+@mixin example-button-styles($bg-color) {
+    background-color: $bg-color;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

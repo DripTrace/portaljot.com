@@ -1,0 +1,19 @@
+.react-responsive-modal-overlay {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 1000;
+  }
+  
+  .react-responsive-modal-modal {
+    position: relative !important;
+    width: 50%;
+    padding: 20px;
+    background-color: #fff;
+    color:black;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100001;
+  }
+  
+  

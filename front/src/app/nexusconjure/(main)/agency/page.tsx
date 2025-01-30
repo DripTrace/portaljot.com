@@ -9,8 +9,7 @@ import {
 import { Plan } from "@prisma/client";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/pages/api/modify/auth/route"; // Adjust the path as needed
-// import { UserRole } from "@/types/nexusconjure/user"; // Ensure correct path
+import { authOptions } from "@/app/api/modify/auth/route";
 
 type Props = {
 	searchParams: { plan?: Plan; state?: string; code?: string };

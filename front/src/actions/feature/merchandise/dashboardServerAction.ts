@@ -22,7 +22,7 @@ export async function dashboardServerAction() {
 
 	const headers: Record<string, string> = {
 		"Content-Type": "Application/json",
-		Authorization: `Bearer ${obinsunUser?.obinsunId || ""}`,
+		Authorization: `Bearer ${obinsunUser?.nexusconjureId || ""}`,
 		message: "~ retrieving gets ~",
 	};
 
@@ -41,7 +41,7 @@ export async function dashboardServerAction() {
 
 	try {
 		const response = await fetch(
-			`${process.env.NEXT_PUBLIC_URL}/api/merchandise/get/${obinsunUser?.obinsunId || ""}`,
+			`${process.env.NEXT_PUBLIC_URL}/api/merchandise/get/${obinsunUser?.nexusconjureId || ""}`,
 			getRetrieval
 		);
 		const data = await response.json();

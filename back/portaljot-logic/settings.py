@@ -36,7 +36,10 @@ DEBUG = config("DJANGO_DEBUG", cast=bool, default=False)
 # DEBUG = bool(os.environ.get("DJANGO_DEBUG", default=True))
 
 ALLOWED_HOSTS = [
-    ".railway.app" "127.0.0.1", ".vercel.app", "nexusconjure.vercel.app", "ec2-3-214-82-117.compute-1.amazonaws.com:420, ec2-3-214-82-117.compute-1.amazonaws.com, portaljot.com, 3.214.82.117"
+    ".railway.app" "127.0.0.1",
+    ".vercel.app",
+    "nexusconjure.vercel.app",
+    "ec2-3-214-82-117.compute-1.amazonaws.com:420, ec2-3-214-82-117.compute-1.amazonaws.com, portaljot.com, 3.214.82.117",
 ]
 
 if DEBUG:
@@ -54,31 +57,23 @@ CSRF_TRUSTED_ORIGINS = [
     "https://nexusconjure.vercel.app",
     "http://ec2-3-214-82-117.compute-1.amazonaws.com",
     "https://*.portaljot.com",
-    "http://3.214.82.117"
+    "http://3.214.82.117",
 ]
 
 # CORS Settings
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
-CORS_EXPOSE_HEADERS = ['ETag', 'x-amz-version-id']
-CORS_ALLOW_METHODS = [
-    'DELETE',
-    'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT',
-    'HEAD'
-]
+CORS_EXPOSE_HEADERS = ["ETag", "x-amz-version-id"]
+CORS_ALLOW_METHODS = ["DELETE", "GET", "OPTIONS", "PATCH", "POST", "PUT", "HEAD"]
 CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'origin',
-    'x-amz-date',
-    'x-amz-security-token',
-    'x-amz-user-agent',
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "origin",
+    "x-amz-date",
+    "x-amz-security-token",
+    "x-amz-user-agent",
 ]
 
 # Security Settings
@@ -90,6 +85,7 @@ SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 CSP_DEFAULT_SRC = ["'self'", "'unsafe-inline'", "*"]
 # CSP_DEFAULT_SRC = ("'self'", "'unsafe-inline'")
 FILE_UPLOAD_PERMISSIONS = 0o644
+FILE_UPLOAD_DIRECTORY_PERMISSIONS = 0o755
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -127,7 +123,7 @@ SOCIALACCOUNT_PROVIDERS = {
             "access_type": "online",
         },
         "VERIFIED_EMAIL": True,
-        "FETCH_USERINFO" : True,
+        "FETCH_USERINFO": True,
     }
 }
 
@@ -148,7 +144,6 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "allauth.account.middleware.AccountMiddleware",
-
 ]
 
 SIMPLE_JWT = {
@@ -160,11 +155,11 @@ SIMPLE_JWT = {
     "USER_ID_FIELD": "userId",  # for the custom user model
     "USER_ID_CLAIM": "user_id",
     "SIGNING_KEY": JWT_SECRET_KEY,
-    'AUTH_HEADER_TYPES': ('Bearer',),
+    "AUTH_HEADER_TYPES": ("Bearer",),
     # "AUTH_HEADER_TYPES": ("Token",),
-    'ALGORITHM': 'HS256',
-    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
-    'TOKEN_TYPE_CLAIM': 'token_type',
+    "ALGORITHM": "HS256",
+    "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
+    "TOKEN_TYPE_CLAIM": "token_type",
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -175,9 +170,7 @@ REST_AUTH_SERIALIZERS = {
 }
 
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.IsAuthenticated"
-    ],
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated"],
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework.authentication.BasicAuthentication",
         "rest_framework.authentication.SessionAuthentication",
@@ -276,31 +269,31 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '{levelname} {asctime} {module} {message}',
-            'style': '{',
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} {asctime} {module} {message}",
+            "style": "{",
         },
     },
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose',
+    "handlers": {
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
         },
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'debug.log',
-            'formatter': 'verbose',
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filename": "debug.log",
+            "formatter": "verbose",
         },
     },
-    'loggers': {
-        '': {
-            'handlers': ['console', 'file'],
-            'level': 'DEBUG',
+    "loggers": {
+        "": {
+            "handlers": ["console", "file"],
+            "level": "DEBUG",
         },
     },
 }

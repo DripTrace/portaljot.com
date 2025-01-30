@@ -1,0 +1,8 @@
+@import "./example-variables.scss";
+// @import "./ExampleButtonStandardTW.module.scss";
+
+// example-mixins.scss
+@mixin example-button-styles($example-primary-color) {
+    background-color: $example-primary-color;
+    @apply example-button-tw;
+}

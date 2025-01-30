@@ -22,6 +22,7 @@ import {
 	UpsertFunnelPage,
 } from "./types";
 import { z } from "zod";
+import { prisma } from "@/lib/client/prisma";
 import { revalidatePath } from "next/cache";
 
 /** Retrieve NextAuth session. Adjust your import for the authOptions path. */
@@ -30,21 +31,21 @@ async function getSession() {
 }
 
 /** Gets the authenticated user from DB using session.email. */
-export const getAuthUserDetails = async () => {
+export const getAuthUserDetails = async (userEmail) => {
 	const session = await getSession();
-	if (!session?.user?.email) {
+	if (!session?.user?.email !== userEmail) {
 		return null;
 	}
 
 	const userData = await db.user.findUnique({
 		where: {
-			email: session.user.email,
+			email: userEmail,
 		},
 		include: {
 			Agency: {
 				include: {
 					SidebarOption: true,
-					SubAccount: {
+					subAccounts: {
 						include: {
 							SidebarOption: true,
 						},
@@ -83,7 +84,7 @@ export const saveActivityLogsNotification = async ({
 		const fallbackUser = await db.user.findFirst({
 			where: {
 				Agency: {
-					SubAccount: {
+					subAccounts: {
 						some: { id: subaccountId },
 					},
 				},
@@ -542,10 +543,12 @@ export const createMedia = async (
 	subaccountId: string,
 	mediaFile: CreateMediaType
 ) => {
-	return await db.media.create({
+	return await prisma.media.create({
 		data: {
-			link: mediaFile.link,
+			url: mediaFile.url,
 			name: mediaFile.name,
+			userId: mediaFile.userId,
+			agencyId: mediaFile.agencyId,
 			subAccountId: subaccountId,
 		},
 	});
@@ -708,7 +711,7 @@ export const getSubAccountTeamMembers = async (subAccountId: string) => {
 	return await db.user.findMany({
 		where: {
 			Agency: {
-				SubAccount: {
+				subAccounts: {
 					some: { id: subAccountId },
 				},
 			},

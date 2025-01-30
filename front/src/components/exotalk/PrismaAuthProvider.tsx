@@ -7,9 +7,9 @@
 // import { useEffect } from "react";
 
 // async function syncFirebaseAuth(session: Session) {
-// 	if (session && session.firebaseToken) {
+// 	if (session && session.nexusconjureToken) {
 // 		try {
-// 			await signInWithCustomToken(auth, session.firebaseToken);
+// 			await signInWithCustomToken(auth, session.nexusconjureToken);
 // 		} catch (error) {
 // 			console.error("Error signing in with custom token:", error);
 // 		}

@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
 			.doc("Payment")
 			.get();
 
-		const paymentId = paymentSnapshot.data()?.obinsunId;
+		const paymentId = paymentSnapshot.data()?.nexusconjureId;
 
 		if (!paymentId) {
 			throw new Error("Payment ID not found in Firestore.");

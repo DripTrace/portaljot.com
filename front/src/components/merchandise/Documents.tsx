@@ -35,8 +35,8 @@ const Documents: React.FC = () => {
 	}, []);
 
 	useEffect(() => {
-		if (session?.user?.obinsunId) {
-			const capturedDocument = `users/${session.user.obinsunId}/documents`;
+		if (session?.user?.nexusconjureId) {
+			const capturedDocument = `users/${session.user.nexusconjureId}/documents`;
 			const imageReference = collection(db, capturedDocument);
 			const documentQuery = query(
 				imageReference,

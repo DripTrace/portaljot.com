@@ -19,7 +19,7 @@ import { Session } from "next-auth";
 // Extend the Session type to include the properties we're using
 interface ExtendedSession extends Session {
 	user?: {
-		obinsunId?: string;
+		nexusconjureId?: string;
 		[key: string]: any;
 	};
 }
@@ -29,7 +29,7 @@ export async function fetchOrders() {
 		authOptions
 	)) as ExtendedSession | null;
 
-	if (!session || !session.user?.obinsunId) {
+	if (!session || !session.user?.nexusconjureId) {
 		return { orders: [] };
 	}
 
@@ -37,7 +37,12 @@ export async function fetchOrders() {
 		apiVersion: "2024-12-18.acacia", // Use the appropriate API version
 	});
 
-	const ordersRef = collection(db, "users", session.user.obinsunId, "orders");
+	const ordersRef = collection(
+		db,
+		"users",
+		session.user.nexusconjureId,
+		"orders"
+	);
 	const ordersQuery = query(ordersRef, orderBy("timestamp", "desc"));
 	const stripeOrders = await getDocs(ordersQuery);
 

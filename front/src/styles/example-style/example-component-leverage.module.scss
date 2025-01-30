@@ -1,0 +1,5 @@
+@import "example-variables.scss";
+
+.example-button-leverage {
+    @include example-button-styles($example-primary-color);
+}

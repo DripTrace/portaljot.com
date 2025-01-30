@@ -9,7 +9,10 @@ import { authOptions } from "@/app/api/modify/auth/route"; // Correct path for a
 // import { UserRole } from "@/types/nexusconjure/user"; // Ensure correct path
 import Unauthorized from "@/components/nexusconjure/unauthorized"; // If needed
 import { redirect } from "next/navigation"; // Ensure this import is present
-import getAuthUserDetails from "@/utils/nexusconjure/queries";
+import {
+	getAuthUserDetails,
+	verifyAndAcceptInvitation,
+} from "@/utils/nexusconjure/queries";
 
 type Props = {
 	params: { agencyId: string };
@@ -70,7 +73,7 @@ const SettingsPage = async ({ params }: Props) => {
 			},
 		},
 		include: {
-			Agency: { include: { SubAccount: true } },
+			Agency: { include: { subAccounts: true } },
 			Permissions: { include: { SubAccount: true } },
 		},
 	});
@@ -81,7 +84,7 @@ const SettingsPage = async ({ params }: Props) => {
 			id: params.agencyId,
 		},
 		include: {
-			SubAccount: true,
+			subAccounts: true,
 		},
 	});
 
@@ -89,7 +92,7 @@ const SettingsPage = async ({ params }: Props) => {
 		return <div>Agency not found.</div>;
 	}
 
-	const subAccounts = agencyDetails.SubAccount;
+	const subAccounts = agencyDetails.subAccounts;
 
 	return (
 		<div className="flex lg:flex-row flex-col gap-4">

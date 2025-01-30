@@ -1,0 +1,9 @@
+.linkview {
+    border-color: blue;
+    justify-items: center;
+    display: inline;
+    text-align: center;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}

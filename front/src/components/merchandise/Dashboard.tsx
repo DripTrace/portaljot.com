@@ -16,7 +16,7 @@ type UserType = {
 	stripeId?: string;
 	customerId?: string;
 	firestoreId?: string;
-	obinsunId?: string;
+	nexusconjureId?: string;
 	username?: string;
 	shipping?: {
 		address: {
@@ -142,7 +142,7 @@ export default function Dashboard() {
 									<span className="font-semibold">
 										Obinsun ID:
 									</span>{" "}
-									{user.obinsunId || "Not available"}
+									{user.nexusconjureId || "Not available"}
 								</p>
 								<p>
 									<span className="font-semibold">

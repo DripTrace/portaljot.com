@@ -1,0 +1,743 @@
+"use client";
+
+import { profileInfo } from "@/lib/utils/constants";
+import Image from "next/image";
+import Link from "next/link";
+import { delimiter } from "path";
+import { useState } from "react";
+
+const ProfilePage = () => {
+    const { navigation, introduction, content } = profileInfo;
+
+    type TabOption = "create" | "stats" | "portfolio" | "posts" | "replies";
+    interface ProfilePageProps {
+        tabSelect: TabOption;
+        handleTabSelect: (tab: TabOption) => void;
+    }
+    const [tabSelect, setTabSelect] = useState<TabOption>("portfolio");
+    const handleTabSelect = (tab: TabOption) => {
+        setTabSelect(tab);
+    };
+
+    const renderNavigation = () => (
+        <aside className="navigation">
+            <div className="navigation-content">
+                <Link href="/" passHref className="logo-link">
+                    <div>
+                        {navigation.site.logo({
+                            id: "ovation-logo",
+                            className: "logo-container",
+                        })}
+                    </div>
+                    <span className="logo-home">{navigation.site.name}</span>
+                </Link>
+                <nav className="navigation-container">
+                    {navigation.tabs.map((tab) => (
+                        <a
+                            href={tab.path}
+                            className="navigation-tab"
+                            key={tab.name}
+                        >
+                            <div className="navigation-tab-icon">
+                                {tab.icon({})}
+                            </div>
+                            <span className="navigation-tab-text">
+                                {tab.name}
+                            </span>
+                        </a>
+                    ))}
+                </nav>
+            </div>
+        </aside>
+    );
+
+    const renderIntroduction = () => (
+        <header className="introduction-container">
+            <div className="introduction-start">
+                <div className="introduction-start-weather-icon">
+                    {introduction.greeting.weather({})}
+                </div>
+                <h1 className="introduction-start-greeting">
+                    {introduction.greeting.message}
+                    {introduction.greeting.name}
+                </h1>
+            </div>
+            <div className="introduction-end">
+                <div className="introduction-end-wallet-container">
+                    <h2 className="introduction-end-wallet-id">
+                        {introduction.walletInfo.walletId}
+                    </h2>
+                    <div className="introduction-end-wallet-details">
+                        <div className="introduction-end-wallet-options">
+                            {introduction.walletInfo.options({})}
+                        </div>
+                        <span className="introduction-end-wallet-text">
+                            {introduction.walletInfo.tokenCount}{" "}
+                            {introduction.walletInfo.tokenName}
+                        </span>
+                    </div>
+                </div>
+                <Image
+                    src={introduction.walletInfo.profileImage}
+                    alt={introduction.walletInfo.alternative}
+                    height={introduction.walletInfo.dimensions.height}
+                    width={introduction.walletInfo.dimensions.width}
+                    className="introduction-end-avatar"
+                />
+            </div>
+        </header>
+    );
+
+    const renderContent = () => (
+        <main className="content">
+            <Image
+                src={content.banner.source}
+                height={content.banner.dimensions.height}
+                width={content.banner.dimensions.width}
+                alt={content.banner.alternative}
+                className="content-banner"
+            />
+            <section className="about">
+                <div className="user">
+                    <div className="marker">
+                        <Image
+                            src={content.userInfo.userImage.source}
+                            height={
+                                content.userInfo.userImage.dimensions.height
+                            }
+                            width={content.userInfo.userImage.dimensions.width}
+                            alt={content.userInfo.userImage.alternative}
+                            className="profile-image"
+                        />
+                        <div className="identity">
+                            <span className="display-name">
+                                {profileInfo.content.userInfo.displayName}
+                            </span>
+                            <div className="connect">
+                                {profileInfo.content.userInfo.memberTypeIcon.socialIdentifier(
+                                    {}
+                                )}
+                            </div>
+                        </div>
+                        <div className="handle">
+                            <span className="user-name">
+                                {profileInfo.content.userInfo.username}
+                            </span>
+                            <div className="ova-stock">
+                                <span className="token-mention">
+                                    {
+                                        profileInfo.content.userInfo
+                                            .ovsTokenDetails.tokenMention
+                                    }
+                                </span>
+                                <span className="balance">
+                                    {
+                                        profileInfo.content.userInfo
+                                            .ovsTokenDetails.tokenCount
+                                    }
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="information">
+                        <div className="describe">
+                            <div className="bio">
+                                <span className="latest">
+                                    {content.userInfo.position.title}
+                                    {content.userInfo.position.company}
+                                </span>
+                                <span className="description">
+                                    {content.userInfo.bio}
+                                </span>
+                                <div className="follow">
+                                    <span className="follow-container">
+                                        <h2 className="follow-count">
+                                            {
+                                                content.userInfo.followingCount
+                                                    .count
+                                            }
+                                        </h2>
+                                        <h2 className="follow-identifier">
+                                            {
+                                                content.userInfo.followingCount
+                                                    .followingDescriptor
+                                            }
+                                        </h2>
+                                    </span>
+                                    <span className="follow-container">
+                                        <h2 className="follow-count">
+                                            {
+                                                content.userInfo.followerCount
+                                                    .count
+                                            }
+                                            {
+                                                content.userInfo.followerCount
+                                                    .magnitude
+                                            }
+                                        </h2>
+                                        <h2 className="follow-identifier">
+                                            {
+                                                content.userInfo.followerCount
+                                                    .followerDescriptor
+                                            }
+                                        </h2>
+                                    </span>
+                                </div>
+                                <div className="status-wrapper">
+                                    {content.userInfo.status.map((statuses) => (
+                                        <div key={delimiter} className="status">
+                                            <a className="kind">
+                                                {statuses.value}
+                                            </a>
+                                            <div className="kind-icon">
+                                                {statuses.icon({})}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="badges">
+                                <h2 className="badges-header">
+                                    {content.userInfo.badges.descriptor}
+                                </h2>
+                                <div className="badge-wrapper">
+                                    {content.userInfo.badges.badge.map(
+                                        (metal) => (
+                                            <div
+                                                key={metal.label}
+                                                className="tier"
+                                            >
+                                                <span className="badge-icon">
+                                                    {metal.icon()}
+                                                </span>
+                                                <span className="badge-identity">
+                                                    {metal.label}
+                                                </span>
+                                            </div>
+                                        )
+                                    )}
+                                </div>
+                            </div>
+                            <div className="profile-user-socials-section">
+                                <h2 className="profile-user-socials-header">
+                                    Socials
+                                </h2>
+                                <div className="profile-user-socials-container">
+                                    {content.userInfo.socialLinks.map(
+                                        (social) => (
+                                            <span className="profile-user-socials-icon-container ">
+                                                {social.icon()}
+                                            </span>
+                                        )
+                                    )}
+                                </div>
+                            </div>
+                            <div className="profile-user-bookmarks-section">
+                                <h2 className="profile-user-bookmarks-header">
+                                    Favorite NFT
+                                </h2>
+                                <div className="profile-user-favorite-nft-container">
+                                    nft container
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="gallery">
+                    <div className="profile-large-area">
+                        <div className="profile-featured-section">
+                            <div className="profile-featured-header">
+                                <h2 className="profile-featured-header-text"></h2>
+                                featured
+                            </div>
+                            <div className="profile-featured-container">
+                                <div className="projects">
+                                    <div className="project-wrap">
+                                        <div className="featured-projects">
+                                            <div className="profile-featured-project-container">
+                                                <div className="project-header">
+                                                    <h5 className="project-title">
+                                                        project
+                                                    </h5>
+                                                </div>
+                                                <div className="project">
+                                                    <h3 className="project-name">
+                                                        name
+                                                    </h3>
+                                                    <span className="project-description">
+                                                        description
+                                                    </span>
+                                                    <div className="project-grid-wrap">
+                                                        <div className="project-grid">
+                                                            <div className="project-container">
+                                                                <div className="project-item">
+                                                                    item
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="project-rep">
+                                                    <div className="project-rep-wrap">
+                                                        <div className="project-rep">
+                                                            <div className="project-views">
+                                                                views
+                                                            </div>
+                                                            <div className="projects-collected">
+                                                                collected
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="project-wrap">
+                                        <div className="featured-projects">
+                                            <div className="profile-featured-project-container">
+                                                <div className="project-header">
+                                                    <h5 className="project-title">
+                                                        project
+                                                    </h5>
+                                                </div>
+                                                <div className="project">
+                                                    <h3 className="project-name">
+                                                        name
+                                                    </h3>
+                                                    <span className="project-description">
+                                                        description
+                                                    </span>
+                                                    <div className="project-grid-wrap">
+                                                        <div className="project-grid">
+                                                            <div className="project-container">
+                                                                <div className="project-item">
+                                                                    item
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="project-rep">
+                                                    <div className="project-rep-wrap">
+                                                        <div className="project-rep">
+                                                            <div className="project-views">
+                                                                views
+                                                            </div>
+                                                            <div className="projects-collected">
+                                                                collected
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="project-wrap">
+                                        <div className="featured-projects">
+                                            <div className="profile-featured-project-container">
+                                                <div className="project-header">
+                                                    <h5 className="project-title">
+                                                        project
+                                                    </h5>
+                                                </div>
+                                                <div className="project">
+                                                    <h3 className="project-name">
+                                                        name
+                                                    </h3>
+                                                    <span className="project-description">
+                                                        description
+                                                    </span>
+                                                    <div className="project-grid-wrap">
+                                                        <div className="project-grid">
+                                                            <div className="project-container">
+                                                                <div className="project-item">
+                                                                    item
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="project-rep">
+                                                    <div className="project-rep-wrap">
+                                                        <div className="project-rep">
+                                                            <div className="project-views">
+                                                                views
+                                                            </div>
+                                                            <div className="projects-collected">
+                                                                collected
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* <div className="profile-featured-post-container">
+                                    feat
+                                </div>
+                                <div className="profile-featured-event-container">
+                                    feat
+                                </div> */}
+                                </div>
+                            </div>
+                        </div>
+                        <div className="profile-tab-section">
+                            <div className="profile-tab-section-selection">
+                                <div className="profile-tab">tab0</div>
+                                <div className="profile-tab">tab0</div>
+                                <div className="profile-tab">tab0</div>
+                                <div className="profile-tab">tab0</div>
+                                <div className="profile-tab">tab0</div>
+                                <div className="profile-tab">tab0</div>
+                            </div>
+                            <div className="profile-tab-selected-container">
+                                {/* <div className="selection">
+                                    <div className="post">post</div>
+                                </div> */}
+                                {/* <div className="selection">
+                                    <div className="replies">replies</div>
+                                </div> */}
+                                {/* <div className="selection">
+                                    <div className="portfolio">
+                                        <div className="portfolio-header">
+                                            <div className="portfolio-header-text">
+                                                nfts
+                                            </div>
+                                            <div className="portfolio-selection-wrap">
+                                                <div className="portfolio-selections">
+                                                    <div className="portfolio-selection">
+                                                        selection
+                                                    </div>
+                                                    <div className="portfolio-selection">
+                                                        selection
+                                                    </div>
+                                                    <div className="portfolio-selection">
+                                                        selection
+                                                    </div>
+                                                    <div className="portfolio-selection">
+                                                        selection
+                                                    </div>
+                                                    <div className="portfolio-selection">
+                                                        selection
+                                                    </div>
+                                                    <div className="portfolio-selection">
+                                                        selection
+                                                    </div>
+                                                </div>
+                                                <div className="portfolio-filters">
+                                                    <div className="portfolio-filter">
+                                                        filter
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="portfolio-wrap">
+                                            <div className="portfolio-container">
+                                                <div className="portfolio-item">
+                                                    <div className="favorite">
+                                                        fav
+                                                    </div>
+                                                    <div className="nft">
+                                                        nft
+                                                    </div>
+                                                    <div className="nft-details">
+                                                        dets
+                                                    </div>
+                                                    <hr className="detail-separator" />
+                                                    <div className="nft-options">
+                                                        op
+                                                    </div>
+                                                </div>
+                                                <div className="portfolio-item">
+                                                    <div className="favorite">
+                                                        fav
+                                                    </div>
+                                                    <div className="nft">
+                                                        nft
+                                                    </div>
+                                                    <div className="nft-details">
+                                                        dets
+                                                    </div>
+                                                    <hr className="detail-separator" />
+                                                    <div className="nft-options">
+                                                        op
+                                                    </div>
+                                                </div>
+                                                <div className="portfolio-item">
+                                                    <div className="favorite">
+                                                        fav
+                                                    </div>
+                                                    <div className="nft">
+                                                        nft
+                                                    </div>
+                                                    <div className="nft-details">
+                                                        dets
+                                                    </div>
+                                                    <hr className="detail-separator" />
+                                                    <div className="nft-options">
+                                                        op
+                                                    </div>
+                                                </div>
+                                                <div className="portfolio-item">
+                                                    <div className="favorite">
+                                                        fav
+                                                    </div>
+                                                    <div className="nft">
+                                                        nft
+                                                    </div>
+                                                    <div className="nft-details">
+                                                        dets
+                                                    </div>
+                                                    <hr className="detail-separator" />
+                                                    <div className="nft-options">
+                                                        op
+                                                    </div>
+                                                </div>
+                                                <div className="portfolio-item">
+                                                    <div className="favorite">
+                                                        fav
+                                                    </div>
+                                                    <div className="nft">
+                                                        nft
+                                                    </div>
+                                                    <div className="nft-details">
+                                                        dets
+                                                    </div>
+                                                    <hr className="detail-separator" />
+                                                    <div className="nft-options">
+                                                        op
+                                                    </div>
+                                                </div>
+                                                <div className="portfolio-item">
+                                                    <div className="favorite">
+                                                        fav
+                                                    </div>
+                                                    <div className="nft">
+                                                        nft
+                                                    </div>
+                                                    <div className="nft-details">
+                                                        dets
+                                                    </div>
+                                                    <hr className="detail-separator" />
+                                                    <div className="nft-options">
+                                                        op
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> */}
+                                {/* <div className="selection">
+                                    <div className="created">created</div>
+                                </div> */}
+                                {/* <div className="selection">
+                                    <div className="stats">
+                                        <div className="stats-header">
+                                            <div className="stats-header-text">
+                                                overview
+                                            </div>
+                                            <div className="overview">
+                                                <div className="overview-content">
+                                                    <div className="overview-wrap">
+                                                        <div className="stat-title">
+                                                            title
+                                                        </div>
+                                                        <div className="stat">
+                                                            stat
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="overview-content">
+                                                    <div className="overview-wrap">
+                                                        <div className="stat-title">
+                                                            title
+                                                        </div>
+                                                        <div className="stat">
+                                                            stat
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="overview-content">
+                                                    <div className="overview-wrap">
+                                                        <div className="stat-title">
+                                                            title
+                                                        </div>
+                                                        <div className="stat">
+                                                            stat
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="stats-content">
+                                            <div className="stat-visuals">
+                                                <div className="visual-wrap">
+                                                    <div className="asset">
+                                                        <h3 className="asset-header">
+                                                            asset
+                                                        </h3>
+                                                        <div className="asset-chart">
+                                                            chart
+                                                        </div>
+                                                        <div className="chart-index">
+                                                            index
+                                                        </div>
+                                                    </div>
+                                                    <div className="value">
+                                                        <h3 className="value-header">
+                                                            value
+                                                        </h3>
+                                                        <div className="value-stat">
+                                                            number
+                                                        </div>
+                                                        <div className="value-graph">
+                                                            graph
+                                                        </div>
+                                                        <div className="graph-axis">
+                                                            axis
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="transactions">
+                                                <div className="transaction-wrap">
+                                                    <h3 className="transaction-header">
+                                                        transactions
+                                                    </h3>
+                                                    <div className="transaction-table">
+                                                        history
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> */}
+                                <div className="selection">
+                                    <div className="experience">
+                                        <div className="experience-header">
+                                            <h2 className="experience-text">
+                                                experience
+                                            </h2>
+                                            <div className="experience-edit">
+                                                <div className="edit-options">
+                                                    <div className="add">a</div>
+                                                    <div className="change">
+                                                        c
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="experience-container">
+                                            <div className="experience-wrap">
+                                                <div className="experiences">
+                                                    <div className="experiences-wrap">
+                                                        <div className="job">
+                                                            <div className="company-logo">
+                                                                com
+                                                            </div>
+                                                            <div className="position">
+                                                                <h1 className="title">
+                                                                    title
+                                                                </h1>
+                                                                <h1 className="company">
+                                                                    comapnyname
+                                                                </h1>
+                                                            </div>
+                                                        </div>
+                                                        <div className="info">
+                                                            <span className="duration">
+                                                                duration
+                                                            </span>
+                                                            <span className="details">
+                                                                <p className="goals">
+                                                                    goals
+                                                                </p>
+                                                                <p className="efforts">
+                                                                    efforts
+                                                                </p>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>{" "}
+                                                <div className="experiences">
+                                                    <div className="experiences-wrap">
+                                                        <div className="job">
+                                                            <div className="company-logo">
+                                                                com
+                                                            </div>
+                                                            <div className="position">
+                                                                <h1 className="title">
+                                                                    title
+                                                                </h1>
+                                                                <h1 className="company">
+                                                                    comapnyname
+                                                                </h1>
+                                                            </div>
+                                                        </div>
+                                                        <div className="info">
+                                                            <span className="duration">
+                                                                duration
+                                                            </span>
+                                                            <span className="details">
+                                                                <p className="goals">
+                                                                    goals
+                                                                </p>
+                                                                <p className="efforts">
+                                                                    efforts
+                                                                </p>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>{" "}
+                                                <div className="experiences">
+                                                    <div className="experiences-wrap">
+                                                        <div className="job">
+                                                            <div className="company-logo">
+                                                                com
+                                                            </div>
+                                                            <div className="position">
+                                                                <h1 className="title">
+                                                                    title
+                                                                </h1>
+                                                                <h1 className="company">
+                                                                    comapnyname
+                                                                </h1>
+                                                            </div>
+                                                        </div>
+                                                        <div className="info">
+                                                            <span className="duration">
+                                                                duration
+                                                            </span>
+                                                            <span className="details">
+                                                                <p className="goals">
+                                                                    goals
+                                                                </p>
+                                                                <p className="efforts">
+                                                                    efforts
+                                                                </p>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    );
+
+    return (
+        <main className="profile-grid">
+            {renderNavigation()}
+            {renderIntroduction()}
+            {renderContent()}
+        </main>
+    );
+};
+
+export default ProfilePage;

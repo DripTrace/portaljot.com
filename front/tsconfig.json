@@ -21,6 +21,9 @@
 		"isolatedModules": true,
 		"jsx": "preserve",
 		"incremental": true,
+		// "noUnusedParameters": false,
+		// "noFallthroughCasesInSwitch": false,
+		// "strictNullChecks": true,
 		"plugins": [
 			{
 				"name": "next"

@@ -1,0 +1,7 @@
+@import "./example-variables.scss";
+
+// ExampleButtonStandardSCSS.module.scss
+.example-button-scss {
+    background-color: $example-button-bg-color;
+    color: $example-primary-color;
+}
